@@ -2,36 +2,48 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Manejo & Pulverização Soja 26/27 - Ordem de Plantio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Pulverização Soja 26/27 - Fungicidas, Tolerâncias e Retornos</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- SheetJS (xlsx) for native Excel export -->
+  
+  <!-- SheetJS para Exportação Real em Excel (.xlsx) -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: #0b1120;
       color: #f1f5f9;
     }
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-    /* GLUFOSINATO EM DESTAQUE ROXO / VERMELHO */
+    /* DESTAQUE ROXO / VERMELHO PARA GLUFOSINATO */
     .badge-glufosinato {
-      background-color: #581c87 !important; /* purple-900 */
-      color: #f3e8ff !important;            /* purple-100 */
-      border: 1px solid #c084fc !important; /* purple-400 */
+      background-color: #7e22ce !important; /* purple-700 */
+      color: #ffffff !important;
+      border: 1px solid #d8b4fe !important; /* purple-300 */
       font-weight: 800 !important;
       padding: 1px 6px !important;
       border-radius: 4px !important;
       display: inline-block !important;
-      box-shadow: 0 0 6px rgba(192, 132, 252, 0.4);
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
       letter-spacing: 0.3px;
+    }
+    .badge-gluf-alerta {
+      background-color: #581c87;
+      color: #f3e8ff;
+      border: 1px solid #c084fc;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      display: inline-block;
     }
 
     /* Print styling based on user PDF model */
@@ -39,7 +51,7 @@
       body {
         background: white !important;
         color: black !important;
-        font-size: 9pt;
+        font-size: 8pt;
       }
       .no-print, nav, header, .actions-bar, .tab-buttons {
         display: none !important;
@@ -51,30 +63,30 @@
         color: black !important;
       }
       .badge-glufosinato {
-        background-color: #fee2e2 !important;
-        color: #991b1b !important;
-        border: 1px solid #b91c1c !important;
-        font-weight: bold !important;
-        box-shadow: none !important;
+        background-color: #7e22ce !important;
+        color: white !important;
+        border: 1px solid #6b21a8 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
       table {
         width: 100% !important;
         border-collapse: collapse !important;
-        font-size: 8pt !important;
+        font-size: 7.5pt !important;
       }
       th, td {
         border: 1px solid #475569 !important;
-        padding: 4px 5px !important;
+        padding: 4px 4px !important;
         color: black !important;
       }
       th {
-        background-color: #064e3b !important;
+        background-color: #14532d !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
       .pdf-header {
-        background-color: #064e3b !important;
+        background-color: #14532d !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -96,7 +108,7 @@
             Controle de Pulverização Soja 26/27
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800">4.391,81 ha</span>
           </h1>
-          <p class="text-[11px] text-slate-400">Ordem Oficial de Plantio (Imagem) • Ficha de Campo Modelo PDF</p>
+          <p class="text-[11px] text-slate-400">Ordem de Plantio da Planilha Oficial • Gestão Unificada de Fungicidas & Tolerâncias</p>
         </div>
       </div>
 
@@ -110,14 +122,14 @@
           Exportar para Excel (.xlsx)
         </button>
 
+        <!-- Link Ficha de Campo Completa -->
+        <a href="ficha_de_campo_impressao.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-800/60 text-xs font-semibold transition shadow-sm">
+          <span>🖨️</span> Ficha de Impressão (PDF)
+        </a>
+
         <!-- Share / Copy Link -->
         <button onclick="compartilharApp()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium transition shadow-sm">
           <span>🔗</span> Compartilhar Link
-        </button>
-
-        <!-- Print / PDF -->
-        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium transition shadow-sm">
-          <span>🖨️</span> Imprimir / PDF
         </button>
 
         <!-- Backup -->
@@ -127,205 +139,184 @@
       </div>
     </div>
 
-    <!-- Navigation Tabs (Sem calculadora de calda) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-1.5 border-t border-slate-800/80 pt-1.5 pb-1.5 tab-buttons">
-      <button onclick="mudarAba('ficha_campo')" id="btn-tab-ficha_campo" class="tab-btn px-4 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap bg-emerald-600 text-white">
-        📄 Ficha de Campo (Modelo do PDF)
+    <!-- Navigation Tabs (Unificada: Fungicidas + Tolerâncias em uma só aba principal, sem redundâncias) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-slate-800/80 pt-2 pb-2 tab-buttons">
+      <button onclick="mudarAba('fungicidas')" id="btn-tab-fungicidas" class="tab-btn px-4 py-2 text-xs font-bold rounded-lg transition whitespace-nowrap bg-emerald-600 text-white flex items-center gap-2">
+        <span>🔬</span> Fungicidas, Tolerâncias & Retornos (+14d)
       </button>
-      <button onclick="mudarAba('fungicidas')" id="btn-tab-fungicidas" class="tab-btn px-4 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800">
-        🔬 Fungicidas & Retornos (+14d)
-      </button>
-      <button onclick="mudarAba('todas')" id="btn-tab-todas" class="tab-btn px-4 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800">
-        📋 Ordem de Plantio (Geral)
-      </button>
-      <button onclick="mudarAba('herbicidas')" id="btn-tab-herbicidas" class="tab-btn px-4 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800">
-        🌾 Manejo Seguro & Tolerâncias
-      </button>
-      <button onclick="mudarAba('inseticidas')" id="btn-tab-inseticidas" class="tab-btn px-4 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800">
-        🐛 Inseticidas (1ª, 2ª e 3ª)
+      <button onclick="mudarAba('ficha_campo')" id="btn-tab-ficha_campo" class="tab-btn px-4 py-2 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center gap-2">
+        <span>📄</span> Ficha de Campo (Modelo do PDF)
       </button>
     </div>
   </header>
 
-  <!-- Notification Toast -->
-  <div id="toast" class="fixed bottom-5 right-5 bg-emerald-600 text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-bold transition-opacity duration-300 opacity-0 pointer-events-none z-50 flex items-center gap-2">
-    <span>✅</span> <span id="toast-msg">Mensagem</span>
-  </div>
+  <!-- Main Content -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5">
 
-  <!-- Main Container -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex-1 space-y-5 w-full">
-
-    <!-- KPI Summary Bar (Sem calculadora de calda) -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 no-print">
-      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-sm">
-        <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Área Total</div>
-        <div class="text-xl md:text-2xl font-black text-white mt-0.5">4.391,81 <span class="text-xs font-normal text-slate-400">ha</span></div>
-        <div class="text-[11px] text-emerald-400 font-medium mt-1">Ordem da Imagem (21-set a 27-out)</div>
+    <!-- KPI Cards & Quick Stats -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 no-print">
+      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
+        <span class="text-[11px] text-slate-400 font-medium">Área Total Conferida</span>
+        <div class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">4.391,81 ha</div>
+        <span class="text-[10px] text-slate-400">54 talhões em ordem de plantio</span>
       </div>
 
-      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-sm">
-        <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">1º Fungicida Realizado</div>
-        <div id="kpi-f1" class="text-xl md:text-2xl font-black text-emerald-400 mt-0.5">0 ha (0%)</div>
-        <div class="text-[11px] text-slate-400 mt-1">Abertura de Baixeiro / R1</div>
+      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
+        <span class="text-[11px] text-slate-400 font-medium">Pivôs Irrigados</span>
+        <div class="text-xl font-extrabold text-sky-400 font-mono mt-0.5">763,80 ha</div>
+        <span class="text-[10px] text-slate-400">8 pivôs (plantio 21 a 26-set)</span>
       </div>
 
-      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-sm">
-        <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Próximas Aplicações</div>
-        <div id="kpi-alerta" class="text-xl md:text-2xl font-black text-amber-400 mt-0.5">0</div>
-        <div class="text-[11px] text-slate-400 mt-1">Janela de Retorno (+14d)</div>
+      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
+        <span class="text-[11px] text-slate-400 font-medium">Glebas de Sequeiro</span>
+        <div class="text-xl font-extrabold text-amber-400 font-mono mt-0.5">3.628,01 ha</div>
+        <span class="text-[10px] text-slate-400">46 talhões (plantio 23-set a 27-out)</span>
       </div>
 
-      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-sm">
-        <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Tolerâncias Herbicida</div>
-        <div class="text-xl md:text-2xl font-black text-purple-400 mt-0.5">Glufosinato</div>
-        <div class="text-[11px] text-purple-300 font-medium mt-1">Destacado em Roxo nas ENLIST</div>
+      <div class="bg-slate-800/80 border border-purple-900/60 p-3.5 rounded-xl shadow-md bg-purple-950/20">
+        <span class="text-[11px] text-purple-300 font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-purple-500"></span> Conkesta Enlist
+        </span>
+        <div class="text-xl font-extrabold text-purple-300 font-mono mt-0.5">1.137,88 ha</div>
+        <span class="text-[10px] text-purple-200/80 font-bold">Tolera GLUFOSINATO</span>
+      </div>
+
+      <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
+        <span class="text-[11px] text-slate-400 font-medium">IPRO + XTEND</span>
+        <div class="text-xl font-extrabold text-slate-200 font-mono mt-0.5">3.253,93 ha</div>
+        <span class="text-[10px] text-rose-400 font-semibold">⚠️ PROIBIDO Glufosinato</span>
       </div>
     </div>
 
-    <!-- Filter and Search Toolbar -->
-    <div class="bg-slate-800/60 border border-slate-700/80 p-3.5 rounded-xl flex flex-col md:flex-row gap-3 items-center justify-between no-print">
-      <div class="flex flex-wrap gap-2.5 w-full md:w-auto items-center">
+    <!-- Filters Bar -->
+    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between no-print">
+      <div class="flex flex-wrap items-center gap-2 flex-grow">
         <!-- Search -->
-        <div class="relative w-full sm:w-64">
-          <input type="text" id="filtroBusca" oninput="renderizar()" placeholder="Buscar gleba, pivô, variedade..." 
-                 class="w-full bg-slate-900 border border-slate-700 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500">
-          <span class="absolute left-2.5 top-2 text-slate-500 text-xs">🔍</span>
+        <div class="relative min-w-[200px] flex-grow sm:flex-grow-0 sm:w-64">
+          <input type="text" id="filtroBusca" oninput="renderizar()" placeholder="Buscar por gleba ou variedade..." 
+                 class="w-full bg-slate-900 border border-slate-700 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
+          <svg class="w-4 h-4 text-slate-500 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
         </div>
 
-        <!-- Filter Variety -->
-        <select id="filtroVariedade" onchange="renderizar()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200">
+        <!-- Filter Variedade -->
+        <select id="filtroVariedade" onchange="renderizar()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
           <option value="TODAS">Todas as Variedades</option>
-          <option value="GUEPARDO">GUEPARDO</option>
-          <option value="72 I X 74">72 I X 74</option>
-          <option value="74 K 75">74 K 75</option>
-          <option value="OLIMPO">OLIMPO</option>
-          <option value="78 IX 80">78 IX 80</option>
-          <option value="NEO-700">NEO-700</option>
-          <option value="NEO-801">NEO-801</option>
+          <option value="GUEPARDO">GUEPARDO (IPRO)</option>
+          <option value="OLIMPO">OLIMPO (IPRO)</option>
+          <option value="72 I X 74">72 I X 74 (XTEND)</option>
+          <option value="78 IX 80">78 IX 80 (XTEND)</option>
+          <option value="NEO-700">NEO-700 (XTEND)</option>
+          <option value="74 K 75">74 K 75 (CONKESTA ENLIST)</option>
+          <option value="NEO-801">NEO-801 (CONKESTA ENLIST)</option>
         </select>
 
-        <!-- Filter Technology -->
-        <select id="filtroTecnologia" onchange="renderizar()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200">
+        <!-- Filter Tecnologia -->
+        <select id="filtroTecnologia" onchange="renderizar()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
           <option value="TODAS">Todas as Tecnologias</option>
-          <option value="IPRO / RR">IPRO / RR (Glifosato)</option>
-          <option value="XTEND I2X">XTEND I2X (Glifosato + Dicamba)</option>
-          <option value="CONKESTA ENLIST">CONKESTA ENLIST (Glufosinato + 2,4-D)</option>
+          <option value="IPRO / RR">IPRO / RR</option>
+          <option value="XTEND / I2X">XTEND / I2X</option>
+          <option value="CONKESTA ENLIST">CONKESTA ENLIST</option>
         </select>
 
-        <!-- Filter Type (Pivô vs Gleba) -->
-        <select id="filtroTipo" onchange="renderizar()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200">
-          <option value="TODOS">Pivôs & Glebas</option>
+        <!-- Filter Tipo -->
+        <select id="filtroTipo" onchange="renderizar()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
+          <option value="TODOS">Todos os Tipos</option>
           <option value="Pivô">Apenas Pivôs</option>
           <option value="Gleba">Apenas Glebas</option>
         </select>
       </div>
 
-      <div class="flex items-center gap-3 text-[11px] text-slate-400 flex-wrap">
-        <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Concluído</span>
-        <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Próximo (&le; 3 dias)</span>
-        <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Vencido</span>
-        <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span> Pendente</span>
+      <div class="flex items-center gap-2 justify-end">
+        <span id="contador-filtrados" class="text-xs font-mono text-slate-400">54 / 54 talhões</span>
+        <button onclick="limparFiltros()" class="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-700/50 hover:bg-slate-700 transition">
+          Limpar
+        </button>
       </div>
     </div>
 
-    <!-- TAB 1: FICHA DE CAMPO (MODELO EXATO DO PDF ENVIADO) -->
-    <div id="secao-ficha_campo" class="tab-content space-y-4">
-      <div class="bg-slate-800/80 border border-slate-700 p-4 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 no-print">
-        <div>
-          <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
-            📄 Ficha de Campo • Modelo Exato do PDF em Ordem de Plantio
-          </h2>
-          <p class="text-xs text-slate-400">
-            Ordem cronológica da imagem oficial (Pivo 08 em 21-set até G-37 em 27-out). Com caixas de marcação para campo e <strong>Glufosinato</strong> destacado em roxo.
-          </p>
-        </div>
-        <div class="flex gap-2">
-          <button onclick="exportarExcel()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs flex items-center gap-1.5">
-            📊 Baixar em Excel (.xlsx)
-          </button>
-          <button onclick="window.print()" class="px-3.5 py-1.5 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg text-xs flex items-center gap-1.5">
-            🖨️ Imprimir / Salvar em PDF
-          </button>
-        </div>
-      </div>
+    <!-- ========================================================================= -->
+    <!-- ABA 1: FUNGICIDAS, TOLERÂNCIAS & RETORNOS (+14 DIAS) - VISÃO UNIFICADA   -->
+    <!-- ========================================================================= -->
+    <div id="secao-fungicidas" class="tab-content space-y-4">
 
-      <!-- Ficha com Estilo Idêntico ao PDF da Imagem 1 -->
-      <div class="bg-white text-slate-900 p-4 sm:p-6 rounded-2xl shadow-2xl print-card">
-        <!-- Cabeçalho Verde Escuro como no PDF modelo -->
-        <div class="bg-emerald-900 text-white p-3.5 rounded-xl mb-4 pdf-header flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+      <!-- Guia de Tolerâncias & Alerta Glufosinato Integrado -->
+      <div class="bg-slate-800/50 border border-slate-700/80 p-4 rounded-xl shadow-md space-y-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700/60 pb-2.5">
           <div>
-            <h1 class="text-base sm:text-lg font-black tracking-wide uppercase">CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
-            <p class="text-xs text-emerald-200 mt-0.5">Ordem de Plantio Oficial da Imagem • Área Total: 4.391,81 ha</p>
+            <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
+              🔬 Manejo Integrado de Fungicidas, Tolerâncias Herbicidas & Retornos (+14d)
+            </h2>
+            <p class="text-xs text-slate-400">
+              Controle completo por ordem cronológica de semeadura. Preencha a data em que o fungicida foi realizado e o sistema calculará automaticamente o <strong>próximo retorno (+14 dias)</strong>.
+            </p>
           </div>
-          <div class="text-xs text-right">
-            <div><strong>Responsável:</strong> ____________________________</div>
-            <div class="text-emerald-200 text-[11px] mt-0.5">Data de Emissão: <span id="data-emissao"></span></div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-semibold">1ª Entrada: R1 (~30-35d após E)</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800 font-semibold">Intervalo: +14 dias</span>
           </div>
         </div>
 
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse text-[10px]">
-            <thead>
-              <tr class="bg-emerald-950 text-white border border-slate-700 uppercase font-bold text-[9px]">
-                <th class="p-2 border border-slate-400 text-center w-8">ORD</th>
-                <th class="p-2 border border-slate-400 text-left w-24">GLEBA</th>
-                <th class="p-2 border border-slate-400 text-right w-16">HÁ</th>
-                <th class="p-2 border border-slate-400 text-left w-28">VARIEDADE (S/M)</th>
-                <th class="p-2 border border-slate-400 text-center w-28">TECNOLOGIA</th>
-                <th class="p-2 border border-slate-400 text-left w-64">MANEJO SEGURO (PÉ-DE-GALINHA E PRAGAS)</th>
-                <th class="p-2 border border-slate-400 text-center w-48">OPERAÇÕES A MARCAR</th>
-                <th class="p-2 border border-slate-400 text-center w-24">DATA FEITA</th>
-                <th class="p-2 border border-slate-400 text-center w-28">PRODUTO / ASSINATURA</th>
-              </tr>
-            </thead>
-            <tbody id="tabela-ficha-corpo"></tbody>
-          </table>
-        </div>
-
-        <!-- Rodapé do PDF com Legenda Exata -->
-        <div class="mt-4 pt-3 border-t border-slate-300 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-600 gap-2">
-          <div>
-            <strong>Legenda:</strong> Pós = Pós-Emergente | Herb = Herbicida | Ins = Inseticida | Fung = Fungicida | Fol = Foliar
+        <!-- 3 Cards de Resumo das Tecnologias & Glufosinato -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+          <div class="bg-slate-900/90 p-2.5 rounded-lg border border-emerald-800/40">
+            <div class="font-bold text-emerald-400 flex items-center justify-between">
+              <span>IPRO / RR2 PRO</span>
+              <span class="text-[10px] text-slate-400">GUEPARDO e OLIMPO</span>
+            </div>
+            <div class="text-[11px] text-slate-300 mt-1">
+              Tolerância: <strong>Glifosato</strong>
+            </div>
+            <div class="text-[10px] text-rose-400 mt-0.5 font-medium">
+              ⚠️ PROIBIDO: Glufosinato, Dicamba ou 2,4-D em pós-emergência
+            </div>
           </div>
-          <div class="font-bold text-slate-800">
-            * <span class="badge-glufosinato text-[9px]">Glufosinato</span>: Permitido apenas nas variedades CONKESTA ENLIST.
+
+          <div class="bg-slate-900/90 p-2.5 rounded-lg border border-sky-800/40">
+            <div class="font-bold text-sky-400 flex items-center justify-between">
+              <span>XTEND / I2X</span>
+              <span class="text-[10px] text-slate-400">72 I X 74, 78 IX 80, NEO-700</span>
+            </div>
+            <div class="text-[11px] text-slate-300 mt-1">
+              Tolerância: <strong>Glifosato + Dicamba</strong>
+            </div>
+            <div class="text-[10px] text-rose-400 mt-0.5 font-medium">
+              ⚠️ PROIBIDO: Glufosinato ou 2,4-D em pós-emergência
+            </div>
+          </div>
+
+          <div class="bg-purple-950/40 p-2.5 rounded-lg border border-purple-700/60">
+            <div class="font-bold text-purple-300 flex items-center justify-between">
+              <span>CONKESTA ENLIST</span>
+              <span class="text-[10px] text-purple-200">74 K 75 e NEO-801</span>
+            </div>
+            <div class="text-[11px] text-purple-100 mt-1">
+              Tolerância: Glifosato + <span class="badge-glufosinato">GLUFOSINATO</span> + 2,4-D Colina
+            </div>
+            <div class="text-[10px] text-emerald-400 mt-0.5 font-bold">
+              ✅ ÚNICA variedade onde o Glufosinato é permitido!
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- TAB 2: FUNGICIDAS COM CÁLCULO DE PRÓXIMO RETORNO (+14 DIAS) -->
-    <div id="secao-fungicidas" class="tab-content hidden space-y-4">
-      <div class="bg-slate-800/40 border border-slate-700/70 p-4 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-        <div>
-          <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
-            🔬 Manejo de Fungicidas & Retornos Automáticos (+14 dias)
-          </h2>
-          <p class="text-xs text-slate-400">
-            Informe a data da aplicação realizada. O sistema calcula automaticamente a <strong>data exata da próxima entrada</strong> e alerta quando o prazo estiver se aproximando.
-          </p>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="exportarExcel()" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
-            📊 Baixar em Excel (.xlsx)
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-slate-800/60 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
+      <!-- Tabela Principal Unificada -->
+      <div class="bg-slate-800/70 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse text-xs">
             <thead>
-              <tr class="bg-slate-900/90 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[11px]">
+              <tr class="bg-slate-900 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[11px]">
                 <th class="p-3 w-12 text-center">ORD</th>
                 <th class="p-3">Talhão / Área</th>
-                <th class="p-3">Variedade & Tec.</th>
+                <th class="p-3">Variedade & S/m</th>
+                <th class="p-3">Tecnologia & Tolerância Herbicida</th>
                 <th class="p-3 text-center">Plantio / Emergência</th>
-                <th class="p-3 text-center bg-slate-950/40">1ª Aplicação (Data Feita)</th>
+                <th class="p-3 text-center bg-slate-950/40">1º Fungicida (Previsto R1 & Data Feita)</th>
                 <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">2ª Prevista (+14d)</th>
-                <th class="p-3 text-center bg-slate-950/40">2ª Aplicação (Data Feita)</th>
+                <th class="p-3 text-center bg-slate-950/40">2ª Feita</th>
                 <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+14d)</th>
-                <th class="p-3 text-center bg-slate-950/40">3ª Aplicação (Data Feita)</th>
+                <th class="p-3 text-center bg-slate-950/40">3ª Feita</th>
                 <th class="p-3 text-center">Obs / Produto</th>
               </tr>
             </thead>
@@ -335,101 +326,61 @@
       </div>
     </div>
 
-    <!-- TAB 3: VISÃO GERAL COMPLETA (ORDEM DE PLANTIO) -->
-    <div id="secao-todas" class="tab-content hidden space-y-4">
-      <div class="bg-slate-800/60 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse text-xs">
-            <thead>
-              <tr class="bg-slate-900/90 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[11px]">
-                <th class="p-3 text-center w-12">ORD</th>
-                <th class="p-3">Talhão / Gleba</th>
-                <th class="p-3 text-right">Área (ha)</th>
-                <th class="p-3">Variedade (Sem/m)</th>
-                <th class="p-3">Tecnologia & Manejo Seguro</th>
-                <th class="p-3 text-center">Plantio / Emerg.</th>
-                <th class="p-3 text-center">Herbicida Dessecação</th>
-                <th class="p-3 text-center">Herbicida Pós</th>
-                <th class="p-3 text-center">1º Fungicida</th>
-                <th class="p-3 text-center">2º Fungicida</th>
-                <th class="p-3 text-center">1º Inseticida</th>
-                <th class="p-3 text-center">Status Geral</th>
-              </tr>
-            </thead>
-            <tbody id="tabela-todas-corpo" class="divide-y divide-slate-700/50"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 4: HERBICIDAS & TOLERÂNCIAS COM GLUFOSINATO EM DESTAQUE ROXO -->
-    <div id="secao-herbicidas" class="tab-content hidden space-y-4">
-      <div class="bg-slate-800/40 border border-slate-700/70 p-4 rounded-xl">
-        <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">🌾 Tolerâncias de Herbicidas por Variedade (Evite Fitointoxicação)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
-          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700">
-            <span class="text-xs font-bold text-emerald-400">IPRO / RR2 PRO</span>
-            <p class="text-[11px] text-slate-300 mt-1">GUEPARDO e OLIMPO</p>
-            <p class="text-[11px] text-slate-400 mt-0.5">Tolerância: <strong>Apenas Glifosato</strong>. ⚠️ Proibido Dicamba ou 2,4-D em pós-emergência.</p>
-          </div>
-          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700">
-            <span class="text-xs font-bold text-sky-400">XTEND / I2X</span>
-            <p class="text-[11px] text-slate-300 mt-1">72 I X 74, 78 IX 80 e NEO-700</p>
-            <p class="text-[11px] text-slate-400 mt-0.5">Tolerância: <strong>Glifosato + Dicamba</strong>. Eficaz contra buva resistente e folhas largas.</p>
-          </div>
-          <div class="bg-slate-900/80 p-3 rounded-lg border border-purple-500/60 shadow-lg shadow-purple-950/40">
-            <span class="text-xs font-bold text-purple-300">CONKESTA ENLIST</span>
-            <p class="text-[11px] text-slate-300 mt-1">74 K 75 e NEO-801</p>
-            <p class="text-[11px] text-slate-300 mt-0.5">Tolerância: Glifosato + <span class="badge-glufosinato">Glufosinato</span> + 2,4-D Colina.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-slate-800/60 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse text-xs">
-            <thead>
-              <tr class="bg-slate-900/90 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[11px]">
-                <th class="p-3 text-center w-12">ORD</th>
-                <th class="p-3">Talhão</th>
-                <th class="p-3 text-right">Área</th>
-                <th class="p-3">Variedade</th>
-                <th class="p-3">Tecnologia & O que Tolera</th>
-                <th class="p-3 text-center bg-slate-950/40">Dessecação Pré-Plantio</th>
-                <th class="p-3 text-center bg-slate-950/40">Plante-Aplique / Pré</th>
-                <th class="p-3 text-center bg-slate-950/40">Pós-Emergente</th>
-              </tr>
-            </thead>
-            <tbody id="tabela-herbicidas-corpo" class="divide-y divide-slate-700/50"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 5: INSETICIDAS -->
-    <div id="secao-inseticidas" class="tab-content hidden space-y-4">
-      <div class="bg-slate-800/40 border border-slate-700/70 p-4 rounded-xl flex justify-between items-center">
+    <!-- ========================================================================= -->
+    <!-- ABA 2: FICHA DE CAMPO (MODELO DO PDF - COM CHECKBOXES & IMPRESSÃO)        -->
+    <!-- ========================================================================= -->
+    <div id="secao-ficha_campo" class="tab-content hidden space-y-4">
+      <div class="bg-slate-800/40 border border-slate-700/70 p-4 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3 no-print">
         <div>
-          <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">🐛 Manejo de Inseticidas (Fase Inicial, Reprodutivo e Enchimento)</h2>
-          <p class="text-xs text-slate-400">Controle de lagartas desfolhadoras, percevejo-marrom e pragas raspadoras/mosca-branca.</p>
+          <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
+            📄 Ficha de Campo Oficial (Modelo do PDF)
+          </h2>
+          <p class="text-xs text-slate-400">
+            Formatação estruturada exatamente como o modelo do PDF, com caixas de marcação para o operador assinalar no campo (<span class="font-mono text-emerald-400">[ ] Pós [ ] Herb [ ] Ins [ ] Fung [ ] Fol</span>) e assinatura.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="ficha_de_campo_impressao.html" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition shadow-lg">
+            <span>🖨️</span> Abrir Versão Especial A4
+          </a>
+          <button onclick="window.print()" class="px-3.5 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+            <span>📄</span> Imprimir Agora
+          </button>
         </div>
       </div>
-      <div class="bg-slate-800/60 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
+
+      <!-- Preview da Ficha -->
+      <div class="bg-white text-slate-900 rounded-xl p-4 sm:p-6 shadow-2xl overflow-x-auto print-card">
+        <!-- Header do PDF -->
+        <div class="pdf-header bg-[#14532d] text-white p-4 rounded-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+          <div>
+            <h1 class="text-base sm:text-lg font-black uppercase tracking-wide text-white">CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
+            <p class="text-xs text-emerald-200">Ordem Oficial de Plantio da Planilha • Folha de Campo para Prancheta</p>
+          </div>
+          <div class="text-left sm:text-right text-xs">
+            <div>Área Total: <strong>4.391,81 ha (54 Talhões)</strong></div>
+            <div class="text-emerald-300 font-mono text-[11px]">Emissão: <span id="data-emissao"></span></div>
+          </div>
+        </div>
+
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse text-xs">
             <thead>
-              <tr class="bg-slate-900/90 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[11px]">
-                <th class="p-3 text-center w-12">ORD</th>
-                <th class="p-3">Talhão</th>
-                <th class="p-3 text-right">Área</th>
-                <th class="p-3">Variedade</th>
-                <th class="p-3 text-center bg-slate-950/40">1ª Entrada (Vegetativo / Lagartas)</th>
-                <th class="p-3 text-center bg-slate-950/40">2ª Entrada (R1-R3 / Percevejos)</th>
-                <th class="p-3 text-center bg-slate-950/40">3ª Entrada (R5 / Enchimento)</th>
-                <th class="p-3 text-center">Próxima Entrada</th>
+              <tr class="bg-slate-800 text-white border-b-2 border-slate-900 text-[10px] uppercase font-bold tracking-wider">
+                <th class="p-2 border border-slate-400 w-10 text-center">Ord</th>
+                <th class="p-2 border border-slate-400 w-24">Gleba</th>
+                <th class="p-2 border border-slate-400 w-16 text-right">Área</th>
+                <th class="p-2 border border-slate-400 w-28">Variedade</th>
+                <th class="p-2 border border-slate-400">Tecnologia & Tolerância Herbicida</th>
+                <th class="p-2 border border-slate-400 w-20 text-center">Plantio</th>
+                <th class="p-2 border border-slate-400 text-center w-32">1ª Aplicação<br>(Pós / Herb / Ins)</th>
+                <th class="p-2 border border-slate-400 text-center w-28">1º Fungicida<br>(R1 / Veto)</th>
+                <th class="p-2 border border-slate-400 text-center w-24">2º Fung.<br>(+14d)</th>
+                <th class="p-2 border border-slate-400 text-center w-24">3º Fung.<br>(+14d)</th>
+                <th class="p-2 border border-slate-400 text-center w-28">Visto Op.</th>
               </tr>
             </thead>
-            <tbody id="tabela-inseticidas-corpo" class="divide-y divide-slate-700/50"></tbody>
+            <tbody id="tabela-ficha-corpo"></tbody>
           </table>
         </div>
       </div>
@@ -437,42 +388,50 @@
 
   </main>
 
-  <!-- Modal Backup / Restauração -->
-  <div id="modalBackup" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-lg w-full p-5 space-y-4 shadow-2xl">
+  <!-- Modal de Backup -->
+  <div id="modalBackup" class="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-slate-700 pb-3">
-        <h3 class="text-base font-bold text-white">💾 Backup e Restauração de Dados</h3>
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span>💾</span> Backup & Restauração dos Dados
+        </h3>
         <button onclick="fecharModalBackup()" class="text-slate-400 hover:text-white">&times;</button>
       </div>
       <p class="text-xs text-slate-300">
-        Seus dados são salvos automaticamente no navegador. Você também pode exportar um arquivo de backup para abrir em outro computador ou celular.
+        Todas as anotações e datas que você preencher no painel são salvas automaticamente no seu navegador. Você também pode exportar um arquivo de backup para guardar ou passar para outro celular.
       </p>
       <div class="flex gap-2">
-        <button onclick="baixarArquivoBackup()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-lg text-xs">
-          ⬇️ Baixar Backup (.json)
+        <button onclick="baixarArquivoBackup()" class="flex-1 px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition">
+          📥 Baixar Backup (.json)
         </button>
-        <button onclick="document.getElementById('inputImportar').click()" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 rounded-lg text-xs">
-          ⬆️ Carregar Backup
+        <button onclick="document.getElementById('inputImportar').click()" class="flex-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl text-xs transition">
+          📤 Restaurar Backup
         </button>
-        <input type="file" id="inputImportar" accept=".json" onchange="importarArquivoBackup(event)" class="hidden">
+        <input type="file" id="inputImportar" onchange="restaurarArquivoBackup(event)" class="hidden" accept=".json">
       </div>
-      <div class="pt-3 border-t border-slate-700 flex justify-between items-center">
-        <button onclick="zerarTodosDados()" class="text-rose-400 hover:text-rose-300 text-xs">
-          ⚠️ Zerar todas as marcações
+      <div class="border-t border-slate-700/80 pt-3 flex justify-between items-center">
+        <button onclick="zerarTudo()" class="text-xs text-rose-400 hover:text-rose-300 underline">
+          Zerar todas as anotações
         </button>
-        <button onclick="fecharModalBackup()" class="px-4 py-1.5 bg-slate-700 text-white text-xs rounded-lg">
+        <button onclick="fecharModalBackup()" class="px-3 py-1.5 bg-slate-700 text-slate-200 rounded-lg text-xs">
           Fechar
         </button>
       </div>
     </div>
   </div>
 
-  <footer class="bg-slate-900 border-t border-slate-800 py-3 text-center text-xs text-slate-500 no-print">
-    Safra Soja 2026/2027 • Controle de Aplicações de Fungicida, Inseticida e Herbicida • 4.391,81 ha
+  <!-- Footer -->
+  <footer class="bg-slate-900 border-t border-slate-800 py-4 mt-8 no-print text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>Controle Operacional de Pulverização Safra Soja 2026/2027 • 4.391,81 ha (54 Áreas em Ordem de Plantio)</p>
+      <p class="text-[11px] text-slate-400 mt-1">
+        Atenção Fitossanitária: Glufosinato de Amônio permitido exclusivamente nas cultivares <strong>CONKESTA ENLIST</strong>.
+      </p>
+    </div>
   </footer>
 
+  <!-- DADOS E JAVASCRIPT UNIFICADO -->
   <script>
-    // Master data em ordem oficial de plantio da imagem
     const TALHOES = [
   {
     "ordem": 1,
@@ -1448,101 +1407,107 @@
   }
 ];
 
-    const STORAGE_KEY = 'safra_soja_2026_operacoes';
-    let operacoes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    // Chave no LocalStorage
+    const STORAGE_KEY = 'safra_soja_2026_operacoes_v2';
 
-    function mostrarToast(mensagem) {
-      const toast = document.getElementById('toast');
-      const msgSpan = document.getElementById('toast-msg');
-      if (toast && msgSpan) {
-        msgSpan.innerText = mensagem;
-        toast.classList.remove('opacity-0', 'pointer-events-none');
-        setTimeout(() => {
-          toast.classList.add('opacity-0', 'pointer-events-none');
-        }, 3000);
-      }
-    }
-
-    function compartilharApp() {
-      const url = window.location.href;
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(() => {
-          mostrarToast("Link do aplicativo copiado para a área de transferência!");
-        }).catch(() => {
-          prompt("Copie o link do aplicativo abaixo:", url);
-        });
-      } else {
-        prompt("Copie o link do aplicativo abaixo:", url);
+    function carregarOperacoes() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        return {};
       }
     }
 
     function salvarOperacoes() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(operacoes));
-      atualizarKPIs();
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.error(e);
+      }
     }
 
+    let appState = carregarOperacoes();
+
     function obterOuCriar(id) {
-      if (!operacoes[id]) {
-        operacoes[id] = {
+      if (!appState[id]) {
+        appState[id] = {
           f1_data: '',
+          f1_status: false,
           f2_data: '',
+          f2_status: false,
           f3_data: '',
-          f4_data: '',
-          ins1_data: '',
-          ins2_data: '',
-          ins3_data: '',
-          herb_dessec_data: '',
-          herb_pre_data: '',
-          herb_pos_data: '',
-          chk_pos: false,
-          chk_herb: false,
-          chk_ins: false,
-          chk_fung: false,
-          chk_fol: false,
-          data_feita: '',
+          f3_status: false,
+          pos_check: false,
+          herb_check: false,
+          ins_check: false,
+          fol_check: false,
           obs: ''
         };
       }
-      return operacoes[id];
+      return appState[id];
     }
 
-    function calcularProximaData(dataStr, dias = 14) {
-      if (!dataStr) return null;
-      const partes = dataStr.split('-');
+    // Cálculo exato de +14 dias
+    function calcularProximaData(dataIsoStr, dias = 14) {
+      if (!dataIsoStr) return null;
+      const partes = dataIsoStr.split('-');
       if (partes.length !== 3) return null;
-      const d = new Date(parseInt(partes[0]), parseInt(partes[1]) - 1, parseInt(partes[2]));
-      d.setDate(d.getDate() + dias);
-      return d;
-    }
-
-    function formatarDataBR(dataObj) {
-      if (!dataObj) return '-';
-      const dia = String(dataObj.getDate()).padStart(2, '0');
-      const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
-      return `${dia}/${mes}/${dataObj.getFullYear()}`;
-    }
-
-    function obterStatusBadge(proximaDataObj) {
-      if (!proximaDataObj) return '<span class="text-slate-500 text-[11px]">-</span>';
+      const data = new Date(parseInt(partes[0]), parseInt(partes[1]) - 1, parseInt(partes[2]));
+      data.setDate(data.getDate() + dias);
       
+      const a = data.getFullYear();
+      const m = String(data.getMonth() + 1).padStart(2, '0');
+      const d = String(data.getDate()).padStart(2, '0');
+      return `${d}/${m}/${a}`;
+    }
+
+    function calcularDiasRestantes(dataIsoStr, dias = 14) {
+      if (!dataIsoStr) return null;
+      const partes = dataIsoStr.split('-');
+      if (partes.length !== 3) return null;
+      const dataAlvo = new Date(parseInt(partes[0]), parseInt(partes[1]) - 1, parseInt(partes[2]));
+      dataAlvo.setDate(dataAlvo.getDate() + dias);
+
       const hoje = new Date();
       hoje.setHours(0,0,0,0);
-      const dataAlvo = new Date(proximaDataObj);
       dataAlvo.setHours(0,0,0,0);
 
       const diffTime = dataAlvo - hoje;
-      const diffDias = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      const dtFormatada = formatarDataBR(proximaDataObj);
-
-      if (diffDias < 0) {
-        return `<span class="px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800 text-[10px] font-bold" title="Venceu há ${Math.abs(diffDias)} dias">⚠️ ${dtFormatada} (${diffDias}d)</span>`;
-      } else if (diffDias <= 3) {
-        return `<span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800 text-[10px] font-bold animate-pulse" title="Vence em breve">⏰ ${dtFormatada} (em ${diffDias}d)</span>`;
-      } else {
-        return `<span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-medium">📅 ${dtFormatada} (+${diffDias}d)</span>`;
-      }
+      return Math.round(diffTime / (1000 * 60 * 60 * 24));
     }
 
+    function obterStatusBadge(dataFormatada, dataIsoBase) {
+      if (!dataFormatada) {
+        return `<span class="text-slate-400 text-[11px]">—</span>`;
+      }
+      
+      const diasRest = calcularDiasRestantes(dataIsoBase, 14);
+      let badgeHtml = '';
+
+      if (diasRest === null) {
+        badgeHtml = `<span class="px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 font-mono text-[11px] border border-emerald-800">${dataFormatada}</span>`;
+      } else if (diasRest < 0) {
+        badgeHtml = `<div class="flex flex-col items-center">
+          <span class="px-2 py-0.5 rounded bg-rose-950 text-rose-300 font-mono font-bold text-[11px] border border-rose-800">${dataFormatada}</span>
+          <span class="text-[9px] text-rose-400 font-bold mt-0.5">Vencido (${Math.abs(diasRest)}d atrás)</span>
+        </div>`;
+      } else if (diasRest <= 3) {
+        badgeHtml = `<div class="flex flex-col items-center">
+          <span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 font-mono font-bold text-[11px] border border-amber-800">${dataFormatada}</span>
+          <span class="text-[9px] text-amber-400 font-bold mt-0.5">Atenção (${diasRest}d restantes)</span>
+        </div>`;
+      } else {
+        badgeHtml = `<div class="flex flex-col items-center">
+          <span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 font-mono font-bold text-[11px] border border-emerald-800">${dataFormatada}</span>
+          <span class="text-[9px] text-emerald-400 font-medium mt-0.5">${diasRest}d restantes</span>
+        </div>`;
+      }
+
+      return badgeHtml;
+    }
+
+    // NAVEGAÇÃO DE ABAS
     function mudarAba(abaId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1585,7 +1550,125 @@
       renderizarTabelasVisiveis();
     }
 
-    // TAB 1: FICHA DE CAMPO (MODELO DO PDF)
+    // TAB 1: FUNGICIDAS, TOLERÂNCIAS & RETORNOS (+14 DIAS) - PRINCIPAL E UNIFICADA
+    function renderizarTabelaFungicidas(lista) {
+      const tbody = document.getElementById('tabela-fungicidas-corpo');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      lista.forEach(t => {
+        const reg = obterOuCriar(t.id);
+        const proxF2 = calcularProximaData(reg.f1_data, 14);
+        const proxF3 = calcularProximaData(reg.f2_data, 14);
+
+        // Estilo de badge da tecnologia
+        let tecBadgeClass = 'bg-emerald-950 text-emerald-300 border-emerald-800';
+        if (t.tec_badge.includes('XTEND')) tecBadgeClass = 'bg-sky-950 text-sky-300 border-sky-800';
+        if (t.tec_badge.includes('ENLIST')) tecBadgeClass = 'bg-purple-950 text-purple-200 border-purple-700';
+
+        // Previsão aproximada de R1
+        const diaEmerg = parseInt(t.dtE.slice(0, 2)) || 26;
+        const previsaoR1 = `R1 (~${diaEmerg} nov)`;
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-700/30 transition border-b border-slate-700/50';
+        tr.innerHTML = `
+          <!-- ORD -->
+          <td class="p-3 text-center font-bold text-slate-400 font-mono">${t.ordem}</td>
+
+          <!-- GLEBA & HA -->
+          <td class="p-3">
+            <div class="font-bold text-white text-xs">${t.gleba}</div>
+            <div class="text-[11px] text-emerald-400 font-mono font-semibold">${t.ha.toFixed(2)} ha</div>
+            <div class="text-[10px] text-slate-400">${t.tipo}</div>
+          </td>
+
+          <!-- VARIEDADE & S/M -->
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-100 font-bold text-xs">${t.var}</span>
+            <div class="text-[10px] text-slate-400 mt-1">(${t.sem || 18} sem/m)</div>
+          </td>
+
+          <!-- TECNOLOGIA & TOLERÂNCIA (COM DESTAQUE ROXO NO GLUFOSINATO) -->
+          <td class="p-3 min-w-[210px]">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="px-2 py-0.5 rounded text-[10px] font-extrabold border ${tecBadgeClass}">
+                ${t.tec_badge}
+              </span>
+              ${t.tec_badge.includes('ENLIST') ? '<span class="badge-gluf-alerta">TOLERA GLUFOSINATO</span>' : ''}
+            </div>
+            <div class="text-[11px] mt-1.5 leading-snug text-slate-200">
+              ${t.tol_html}
+            </div>
+          </td>
+
+          <!-- PLANTIO & EMERGÊNCIA -->
+          <td class="p-3 text-center text-xs text-slate-300">
+            <div>P: <strong class="text-white">${t.dtP}</strong></div>
+            <div class="text-slate-400 mt-0.5">E: ${t.dtE}</div>
+          </td>
+
+          <!-- 1º FUNGICIDA (R1) -->
+          <td class="p-2 text-center bg-slate-950/20 min-w-[150px]">
+            <div class="text-[10px] font-bold text-emerald-400 mb-1 flex items-center justify-center gap-1">
+              <span>🌱</span> ${previsaoR1}
+            </div>
+            <div class="flex items-center justify-center gap-1.5">
+              <input type="checkbox" ${reg.f1_status ? 'checked' : ''} 
+                     onchange="atualizarCampo(${t.id}, 'f1_status', this.checked)"
+                     class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
+              <input type="date" value="${reg.f1_data}" 
+                     onchange="atualizarCampo(${t.id}, 'f1_data', this.value)"
+                     class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500 focus:outline-none">
+            </div>
+          </td>
+
+          <!-- 2ª PREVISTA (+14d) -->
+          <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
+            ${obterStatusBadge(proxF2, reg.f1_data)}
+          </td>
+
+          <!-- 2ª FEITA -->
+          <td class="p-2 text-center bg-slate-950/20 min-w-[140px]">
+            <div class="flex items-center justify-center gap-1.5">
+              <input type="checkbox" ${reg.f2_status ? 'checked' : ''} 
+                     onchange="atualizarCampo(${t.id}, 'f2_status', this.checked)"
+                     class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
+              <input type="date" value="${reg.f2_data}" 
+                     onchange="atualizarCampo(${t.id}, 'f2_data', this.value)"
+                     class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500 focus:outline-none">
+            </div>
+          </td>
+
+          <!-- 3ª PREVISTA (+14d) -->
+          <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
+            ${obterStatusBadge(proxF3, reg.f2_data)}
+          </td>
+
+          <!-- 3ª FEITA -->
+          <td class="p-2 text-center bg-slate-950/20 min-w-[140px]">
+            <div class="flex items-center justify-center gap-1.5">
+              <input type="checkbox" ${reg.f3_status ? 'checked' : ''} 
+                     onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)"
+                     class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
+              <input type="date" value="${reg.f3_data}" 
+                     onchange="atualizarCampo(${t.id}, 'f3_data', this.value)"
+                     class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500 focus:outline-none">
+            </div>
+          </td>
+
+          <!-- OBS / PRODUTO -->
+          <td class="p-2 text-center min-w-[150px]">
+            <input type="text" value="${reg.obs || ''}" placeholder="Ex: FOX + Manzate" 
+                   onchange="atualizarCampo(${t.id}, 'obs', this.value)"
+                   class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 focus:outline-none">
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // TAB 2: FICHA DE CAMPO (MODELO DO PDF)
     function renderizarFichaCampo(lista) {
       const tbody = document.getElementById('tabela-ficha-corpo');
       if (!tbody) return;
@@ -1602,228 +1685,60 @@
         if (t.tec_badge.includes('ENLIST')) badgeTecClass = 'bg-purple-100 text-purple-900 border-purple-400';
 
         tr.innerHTML = `
-          <td class="p-1.5 border border-slate-300 text-center font-bold text-slate-800">${t.ordem}</td>
+          <td class="p-1.5 border border-slate-300 text-center font-bold text-slate-800 font-mono">${t.ordem}</td>
           <td class="p-1.5 border border-slate-300 font-bold text-slate-900">${t.gleba}</td>
           <td class="p-1.5 border border-slate-300 text-right font-mono font-semibold">${t.ha.toFixed(2)}</td>
           <td class="p-1.5 border border-slate-300">
-            <strong>${t.var}</strong> <span class="text-slate-500 text-[9px]">(${t.sem})</span>
+            <strong>${t.var}</strong> <span class="text-slate-500 text-[9px]">(${t.sem || 18})</span>
           </td>
-          <td class="p-1.5 border border-slate-300 text-center">
-            <span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-bold border ${badgeTecClass}">
+          <td class="p-1.5 border border-slate-300">
+            <span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-bold border ${badgeTecClass} mb-0.5">
               ${t.tec_badge}
             </span>
+            <div class="text-[9.5px] leading-tight mt-0.5 text-slate-700">${t.tol_html}</div>
           </td>
-          <td class="p-1.5 border border-slate-300 text-[10px] leading-tight">
-            ${t.manejo_seguro}
+          <td class="p-1.5 border border-slate-300 text-center text-[10px]">
+            P: ${t.dtP}<br>E: ${t.dtE}
           </td>
-          <td class="p-1.5 border border-slate-300 text-center">
-            <div class="flex items-center justify-center gap-1.5 flex-wrap text-[9px]">
-              <label class="inline-flex items-center gap-0.5 cursor-pointer">
-                <input type="checkbox" ${reg.chk_pos ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'chk_pos', this.checked)" class="w-3.5 h-3.5 accent-emerald-600">
-                <span>Pós</span>
+          <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
+            <div class="flex justify-center gap-1.5">
+              <label class="cursor-pointer inline-flex items-center gap-0.5">
+                <input type="checkbox" ${reg.pos_check ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'pos_check', this.checked)"> Pós
               </label>
-              <label class="inline-flex items-center gap-0.5 cursor-pointer">
-                <input type="checkbox" ${reg.chk_herb ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'chk_herb', this.checked)" class="w-3.5 h-3.5 accent-emerald-600">
-                <span>Herb</span>
+              <label class="cursor-pointer inline-flex items-center gap-0.5">
+                <input type="checkbox" ${reg.herb_check ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'herb_check', this.checked)"> Herb
               </label>
-              <label class="inline-flex items-center gap-0.5 cursor-pointer">
-                <input type="checkbox" ${reg.chk_ins ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'chk_ins', this.checked)" class="w-3.5 h-3.5 accent-emerald-600">
-                <span>Ins</span>
-              </label>
-              <label class="inline-flex items-center gap-0.5 cursor-pointer">
-                <input type="checkbox" ${reg.chk_fung ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'chk_fung', this.checked)" class="w-3.5 h-3.5 accent-emerald-600">
-                <span>Fung</span>
-              </label>
-              <label class="inline-flex items-center gap-0.5 cursor-pointer">
-                <input type="checkbox" ${reg.chk_fol ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'chk_fol', this.checked)" class="w-3.5 h-3.5 accent-emerald-600">
-                <span>Fol</span>
+              <label class="cursor-pointer inline-flex items-center gap-0.5">
+                <input type="checkbox" ${reg.ins_check ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'ins_check', this.checked)"> Ins
               </label>
             </div>
+            <div class="text-slate-400 text-[8px] mt-1">[ Data: ___/___/26 ]</div>
           </td>
-          <td class="p-1.5 border border-slate-300 text-center">
-            <input type="date" value="${reg.data_feita || ''}" onchange="atualizarCampo(${t.id}, 'data_feita', this.value)" 
-                   class="bg-transparent border border-slate-300 rounded px-1 py-0.5 text-[10px] text-slate-800 text-center w-full">
+          <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
+            <div class="flex justify-center gap-1">
+              <label class="cursor-pointer inline-flex items-center gap-0.5">
+                <input type="checkbox" ${reg.f1_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f1_status', this.checked)"> Fung
+              </label>
+              <label class="cursor-pointer inline-flex items-center gap-0.5">
+                <input type="checkbox" ${reg.fol_check ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'fol_check', this.checked)"> Fol
+              </label>
+            </div>
+            <div class="text-emerald-700 font-bold text-[8.5px] mt-0.5">R1: ~${t.dtE.slice(0, 2)} nov</div>
           </td>
-          <td class="p-1.5 border border-slate-300 text-center">
-            <input type="text" value="${reg.obs || ''}" placeholder="Produto / Visto" onchange="atualizarCampo(${t.id}, 'obs', this.value)"
-                   class="bg-transparent border border-slate-300 rounded px-1 py-0.5 text-[10px] text-slate-800 w-full">
+          <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
+            <label class="cursor-pointer inline-flex items-center gap-0.5">
+              <input type="checkbox" ${reg.f2_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f2_status', this.checked)"> Fung
+            </label>
+            <div class="text-slate-500 text-[8px] mt-0.5">+14d da 1ª</div>
           </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // TAB 2: FUNGICIDAS (+14 DIAS)
-    function renderizarTabelaFungicidas(lista) {
-      const tbody = document.getElementById('tabela-fungicidas-corpo');
-      if (!tbody) return;
-      tbody.innerHTML = '';
-
-      lista.forEach(t => {
-        const reg = obterOuCriar(t.id);
-        const proxF2 = calcularProximaData(reg.f1_data, 14);
-        const proxF3 = calcularProximaData(reg.f2_data, 14);
-
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-700/30 transition';
-        tr.innerHTML = `
-          <td class="p-3 text-center font-bold text-slate-400">${t.ordem}</td>
-          <td class="p-3">
-            <div class="font-bold text-white">${t.gleba}</div>
-            <div class="text-[11px] text-emerald-400 font-mono">${t.ha.toFixed(2)} ha • ${t.tipo}</div>
+          <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
+            <label class="cursor-pointer inline-flex items-center gap-0.5">
+              <input type="checkbox" ${reg.f3_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)"> Fung
+            </label>
+            <div class="text-slate-500 text-[8px] mt-0.5">+14d da 2ª</div>
           </td>
-          <td class="p-3">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 font-medium text-[11px]">${t.var}</span>
-            <div class="text-[10px] text-sky-400 mt-0.5">${t.tec_badge}</div>
-          </td>
-          <td class="p-3 text-center text-slate-300">
-            <div>P: ${t.dtP}</div>
-            <div class="text-slate-400">E: ${t.dtE}</div>
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.f1_data}" onchange="atualizarCampo(${t.id}, 'f1_data', this.value)"
-                   class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500">
-          </td>
-          <td class="p-2 text-center bg-emerald-950/10">
-            ${obterStatusBadge(proxF2)}
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.f2_data}" onchange="atualizarCampo(${t.id}, 'f2_data', this.value)"
-                   class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500">
-          </td>
-          <td class="p-2 text-center bg-emerald-950/10">
-            ${obterStatusBadge(proxF3)}
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.f3_data}" onchange="atualizarCampo(${t.id}, 'f3_data', this.value)"
-                   class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500">
-          </td>
-          <td class="p-2 text-center">
-            <input type="text" value="${reg.obs || ''}" placeholder="Ex: FOX + Manzate" onchange="atualizarCampo(${t.id}, 'obs', this.value)"
-                   class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-300 w-32 focus:border-emerald-500">
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // TAB 3: VISÃO GERAL COMPLETA (ORDEM DE PLANTIO)
-    function renderizarTabelaTodas(lista) {
-      const tbody = document.getElementById('tabela-todas-corpo');
-      if (!tbody) return;
-      tbody.innerHTML = '';
-
-      lista.forEach(t => {
-        const reg = obterOuCriar(t.id);
-        const f1Ok = !!reg.f1_data;
-
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-700/30 transition';
-        tr.innerHTML = `
-          <td class="p-2.5 text-center font-bold text-slate-400">${t.ordem}</td>
-          <td class="p-2.5">
-            <div class="font-bold text-white">${t.gleba}</div>
-            <div class="text-[10px] text-slate-400">${t.tipo}</div>
-          </td>
-          <td class="p-2.5 text-right font-mono text-emerald-400 font-semibold">${t.ha.toFixed(2)} ha</td>
-          <td class="p-2.5">
-            <div class="font-semibold text-slate-200">${t.var}</div>
-            <div class="text-[10px] text-slate-400">${t.sem} sem/m</div>
-          </td>
-          <td class="p-2.5">
-            <span class="px-1.5 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800 text-[10px] font-semibold">${t.tec_badge}</span>
-            <div class="text-[10px] mt-0.5">${t.tol_html}</div>
-          </td>
-          <td class="p-2.5 text-center text-[11px] text-slate-300">
-            <div>P: ${t.dtP}</div>
-            <div class="text-slate-400">E: ${t.dtE}</div>
-          </td>
-          <td class="p-2.5 text-center">
-            <input type="date" value="${reg.herb_dessec_data}" onchange="atualizarCampo(${t.id}, 'herb_dessec_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] text-white">
-          </td>
-          <td class="p-2.5 text-center">
-            <input type="date" value="${reg.herb_pos_data}" onchange="atualizarCampo(${t.id}, 'herb_pos_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] text-white">
-          </td>
-          <td class="p-2.5 text-center">
-            <input type="date" value="${reg.f1_data}" onchange="atualizarCampo(${t.id}, 'f1_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] text-white">
-          </td>
-          <td class="p-2.5 text-center">
-            <input type="date" value="${reg.f2_data}" onchange="atualizarCampo(${t.id}, 'f2_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] text-white">
-          </td>
-          <td class="p-2.5 text-center">
-            <input type="date" value="${reg.ins1_data}" onchange="atualizarCampo(${t.id}, 'ins1_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] text-white">
-          </td>
-          <td class="p-2.5 text-center">
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${f1Ok ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-slate-800 text-slate-400'}">
-              ${f1Ok ? 'Em Andamento' : 'Pendente'}
-            </span>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // TAB 4: HERBICIDAS COM GLUFOSINATO EM DESTAQUE ROXO
-    function renderizarTabelaHerbicidas(lista) {
-      const tbody = document.getElementById('tabela-herbicidas-corpo');
-      if (!tbody) return;
-      tbody.innerHTML = '';
-
-      lista.forEach(t => {
-        const reg = obterOuCriar(t.id);
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-700/30 transition';
-        tr.innerHTML = `
-          <td class="p-3 text-center font-bold text-slate-400">${t.ordem}</td>
-          <td class="p-3 font-bold text-white">${t.gleba}</td>
-          <td class="p-3 text-right font-mono text-emerald-400">${t.ha.toFixed(2)} ha</td>
-          <td class="p-3 font-medium text-slate-200">${t.var}</td>
-          <td class="p-3">
-            <span class="px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800 text-[10px] font-semibold">${t.tec_badge}</span>
-            <div class="text-[11px] font-semibold mt-1">${t.tol_html}</div>
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.herb_dessec_data}" onchange="atualizarCampo(${t.id}, 'herb_dessec_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.herb_pre_data}" onchange="atualizarCampo(${t.id}, 'herb_pre_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.herb_pos_data}" onchange="atualizarCampo(${t.id}, 'herb_pos_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // TAB 5: INSETICIDAS
-    function renderizarTabelaInseticidas(lista) {
-      const tbody = document.getElementById('tabela-inseticidas-corpo');
-      if (!tbody) return;
-      tbody.innerHTML = '';
-
-      lista.forEach(t => {
-        const reg = obterOuCriar(t.id);
-        const proxIns = calcularProximaData(reg.ins1_data, 14);
-
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-700/30 transition';
-        tr.innerHTML = `
-          <td class="p-3 text-center font-bold text-slate-400">${t.ordem}</td>
-          <td class="p-3 font-bold text-white">${t.gleba}</td>
-          <td class="p-3 text-right font-mono text-emerald-400">${t.ha.toFixed(2)} ha</td>
-          <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">${t.var}</span></td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.ins1_data}" onchange="atualizarCampo(${t.id}, 'ins1_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.ins2_data}" onchange="atualizarCampo(${t.id}, 'ins2_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-          </td>
-          <td class="p-2 text-center bg-slate-950/20">
-            <input type="date" value="${reg.ins3_data}" onchange="atualizarCampo(${t.id}, 'ins3_data', this.value)" class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white">
-          </td>
-          <td class="p-2 text-center">
-            ${obterStatusBadge(proxIns)}
+          <td class="p-1.5 border border-slate-300 text-center text-slate-400 text-[9px]">
+            ____________________
           </td>
         `;
         tbody.appendChild(tr);
@@ -1832,159 +1747,176 @@
 
     function renderizarTabelasVisiveis() {
       const filtrados = filtrarTalhoes();
-      renderizarFichaCampo(filtrados);
-      renderizarTabelaFungicidas(filtrados);
-      renderizarTabelaTodas(filtrados);
-      renderizarTabelaHerbicidas(filtrados);
-      renderizarTabelaInseticidas(filtrados);
-      atualizarKPIs();
+      document.getElementById('contador-filtrados').innerText = `${filtrados.length} / ${TALHOES.length} talhões`;
+      
+      const secFung = document.getElementById('secao-fungicidas');
+      const secFicha = document.getElementById('secao-ficha_campo');
+
+      if (secFung && !secFung.classList.contains('hidden')) {
+        renderizarTabelaFungicidas(filtrados);
+      }
+      if (secFicha && !secFicha.classList.contains('hidden')) {
+        renderizarFichaCampo(filtrados);
+      }
     }
 
     function renderizar() {
       renderizarTabelasVisiveis();
     }
 
-    function atualizarKPIs() {
-      let haF1 = 0;
-      let alertasProximos = 0;
-      const hoje = new Date();
-      hoje.setHours(0,0,0,0);
-
-      TALHOES.forEach(t => {
-        const reg = operacoes[t.id];
-        if (reg) {
-          if (reg.f1_data || reg.chk_fung) haF1 += t.ha;
-
-          [reg.f1_data, reg.f2_data, reg.f3_data, reg.data_feita].forEach(dt => {
-            if (dt) {
-              const prox = calcularProximaData(dt, 14);
-              if (prox) {
-                prox.setHours(0,0,0,0);
-                const diffDias = Math.ceil((prox - hoje) / (1000 * 60 * 60 * 24));
-                if (diffDias <= 3) alertasProximos++;
-              }
-            }
-          });
-        }
-      });
-
-      const percF1 = ((haF1 / 4391.81) * 100).toFixed(1);
-      document.getElementById('kpi-f1').innerText = `${haF1.toFixed(1)} ha (${percF1}%)`;
-      document.getElementById('kpi-alerta').innerText = alertasProximos;
+    function limparFiltros() {
+      document.getElementById('filtroBusca').value = '';
+      document.getElementById('filtroVariedade').value = 'TODAS';
+      document.getElementById('filtroTecnologia').value = 'TODAS';
+      document.getElementById('filtroTipo').value = 'TODOS';
+      renderizar();
     }
 
-    // EXPORTAÇÃO PARA EXCEL (.XLSX)
+    // EXPORTAR EXCEL (.XLSX) COM TODAS AS INFORMAÇÕES UNIFICADAS
     function exportarExcel() {
-      if (typeof XLSX === 'undefined') {
-        alert("Carregando ferramenta do Excel... aguarde alguns segundos e tente novamente.");
-        return;
-      }
-
       const wb = XLSX.utils.book_new();
-
-      const rowsGeral = [];
-      rowsGeral.push([
-        "ORDEM", "TALHÃO / GLEBA", "ÁREA (ha)", "VARIEDADE", "SEM/M", "TECNOLOGIA",
-        "MANEJO SEGURO & TOLERÂNCIAS", "DATA PLANTIO", "DATA EMERGÊNCIA",
-        "OPERAÇÃO MARCADA", "DATA FEITA", "1º FUNGICIDA", "2º FUNGICIDA PREVISTO (+14d)",
-        "2º FUNGICIDA FEITO", "3º FUNGICIDA FEITO", "1º INSETICIDA", "2º INSETICIDA",
-        "DESSECAÇÃO", "PÓS-EMERGENTE", "PRODUTO / OBSERVAÇÕES"
-      ]);
+      const linhas = [
+        ["SAFRA SOJA 2026/2027 - CONTROLE DE PULVERIZAÇÃO E TOLERÂNCIAS"],
+        ["Área Total: 4.391,81 ha | 54 Talhões em Ordem Cronológica Oficial de Plantio"],
+        [],
+        [
+          "ORD",
+          "Talhão / Gleba",
+          "Área (ha)",
+          "Tipo",
+          "Variedade",
+          "Sementes/m",
+          "Tecnologia",
+          "Tolerância Herbicida (Glufosinato / Dicamba / 2,4-D)",
+          "Data Plantio",
+          "Data Emergência",
+          "1º Fungicida Previsto (R1)",
+          "1ª Aplicação Realizada (Data)",
+          "2ª Prevista (+14d)",
+          "2ª Aplicação Realizada (Data)",
+          "3ª Prevista (+14d)",
+          "3ª Aplicação Realizada (Data)",
+          "Anotações / Produto Utilizado"
+        ]
+      ];
 
       TALHOES.forEach(t => {
-        const reg = obterOuCriar(t.id);
-        const pF2 = calcularProximaData(reg.f1_data, 14);
+        const reg = appState[t.id] || {};
+        const proxF2 = calcularProximaData(reg.f1_data, 14) || "";
+        const proxF3 = calcularProximaData(reg.f2_data, 14) || "";
+        const diaEmerg = parseInt(t.dtE.slice(0, 2)) || 26;
 
-        const opsMarcadas = [];
-        if (reg.chk_pos) opsMarcadas.push("Pós");
-        if (reg.chk_herb) opsMarcadas.push("Herb");
-        if (reg.chk_ins) opsMarcadas.push("Ins");
-        if (reg.chk_fung) opsMarcadas.push("Fung");
-        if (reg.chk_fol) opsMarcadas.push("Fol");
-
-        rowsGeral.push([
+        linhas.push([
           t.ordem,
           t.gleba,
           t.ha,
+          t.tipo,
           t.var,
-          t.sem,
+          t.sem || 18,
           t.tec_badge,
           t.tol_plain,
           t.dtP,
           t.dtE,
-          opsMarcadas.join(" / "),
-          reg.data_feita ? reg.data_feita.split('-').reverse().join('/') : '',
-          reg.f1_data ? reg.f1_data.split('-').reverse().join('/') : '',
-          pF2 ? formatarDataBR(pF2) : '',
-          reg.f2_data ? reg.f2_data.split('-').reverse().join('/') : '',
-          reg.f3_data ? reg.f3_data.split('-').reverse().join('/') : '',
-          reg.ins1_data ? reg.ins1_data.split('-').reverse().join('/') : '',
-          reg.ins2_data ? reg.ins2_data.split('-').reverse().join('/') : '',
-          reg.herb_dessec_data ? reg.herb_dessec_data.split('-').reverse().join('/') : '',
-          reg.herb_pos_data ? reg.herb_pos_data.split('-').reverse().join('/') : '',
-          reg.obs || ''
+          `R1 (~${diaEmerg} nov)`,
+          reg.f1_data || "",
+          proxF2,
+          reg.f2_data || "",
+          proxF3,
+          reg.f3_data || "",
+          reg.obs || ""
         ]);
       });
 
-      const wsGeral = XLSX.utils.aoa_to_sheet(rowsGeral);
-      wsGeral['!cols'] = [
-        { wch: 8 },  { wch: 22 }, { wch: 12 }, { wch: 18 }, { wch: 10 },
-        { wch: 18 }, { wch: 38 }, { wch: 12 }, { wch: 14 },
-        { wch: 18 }, { wch: 14 }, { wch: 16 }, { wch: 22 },
-        { wch: 16 }, { wch: 16 }, { wch: 16 }, { wch: 16 },
-        { wch: 16 }, { wch: 16 }, { wch: 30 }
-      ];
-      XLSX.utils.book_append_sheet(wb, wsGeral, "Manejo_Plantio_26_27");
+      const ws = XLSX.utils.aoa_to_sheet(linhas);
 
-      const dataHoje = new Date().toISOString().slice(0, 10);
-      XLSX.writeFile(wb, `Controle_Pulverizacao_Soja_2026_${dataHoje}.xlsx`);
-      mostrarToast("Planilha Excel (.xlsx) gerada com sucesso!");
+      // Largura das colunas
+      ws['!cols'] = [
+        { wch: 6 },  // ORD
+        { wch: 15 }, // Gleba
+        { wch: 12 }, // ha
+        { wch: 10 }, // Tipo
+        { wch: 16 }, // Var
+        { wch: 10 }, // Sem/m
+        { wch: 18 }, // Tec
+        { wch: 45 }, // Tolerância
+        { wch: 12 }, // dtP
+        { wch: 12 }, // dtE
+        { wch: 18 }, // 1º Previsto
+        { wch: 16 }, // 1ª Data
+        { wch: 16 }, // 2ª Prevista
+        { wch: 16 }, // 2ª Data
+        { wch: 16 }, // 3ª Prevista
+        { wch: 16 }, // 3ª Data
+        { wch: 30 }  // Obs
+      ];
+
+      XLSX.utils.book_append_sheet(wb, ws, "Controle de Pulverização");
+      XLSX.writeFile(wb, "Controle_Pulverizacao_Soja_2026_2027.xlsx");
     }
 
-    // Backup
-    function abrirModalBackup() { document.getElementById('modalBackup').classList.remove('hidden'); }
-    function fecharModalBackup() { document.getElementById('modalBackup').classList.add('hidden'); }
+    function compartilharApp() {
+      const url = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Link do aplicativo copiado para a área de transferência!\n\n' + url);
+        }).catch(() => {
+          prompt('Copie o link abaixo para compartilhar:', url);
+        });
+      } else {
+        prompt('Copie o link abaixo para compartilhar:', url);
+      }
+    }
+
+    // MODAL DE BACKUP
+    function abrirModalBackup() {
+      document.getElementById('modalBackup').classList.remove('hidden');
+    }
+    function fecharModalBackup() {
+      document.getElementById('modalBackup').classList.add('hidden');
+    }
 
     function baixarArquivoBackup() {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(operacoes, null, 2));
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
       const a = document.createElement('a');
-      a.href = dataStr;
-      a.download = `backup_soja_2026_${new Date().toISOString().slice(0,10)}.json`;
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `backup_pulverizacao_soja_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(a);
       a.click();
-      mostrarToast("Backup salvo no seu dispositivo!");
+      a.remove();
     }
 
-    function importarArquivoBackup(event) {
+    function restaurarArquivoBackup(event) {
       const file = event.target.files[0];
       if (!file) return;
       const reader = new FileReader();
       reader.onload = function(e) {
         try {
-          const dados = JSON.parse(e.target.result);
-          operacoes = dados;
+          const parsed = JSON.parse(e.target.result);
+          appState = parsed;
           salvarOperacoes();
           renderizar();
-          mostrarToast("Backup restaurado com sucesso!");
+          alert('Backup restaurado com sucesso!');
           fecharModalBackup();
         } catch (err) {
-          alert("Erro ao ler o arquivo JSON de backup: " + err);
+          alert('Arquivo de backup inválido.');
         }
       };
       reader.readAsText(file);
     }
 
-    function zerarTodosDados() {
-      if (confirm("ATENÇÃO: Deseja apagar todas as marcações e datas registradas? Essa ação não pode ser desfeita sem backup.")) {
-        operacoes = {};
+    function zerarTudo() {
+      if (confirm('Tem certeza de que deseja apagar todas as marcações e datas salvas? Esta ação não pode ser desfeita.')) {
+        appState = {};
         salvarOperacoes();
         renderizar();
         fecharModalBackup();
-        mostrarToast("Todas as marcações foram zeradas.");
       }
     }
 
-    // Início
-    renderizar();
+    // Inicialização
+    window.addEventListener('DOMContentLoaded', () => {
+      renderizar();
+    });
   </script>
 </body>
 </html>
