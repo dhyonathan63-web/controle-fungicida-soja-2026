@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha de Campo - Manejo Soja 2026/2027</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 8mm;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 10px;
+      color: #1e293b;
+      background: #f8fafc;
+    }
+    .no-print {
+      margin-bottom: 15px;
+      text-align: right;
+    }
+    .btn-print {
+      background: #059669;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .page {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      page-break-after: always;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+    .header p {
+      margin: 2px 0 0;
+      font-size: 11px;
+      color: #64748b;
+    }
+    .header-info {
+      text-align: right;
+      font-size: 11px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+    th, td {
+      border: 1px solid #94a3b8;
+      padding: 5px 6px;
+    }
+    th {
+      background: #e2e8f0;
+      color: #0f172a;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 9px;
+    }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .font-bold { font-weight: bold; }
+    .font-mono { font-family: monospace; }
+    .campo-data {
+      text-align: center;
+      font-size: 9px;
+      color: #475569;
+      background: #fdfdfd;
+      min-width: 75px;
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      .no-print { display: none !important; }
+      .page { border: none; padding: 0; margin-bottom: 0; }
+      th { background-color: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="no-print">
+    <button class="btn-print" onclick="window.print()">🖨️ IMPRIMIR / SALVAR PDF (Páginas 1 e 2)</button>
+  </div>
+
+  <!-- FOLHA 1 -->
+  <div class="page">
+    <div class="header">
+      <div>
+        <h1>Ficha Operacional de Pulverização • Safra Soja 2026/2027</h1>
+        <p>Folha 1 de 2: Ordem 1 até Ordem 24 (Pivôs 002 a 010 e Glebas G-34 até G-23)</p>
+      </div>
+      <div class="header-info">
+        <strong>ÁREA TOTAL: 4.391,81 ha</strong><br>
+        Data de Saída: ____/____/2026
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25px;">Nº</th>
+          <th style="width: 100px;">Talhão / Gleba</th>
+          <th style="width: 65px;" class="text-right">Área</th>
+          <th style="width: 100px;">Variedade</th>
+          <th style="width: 140px;">Tecnologia & O que Tolera</th>
+          <th style="width: 75px;" class="text-center">Plantio / Emerg.</th>
+          <th style="width: 85px;" class="text-center">1º Fungicida (Data)</th>
+          <th style="width: 85px;" class="text-center">2º Fungicida (+14d)</th>
+          <th style="width: 85px;" class="text-center">3º Fungicida (+14d)</th>
+          <th style="width: 85px;" class="text-center">Inseticida (Data)</th>
+          <th style="width: 90px;" class="text-center">Assinatura / Resp.</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="text-center font-bold">1</td>
+          <td class="font-bold">Pivo 002</td>
+          <td class="text-right font-mono">200.00 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 22-set<br>E: 27-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">2</td>
+          <td class="font-bold">Pivo 003</td>
+          <td class="text-right font-mono">49.20 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 21-set<br>E: 26-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">3</td>
+          <td class="font-bold">Pivo 005</td>
+          <td class="text-right font-mono">21.01 ha</td>
+          <td>NEO-700 <span class="text-slate-500 text-[9px]">(22 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">4</td>
+          <td class="font-bold">Pivo 006</td>
+          <td class="text-right font-mono">27.53 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">5</td>
+          <td class="font-bold">Pivo 007</td>
+          <td class="text-right font-mono">80.50 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">6</td>
+          <td class="font-bold">Pivo 008</td>
+          <td class="text-right font-mono">130.00 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 21-set<br>E: 26-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">7</td>
+          <td class="font-bold">Pivo 009</td>
+          <td class="text-right font-mono">58.06 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 24-set<br>E: 29-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">8</td>
+          <td class="font-bold">Pivo 010</td>
+          <td class="text-right font-mono">63.51 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">9</td>
+          <td class="font-bold">G- 34</td>
+          <td class="text-right font-mono">51.80 ha</td>
+          <td>NEO-801 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 02-out<br>E: 07-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">10</td>
+          <td class="font-bold">G- 18</td>
+          <td class="text-right font-mono">195.00 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 23-set<br>E: 28-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">11</td>
+          <td class="font-bold">G- 19</td>
+          <td class="text-right font-mono">193.45 ha</td>
+          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 24-set<br>E: 29-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">12</td>
+          <td class="font-bold">G- 21</td>
+          <td class="text-right font-mono">181.02 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 24-set<br>E: 29-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">13</td>
+          <td class="font-bold">G- 26</td>
+          <td class="text-right font-mono">28.88 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 02-out<br>E: 07-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">14</td>
+          <td class="font-bold">G- 27</td>
+          <td class="text-right font-mono">137.30 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 02-out<br>E: 07-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">15</td>
+          <td class="font-bold">G- 29</td>
+          <td class="text-right font-mono">165.00 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">16</td>
+          <td class="font-bold">G- 30</td>
+          <td class="text-right font-mono">148.40 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 03-out<br>E: 08-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">17</td>
+          <td class="font-bold">G- 32</td>
+          <td class="text-right font-mono">109.68 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">18</td>
+          <td class="font-bold">G- 11</td>
+          <td class="text-right font-mono">100.99 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">19</td>
+          <td class="font-bold">G- 12</td>
+          <td class="text-right font-mono">45.37 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">20</td>
+          <td class="font-bold">G- 13</td>
+          <td class="text-right font-mono">194.40 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">21</td>
+          <td class="font-bold">G- 14</td>
+          <td class="text-right font-mono">67.36 ha</td>
+          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">22</td>
+          <td class="font-bold">G- 15</td>
+          <td class="text-right font-mono">130.80 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 05-out<br>E: 10-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">23</td>
+          <td class="font-bold">G- 20</td>
+          <td class="text-right font-mono">182.30 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 06-out<br>E: 11-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">24</td>
+          <td class="font-bold">G- 23</td>
+          <td class="text-right font-mono">33.40 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 06-out<br>E: 11-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOLHA 2 -->
+  <div class="page">
+    <div class="header">
+      <div>
+        <h1>Ficha Operacional de Pulverização • Safra Soja 2026/2027</h1>
+        <p>Folha 2 de 2: Ordem 25 até Ordem 48 + G-06 (Glebas G-22 até G-40)</p>
+      </div>
+      <div class="header-info">
+        <strong>ÁREA TOTAL: 4.391,81 ha</strong><br>
+        Data de Saída: ____/____/2026
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25px;">Nº</th>
+          <th style="width: 100px;">Talhão / Gleba</th>
+          <th style="width: 65px;" class="text-right">Área</th>
+          <th style="width: 100px;">Variedade</th>
+          <th style="width: 140px;">Tecnologia & O que Tolera</th>
+          <th style="width: 75px;" class="text-center">Plantio / Emerg.</th>
+          <th style="width: 85px;" class="text-center">1º Fungicida (Data)</th>
+          <th style="width: 85px;" class="text-center">2º Fungicida (+14d)</th>
+          <th style="width: 85px;" class="text-center">3º Fungicida (+14d)</th>
+          <th style="width: 85px;" class="text-center">Inseticida (Data)</th>
+          <th style="width: 90px;" class="text-center">Assinatura / Resp.</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="text-center font-bold">25</td>
+          <td class="font-bold">G- 22</td>
+          <td class="text-right font-mono">123.50 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">26</td>
+          <td class="font-bold">G- 24</td>
+          <td class="text-right font-mono">50.90 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">27</td>
+          <td class="font-bold">G- 25</td>
+          <td class="text-right font-mono">52.81 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">28</td>
+          <td class="font-bold">G- 35</td>
+          <td class="text-right font-mono">16.85 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">29</td>
+          <td class="font-bold">G- 28</td>
+          <td class="text-right font-mono">57.00 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">30</td>
+          <td class="font-bold">G- 31</td>
+          <td class="text-right font-mono">54.30 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">31</td>
+          <td class="font-bold">G- 36</td>
+          <td class="text-right font-mono">34.50 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">32</td>
+          <td class="font-bold">G- 37</td>
+          <td class="text-right font-mono">4.31 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">33</td>
+          <td class="font-bold">G- 07</td>
+          <td class="text-right font-mono">177.00 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">34</td>
+          <td class="font-bold">G- 33</td>
+          <td class="text-right font-mono">118.00 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">35</td>
+          <td class="font-bold">G- 01</td>
+          <td class="text-right font-mono">29.70 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 08-out<br>E: 13-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">36</td>
+          <td class="font-bold">G- 02</td>
+          <td class="text-right font-mono">241.00 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 08-out<br>E: 13-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">37</td>
+          <td class="font-bold">G- 09</td>
+          <td class="text-right font-mono">45.70 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 08-out<br>E: 13-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">38</td>
+          <td class="font-bold">G- 04</td>
+          <td class="text-right font-mono">32.48 ha</td>
+          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
+          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
+          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">39</td>
+          <td class="font-bold">G- 05</td>
+          <td class="text-right font-mono">40.30 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">40</td>
+          <td class="font-bold">G- 16</td>
+          <td class="text-right font-mono">113.00 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">41</td>
+          <td class="font-bold">G- 17</td>
+          <td class="text-right font-mono">42.00 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 16-out<br>E: 21-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">42</td>
+          <td class="font-bold">G- 08</td>
+          <td class="text-right font-mono">128.40 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">43</td>
+          <td class="font-bold">G- 10A</td>
+          <td class="text-right font-mono">58.70 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">44</td>
+          <td class="font-bold">G- 10B</td>
+          <td class="text-right font-mono">14.00 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 26-out<br>E: 31-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">44.1</td>
+          <td class="font-bold">G- 06</td>
+          <td class="text-right font-mono">22.90 ha</td>
+          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 26-out<br>E: 31-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">45</td>
+          <td class="font-bold">G- 03</td>
+          <td class="text-right font-mono">75.00 ha</td>
+          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 27-out<br>E: 01-nov</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">46</td>
+          <td class="font-bold">G- 38</td>
+          <td class="text-right font-mono">20.50 ha</td>
+          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 27-out<br>E: 01-nov</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">47</td>
+          <td class="font-bold">G- 39</td>
+          <td class="text-right font-mono">119.00 ha</td>
+          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
+          <td class="text-center text-[9px]">P: 28-out<br>E: 02-nov</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">48</td>
+          <td class="font-bold">G- 40</td>
+          <td class="text-right font-mono">125.00 ha</td>
+          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
+          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
+          <td class="text-center text-[9px]">P: 24-out<br>E: 29-out</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
+          <td class="text-center text-slate-300">_________________</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
