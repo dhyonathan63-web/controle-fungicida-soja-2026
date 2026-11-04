@@ -2,907 +2,3032 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Ficha de Campo - Manejo Soja 2026/2027</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Campo Oficial - Controle de Pulverização Soja 26/27</title>
+  <!-- SheetJS for Excel export if needed -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <style>
     @page {
       size: A4 landscape;
-      margin: 8mm;
+      margin: 8mm 6mm 6mm 6mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
       margin: 0;
-      padding: 10px;
-      color: #1e293b;
-      background: #f8fafc;
+      padding: 12px;
+      color: #0f172a;
+      background-color: #f1f5f9;
+      font-size: 8.5pt;
+      line-height: 1.25;
     }
     .no-print {
-      margin-bottom: 15px;
-      text-align: right;
-    }
-    .btn-print {
-      background: #059669;
-      color: white;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .page {
-      background: white;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      page-break-after: always;
-    }
-    .header {
+      max-width: 1300px;
+      margin: 0 auto 14px auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #0f172a;
-      padding-bottom: 8px;
-      margin-bottom: 10px;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid #cbd5e1;
     }
-    .header h1 {
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #15803d;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #166534;
+    }
+    .btn-secondary {
+      background-color: #334155;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #1e293b;
+    }
+    .btn-excel {
+      background-color: #047857;
+      color: white;
+    }
+    .btn-excel:hover {
+      background-color: #065f46;
+    }
+    
+    .page-container {
+      max-width: 1300px;
+      margin: 0 auto 20px auto;
+      background: white;
+      padding: 10mm;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page-container:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    /* Header matching PDF img_1.jpg */
+    .header-pdf {
+      background-color: #14532d;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .header-pdf h1 {
       margin: 0;
-      font-size: 16px;
+      font-size: 13pt;
+      font-weight: 900;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      color: #0f172a;
+      color: #ffffff;
     }
-    .header p {
-      margin: 2px 0 0;
-      font-size: 11px;
-      color: #64748b;
+    .header-pdf p {
+      margin: 3px 0 0;
+      font-size: 8.5pt;
+      color: #bbf7d0;
     }
     .header-info {
       text-align: right;
-      font-size: 11px;
+      font-size: 8.5pt;
     }
+    .header-badge {
+      background: #22c55e;
+      color: #052e16;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 8pt;
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    /* Instructions Box */
+    .info-bar {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #15803d;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+      font-size: 7.8pt;
+      display: flex;
+      justify-content: space-between;
+      color: #334155;
+    }
+    .info-bar strong {
+      color: #0f172a;
+    }
+
+    /* Table styling */
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 10px;
+      font-size: 7.6pt;
     }
     th, td {
-      border: 1px solid #94a3b8;
-      padding: 5px 6px;
+      border: 1px solid #64748b;
+      padding: 4px 4px;
+      vertical-align: middle;
     }
     th {
-      background: #e2e8f0;
-      color: #0f172a;
-      font-weight: bold;
+      background-color: #1e293b;
+      color: white;
       text-transform: uppercase;
-      font-size: 9px;
+      font-size: 7.2pt;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-align: center;
+      padding: 6px 4px;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
     }
     .text-center { text-align: center; }
     .text-right { text-align: right; }
     .font-bold { font-weight: bold; }
-    .font-mono { font-family: monospace; }
-    .campo-data {
-      text-align: center;
-      font-size: 9px;
-      color: #475569;
-      background: #fdfdfd;
-      min-width: 75px;
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .text-xs { font-size: 7pt; }
+    .text-muted { color: #64748b; font-size: 6.8pt; }
+    .text-green { color: #15803d; }
+
+    .gleba-name {
+      font-size: 8.5pt;
+      color: #0f172a;
+      white-space: nowrap;
     }
+
+    /* Badges & Glufosinate Purple Highlighting */
+    .tec-badge {
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 800;
+      font-size: 6.8pt;
+      text-transform: uppercase;
+    }
+    .tec-ipro { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .tec-xtend { background: #e0f2fe; color: #075985; border: 1px solid #7dd3fc; }
+    .tec-enlist { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+
+    /* GLUFOSINATO HIGHLIGHT (Purple / Violet bold) */
+    .badge-gluf {
+      display: inline-block;
+      background: #7e22ce;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 6.5pt;
+      padding: 1px 4px;
+      border-radius: 3px;
+      margin-left: 2px;
+      letter-spacing: 0.2px;
+    }
+    .badge-proib {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #64748b;
+      font-weight: 600;
+      font-size: 6pt;
+      padding: 1px 3px;
+      border-radius: 3px;
+      margin-left: 2px;
+    }
+    .gluf-txt {
+      color: #7e22ce;
+      background: #fae8ff;
+      padding: 0 2px;
+      border-radius: 2px;
+      font-weight: 900;
+    }
+    .tol-desc {
+      font-size: 6.5pt;
+      line-height: 1.1;
+      margin-top: 2px;
+    }
+
+    /* Checkbox & operation cells */
+    .check-cell {
+      min-width: 82px;
+      background-color: #ffffff;
+    }
+    .checkbox-group {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 2px;
+    }
+    .checkbox-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 7.2pt;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .box {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1.5px solid #0f172a;
+      border-radius: 2px;
+      background: white;
+    }
+    .date-line {
+      font-size: 6.8pt;
+      color: #475569;
+      margin-top: 1px;
+    }
+    .signature-cell {
+      min-width: 90px;
+    }
+    .sign-line {
+      display: block;
+      border-bottom: 1px dashed #64748b;
+      height: 14px;
+      margin: 0 4px;
+    }
+
+    /* Page Footer */
+    .page-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7pt;
+      color: #64748b;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 4px;
+    }
+
     @media print {
-      body { background: white; padding: 0; }
-      .no-print { display: none !important; }
-      .page { border: none; padding: 0; margin-bottom: 0; }
-      th { background-color: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .page-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0 0 10mm 0;
+        max-width: 100%;
+      }
+      .header-pdf {
+        background-color: #14532d !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      th {
+        background-color: #1e293b !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .badge-gluf {
+        background-color: #7e22ce !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .tec-ipro { background-color: #dcfce7 !important; -webkit-print-color-adjust: exact; }
+      .tec-xtend { background-color: #e0f2fe !important; -webkit-print-color-adjust: exact; }
+      .tec-enlist { background-color: #f3e8ff !important; -webkit-print-color-adjust: exact; }
+      tr:nth-child(even) {
+        background-color: #f8fafc !important;
+        -webkit-print-color-adjust: exact;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Action Bar (Screen only) -->
   <div class="no-print">
-    <button class="btn-print" onclick="window.print()">🖨️ IMPRIMIR / SALVAR PDF (Páginas 1 e 2)</button>
+    <div>
+      <h2 style="margin:0; font-size:16px; color:#14532d; font-weight:800;">Ficha de Campo - Impressão Oficial</h2>
+      <p style="margin:2px 0 0; font-size:12px; color:#64748b;">Ordem exata da planilha de plantio (img_3) • Modelo de Ficha do PDF (img_1) • Glufosinato destacado em roxo</p>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button onclick="window.print()" class="btn btn-primary">
+        🖨️ Imprimir / Salvar em PDF
+      </button>
+      <a href="index.html" class="btn btn-secondary">
+        📱 Abrir Painel Interativo
+      </a>
+      <button onclick="exportarExcel()" class="btn btn-excel">
+        📊 Exportar para Excel (.xlsx)
+      </button>
+    </div>
   </div>
 
-  <!-- FOLHA 1 -->
-  <div class="page">
-    <div class="header">
+  <!-- FOLHA 1 (Ordens 1 a 27) -->
+  <div class="page-container">
+    <div class="header-pdf">
       <div>
-        <h1>Ficha Operacional de Pulverização • Safra Soja 2026/2027</h1>
-        <p>Folha 1 de 2: Ordem 1 até Ordem 24 (Pivôs 002 a 010 e Glebas G-34 até G-23)</p>
+        <h1>CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
+        <p>Ordem Oficial Cronológica de Plantio da Planilha (Pivô 08 ao G-37) • Folha 1 de 2 (Ordens 1 a 27)</p>
       </div>
       <div class="header-info">
-        <strong>ÁREA TOTAL: 4.391,81 ha</strong><br>
-        Data de Saída: ____/____/2026
+        <div>Fazenda / Safra: <strong>Soja 2026/2027</strong></div>
+        <div class="header-badge">Área Total: 4.391,81 ha (54 Talhões)</div>
       </div>
+    </div>
+
+    <div class="info-bar">
+      <div><strong>Atenção ao Glufosinato:</strong> Aplicação de Glufosinato permitida EXCLUSIVAMENTE nas variedades <span class="badge-gluf">CONKESTA ENLIST</span>. Proibido em IPRO e XTEND.</div>
+      <div><strong>Intervalo de Fungicidas:</strong> 1ª entrada em R1 (~30-35 dias após emergência). Retornos obrigatórios a cada <strong>+14 dias</strong>.</div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th style="width: 25px;">Nº</th>
-          <th style="width: 100px;">Talhão / Gleba</th>
-          <th style="width: 65px;" class="text-right">Área</th>
-          <th style="width: 100px;">Variedade</th>
-          <th style="width: 140px;">Tecnologia & O que Tolera</th>
-          <th style="width: 75px;" class="text-center">Plantio / Emerg.</th>
-          <th style="width: 85px;" class="text-center">1º Fungicida (Data)</th>
-          <th style="width: 85px;" class="text-center">2º Fungicida (+14d)</th>
-          <th style="width: 85px;" class="text-center">3º Fungicida (+14d)</th>
-          <th style="width: 85px;" class="text-center">Inseticida (Data)</th>
-          <th style="width: 90px;" class="text-center">Assinatura / Resp.</th>
+          <th style="width: 28px;">Ord</th>
+          <th style="width: 75px;">Gleba</th>
+          <th style="width: 50px;">Área (ha)</th>
+          <th style="width: 105px;">Variedade (S/m)</th>
+          <th>Tecnologia & Tolerância Herbicida</th>
+          <th style="width: 65px;">Plantio / Emergência</th>
+          <th style="width: 95px;">1ª Aplicação<br>(Pós / Herb / Ins)</th>
+          <th style="width: 95px;">1º Fungicida<br>(R1 / Veto + Fol)</th>
+          <th style="width: 85px;">2º Fungicida<br>(+14d / R3)</th>
+          <th style="width: 85px;">3º Fungicida<br>(+14d / R5)</th>
+          <th style="width: 90px;">Visto Op.</th>
         </tr>
       </thead>
       <tbody>
         
         <tr>
           <td class="text-center font-bold">1</td>
-          <td class="font-bold">Pivo 002</td>
-          <td class="text-right font-mono">200.00 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 22-set<br>E: 27-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 08</td>
+          <td class="text-right font-mono font-bold">130.00</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>21-set</strong><br>E: 26-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~26 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">2</td>
-          <td class="font-bold">Pivo 003</td>
-          <td class="text-right font-mono">49.20 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 21-set<br>E: 26-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 03</td>
+          <td class="text-right font-mono font-bold">49.20</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>21-set</strong><br>E: 26-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~26 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">3</td>
-          <td class="font-bold">Pivo 005</td>
-          <td class="text-right font-mono">21.01 ha</td>
-          <td>NEO-700 <span class="text-slate-500 text-[9px]">(22 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 02</td>
+          <td class="text-right font-mono font-bold">200.00</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>22-set</strong><br>E: 27-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~27 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">4</td>
-          <td class="font-bold">Pivo 006</td>
-          <td class="text-right font-mono">27.53 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 18</td>
+          <td class="text-right font-mono font-bold">195.00</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>23-set</strong><br>E: 28-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~28 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">5</td>
-          <td class="font-bold">Pivo 007</td>
-          <td class="text-right font-mono">80.50 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 19</td>
+          <td class="text-right font-mono font-bold">193.45</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>24-set</strong><br>E: 29-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">6</td>
-          <td class="font-bold">Pivo 008</td>
-          <td class="text-right font-mono">130.00 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 21-set<br>E: 26-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 21</td>
+          <td class="text-right font-mono font-bold">181.02</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>24-set</strong><br>E: 29-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">7</td>
-          <td class="font-bold">Pivo 009</td>
-          <td class="text-right font-mono">58.06 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 24-set<br>E: 29-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 09</td>
+          <td class="text-right font-mono font-bold">58.06</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>24-set</strong><br>E: 29-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">8</td>
-          <td class="font-bold">Pivo 010</td>
-          <td class="text-right font-mono">63.51 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 05</td>
+          <td class="text-right font-mono font-bold">21.01</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">9</td>
-          <td class="font-bold">G- 34</td>
-          <td class="text-right font-mono">51.80 ha</td>
-          <td>NEO-801 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 02-out<br>E: 07-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 06</td>
+          <td class="text-right font-mono font-bold">27.53</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">10</td>
-          <td class="font-bold">G- 18</td>
-          <td class="text-right font-mono">195.00 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 23-set<br>E: 28-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 10</td>
+          <td class="text-right font-mono font-bold">63.51</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">11</td>
-          <td class="font-bold">G- 19</td>
-          <td class="text-right font-mono">193.45 ha</td>
-          <td>GUEPARDO <span class="text-slate-500 text-[9px]">(18 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 24-set<br>E: 29-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 32</td>
+          <td class="text-right font-mono font-bold">109.68</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">12</td>
-          <td class="font-bold">G- 21</td>
-          <td class="text-right font-mono">181.02 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 24-set<br>E: 29-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">Pivo 07</td>
+          <td class="text-right font-mono font-bold">80.50</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">13</td>
-          <td class="font-bold">G- 26</td>
-          <td class="text-right font-mono">28.88 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 02-out<br>E: 07-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 34</td>
+          <td class="text-right font-mono font-bold">51.80</td>
+          <td><strong>NEO-801</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~07 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">14</td>
-          <td class="font-bold">G- 27</td>
-          <td class="text-right font-mono">137.30 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 02-out<br>E: 07-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 27 (Guepardo)</td>
+          <td class="text-right font-mono font-bold">8.76</td>
+          <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~07 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">15</td>
-          <td class="font-bold">G- 29</td>
-          <td class="text-right font-mono">165.00 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 27 (Neo-700)</td>
+          <td class="text-right font-mono font-bold">17.30</td>
+          <td><strong>NEO-700</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~07 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">16</td>
-          <td class="font-bold">G- 30</td>
-          <td class="text-right font-mono">148.40 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 03-out<br>E: 08-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 27 (72 I X 74)</td>
+          <td class="text-right font-mono font-bold">111.24</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~07 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">17</td>
-          <td class="font-bold">G- 32</td>
-          <td class="text-right font-mono">109.68 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 25-set<br>E: 30-set</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 26</td>
+          <td class="text-right font-mono font-bold">28.88</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~07 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">18</td>
-          <td class="font-bold">G- 11</td>
-          <td class="text-right font-mono">100.99 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 30</td>
+          <td class="text-right font-mono font-bold">148.40</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>03-out</strong><br>E: 08-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~08 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">19</td>
-          <td class="font-bold">G- 12</td>
-          <td class="text-right font-mono">45.37 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 29</td>
+          <td class="text-right font-mono font-bold">165.00</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">20</td>
-          <td class="font-bold">G- 13</td>
-          <td class="text-right font-mono">194.40 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 11</td>
+          <td class="text-right font-mono font-bold">100.99</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">21</td>
-          <td class="font-bold">G- 14</td>
-          <td class="text-right font-mono">67.36 ha</td>
-          <td>72 I X 74 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 04-out<br>E: 09-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 13 P/CIMA</td>
+          <td class="text-right font-mono font-bold">191.88</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">22</td>
-          <td class="font-bold">G- 15</td>
-          <td class="text-right font-mono">130.80 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 05-out<br>E: 10-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 13 (2ª Passada)</td>
+          <td class="text-right font-mono font-bold">2.52</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">23</td>
-          <td class="font-bold">G- 20</td>
-          <td class="text-right font-mono">182.30 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 06-out<br>E: 11-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 12</td>
+          <td class="text-right font-mono font-bold">35.76</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">24</td>
-          <td class="font-bold">G- 23</td>
-          <td class="text-right font-mono">33.40 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 06-out<br>E: 11-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 12 MEIO</td>
+          <td class="text-right font-mono font-bold">9.61</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
-      </tbody>
-    </table>
-  </div>
 
-  <!-- FOLHA 2 -->
-  <div class="page">
-    <div class="header">
-      <div>
-        <h1>Ficha Operacional de Pulverização • Safra Soja 2026/2027</h1>
-        <p>Folha 2 de 2: Ordem 25 até Ordem 48 + G-06 (Glebas G-22 até G-40)</p>
-      </div>
-      <div class="header-info">
-        <strong>ÁREA TOTAL: 4.391,81 ha</strong><br>
-        Data de Saída: ____/____/2026
-      </div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th style="width: 25px;">Nº</th>
-          <th style="width: 100px;">Talhão / Gleba</th>
-          <th style="width: 65px;" class="text-right">Área</th>
-          <th style="width: 100px;">Variedade</th>
-          <th style="width: 140px;">Tecnologia & O que Tolera</th>
-          <th style="width: 75px;" class="text-center">Plantio / Emerg.</th>
-          <th style="width: 85px;" class="text-center">1º Fungicida (Data)</th>
-          <th style="width: 85px;" class="text-center">2º Fungicida (+14d)</th>
-          <th style="width: 85px;" class="text-center">3º Fungicida (+14d)</th>
-          <th style="width: 85px;" class="text-center">Inseticida (Data)</th>
-          <th style="width: 90px;" class="text-center">Assinatura / Resp.</th>
-        </tr>
-      </thead>
-      <tbody>
-        
         <tr>
           <td class="text-center font-bold">25</td>
-          <td class="font-bold">G- 22</td>
-          <td class="text-right font-mono">123.50 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 14 P/CIMA</td>
+          <td class="text-right font-mono font-bold">51.05</td>
+          <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">26</td>
-          <td class="font-bold">G- 24</td>
-          <td class="text-right font-mono">50.90 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 14 P/BAIXO</td>
+          <td class="text-right font-mono font-bold">16.31</td>
+          <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~09 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">27</td>
-          <td class="font-bold">G- 25</td>
-          <td class="text-right font-mono">52.81 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 15</td>
+          <td class="text-right font-mono font-bold">130.80</td>
+          <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>05-out</strong><br>E: 10-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~10 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
+      </tbody>
+    </table>
 
+    <div class="page-footer">
+      <div>Controle Operacional de Campo Safra 2026/2027 — Folha 1 de 2 (Talhões 1 a 27)</div>
+      <div>Assinatura do Responsável Técnico: ___________________________________________</div>
+    </div>
+  </div>
+
+  <!-- FOLHA 2 (Ordens 28 a 54) -->
+  <div class="page-container">
+    <div class="header-pdf">
+      <div>
+        <h1>CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
+        <p>Ordem Oficial Cronológica de Plantio da Planilha (Pivô 08 ao G-37) • Folha 2 de 2 (Ordens 28 a 54)</p>
+      </div>
+      <div class="header-info">
+        <div>Fazenda / Safra: <strong>Soja 2026/2027</strong></div>
+        <div class="header-badge">Área Total: 4.391,81 ha (54 Talhões)</div>
+      </div>
+    </div>
+
+    <div class="info-bar">
+      <div><strong>Atenção ao Glufosinato:</strong> Aplicação de Glufosinato permitida EXCLUSIVAMENTE nas variedades <span class="badge-gluf">CONKESTA ENLIST</span>. Proibido em IPRO e XTEND.</div>
+      <div><strong>Intervalo de Fungicidas:</strong> 1ª entrada em R1 (~30-35 dias após emergência). Retornos obrigatórios a cada <strong>+14 dias</strong>.</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 28px;">Ord</th>
+          <th style="width: 75px;">Gleba</th>
+          <th style="width: 50px;">Área (ha)</th>
+          <th style="width: 105px;">Variedade (S/m)</th>
+          <th>Tecnologia & Tolerância Herbicida</th>
+          <th style="width: 65px;">Plantio / Emergência</th>
+          <th style="width: 95px;">1ª Aplicação<br>(Pós / Herb / Ins)</th>
+          <th style="width: 95px;">1º Fungicida<br>(R1 / Veto + Fol)</th>
+          <th style="width: 85px;">2º Fungicida<br>(+14d / R3)</th>
+          <th style="width: 85px;">3º Fungicida<br>(+14d / R5)</th>
+          <th style="width: 90px;">Visto Op.</th>
+        </tr>
+      </thead>
+      <tbody>
+        
         <tr>
           <td class="text-center font-bold">28</td>
-          <td class="font-bold">G- 35</td>
-          <td class="text-right font-mono">16.85 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 20</td>
+          <td class="text-right font-mono font-bold">182.30</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>06-out</strong><br>E: 11-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~11 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">29</td>
-          <td class="font-bold">G- 28</td>
-          <td class="text-right font-mono">57.00 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 23</td>
+          <td class="text-right font-mono font-bold">33.40</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>06-out</strong><br>E: 11-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~11 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">30</td>
-          <td class="font-bold">G- 31</td>
-          <td class="text-right font-mono">54.30 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 35</td>
+          <td class="text-right font-mono font-bold">16.85</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~12 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">31</td>
-          <td class="font-bold">G- 36</td>
-          <td class="text-right font-mono">34.50 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 22</td>
+          <td class="text-right font-mono font-bold">123.50</td>
+          <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~12 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">32</td>
-          <td class="font-bold">G- 37</td>
-          <td class="text-right font-mono">4.31 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 24</td>
+          <td class="text-right font-mono font-bold">50.90</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~12 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">33</td>
-          <td class="font-bold">G- 07</td>
-          <td class="text-right font-mono">177.00 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 25</td>
+          <td class="text-right font-mono font-bold">52.81</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~12 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">34</td>
-          <td class="font-bold">G- 33</td>
-          <td class="text-right font-mono">118.00 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 07-out<br>E: 12-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 07</td>
+          <td class="text-right font-mono font-bold">177.00</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~12 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">35</td>
-          <td class="font-bold">G- 01</td>
-          <td class="text-right font-mono">29.70 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 08-out<br>E: 13-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 33</td>
+          <td class="text-right font-mono font-bold">118.00</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~12 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">36</td>
-          <td class="font-bold">G- 02</td>
-          <td class="text-right font-mono">241.00 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 08-out<br>E: 13-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 01</td>
+          <td class="text-right font-mono font-bold">29.70</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>08-out</strong><br>E: 13-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~13 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">37</td>
-          <td class="font-bold">G- 09</td>
-          <td class="text-right font-mono">45.70 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 08-out<br>E: 13-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 02</td>
+          <td class="text-right font-mono font-bold">241.00</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>08-out</strong><br>E: 13-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~13 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">38</td>
-          <td class="font-bold">G- 04</td>
-          <td class="text-right font-mono">32.48 ha</td>
-          <td>74 K 75 <span class="text-slate-500 text-[9px]">(16 s/m)</span></td>
-          <td class="text-[9px]"><strong>ENLIST</strong><br><span class="text-emerald-700">Glifosato + Glufosinato + 2,4-D</span></td>
-          <td class="text-center text-[9px]">P: 15-out<br>E: 20-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 09</td>
+          <td class="text-right font-mono font-bold">45.70</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>08-out</strong><br>E: 13-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~13 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">39</td>
-          <td class="font-bold">G- 05</td>
-          <td class="text-right font-mono">40.30 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 36</td>
+          <td class="text-right font-mono font-bold">34.50</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~20 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">40</td>
-          <td class="font-bold">G- 16</td>
-          <td class="text-right font-mono">113.00 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 31</td>
+          <td class="text-right font-mono font-bold">54.30</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~20 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">41</td>
-          <td class="font-bold">G- 17</td>
-          <td class="text-right font-mono">42.00 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 16-out<br>E: 21-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 04</td>
+          <td class="text-right font-mono font-bold">32.48</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~20 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">42</td>
-          <td class="font-bold">G- 08</td>
-          <td class="text-right font-mono">128.40 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 28</td>
+          <td class="text-right font-mono font-bold">57.00</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~20 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">43</td>
-          <td class="font-bold">G- 10A</td>
-          <td class="text-right font-mono">58.70 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 17-out<br>E: 22-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 17</td>
+          <td class="text-right font-mono font-bold">42.00</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>16-out</strong><br>E: 21-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~21 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">44</td>
-          <td class="font-bold">G- 10B</td>
-          <td class="text-right font-mono">14.00 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 26-out<br>E: 31-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
-        </tr>
-        
-
-        <tr>
-          <td class="text-center font-bold">44.1</td>
-          <td class="font-bold">G- 06</td>
-          <td class="text-right font-mono">22.90 ha</td>
-          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 26-out<br>E: 31-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 16</td>
+          <td class="text-right font-mono font-bold">113.00</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~22 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">45</td>
-          <td class="font-bold">G- 03</td>
-          <td class="text-right font-mono">75.00 ha</td>
-          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 27-out<br>E: 01-nov</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 08</td>
+          <td class="text-right font-mono font-bold">128.40</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~22 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">46</td>
-          <td class="font-bold">G- 38</td>
-          <td class="text-right font-mono">20.50 ha</td>
-          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 27-out<br>E: 01-nov</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 05</td>
+          <td class="text-right font-mono font-bold">40.30</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~22 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">47</td>
-          <td class="font-bold">G- 39</td>
-          <td class="text-right font-mono">119.00 ha</td>
-          <td>78 IX 80 <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>XTEND</strong><br><span class="text-emerald-700">Glifosato + Dicamba</span></td>
-          <td class="text-center text-[9px]">P: 28-out<br>E: 02-nov</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 10A</td>
+          <td class="text-right font-mono font-bold">58.70</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~22 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
 
         <tr>
           <td class="text-center font-bold">48</td>
-          <td class="font-bold">G- 40</td>
-          <td class="text-right font-mono">125.00 ha</td>
-          <td>OLIMPO <span class="text-slate-500 text-[9px]">(13 s/m)</span></td>
-          <td class="text-[9px]"><strong>IPRO</strong><br><span class="text-emerald-700">Glifosato</span></td>
-          <td class="text-center text-[9px]">P: 24-out<br>E: 29-out</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="campo-data">[ &nbsp; &nbsp; / &nbsp; &nbsp; / &nbsp; &nbsp; ]</td>
-          <td class="text-center text-slate-300">_________________</td>
+          <td class="font-bold gleba-name">G- 40</td>
+          <td class="text-right font-mono font-bold">125.00</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>24-out</strong><br>E: 29-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">49</td>
+          <td class="font-bold gleba-name">G- 10B</td>
+          <td class="text-right font-mono font-bold">14.00</td>
+          <td><strong>NEO-801</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
+      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
+      <div class='tol-desc'></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~31 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">50</td>
+          <td class="font-bold gleba-name">G- 39</td>
+          <td class="text-right font-mono font-bold">119.00</td>
+          <td><strong>78 IX 80 / OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-ipro'>INTÃ/I2X / RR2</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~31 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">51</td>
+          <td class="font-bold gleba-name">G- 38</td>
+          <td class="text-right font-mono font-bold">20.50</td>
+          <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~31 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">52</td>
+          <td class="font-bold gleba-name">G- 03</td>
+          <td class="text-right font-mono font-bold">75.00</td>
+          <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>27-out</strong><br>E: 01-nov</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">53</td>
+          <td class="font-bold gleba-name">G- 06</td>
+          <td class="text-right font-mono font-bold">22.90</td>
+          <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>27-out</strong><br>E: 01-nov</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+        
+
+        <tr>
+          <td class="text-center font-bold">54</td>
+          <td class="font-bold gleba-name">G- 37</td>
+          <td class="text-right font-mono font-bold">4.31</td>
+          <td><strong>78 IX 80</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td>
+      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
+      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
+      <div class='tol-desc'><span class='text-muted'></span></div>
+    </td>
+          <td class="text-center text-xs">P: <strong>27-out</strong><br>E: 01-nov</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Pós</label>
+              <label><span class="box"></span> Herb</label>
+              <label><span class="box"></span> Ins</label>
+            </div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+              <label><span class="box"></span> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 nov</div>
+            <div class="date-line">Data: ___/___/26</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 1ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><span class="box"></span> Fung</label>
+            </div>
+            <div class="date-line text-muted">+14d da 2ª</div>
+            <div class="date-line">Data: ___/___/___</div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
         </tr>
         
       </tbody>
     </table>
+
+    <div class="page-footer">
+      <div>Controle Operacional de Campo Safra 2026/2027 — Folha 2 de 2 (Talhões 28 a 54)</div>
+      <div>Assinatura do Responsável Técnico: ___________________________________________</div>
+    </div>
   </div>
 
+<script>
+const dadosTalhoes = [{"ordem": 1, "gleba": "Pivo 08", "ha": 130.0, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "21-set", "dtE": "26-set", "pms": 55, "pop": 14.8, "tipo": "Pivô", "id": 1, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 2, "gleba": "Pivo 03", "ha": 49.2, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "21-set", "dtE": "26-set", "pms": 55, "pop": 13.8, "tipo": "Pivô", "id": 2, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 3, "gleba": "Pivo 02", "ha": 200.0, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "22-set", "dtE": "27-set", "pms": 55, "pop": 14.8, "tipo": "Pivô", "id": 3, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 4, "gleba": "G- 18", "ha": 195.0, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "23-set", "dtE": "28-set", "pms": 55, "pop": 14.8, "tipo": "Gleba", "id": 4, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 5, "gleba": "G- 19", "ha": 193.45, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "24-set", "dtE": "29-set", "pms": 55, "pop": 14.4, "tipo": "Gleba", "id": 5, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 6, "gleba": "G- 21", "ha": 181.02, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "24-set", "dtE": "29-set", "pms": 51, "pop": 14.4, "tipo": "Gleba", "id": 6, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 7, "gleba": "Pivo 09", "ha": 58.06, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "24-set", "dtE": "29-set", "pms": 55, "pop": 17.8, "tipo": "Pivô", "id": 7, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 8, "gleba": "Pivo 05", "ha": 21.01, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "25-set", "dtE": "30-set", "pms": 55, "pop": 17.6, "tipo": "Pivô", "id": 8, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 9, "gleba": "Pivo 06", "ha": 27.53, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "25-set", "dtE": "30-set", "pms": 55, "pop": 17.6, "tipo": "Pivô", "id": 9, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 10, "gleba": "Pivo 10", "ha": 63.51, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "25-set", "dtE": "30-set", "pms": 55, "pop": 17.8, "tipo": "Pivô", "id": 10, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 11, "gleba": "G- 32", "ha": 109.68, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "25-set", "dtE": "30-set", "pms": 51, "pop": 14.0, "tipo": "Gleba", "id": 11, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 12, "gleba": "Pivo 07", "ha": 80.5, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "25-set", "dtE": "30-set", "pms": 51, "pop": 14.8, "tipo": "Pivô", "id": 12, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 13, "gleba": "G- 34", "ha": 51.8, "var": "NEO-801", "sem": 13, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "02-out", "dtE": "07-out", "pms": 45, "pop": 12.4, "tipo": "Gleba", "id": 13, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 14, "gleba": "G- 27 (Guepardo)", "ha": 8.76, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "02-out", "dtE": "07-out", "pms": 55, "pop": 17.6, "tipo": "Gleba", "id": 14, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 15, "gleba": "G- 27 (Neo-700)", "ha": 17.3, "var": "NEO-700", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "02-out", "dtE": "07-out", "pms": 45, "pop": 18.4, "tipo": "Gleba", "id": 15, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 16, "gleba": "G- 27 (72 I X 74)", "ha": 111.24, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "02-out", "dtE": "07-out", "pms": 51, "pop": 14.0, "tipo": "Gleba", "id": 16, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 17, "gleba": "G- 26", "ha": 28.88, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "02-out", "dtE": "07-out", "pms": 51, "pop": 13.8, "tipo": "Gleba", "id": 17, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 18, "gleba": "G- 30", "ha": 148.4, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "03-out", "dtE": "08-out", "pms": 51, "pop": 13.2, "tipo": "Gleba", "id": 18, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 19, "gleba": "G- 29", "ha": 165.0, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 1.4, "tipo": "Gleba", "id": 19, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 20, "gleba": "G- 11", "ha": 100.99, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 13.0, "tipo": "Gleba", "id": 20, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 21, "gleba": "G- 13 P/CIMA", "ha": 191.88, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 13.0, "tipo": "Gleba", "id": 21, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 22, "gleba": "G- 13 (2ª Passada)", "ha": 2.52, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "04-out", "dtE": "09-out", "pms": 50, "pop": 12.2, "tipo": "Gleba", "id": 22, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 23, "gleba": "G- 12", "ha": 35.76, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "04-out", "dtE": "09-out", "pms": 50, "pop": 13.2, "tipo": "Gleba", "id": 23, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 24, "gleba": "G- 12 MEIO", "ha": 9.61, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 12.8, "tipo": "Gleba", "id": 24, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 25, "gleba": "G- 14 P/CIMA", "ha": 51.05, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 12.8, "tipo": "Gleba", "id": 25, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 26, "gleba": "G- 14 P/BAIXO", "ha": 16.31, "var": "74 K 75-SP", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "04-out", "dtE": "09-out", "pms": 50, "pop": 14.2, "tipo": "Gleba", "id": 26, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 27, "gleba": "G- 15", "ha": 130.8, "var": "74 K 75-SP", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "05-out", "dtE": "10-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 27, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 28, "gleba": "G- 20", "ha": 182.3, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "06-out", "dtE": "11-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 28, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 29, "gleba": "G- 23", "ha": 33.4, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "06-out", "dtE": "11-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 29, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 30, "gleba": "G- 35", "ha": 16.85, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 30, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 31, "gleba": "G- 22", "ha": 123.5, "var": "74 K 75-SP", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 31, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 32, "gleba": "G- 24", "ha": 50.9, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 32, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 33, "gleba": "G- 25", "ha": 52.81, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 33, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 34, "gleba": "G- 07", "ha": 177.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 34, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 35, "gleba": "G- 33", "ha": 118.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 35, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 36, "gleba": "G- 01", "ha": 29.7, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "08-out", "dtE": "13-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 36, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 37, "gleba": "G- 02", "ha": 241.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "08-out", "dtE": "13-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 37, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 38, "gleba": "G- 09", "ha": 45.7, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "08-out", "dtE": "13-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 38, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 39, "gleba": "G- 36", "ha": 34.5, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 39, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 40, "gleba": "G- 31", "ha": 54.3, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 40, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 41, "gleba": "G- 04", "ha": 32.48, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 41, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 42, "gleba": "G- 28", "ha": 57.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 42, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 43, "gleba": "G- 17", "ha": 42.0, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "16-out", "dtE": "21-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 43, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 44, "gleba": "G- 16", "ha": 113.0, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 44, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 45, "gleba": "G- 08", "ha": 128.4, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 45, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 46, "gleba": "G- 05", "ha": 40.3, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 46, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 47, "gleba": "G- 10A", "ha": 58.7, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 47, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 48, "gleba": "G- 40", "ha": 125.0, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "24-out", "dtE": "29-out", "pms": 35, "pop": 0, "tipo": "Gleba", "id": 48, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 49, "gleba": "G- 10B", "ha": 14.0, "var": "NEO-801", "sem": 13, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "26-out", "dtE": "31-out", "pms": 43, "pop": 0, "tipo": "Gleba", "id": 49, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 50, "gleba": "G- 39", "ha": 119.0, "var": "78 IX 80 / OLIMPO", "sem": 13, "tec": "INTÃ/I2X / RR2", "tec_badge": "XTEND I2X", "dtP": "26-out", "dtE": "31-out", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 50, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 51, "gleba": "G- 38", "ha": 20.5, "var": "78 IX 80", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "26-out", "dtE": "31-out", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 51, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 52, "gleba": "G- 03", "ha": 75.0, "var": "78 IX 80", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "27-out", "dtE": "01-nov", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 52, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 53, "gleba": "G- 06", "ha": 22.9, "var": "78 IX 80", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "27-out", "dtE": "01-nov", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 53, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 54, "gleba": "G- 37", "ha": 4.31, "var": "78 IX 80", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "27-out", "dtE": "01-nov", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 54, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}];
+
+function exportarExcel() {
+  const wb = XLSX.utils.book_new();
+  const rows = [
+    ["SAFRA SOJA 2026/2027 - FICHA DE CAMPO E CONTROLE DE PULVERIZAÇÃO"],
+    ["Área Total: 4.391,81 ha | Ordem Cronológica de Plantio Oficial"],
+    [],
+    ["Ord", "Gleba / Talhão", "Área (ha)", "Variedade", "Sem/m", "Tecnologia", "Tolerância Herbicida", "Plantio", "Emergência", "1ª Aplicação Feita", "Data 1ª Aplicação", "1º Fungicida Previsto", "Data 1º Fungicida", "2º Fungicida (+14d)", "3º Fungicida (+14d)", "Visto Operador"]
+  ];
+
+  dadosTalhoes.forEach(t => {
+    rows.push([
+      t.ordem,
+      t.gleba,
+      t.ha,
+      t.var,
+      t.sem || 18,
+      t.tec,
+      t.tol,
+      t.dtP,
+      t.dtE,
+      "[ ] Pós [ ] Herb [ ] Ins",
+      "",
+      `R1 (~${t.dtE.slice(0, 2)} nov)`,
+      "",
+      "+14 dias",
+      "+14 dias",
+      ""
+    ]);
+  });
+
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws["!cols"] = [
+    { wch: 6 },
+    { wch: 14 },
+    { wch: 10 },
+    { wch: 16 },
+    { wch: 8 },
+    { wch: 14 },
+    { wch: 38 },
+    { wch: 10 },
+    { wch: 12 },
+    { wch: 22 },
+    { wch: 16 },
+    { wch: 20 },
+    { wch: 16 },
+    { wch: 18 },
+    { wch: 18 },
+    { wch: 18 }
+  ];
+
+  XLSX.utils.book_append_sheet(wb, ws, "Ficha de Campo");
+  XLSX.writeFile(wb, "Ficha_de_Campo_Soja_2026_2027.xlsx");
+}
+</script>
 </body>
 </html>
