@@ -1,0 +1,24 @@
+{
+  "name": "Controle de Pulverização Soja 2026/2027",
+  "short_name": "Soja 26/27",
+  "description": "Controle de fungicidas, tolerâncias herbicidas e ficha de campo na ordem oficial de plantio (4.391,81 ha). Funciona 100% offline.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1120",
+  "theme_color": "#14532d",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
