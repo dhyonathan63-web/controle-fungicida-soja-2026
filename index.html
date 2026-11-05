@@ -108,7 +108,7 @@
             Controle de Pulverização Soja 26/27
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800">4.391,81 ha</span>
           </h1>
-          <p class="text-[11px] text-slate-400">Ordem de Plantio da Planilha Oficial • Gestão Unificada de Fungicidas & Tolerâncias</p>
+          <p class="text-[11px] text-slate-400">Ordem de Plantio da Planilha Oficial • 2ª Aplicação aos 17 dias • Tolerâncias Herbicidas</p>
         </div>
       </div>
 
@@ -139,10 +139,10 @@
       </div>
     </div>
 
-    <!-- Navigation Tabs (Unificada: Fungicidas + Tolerâncias em uma só aba principal, sem redundâncias) -->
+    <!-- Navigation Tabs -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-slate-800/80 pt-2 pb-2 tab-buttons">
       <button onclick="mudarAba('fungicidas')" id="btn-tab-fungicidas" class="tab-btn px-4 py-2 text-xs font-bold rounded-lg transition whitespace-nowrap bg-emerald-600 text-white flex items-center gap-2">
-        <span>🔬</span> Fungicidas, Tolerâncias & Retornos (+14d)
+        <span>🔬</span> Fungicidas, Tolerâncias & Retornos (2ª aos +17d)
       </button>
       <button onclick="mudarAba('ficha_campo')" id="btn-tab-ficha_campo" class="tab-btn px-4 py-2 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center gap-2">
         <span>📄</span> Ficha de Campo (Modelo do PDF)
@@ -237,7 +237,7 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- ABA 1: FUNGICIDAS, TOLERÂNCIAS & RETORNOS (+14 DIAS) - VISÃO UNIFICADA   -->
+    <!-- ABA 1: FUNGICIDAS, TOLERÂNCIAS & RETORNOS (2ª AOS 17 DIAS)               -->
     <!-- ========================================================================= -->
     <div id="secao-fungicidas" class="tab-content space-y-4">
 
@@ -246,15 +246,16 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700/60 pb-2.5">
           <div>
             <h2 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
-              🔬 Manejo Integrado de Fungicidas, Tolerâncias Herbicidas & Retornos (+14d)
+              🔬 Manejo Integrado de Fungicidas, Tolerâncias Herbicidas & Retornos
             </h2>
             <p class="text-xs text-slate-400">
-              Controle completo por ordem cronológica de semeadura. Preencha a data em que o fungicida foi realizado e o sistema calculará automaticamente o <strong>próximo retorno (+14 dias)</strong>.
+              Controle por ordem de semeadura. Preencha a data da 1ª aplicação realizada e o sistema calculará automaticamente o <strong>retorno da 2ª aplicação aos 17 dias</strong> (e a 3ª aos +14 dias da 2ª).
             </p>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
             <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-semibold">1ª Entrada: R1 (~30-35d após E)</span>
-            <span class="text-[11px] px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800 font-semibold">Intervalo: +14 dias</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-sky-950 text-sky-200 border border-sky-700 font-bold" style="background:#0c4a6e;">2ª Entrada: +17 dias da 1ª</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-semibold">3ª Entrada: +14 dias da 2ª</span>
           </div>
         </div>
 
@@ -313,9 +314,9 @@
                 <th class="p-3">Tecnologia & Tolerância Herbicida</th>
                 <th class="p-3 text-center">Plantio / Emergência</th>
                 <th class="p-3 text-center bg-slate-950/40">1º Fungicida (Previsto R1 & Data Feita)</th>
-                <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">2ª Prevista (+14d)</th>
+                <th class="p-3 text-center bg-sky-950/30 text-sky-200 font-bold border-x border-sky-800/50">2ª Prevista (+17d da 1ª)</th>
                 <th class="p-3 text-center bg-slate-950/40">2ª Feita</th>
-                <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+14d)</th>
+                <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+14d da 2ª)</th>
                 <th class="p-3 text-center bg-slate-950/40">3ª Feita</th>
                 <th class="p-3 text-center">Obs / Produto</th>
               </tr>
@@ -336,7 +337,7 @@
             📄 Ficha de Campo Oficial (Modelo do PDF)
           </h2>
           <p class="text-xs text-slate-400">
-            Formatação estruturada exatamente como o modelo do PDF, com caixas de marcação para o operador assinalar no campo (<span class="font-mono text-emerald-400">[ ] Pós [ ] Herb [ ] Ins [ ] Fung [ ] Fol</span>) e assinatura.
+            Formatação estruturada exatamente como o modelo do PDF, com caixas de marcação para o operador assinalar no campo (<span class="font-mono text-emerald-400">[ ] Pós [ ] Herb [ ] Ins [ ] Fung [ ] Fol</span>) e visto. 2ª aplicação aos 17 dias.
           </p>
         </div>
         <div class="flex items-center gap-2">
@@ -355,7 +356,7 @@
         <div class="pdf-header bg-[#14532d] text-white p-4 rounded-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
           <div>
             <h1 class="text-base sm:text-lg font-black uppercase tracking-wide text-white">CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
-            <p class="text-xs text-emerald-200">Ordem Oficial de Plantio da Planilha • Folha de Campo para Prancheta</p>
+            <p class="text-xs text-emerald-200">Ordem Oficial de Plantio da Planilha • Folha de Campo para Prancheta (2ª Aplicação aos 17 dias)</p>
           </div>
           <div class="text-left sm:text-right text-xs">
             <div>Área Total: <strong>4.391,81 ha (54 Talhões)</strong></div>
@@ -375,8 +376,8 @@
                 <th class="p-2 border border-slate-400 w-20 text-center">Plantio</th>
                 <th class="p-2 border border-slate-400 text-center w-32">1ª Aplicação<br>(Pós / Herb / Ins)</th>
                 <th class="p-2 border border-slate-400 text-center w-28">1º Fungicida<br>(R1 / Veto)</th>
-                <th class="p-2 border border-slate-400 text-center w-24">2º Fung.<br>(+14d)</th>
-                <th class="p-2 border border-slate-400 text-center w-24">3º Fung.<br>(+14d)</th>
+                <th class="p-2 border border-slate-400 text-center w-24 bg-sky-900 text-white">2º Fung.<br>(+17d da 1ª)</th>
+                <th class="p-2 border border-slate-400 text-center w-24">3º Fung.<br>(+14d da 2ª)</th>
                 <th class="p-2 border border-slate-400 text-center w-28">Visto Op.</th>
               </tr>
             </thead>
@@ -425,7 +426,7 @@
     <div class="max-w-7xl mx-auto px-4">
       <p>Controle Operacional de Pulverização Safra Soja 2026/2027 • 4.391,81 ha (54 Áreas em Ordem de Plantio)</p>
       <p class="text-[11px] text-slate-400 mt-1">
-        Atenção Fitossanitária: Glufosinato de Amônio permitido exclusivamente nas cultivares <strong>CONKESTA ENLIST</strong>.
+        2ª Aplicação de Fungicida aos 17 dias • Glufosinato de Amônio permitido exclusivamente nas cultivares <strong>CONKESTA ENLIST</strong>.
       </p>
     </div>
   </footer>
@@ -1448,7 +1449,7 @@
       return appState[id];
     }
 
-    // Cálculo exato de +14 dias
+    // Cálculo de retorno com dias configuráveis (17 dias para a 2ª aplicação, 14 dias para a 3ª)
     function calcularProximaData(dataIsoStr, dias = 14) {
       if (!dataIsoStr) return null;
       const partes = dataIsoStr.split('-');
@@ -1477,16 +1478,16 @@
       return Math.round(diffTime / (1000 * 60 * 60 * 24));
     }
 
-    function obterStatusBadge(dataFormatada, dataIsoBase) {
+    function obterStatusBadge(dataFormatada, dataIsoBase, dias = 14) {
       if (!dataFormatada) {
         return `<span class="text-slate-400 text-[11px]">—</span>`;
       }
       
-      const diasRest = calcularDiasRestantes(dataIsoBase, 14);
+      const diasRest = calcularDiasRestantes(dataIsoBase, dias);
       let badgeHtml = '';
 
       if (diasRest === null) {
-        badgeHtml = `<span class="px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 font-mono text-[11px] border border-emerald-800">${dataFormatada}</span>`;
+        badgeHtml = `<span class="px-2 py-0.5 rounded bg-sky-950/60 text-sky-300 font-mono text-[11px] border border-sky-800">${dataFormatada}</span>`;
       } else if (diasRest < 0) {
         badgeHtml = `<div class="flex flex-col items-center">
           <span class="px-2 py-0.5 rounded bg-rose-950 text-rose-300 font-mono font-bold text-[11px] border border-rose-800">${dataFormatada}</span>
@@ -1499,8 +1500,8 @@
         </div>`;
       } else {
         badgeHtml = `<div class="flex flex-col items-center">
-          <span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 font-mono font-bold text-[11px] border border-emerald-800">${dataFormatada}</span>
-          <span class="text-[9px] text-emerald-400 font-medium mt-0.5">${diasRest}d restantes</span>
+          <span class="px-2 py-0.5 rounded bg-sky-950/80 text-sky-200 font-mono font-bold text-[11px] border border-sky-700">${dataFormatada}</span>
+          <span class="text-[9px] text-sky-400 font-medium mt-0.5">${diasRest}d restantes</span>
         </div>`;
       }
 
@@ -1550,7 +1551,7 @@
       renderizarTabelasVisiveis();
     }
 
-    // TAB 1: FUNGICIDAS, TOLERÂNCIAS & RETORNOS (+14 DIAS) - PRINCIPAL E UNIFICADA
+    // TAB 1: FUNGICIDAS, TOLERÂNCIAS & RETORNOS (2ª APLICAÇÃO AOS 17 DIAS)
     function renderizarTabelaFungicidas(lista) {
       const tbody = document.getElementById('tabela-fungicidas-corpo');
       if (!tbody) return;
@@ -1558,7 +1559,9 @@
 
       lista.forEach(t => {
         const reg = obterOuCriar(t.id);
-        const proxF2 = calcularProximaData(reg.f1_data, 14);
+        // 2ª APLICAÇÃO: 17 DIAS APÓS A 1ª
+        const proxF2 = calcularProximaData(reg.f1_data, 17);
+        // 3ª APLICAÇÃO: 14 DIAS APÓS A 2ª
         const proxF3 = calcularProximaData(reg.f2_data, 14);
 
         // Estilo de badge da tecnologia
@@ -1623,9 +1626,10 @@
             </div>
           </td>
 
-          <!-- 2ª PREVISTA (+14d) -->
-          <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
-            ${obterStatusBadge(proxF2, reg.f1_data)}
+          <!-- 2ª PREVISTA (+17d da 1ª) -->
+          <td class="p-2 text-center bg-sky-950/20 border-x border-sky-800/40 min-w-[130px]">
+            ${obterStatusBadge(proxF2, reg.f1_data, 17)}
+            <span class="text-[9px] text-sky-400/80 block mt-0.5">(+17 dias)</span>
           </td>
 
           <!-- 2ª FEITA -->
@@ -1640,9 +1644,10 @@
             </div>
           </td>
 
-          <!-- 3ª PREVISTA (+14d) -->
+          <!-- 3ª PREVISTA (+14d da 2ª) -->
           <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
-            ${obterStatusBadge(proxF3, reg.f2_data)}
+            ${obterStatusBadge(proxF3, reg.f2_data, 14)}
+            <span class="text-[9px] text-emerald-400/80 block mt-0.5">(+14 dias)</span>
           </td>
 
           <!-- 3ª FEITA -->
@@ -1729,7 +1734,7 @@
             <label class="cursor-pointer inline-flex items-center gap-0.5">
               <input type="checkbox" ${reg.f2_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f2_status', this.checked)"> Fung
             </label>
-            <div class="text-slate-500 text-[8px] mt-0.5">+14d da 1ª</div>
+            <div class="text-sky-700 font-bold text-[8px] mt-0.5">+17d da 1ª</div>
           </td>
           <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
             <label class="cursor-pointer inline-flex items-center gap-0.5">
@@ -1777,7 +1782,7 @@
       const wb = XLSX.utils.book_new();
       const linhas = [
         ["SAFRA SOJA 2026/2027 - CONTROLE DE PULVERIZAÇÃO E TOLERÂNCIAS"],
-        ["Área Total: 4.391,81 ha | 54 Talhões em Ordem Cronológica Oficial de Plantio"],
+        ["Área Total: 4.391,81 ha | 54 Talhões em Ordem Cronológica de Plantio | 2ª Aplicação aos 17 dias"],
         [],
         [
           "ORD",
@@ -1792,9 +1797,9 @@
           "Data Emergência",
           "1º Fungicida Previsto (R1)",
           "1ª Aplicação Realizada (Data)",
-          "2ª Prevista (+14d)",
+          "2ª Prevista (+17d da 1ª)",
           "2ª Aplicação Realizada (Data)",
-          "3ª Prevista (+14d)",
+          "3ª Prevista (+14d da 2ª)",
           "3ª Aplicação Realizada (Data)",
           "Anotações / Produto Utilizado"
         ]
@@ -1802,7 +1807,9 @@
 
       TALHOES.forEach(t => {
         const reg = appState[t.id] || {};
-        const proxF2 = calcularProximaData(reg.f1_data, 14) || "";
+        // 2ª aos 17 dias
+        const proxF2 = calcularProximaData(reg.f1_data, 17) || "";
+        // 3ª aos 14 dias após a 2ª
         const proxF3 = calcularProximaData(reg.f2_data, 14) || "";
         const diaEmerg = parseInt(t.dtE.slice(0, 2)) || 26;
 
@@ -1843,9 +1850,9 @@
         { wch: 12 }, // dtE
         { wch: 18 }, // 1º Previsto
         { wch: 16 }, // 1ª Data
-        { wch: 16 }, // 2ª Prevista
+        { wch: 18 }, // 2ª Prevista (+17d)
         { wch: 16 }, // 2ª Data
-        { wch: 16 }, // 3ª Prevista
+        { wch: 18 }, // 3ª Prevista (+14d)
         { wch: 16 }, // 3ª Data
         { wch: 30 }  // Obs
       ];
