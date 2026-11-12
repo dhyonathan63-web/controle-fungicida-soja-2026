@@ -1,4 +1,4 @@
-const CACHE_NAME = 'soja-pulverizacao-v3';
+const CACHE_NAME = 'soja-pulverizacao-v4-firebase';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -8,6 +8,8 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './tailwind.min.js',
   './xlsx.full.min.js',
+  './firebase-app.js',
+  './firebase-database.js',
   './icon-192.png',
   './icon-512.png'
 ];

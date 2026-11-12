@@ -17,6 +17,12 @@
   <script src="xlsx.full.min.js"></script>
   <script>if (typeof XLSX === 'undefined') { document.write('<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"><\/script>'); }</script>
 
+  <!-- Firebase Realtime Database SDK (Offline-First: local com fallback CDN) -->
+  <script src="firebase-app.js"></script>
+  <script>if (typeof firebase === 'undefined') { document.write('<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"><\/script>'); }</script>
+  <script src="firebase-database.js"></script>
+  <script>if (typeof firebase !== 'undefined' && !firebase.database) { document.write('<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"><\/script>'); }</script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
     
@@ -1423,8 +1429,34 @@
   }
 ];
 
-    // Chave no LocalStorage
+    // Chave no LocalStorage (Cache offline local)
     const STORAGE_KEY = 'safra_soja_2026_operacoes_v2';
+
+    // Configuração do Google Firebase Realtime Database para sincronização online entre todos os usuários
+    const firebaseConfig = {
+      apiKey: "AIzaSyCmZ3Qf_zj9NQRrAnyIF_vhSlFdMsUyEwI",
+      authDomain: "receitas-de-aplicacao-agricola.firebaseapp.com",
+      databaseURL: "https://receitas-de-aplicacao-agricola-default-rtdb.firebaseio.com",
+      projectId: "receitas-de-aplicacao-agricola"
+    };
+
+    let dbTalhoesRef = null;
+    let sincronizadoOnline = false;
+
+    try {
+      if (typeof firebase !== 'undefined') {
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
+        // Ativar persistência offline nativa do Firebase se disponível
+        try {
+          firebase.database().enableLogging(false);
+        } catch (e) {}
+        dbTalhoesRef = firebase.database().ref('safra_soja_2026/talhoes');
+      }
+    } catch (err) {
+      console.warn('[Firebase] Inicialização falhou, usando modo offline:', err);
+    }
 
     function carregarOperacoes() {
       try {
@@ -1435,28 +1467,54 @@
       }
     }
 
-    function salvarOperacoes() {
+    function salvarOperacoes(atualizarNuvem = true) {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
-        notificarSalvo();
+        notificarSalvo(atualizarNuvem && sincronizadoOnline ? 'nuvem' : 'local');
       } catch (e) {
         console.error(e);
       }
+
+      // Sincronizar em tempo real com o banco de dados online
+      if (atualizarNuvem && dbTalhoesRef) {
+        try {
+          dbTalhoesRef.set(appState).then(() => {
+            sincronizadoOnline = true;
+            atualizarBadgeStatus();
+          }).catch(err => {
+            console.warn('[Firebase] Gravação na nuvem enfileirada:', err);
+          });
+        } catch (err) {
+          console.warn('[Firebase] Erro ao disparar sincronização:', err);
+        }
+      }
     }
 
-    function notificarSalvo() {
+    function notificarSalvo(tipo = 'nuvem') {
       const toast = document.getElementById('saveToast');
       const icon = document.getElementById('saveToastIcon');
       const text = document.getElementById('saveToastText');
       if (toast && icon && text) {
-        icon.innerText = '✅';
-        text.innerText = 'Salvo no dispositivo!';
-        toast.classList.add('border-emerald-400', 'bg-emerald-900/90');
-        setTimeout(() => {
+        if (tipo === 'nuvem') {
+          icon.innerText = '☁️';
+          text.innerText = 'Sincronizado na Nuvem (Online)!';
+          toast.classList.add('border-emerald-400', 'bg-emerald-900/90');
+        } else {
           icon.innerText = '💾';
-          text.innerText = 'Gravando localmente (100% offline)';
-          toast.classList.remove('border-emerald-400', 'bg-emerald-900/90');
-        }, 1200);
+          text.innerText = 'Salvo no dispositivo (Offline)';
+          toast.classList.add('border-sky-400', 'bg-slate-900/95');
+        }
+        setTimeout(() => {
+          if (sincronizadoOnline) {
+            icon.innerText = '☁️';
+            text.innerText = 'Conectado Online em Tempo Real';
+            toast.classList.remove('border-emerald-400', 'bg-emerald-900/90');
+          } else {
+            icon.innerText = '💾';
+            text.innerText = 'Gravando localmente (100% offline)';
+            toast.classList.remove('border-emerald-400', 'bg-emerald-900/90');
+          }
+        }, 1500);
       }
     }
 
@@ -1952,26 +2010,76 @@
       }
     }
 
-    // Monitoramento Online / Offline
-    function atualizarStatusConexao() {
+    // Monitoramento Online / Offline e Sincronização em Tempo Real
+    function atualizarBadgeStatus() {
       const badge = document.getElementById('badgeConexao');
       if (!badge) return;
-      if (navigator.onLine) {
-        badge.innerHTML = '🟢 100% Offline Pronto';
-        badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900/60 text-emerald-300 border border-emerald-700/80';
-      } else {
-        badge.innerHTML = '📴 Modo Sem Internet (Gravando no aparelho)';
+      if (!navigator.onLine) {
+        badge.innerHTML = '📴 Sem Internet (Salvo no aparelho)';
         badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-900/60 text-amber-200 border border-amber-700/80';
+      } else if (sincronizadoOnline) {
+        badge.innerHTML = '☁️ Conectado Online (Tempo Real)';
+        badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900/80 text-emerald-300 border border-emerald-600 shadow-sm animate-pulse';
+      } else {
+        badge.innerHTML = '🔄 Conectando ao Banco Online...';
+        badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-900/60 text-sky-300 border border-sky-700/80';
       }
     }
 
-    window.addEventListener('online', atualizarStatusConexao);
-    window.addEventListener('offline', atualizarStatusConexao);
+    function atualizarStatusConexao() {
+      atualizarBadgeStatus();
+    }
+
+    function iniciarEscutaTempoReal() {
+      if (!dbTalhoesRef) return;
+
+      // Monitorar conexão com o servidor Firebase
+      const connectedRef = firebase.database().ref('.info/connected');
+      connectedRef.on('value', (snap) => {
+        if (snap.val() === true) {
+          sincronizadoOnline = true;
+          atualizarBadgeStatus();
+        } else {
+          sincronizadoOnline = false;
+          atualizarBadgeStatus();
+        }
+      });
+
+      // Escutar alterações feitas por qualquer outro usuário em tempo real
+      dbTalhoesRef.on('value', (snapshot) => {
+        const val = snapshot.val();
+        if (val && typeof val === 'object') {
+          // Atualizar o estado da aplicação e o cache offline
+          appState = val;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+          } catch(e) {}
+          sincronizadoOnline = true;
+          atualizarBadgeStatus();
+          renderizarTabelasVisiveis();
+        }
+      }, (error) => {
+        console.warn('[Firebase] Erro ao escutar dados da nuvem:', error);
+      });
+    }
+
+    window.addEventListener('online', () => {
+      atualizarStatusConexao();
+      if (dbTalhoesRef) {
+        firebase.database().goOnline();
+      }
+    });
+
+    window.addEventListener('offline', () => {
+      sincronizadoOnline = false;
+      atualizarStatusConexao();
+    });
 
     // Inicialização
     window.addEventListener('DOMContentLoaded', () => {
       renderizar();
       atualizarStatusConexao();
+      iniciarEscutaTempoReal();
 
       // Registro do Service Worker para funcionamento 100% Offline (PWA)
       if ('serviceWorker' in navigator) {
