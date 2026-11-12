@@ -60,12 +60,17 @@
 
     /* Print styling based on user PDF model */
     @media print {
+      @page {
+        size: A4 landscape;
+        margin: 5mm;
+      }
       body {
         background: white !important;
         color: black !important;
-        font-size: 8pt;
+        font-size: 7pt !important;
+        padding: 0 !important;
       }
-      .no-print, nav, header, .actions-bar, .tab-buttons, #saveToast {
+      .no-print, nav, header, .actions-bar, .tab-buttons, #saveToast, #filtrosAvancados, #btnModoCards, #btnModoTabela, #contador-filtrados {
         display: none !important;
       }
       .print-card {
@@ -73,35 +78,40 @@
         box-shadow: none !important;
         background: white !important;
         color: black !important;
+        padding: 0 !important;
       }
       .badge-glufosinato {
         background-color: #7e22ce !important;
         color: white !important;
-        border: 1px solid #6b21a8 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       table {
         width: 100% !important;
         border-collapse: collapse !important;
-        font-size: 7.5pt !important;
+        font-size: 6.8pt !important;
       }
       th, td {
         border: 1px solid #475569 !important;
-        padding: 4px 4px !important;
+        padding: 2px 2px !important;
         color: black !important;
       }
       th {
         background-color: #14532d !important;
         color: white !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      tr {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
       .pdf-header {
         background-color: #14532d !important;
         color: white !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        padding: 4px 8px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
     }
   </style>
@@ -353,9 +363,9 @@
           <a href="ficha_de_campo_impressao.html" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition shadow-lg">
             <span>🖨️</span> Abrir Versão Especial A4
           </a>
-          <button onclick="window.print()" class="px-3.5 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
-            <span>📄</span> Imprimir Agora
-          </button>
+          <a href="ficha_de_campo_impressao.html" class="px-3.5 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+            <span>📄</span> Imprimir em PDF (A4 - 2 Folhas)
+          </a>
         </div>
       </div>
 

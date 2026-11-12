@@ -22,7 +22,7 @@
   <style>
     @page {
       size: A4 landscape;
-      margin: 8mm 6mm 6mm 6mm;
+      margin: 4mm 4mm 4mm 4mm;
     }
     *, *::before, *::after {
       box-sizing: border-box;
@@ -30,33 +30,33 @@
     body {
       font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
       margin: 0;
-      padding: 12px;
+      padding: 6px;
       color: #0f172a;
       background-color: #f1f5f9;
-      font-size: 8.5pt;
-      line-height: 1.25;
+      font-size: 7.5pt;
+      line-height: 1.15;
     }
     .no-print {
       max-width: 1300px;
-      margin: 0 auto 14px auto;
+      margin: 0 auto 10px auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: white;
-      padding: 12px 18px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 10px 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
       border: 1px solid #cbd5e1;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
+      gap: 5px;
+      padding: 6px 12px;
       border-radius: 6px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
@@ -81,115 +81,118 @@
       background-color: #047857;
       color: white;
     }
-    .btn-excel:hover {
-      background-color: #065f46;
-    }
     
     .save-toast {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
+      gap: 5px;
+      padding: 3px 8px;
       border-radius: 20px;
       background-color: #dcfce7;
       color: #166534;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       border: 1px solid #86efac;
-      transition: opacity 0.3s;
     }
 
     .page-container {
       max-width: 1300px;
-      margin: 0 auto 20px auto;
+      margin: 0 auto 15px auto;
       background: white;
-      padding: 10mm;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      padding: 6mm 6mm;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       border: 1px solid #cbd5e1;
-      border-radius: 6px;
+      border-radius: 4px;
       page-break-after: always;
       break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
     .page-container:last-child {
       page-break-after: auto;
       break-after: auto;
+      margin-bottom: 0;
     }
 
-    /* Header matching PDF img_1.jpg */
+    /* Header Compacto */
     .header-pdf {
       background-color: #14532d;
       color: #ffffff;
-      padding: 10px 14px;
-      border-radius: 4px;
+      padding: 5px 8px;
+      border-radius: 3px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     .header-pdf h1 {
       margin: 0;
-      font-size: 13pt;
+      font-size: 10.5pt;
       font-weight: 900;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
       color: #ffffff;
+      line-height: 1.1;
     }
     .header-pdf p {
-      margin: 3px 0 0;
-      font-size: 8.5pt;
+      margin: 1px 0 0;
+      font-size: 7pt;
       color: #bbf7d0;
     }
     .header-info {
       text-align: right;
-      font-size: 8.5pt;
+      font-size: 7.5pt;
     }
     .header-badge {
       background: #22c55e;
       color: #052e16;
       font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 7pt;
       display: inline-block;
-      margin-top: 3px;
+      margin-top: 1px;
     }
 
-    /* Instructions Box */
+    /* Info bar compacta de 1 linha */
     .info-bar {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
-      border-left: 4px solid #15803d;
-      padding: 6px 10px;
-      margin-bottom: 8px;
-      font-size: 7.8pt;
+      border-left: 3px solid #15803d;
+      padding: 3px 6px;
+      margin-bottom: 4px;
+      font-size: 6.8pt;
       display: flex;
       justify-content: space-between;
       color: #334155;
+      line-height: 1.2;
     }
     .info-bar strong {
       color: #0f172a;
     }
 
-    /* Table styling */
+    /* Tabela ultra-otimizada para 27 linhas por folha */
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 7.6pt;
+      font-size: 6.8pt;
+      table-layout: fixed;
     }
     th, td {
       border: 1px solid #64748b;
-      padding: 4px 4px;
+      padding: 1.8px 2px;
       vertical-align: middle;
+      line-height: 1.1;
     }
     th {
       background-color: #1e293b;
       color: white;
       text-transform: uppercase;
-      font-size: 7.2pt;
+      font-size: 6.5pt;
       font-weight: 800;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
       text-align: center;
-      padding: 6px 4px;
+      padding: 3px 2px;
     }
     tr:nth-child(even) {
       background-color: #f8fafc;
@@ -197,40 +200,41 @@
     .text-center { text-align: center; }
     .text-right { text-align: right; }
     .font-bold { font-weight: bold; }
-    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-    .text-xs { font-size: 7pt; }
-    .text-muted { color: #64748b; font-size: 6.8pt; }
+    .font-mono { font-family: ui-monospace, monospace; }
+    .text-xs { font-size: 6.5pt; }
+    .text-muted { color: #64748b; font-size: 6pt; }
     .text-green { color: #15803d; }
 
     .gleba-name {
-      font-size: 8.5pt;
+      font-size: 7.2pt;
       color: #0f172a;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
     }
 
-    /* Badges & Glufosinate Purple Highlighting */
+    /* Badges */
     .tec-badge {
       display: inline-block;
-      padding: 1px 4px;
-      border-radius: 3px;
+      padding: 0 3px;
+      border-radius: 2px;
       font-weight: 800;
-      font-size: 6.8pt;
+      font-size: 5.8pt;
       text-transform: uppercase;
     }
     .tec-ipro { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
     .tec-xtend { background: #e0f2fe; color: #075985; border: 1px solid #7dd3fc; }
     .tec-enlist { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
 
-    /* GLUFOSINATO HIGHLIGHT (Purple / Violet bold) */
     .badge-gluf {
       display: inline-block;
       background: #7e22ce;
       color: #ffffff;
       font-weight: 900;
-      font-size: 6.5pt;
-      padding: 1px 4px;
-      border-radius: 3px;
-      margin-left: 2px;
+      font-size: 5.8pt;
+      padding: 0 3px;
+      border-radius: 2px;
       letter-spacing: 0.2px;
     }
     .badge-proib {
@@ -238,98 +242,98 @@
       background: #f1f5f9;
       color: #64748b;
       font-weight: 600;
-      font-size: 6pt;
-      padding: 1px 3px;
-      border-radius: 3px;
-      margin-left: 2px;
+      font-size: 5.5pt;
+      padding: 0 2px;
+      border-radius: 2px;
     }
     .gluf-txt {
       color: #7e22ce;
       background: #fae8ff;
-      padding: 0 2px;
-      border-radius: 2px;
+      padding: 0 1px;
       font-weight: 900;
     }
     .tol-desc {
-      font-size: 6.5pt;
-      line-height: 1.1;
-      margin-top: 2px;
+      font-size: 5.8pt;
+      line-height: 1.05;
+      margin-top: 1px;
     }
 
     /* Checkbox & operation cells */
     .check-cell {
-      min-width: 82px;
       background-color: #ffffff;
     }
     .checkbox-group {
       display: flex;
       justify-content: center;
-      gap: 5px;
-      margin-bottom: 2px;
+      gap: 3px;
     }
     .checkbox-group label {
       display: inline-flex;
       align-items: center;
-      gap: 3px;
-      font-size: 7.5pt;
+      gap: 1.5px;
+      font-size: 6.5pt;
       font-weight: 700;
       color: #1e293b;
       cursor: pointer;
     }
     .checkbox-group input[type="checkbox"] {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       accent-color: #15803d;
-      cursor: pointer;
+      margin: 0;
+      padding: 0;
     }
     .date-line {
-      font-size: 6.8pt;
+      font-size: 5.8pt;
       color: #475569;
-      margin-top: 1px;
+      margin-top: 0.5px;
     }
     .date-edit {
-      font-size: 7pt;
-      padding: 1px;
+      font-size: 6.5pt;
+      padding: 0;
       border: 1px solid #94a3b8;
-      border-radius: 3px;
+      border-radius: 2px;
       background: #f8fafc;
-      width: 95px;
+      width: 80px;
       text-align: center;
+      height: 16px;
     }
     .date-print {
-      font-size: 6.8pt;
+      font-size: 5.8pt;
       color: #475569;
     }
     .print-only {
       display: none;
     }
     .signature-cell {
-      min-width: 80px;
+      width: 75px;
     }
     .sign-line {
       display: block;
       border-bottom: 1px dashed #64748b;
-      height: 14px;
-      margin: 0 4px;
+      height: 10px;
+      margin: 0 2px;
     }
 
     /* Page Footer */
     .page-footer {
-      margin-top: 8px;
+      margin-top: 4px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 7pt;
+      font-size: 6.5pt;
       color: #64748b;
       border-top: 1px solid #cbd5e1;
-      padding-top: 4px;
+      padding-top: 2px;
     }
 
     @media print {
-      body {
-        background: white;
-        padding: 0;
-        margin: 0;
+      html, body {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
       }
       .no-print, .screen-only {
         display: none !important;
@@ -338,39 +342,48 @@
         display: inline-block !important;
       }
       .page-container {
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        margin: 0 0 10mm 0;
-        max-width: 100%;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .page-container:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
       .header-pdf {
         background-color: #14532d !important;
         color: white !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       th {
         background-color: #1e293b !important;
         color: white !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       .badge-gluf {
         background-color: #7e22ce !important;
         color: white !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
-      .tec-ipro { background-color: #dcfce7 !important; -webkit-print-color-adjust: exact; }
-      .tec-xtend { background-color: #e0f2fe !important; -webkit-print-color-adjust: exact; }
-      .tec-enlist { background-color: #f3e8ff !important; -webkit-print-color-adjust: exact; }
+      .tec-ipro { background-color: #dcfce7 !important; -webkit-print-color-adjust: exact !important; }
+      .tec-xtend { background-color: #e0f2fe !important; -webkit-print-color-adjust: exact !important; }
+      .tec-enlist { background-color: #f3e8ff !important; -webkit-print-color-adjust: exact !important; }
       tr:nth-child(even) {
         background-color: #f8fafc !important;
-        -webkit-print-color-adjust: exact;
+        -webkit-print-color-adjust: exact !important;
       }
     }
-  </style>
 </head>
 <body>
 
