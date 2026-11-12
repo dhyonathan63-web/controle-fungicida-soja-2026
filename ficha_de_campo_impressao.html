@@ -3814,7 +3814,19 @@ function iniciarEscutaTempoReal() {
   dbTalhoesRef.on('value', (snapshot) => {
     const val = snapshot.val();
     if (val && typeof val === 'object') {
-      appState = val;
+      if (Array.isArray(val)) {
+        val.forEach((item, idx) => {
+          if (item && idx > 0) {
+            appState[idx] = Object.assign({}, appState[idx] || {}, item);
+          }
+        });
+      } else {
+        Object.keys(val).forEach(key => {
+          if (val[key]) {
+            appState[key] = Object.assign({}, appState[key] || {}, val[key]);
+          }
+        });
+      }
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
       } catch(e) {}

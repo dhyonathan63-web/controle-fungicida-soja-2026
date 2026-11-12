@@ -1568,31 +1568,42 @@
       return Math.round(diffTime / (1000 * 60 * 60 * 24));
     }
 
-    function obterStatusBadge(dataFormatada, dataIsoBase, dias = 14) {
+    function obterStatusBadge(dataFormatada, dataIsoBase, dias = 14, jaAplicada = false) {
       if (!dataFormatada) {
-        return `<span class="text-slate-400 text-[11px]">—</span>`;
+        return '<span class="text-slate-400 text-[11px]">—</span>';
       }
       
+      // Se a aplicação correspondente já foi realizada, exibe badge verde concluído
+      if (jaAplicada) {
+        return '<div class="flex flex-col items-center">' +
+          '<span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono font-bold text-[11px] border border-emerald-700">' + dataFormatada + '</span>' +
+          '<span class="text-[9px] text-emerald-400 font-semibold mt-0.5">Feita</span>' +
+        '</div>';
+      }
+
       const diasRest = calcularDiasRestantes(dataIsoBase, dias);
       let badgeHtml = '';
 
       if (diasRest === null) {
-        badgeHtml = `<span class="px-2 py-0.5 rounded bg-sky-950/60 text-sky-300 font-mono text-[11px] border border-sky-800">${dataFormatada}</span>`;
+        badgeHtml = '<span class="px-2 py-0.5 rounded bg-sky-950/80 text-sky-200 font-mono text-[11px] border border-sky-700">' + dataFormatada + '</span>';
       } else if (diasRest < 0) {
-        badgeHtml = `<div class="flex flex-col items-center">
-          <span class="px-2 py-0.5 rounded bg-rose-950 text-rose-300 font-mono font-bold text-[11px] border border-rose-800">${dataFormatada}</span>
-          <span class="text-[9px] text-rose-400 font-bold mt-0.5">Vencido (${Math.abs(diasRest)}d atrás)</span>
-        </div>`;
+        // Se a data calculada já passou -> Fica Vermelho indicando vencido
+        badgeHtml = '<div class="flex flex-col items-center">' +
+          '<span class="px-2 py-0.5 rounded bg-rose-950 text-rose-300 font-mono font-bold text-[11px] border border-rose-800 shadow-sm">' + dataFormatada + '</span>' +
+          '<span class="text-[9px] text-rose-400 font-bold mt-0.5">Vencido (' + Math.abs(diasRest) + 'd atrás)</span>' +
+        '</div>';
       } else if (diasRest <= 3) {
-        badgeHtml = `<div class="flex flex-col items-center">
-          <span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 font-mono font-bold text-[11px] border border-amber-800">${dataFormatada}</span>
-          <span class="text-[9px] text-amber-400 font-bold mt-0.5">Atenção (${diasRest}d restantes)</span>
-        </div>`;
+        // Se faltam de 0 a 3 dias -> Amarelo / Alerta
+        badgeHtml = '<div class="flex flex-col items-center">' +
+          '<span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 font-mono font-bold text-[11px] border border-amber-800">' + dataFormatada + '</span>' +
+          '<span class="text-[9px] text-amber-400 font-bold mt-0.5">Atenção (' + diasRest + 'd restantes)</span>' +
+        '</div>';
       } else {
-        badgeHtml = `<div class="flex flex-col items-center">
-          <span class="px-2 py-0.5 rounded bg-sky-950/80 text-sky-200 font-mono font-bold text-[11px] border border-sky-700">${dataFormatada}</span>
-          <span class="text-[9px] text-sky-400 font-medium mt-0.5">${diasRest}d restantes</span>
-        </div>`;
+        // Quando corrigir a data para data futura ou dentro do prazo -> FICA AZUL IGUAL ÀS OUTRAS
+        badgeHtml = '<div class="flex flex-col items-center">' +
+          '<span class="px-2 py-0.5 rounded bg-sky-950/80 text-sky-200 font-mono font-bold text-[11px] border border-sky-700">' + dataFormatada + '</span>' +
+          '<span class="text-[9px] text-sky-400 font-medium mt-0.5">' + diasRest + 'd restantes</span>' +
+        '</div>';
       }
 
       return badgeHtml;
@@ -1638,6 +1649,17 @@
       const reg = obterOuCriar(id);
       reg[campo] = valor;
       salvarOperacoes();
+      
+      // Sincronização granular imediata na nuvem (em tempo real)
+      if (dbTalhoesRef) {
+        try {
+          dbTalhoesRef.child(id).child(campo).set(valor).then(() => {
+            sincronizadoOnline = true;
+            atualizarBadgeStatus();
+          }).catch(e => console.warn('[Firebase] Gravação granular pendente:', e));
+        } catch(e) {}
+      }
+
       renderizarTabelasVisiveis();
     }
 
@@ -1718,7 +1740,7 @@
 
           <!-- 2ª PREVISTA (+17d da 1ª) -->
           <td class="p-2 text-center bg-sky-950/20 border-x border-sky-800/40 min-w-[130px]">
-            ${obterStatusBadge(proxF2, reg.f1_data, 17)}
+            ${obterStatusBadge(proxF2, reg.f1_data, 17, !!reg.f2_status || !!reg.f2_data)}
             <span class="text-[9px] text-sky-400/80 block mt-0.5">(+17 dias)</span>
           </td>
 
@@ -1736,7 +1758,7 @@
 
           <!-- 3ª PREVISTA (+14d da 2ª) -->
           <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
-            ${obterStatusBadge(proxF3, reg.f2_data, 14)}
+            ${obterStatusBadge(proxF3, reg.f2_data, 14, !!reg.f3_status || !!reg.f3_data)}
             <span class="text-[9px] text-emerald-400/80 block mt-0.5">(+14 dias)</span>
           </td>
 
@@ -2049,14 +2071,29 @@
       dbTalhoesRef.on('value', (snapshot) => {
         const val = snapshot.val();
         if (val && typeof val === 'object') {
-          // Atualizar o estado da aplicação e o cache offline
-          appState = val;
+          // Unir dados da nuvem com o estado local preservando preenchimentos existentes
+          if (Array.isArray(val)) {
+            val.forEach((item, idx) => {
+              if (item && idx > 0) {
+                appState[idx] = Object.assign({}, appState[idx] || {}, item);
+              }
+            });
+          } else {
+            Object.keys(val).forEach(key => {
+              if (val[key]) {
+                appState[key] = Object.assign({}, appState[key] || {}, val[key]);
+              }
+            });
+          }
           try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
           } catch(e) {}
           sincronizadoOnline = true;
           atualizarBadgeStatus();
           renderizarTabelasVisiveis();
+        } else if (!val && Object.keys(appState).length > 0) {
+          // Se o banco estiver zerado mas o dispositivo local tem dados, sobe tudo imediatamente
+          salvarOperacoes(true);
         }
       }, (error) => {
         console.warn('[Firebase] Erro ao escutar dados da nuvem:', error);
