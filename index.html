@@ -159,7 +159,11 @@
 
             <!-- Botão Adicionar Gleba / Dividir -->
             <button onclick="abrirModalAdicionarTalhao()" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 shadow transition active:scale-95">
-              <span>➕</span> <span>Nova Gleba / Talhão</span>
+              <span>➕</span> <span>Nova Gleba</span>
+            </button>
+            <!-- Botão Banco de Variedades / Sementes -->
+            <button onclick="abrirModalGerenciarVariedades()" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-slate-900 hover:bg-slate-800 text-emerald-400 border border-emerald-500/40 flex items-center gap-1.5 shadow transition active:scale-95" title="Ver e cadastrar sementes do banco">
+              <span>🧬</span> <span>Banco de Sementes</span>
             </button>
           </div>
         </div>
@@ -578,8 +582,14 @@
 
         <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Variedade / Híbrido</label>
-            <input type="text" id="edit_var" required class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:border-emerald-500 focus:outline-none">
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-slate-400 text-[11px] font-semibold">Variedade / Híbrido (Banco de Dados)</label>
+              <button type="button" onclick="abrirModalNovaVariedade('edit')" class="text-[10px] text-emerald-400 hover:underline font-bold">+ Cadastrar Nova</button>
+            </div>
+            <select id="edit_var_select" onchange="aoSelecionarVariedade('edit')" class="w-full bg-slate-950 border border-emerald-500/60 rounded-lg px-2.5 py-1.5 text-emerald-300 font-bold focus:border-emerald-400 focus:outline-none text-xs">
+              <!-- Opções dinâmicas do banco de dados -->
+            </select>
+            <input type="hidden" id="edit_var">
           </div>
           <div>
             <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tecnologia / Tolerância</label>
@@ -625,8 +635,14 @@
             </div>
             <div class="grid grid-cols-2 gap-2">
               <div>
-                <label class="block text-slate-400 text-[10px]">Variedade da Parcela B</label>
-                <input type="text" id="div_var_b" placeholder="Ex: NEO 601" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white text-xs">
+                <div class="flex items-center justify-between">
+                  <label class="block text-slate-400 text-[10px]">Variedade Parcela B</label>
+                  <button type="button" onclick="abrirModalNovaVariedade('div')" class="text-[9px] text-emerald-400 hover:underline font-bold">+ Nova</button>
+                </div>
+                <select id="div_var_b_select" onchange="aoSelecionarVariedade('div')" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white text-xs">
+                  <!-- Opções dinâmicas -->
+                </select>
+                <input type="hidden" id="div_var_b">
               </div>
               <div>
                 <label class="block text-slate-400 text-[10px]">Tecnologia Parcela B</label>
@@ -701,8 +717,14 @@
 
         <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Variedade / Híbrido</label>
-            <input type="text" id="add_var" required placeholder="Ex: GUEPARDO ou DKB 360" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:border-emerald-500 focus:outline-none">
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-slate-400 text-[11px] font-semibold">Variedade / Híbrido (Banco de Dados)</label>
+              <button type="button" onclick="abrirModalNovaVariedade('add')" class="text-[10px] text-emerald-400 hover:underline font-bold">+ Cadastrar Nova</button>
+            </div>
+            <select id="add_var_select" onchange="aoSelecionarVariedade('add')" class="w-full bg-slate-950 border border-emerald-500/60 rounded-lg px-2.5 py-1.5 text-emerald-300 font-bold focus:border-emerald-400 focus:outline-none text-xs">
+              <!-- Opções dinâmicas do banco de dados -->
+            </select>
+            <input type="hidden" id="add_var">
           </div>
           <div>
             <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tecnologia / Tolerância</label>
@@ -728,6 +750,93 @@
           </button>
           <button type="submit" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition text-xs shadow-md">
             ➕ Cadastrar Talhão
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: BANCO DE DADOS DE VARIEDADES & SEMENTES -->
+  <div id="modalBancoVariedades" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+            🧬
+          </span>
+          <div>
+            <h3 class="text-sm sm:text-base font-black text-white">Banco de Dados de Sementes</h3>
+            <p class="text-[11px] text-slate-400">Variedades de Soja e Híbridos de Milho catalogados</p>
+          </div>
+        </div>
+        <button onclick="fecharModalGerenciarVariedades()" class="text-slate-400 hover:text-white text-lg font-bold p-1">&times;</button>
+      </div>
+
+      <div class="flex items-center justify-between gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
+        <span class="text-xs text-slate-300 font-bold">Adicionar nova semente ao banco:</span>
+        <button onclick="abrirModalNovaVariedade('geral')" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg shadow transition">
+          ➕ Cadastrar Semente
+        </button>
+      </div>
+
+      <!-- Lista de Sementes do Banco -->
+      <div class="space-y-1.5 max-h-72 overflow-y-auto pr-1" id="listaSementesBanco">
+        <!-- Injetado via JS -->
+      </div>
+
+      <div class="flex items-center justify-end pt-2 border-t border-slate-800">
+        <button type="button" onclick="fecharModalGerenciarVariedades()" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FORMULÁRIO DE CADASTRO DE NOVA VARIEDADE -->
+  <div id="modalNovaVariedade" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-slate-900 border border-emerald-500/50 rounded-2xl max-w-md w-full p-4 sm:p-5 shadow-2xl space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+        <h3 class="text-sm font-black text-white flex items-center gap-2">
+          <span>🌱</span> Cadastrar Nova Semente no Banco
+        </h3>
+        <button onclick="fecharModalNovaVariedade()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <form id="formNovaVariedade" onsubmit="salvarNovaVariedadeNoBanco(event)" class="space-y-2.5 text-xs">
+        <input type="hidden" id="origem_cadastro_var" value="geral">
+
+        <div>
+          <label class="block text-slate-400 text-[11px] font-semibold mb-1">Nome da Variedade / Híbrido</label>
+          <input type="text" id="nv_nome" required placeholder="Ex: NEO-601 ou DKB 360" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold uppercase focus:border-emerald-500 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Cultura</label>
+            <select id="nv_cultura" onchange="atualizarOpcoesTecNovaVar()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-white font-medium focus:border-emerald-500 focus:outline-none">
+              <option value="soja">🌱 Soja</option>
+              <option value="milho">🌽 Milho</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Sementes / metro sugeridas</label>
+            <input type="number" step="0.1" id="nv_sem" value="18" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-white font-mono focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tecnologia & Tolerância Herbicida</label>
+          <select id="nv_tec" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-white text-[11px] focus:border-emerald-500 focus:outline-none">
+            <!-- Injetado dinamicamente -->
+          </select>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-700">
+          <button type="button" onclick="fecharModalNovaVariedade()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium text-xs">
+            Cancelar
+          </button>
+          <button type="submit" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md">
+            💾 Salvar no Banco
           </button>
         </div>
       </form>
@@ -2570,6 +2679,278 @@
 
 
     // ==========================================
+    // BANCO DE DADOS DE VARIEDADES E SEMENTES
+    // ==========================================
+    const BANCO_VARIEDADES_PADRAO = [
+      // SOJA
+      { id: 'soja_1', cultura: 'soja', nome: 'GUEPARDO', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
+      { id: 'soja_2', cultura: 'soja', nome: 'OLIMPO', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
+      { id: 'soja_3', cultura: 'soja', nome: '72 I X 74', tec: 'XTEND / I2X', sem: 18, tolerancias: 'Glifosato + Dicamba' },
+      { id: 'soja_4', cultura: 'soja', nome: '76 I X 80', tec: 'XTEND / I2X', sem: 18, tolerancias: 'Glifosato + Dicamba' },
+      { id: 'soja_5', cultura: 'soja', nome: '78 IX 80', tec: 'XTEND / I2X', sem: 18, tolerancias: 'Glifosato + Dicamba' },
+      { id: 'soja_6', cultura: 'soja', nome: 'NEO-700', tec: 'XTEND / I2X', sem: 18, tolerancias: 'Glifosato + Dicamba' },
+      { id: 'soja_7', cultura: 'soja', nome: '74 K 75', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
+      { id: 'soja_8', cultura: 'soja', nome: '74 K 75-SP', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
+      { id: 'soja_9', cultura: 'soja', nome: 'NEO-801', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
+      { id: 'soja_10', cultura: 'soja', nome: 'BÚFALO', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
+      { id: 'soja_11', cultura: 'soja', nome: 'DM 66I68', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
+      { id: 'soja_12', cultura: 'soja', nome: 'TMG 2378', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
+      { id: 'soja_13', cultura: 'soja', nome: 'MONSOY 5947', tec: 'XTEND / I2X', sem: 18, tolerancias: 'Glifosato + Dicamba' },
+      { id: 'soja_14', cultura: 'soja', nome: 'BRASMAX FIBRA CE', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
+
+      // MILHO
+      { id: 'milho_1', cultura: 'milho', nome: 'DKB 360 PRO4', tec: 'VT PRO 4', sem: 3.5, tolerancias: 'Glifosato' },
+      { id: 'milho_2', cultura: 'milho', nome: 'DKB 265 PRO4', tec: 'VT PRO 4', sem: 3.5, tolerancias: 'Glifosato' },
+      { id: 'milho_3', cultura: 'milho', nome: 'FS 500 PWU', tec: 'POWERCORE ULTRA', sem: 3.5, tolerancias: 'Glifosato + Glufosinato' },
+      { id: 'milho_4', cultura: 'milho', nome: 'FS 575 PWU', tec: 'POWERCORE ULTRA', sem: 3.5, tolerancias: 'Glifosato + Glufosinato' },
+      { id: 'milho_5', cultura: 'milho', nome: 'P3707 VYHR', tec: 'VIPTERA 3', sem: 3.5, tolerancias: 'Glifosato' },
+      { id: 'milho_6', cultura: 'milho', nome: 'P3808 VIP3', tec: 'VIPTERA 3', sem: 3.5, tolerancias: 'Glifosato' },
+      { id: 'milho_7', cultura: 'milho', nome: 'K9606 VIP3', tec: 'VIPTERA 3', sem: 3.5, tolerancias: 'Glifosato' },
+      { id: 'milho_8', cultura: 'milho', nome: 'B2401 PWU', tec: 'POWERCORE ULTRA', sem: 3.5, tolerancias: 'Glifosato + Glufosinato' },
+      { id: 'milho_9', cultura: 'milho', nome: 'AG 8088 PRO4', tec: 'VT PRO 4', sem: 3.5, tolerancias: 'Glifosato' },
+      { id: 'milho_10', cultura: 'milho', nome: 'AG 8780 PRO4', tec: 'VT PRO 4', sem: 3.5, tolerancias: 'Glifosato' }
+    ];
+
+    let bancoVariedades = [];
+
+    function carregarBancoVariedades() {
+      try {
+        const raw = localStorage.getItem('banco_variedades_v1');
+        if (raw) {
+          bancoVariedades = JSON.parse(raw);
+          return;
+        }
+      } catch(e) {}
+      bancoVariedades = JSON.parse(JSON.stringify(BANCO_VARIEDADES_PADRAO));
+    }
+
+    function salvarBancoVariedades(atualizarNuvem = true) {
+      try {
+        localStorage.setItem('banco_variedades_v1', JSON.stringify(bancoVariedades));
+      } catch(e) {}
+
+      if (atualizarNuvem && typeof firebase !== 'undefined' && firebase.apps.length) {
+        try {
+          firebase.database().ref('banco_variedades').set(bancoVariedades);
+        } catch(e) {}
+      }
+    }
+
+    function escutarBancoVariedadesNuvem() {
+      if (typeof firebase === 'undefined' || !firebase.apps.length) return;
+      firebase.database().ref('banco_variedades').on('value', snap => {
+        const val = snap.val();
+        if (val && Array.isArray(val) && val.length > 0) {
+          bancoVariedades = val;
+          try { localStorage.setItem('banco_variedades_v1', JSON.stringify(bancoVariedades)); } catch(e) {}
+          popularSelectsVariedades();
+        }
+      });
+    }
+
+    carregarBancoVariedades();
+
+    // Popular os <select> de variedades conforme a cultura atual
+    function popularSelectsVariedades(selecionarNome = null, contexto = null) {
+      const lista = bancoVariedades.filter(v => v.cultura === culturaAtual);
+      const ids = ['edit_var_select', 'div_var_b_select', 'add_var_select'];
+
+      ids.forEach(selectId => {
+        const sel = document.getElementById(selectId);
+        if (!sel) return;
+
+        const valorAtual = sel.value;
+        let html = '<option value="">-- Escolha a Variedade do Banco --</option>';
+
+        // Agrupar por Tecnologia
+        const grupos = {};
+        lista.forEach(item => {
+          if (!grupos[item.tec]) grupos[item.tec] = [];
+          grupos[item.tec].push(item);
+        });
+
+        Object.keys(grupos).sort().forEach(tec => {
+          html += `<optgroup label="${tec}">`;
+          grupos[tec].sort((a,b) => a.nome.localeCompare(b.nome)).forEach(v => {
+            html += `<option value="${v.nome}" data-tec="${v.tec}" data-sem="${v.sem || 18}">${v.nome} (${v.tec})</option>`;
+          });
+          html += '</optgroup>';
+        });
+
+        html += '<option value="__NOVA__">➕ Cadastrar Nova Variedade...</option>';
+        sel.innerHTML = html;
+
+        if (selecionarNome) {
+          sel.value = selecionarNome;
+        } else if (valorAtual) {
+          sel.value = valorAtual;
+        }
+      });
+    }
+
+    // Ação ao selecionar uma variedade do banco: preenche tecnologia e sementes automaticamente
+    function aoSelecionarVariedade(origem) {
+      const selectId = origem === 'edit' ? 'edit_var_select' : (origem === 'div' ? 'div_var_b_select' : 'add_var_select');
+      const inputHiddenId = origem === 'edit' ? 'edit_var' : (origem === 'div' ? 'div_var_b' : 'add_var');
+      const selectTecId = origem === 'edit' ? 'edit_tec' : (origem === 'div' ? 'div_tec_b' : 'add_tec');
+      const inputSemId = origem === 'edit' ? 'edit_sem' : (origem === 'add' ? 'add_sem' : null);
+
+      const sel = document.getElementById(selectId);
+      if (!sel) return;
+
+      if (sel.value === '__NOVA__') {
+        abrirModalNovaVariedade(origem);
+        return;
+      }
+
+      const opt = sel.selectedOptions[0];
+      const nomeVar = sel.value;
+      const tec = opt ? opt.getAttribute('data-tec') : '';
+      const sem = opt ? opt.getAttribute('data-sem') : '';
+
+      const inpVar = document.getElementById(inputHiddenId);
+      if (inpVar) inpVar.value = nomeVar;
+
+      const selTec = document.getElementById(selectTecId);
+      if (selTec && tec) {
+        selTec.value = tec;
+      }
+
+      if (inputSemId && sem) {
+        const inpSem = document.getElementById(inputSemId);
+        if (inpSem) inpSem.value = sem;
+      }
+    }
+
+    // Modal de Gerenciar Todas as Variedades
+    function abrirModalGerenciarVariedades() {
+      const container = document.getElementById('listaSementesBanco');
+      if (!container) return;
+
+      container.innerHTML = '';
+      bancoVariedades.sort((a,b) => a.cultura.localeCompare(b.cultura) || a.nome.localeCompare(b.nome)).forEach(v => {
+        const item = document.createElement('div');
+        item.className = 'flex items-center justify-between gap-2 p-2 bg-slate-950 rounded-lg border border-slate-800 text-xs';
+        item.innerHTML = `
+          <div>
+            <div class="font-bold text-white flex items-center gap-1.5">
+              <span>${v.cultura === 'soja' ? '🌱' : '🌽'}</span>
+              ${v.nome}
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">${v.tec}</span>
+            </div>
+            <div class="text-[10px] text-slate-400 mt-0.5">${v.tolerancias || ''} • ${v.sem || 18} sem/m</div>
+          </div>
+          <button onclick="excluirVariedadeBanco('${v.id}')" class="text-rose-400 hover:text-rose-300 p-1 text-xs" title="Excluir do banco">&times;</button>
+        `;
+        container.appendChild(item);
+      });
+
+      document.getElementById('modalBancoVariedades').classList.remove('hidden');
+    }
+
+    function fecharModalGerenciarVariedades() {
+      document.getElementById('modalBancoVariedades').classList.add('hidden');
+    }
+
+    function excluirVariedadeBanco(id) {
+      if (!confirm('Deseja remover esta variedade do banco de dados?')) return;
+      bancoVariedades = bancoVariedades.filter(x => x.id !== id);
+      salvarBancoVariedades(true);
+      popularSelectsVariedades();
+      abrirModalGerenciarVariedades();
+    }
+
+    // Modal de Cadastrar Nova Variedade
+    let contextoCadastroVar = 'geral';
+
+    function abrirModalNovaVariedade(origem = 'geral') {
+      contextoCadastroVar = origem;
+      document.getElementById('origem_cadastro_var').value = origem;
+      document.getElementById('nv_cultura').value = culturaAtual;
+      atualizarOpcoesTecNovaVar();
+      document.getElementById('nv_nome').value = '';
+      document.getElementById('modalNovaVariedade').classList.remove('hidden');
+    }
+
+    function fecharModalNovaVariedade() {
+      document.getElementById('modalNovaVariedade').classList.add('hidden');
+    }
+
+    function atualizarOpcoesTecNovaVar() {
+      const cult = document.getElementById('nv_cultura').value;
+      const selTec = document.getElementById('nv_tec');
+      if (!selTec) return;
+      if (cult === 'milho') {
+        selTec.innerHTML = `
+          <option value="VT PRO 4">VT PRO 4 (Glifosato)</option>
+          <option value="VIPTERA 3">VIPTERA 3 (Glifosato / Glufosinato)</option>
+          <option value="POWERCORE ULTRA">POWERCORE ULTRA (Glifosato / Glufosinato)</option>
+          <option value="CONVENCIONAL">CONVENCIONAL</option>
+        `;
+      } else {
+        selTec.innerHTML = `
+          <option value="IPRO / RR2 PRO">IPRO / RR2 PRO (Apenas Glifosato)</option>
+          <option value="XTEND / I2X">XTEND / I2X (Glifosato + Dicamba)</option>
+          <option value="CONKESTA ENLIST">CONKESTA ENLIST (Glifosato + Glufosinato + 2,4-D)</option>
+          <option value="CONVENCIONAL">CONVENCIONAL</option>
+        `;
+      }
+    }
+
+    function salvarNovaVariedadeNoBanco(event) {
+      if (event) event.preventDefault();
+      const nome = document.getElementById('nv_nome').value.trim().toUpperCase();
+      const cult = document.getElementById('nv_cultura').value;
+      const tec = document.getElementById('nv_tec').value;
+      const sem = parseFloat(document.getElementById('nv_sem').value) || 18;
+
+      if (!nome) return;
+
+      let tolerancias = 'Glifosato';
+      if (tec.includes('ENLIST')) tolerancias = 'Glifosato + Glufosinato + 2,4-D';
+      else if (tec.includes('XTEND')) tolerancias = 'Glifosato + Dicamba';
+      else if (tec.includes('POWERCORE') || tec.includes('VIPTERA')) tolerancias = 'Glifosato + Glufosinato';
+
+      const nova = {
+        id: 'var_' + Date.now(),
+        cultura: cult,
+        nome: nome,
+        tec: tec,
+        sem: sem,
+        tolerancias: tolerancias
+      };
+
+      bancoVariedades.push(nova);
+      salvarBancoVariedades(true);
+      popularSelectsVariedades();
+
+      fecharModalNovaVariedade();
+
+      // Se foi disparado a partir de um modal de talhão, já seleciona ele direto!
+      if (contextoCadastroVar === 'edit') {
+        const sel = document.getElementById('edit_var_select');
+        if (sel) {
+          sel.value = nome;
+          aoSelecionarVariedade('edit');
+        }
+      } else if (contextoCadastroVar === 'add') {
+        const sel = document.getElementById('add_var_select');
+        if (sel) {
+          sel.value = nome;
+          aoSelecionarVariedade('add');
+        }
+      } else if (contextoCadastroVar === 'div') {
+        const sel = document.getElementById('div_var_b_select');
+        if (sel) {
+          sel.value = nome;
+          aoSelecionarVariedade('div');
+        }
+      } else {
+        abrirModalGerenciarVariedades();
+      }
+    }
+
+    // ==========================================
     // FUNÇÕES DE EDIÇÃO, DIVISÃO E TROCA DE SAFRA
     // ==========================================
     function trocarSafraECultura() {
@@ -2587,6 +2968,8 @@
       conectarFirebase();
       iniciarEscutaTempoReal();
       escutarTalhoesConfigNuvem();
+      escutarBancoVariedadesNuvem();
+      popularSelectsVariedades();
       atualizarTextosCultura();
       popularFiltrosDinamicos();
 
@@ -2647,6 +3030,19 @@
       document.getElementById('edit_ha').value = t.ha;
       document.getElementById('edit_tipo').value = t.tipo || 'Pivô';
       document.getElementById('edit_sem').value = t.sem || 18;
+      popularSelectsVariedades();
+      const selVarEdit = document.getElementById('edit_var_select');
+      if (selVarEdit) {
+        selVarEdit.value = t.var;
+        // Se a variedade do talhão não estava no banco, adiciona temporariamente ou cria opção
+        if (!selVarEdit.value && t.var) {
+          const opt = document.createElement('option');
+          opt.value = t.var;
+          opt.text = `${t.var} (${t.tec_badge || ''})`;
+          opt.selected = true;
+          selVarEdit.prepend(opt);
+        }
+      }
       document.getElementById('edit_var').value = t.var;
       document.getElementById('edit_tec').value = t.tec_badge || (culturaAtual === 'milho' ? 'VT PRO 4' : 'IPRO / RR2 PRO');
       document.getElementById('edit_dtP').value = t.dtP || '';
@@ -2798,7 +3194,9 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
     // Modal de Adicionar Talhão
     function abrirModalAdicionarTalhao() {
       atualizarTextosCultura();
+      popularSelectsVariedades();
       document.getElementById('formAdicionarTalhao').reset();
+      aoSelecionarVariedade('add');
       document.getElementById('modalAdicionarTalhao').classList.remove('hidden');
     }
 
