@@ -293,7 +293,7 @@
           <span class="text-[10px] font-bold text-slate-400">Prazos:</span>
           <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-semibold">1ª: R1</span>
           <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-950 text-sky-200 border border-sky-700 font-bold">2ª: +17 dias</span>
-          <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700 font-semibold">3ª: +14 dias</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700 font-semibold">3ª: +17 dias</span>
         </div>
         <button onclick="document.getElementById('guiaManejoCompleto').classList.toggle('hidden')" class="text-[11px] text-slate-400 hover:text-white underline">
           Info de Tolerâncias ▾
@@ -335,7 +335,7 @@
                 <th class="p-3 text-center bg-slate-950/40">1º Fungicida (Previsto R1 & Data Feita)</th>
                 <th class="p-3 text-center bg-sky-950/30 text-sky-200 font-bold border-x border-sky-800/50">2ª Prevista (+17d da 1ª)</th>
                 <th class="p-3 text-center bg-slate-950/40">2ª Feita</th>
-                <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+14d da 2ª)</th>
+                <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+17d da 2ª)</th>
                 <th class="p-3 text-center bg-slate-950/40">3ª Feita</th>
                 <th class="p-3 text-center">Obs / Produto</th>
               </tr>
@@ -400,7 +400,7 @@
                 <th class="p-2 border border-slate-400 text-center w-32">1ª Aplicação<br>(Pós / Herb / Ins)</th>
                 <th class="p-2 border border-slate-400 text-center w-28">1º Fungicida<br>(R1 / Veto)</th>
                 <th class="p-2 border border-slate-400 text-center w-24 bg-sky-900 text-white">2º Fung.<br>(+17d da 1ª)</th>
-                <th class="p-2 border border-slate-400 text-center w-24">3º Fung.<br>(+14d da 2ª)</th>
+                <th class="p-2 border border-slate-400 text-center w-24">3º Fung.<br>(+17d da 2ª)</th>
                 <th class="p-2 border border-slate-400 text-center w-28">Visto Op.</th>
               </tr>
             </thead>
@@ -1547,7 +1547,7 @@
       return appState[id];
     }
 
-    // Cálculo de retorno com dias configuráveis (17 dias para a 2ª aplicação, 14 dias para a 3ª)
+    // Cálculo de retorno com dias configuráveis (17 dias para a 2ª aplicação, 17 dias para a 3ª)
     function calcularProximaData(dataIsoStr, dias = 14) {
       if (!dataIsoStr) return null;
       const partes = dataIsoStr.split('-');
@@ -1723,7 +1723,7 @@
       lista.forEach(t => {
         const reg = obterOuCriar(t.id);
         const proxF2 = calcularProximaData(reg.f1_data, 17);
-        const proxF3 = calcularProximaData(reg.f2_data, 14);
+        const proxF3 = calcularProximaData(reg.f2_data, 17);
 
         let tecBadgeClass = 'bg-emerald-950 text-emerald-300 border-emerald-800';
         if (t.tec_badge.includes('XTEND')) tecBadgeClass = 'bg-sky-950 text-sky-300 border-sky-800';
@@ -1788,8 +1788,8 @@
               </div>
             </td>
             <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
-              ${obterStatusBadge(proxF3, reg.f2_data, 14, !!reg.f3_status || !!reg.f3_data)}
-              <span class="text-[9px] text-emerald-400/80 block mt-0.5">(+14 dias)</span>
+              ${obterStatusBadge(proxF3, reg.f2_data, 17, !!reg.f3_status || !!reg.f3_data)}
+              <span class="text-[9px] text-emerald-400/80 block mt-0.5">(+17 dias)</span>
             </td>
             <td class="p-2 text-center bg-slate-950/20 min-w-[140px]">
               <div class="flex items-center justify-center gap-1.5">
@@ -1880,14 +1880,14 @@
                        class="bg-slate-950 border border-slate-700 rounded px-2 py-1 text-xs text-white font-mono focus:border-sky-500 focus:outline-none">
               </div>
 
-              <!-- 3ª Fungicida (+14d) -->
+              <!-- 3ª Fungicida (+17d) -->
               <div class="flex items-center justify-between gap-2 bg-slate-900/80 px-2.5 py-1.5 rounded-lg border border-slate-700/60">
                 <div class="flex items-center gap-2 min-w-[105px]">
                   <label class="flex items-center gap-1 cursor-pointer">
                     <input type="checkbox" ${reg.f3_status ? 'checked' : ''}
                            onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)"
                            class="w-4 h-4 accent-emerald-500 rounded">
-                    <span class="text-xs font-bold text-slate-300">3ª (+14d)</span>
+                    <span class="text-xs font-bold text-slate-300">3ª (+17d)</span>
                   </label>
                   <div>${obterStatusBadge(proxF3, reg.f2_data, 14, !!reg.f3_status || !!reg.f3_data)}</div>
                 </div>
@@ -1980,7 +1980,7 @@
               <label class="cursor-pointer inline-flex items-center gap-0.5">
                 <input type="checkbox" ${reg.f3_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)"> Fung
               </label>
-              <div class="text-slate-500 text-[8px] mt-0.5">+14d da 2ª</div>
+              <div class="text-slate-500 text-[8px] mt-0.5">+17d da 2ª</div>
             </td>
             <td class="p-1.5 border border-slate-300 text-center text-slate-400 text-[9px]">
               ____________________
@@ -2020,7 +2020,7 @@
                 <div class="flex items-center gap-2 flex-wrap">
                   <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f1_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f1_status', this.checked)" class="w-4 h-4 accent-emerald-600"> 1º Fung</label>
                   <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f2_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f2_status', this.checked)" class="w-4 h-4 accent-sky-600"> 2º (+17d)</label>
-                  <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f3_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)" class="w-4 h-4 accent-emerald-600"> 3º (+14d)</label>
+                  <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f3_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)" class="w-4 h-4 accent-emerald-600"> 3º (+17d)</label>
                 </div>
               </div>
             </div>
@@ -2083,7 +2083,7 @@
           "1ª Aplicação Realizada (Data)",
           "2ª Prevista (+17d da 1ª)",
           "2ª Aplicação Realizada (Data)",
-          "3ª Prevista (+14d da 2ª)",
+          "3ª Prevista (+17d da 2ª)",
           "3ª Aplicação Realizada (Data)",
           "Anotações / Produto Utilizado"
         ]
@@ -2093,8 +2093,8 @@
         const reg = appState[t.id] || {};
         // 2ª aos 17 dias
         const proxF2 = calcularProximaData(reg.f1_data, 17) || "";
-        // 3ª aos 14 dias após a 2ª
-        const proxF3 = calcularProximaData(reg.f2_data, 14) || "";
+        // 3ª aos 17 dias após a 2ª
+        const proxF3 = calcularProximaData(reg.f2_data, 17) || "";
         const diaEmerg = parseInt(t.dtE.slice(0, 2)) || 26;
 
         linhas.push([
@@ -2136,7 +2136,7 @@
         { wch: 16 }, // 1ª Data
         { wch: 18 }, // 2ª Prevista (+17d)
         { wch: 16 }, // 2ª Data
-        { wch: 18 }, // 3ª Prevista (+14d)
+        { wch: 18 }, // 3ª Prevista (+17d)
         { wch: 16 }, // 3ª Data
         { wch: 30 }  // Obs
       ];
