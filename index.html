@@ -220,6 +220,91 @@
       </div>
     </div>
 
+    <!-- Painel Dinâmico: Hectares Pendentes de Aplicação (Atualização em Tempo Real) -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-emerald-500/40 rounded-2xl p-3 sm:p-4 shadow-xl no-print">
+      <div class="flex items-center justify-between gap-2 border-b border-slate-700/60 pb-2 mb-2.5">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-sm font-black">
+            🚜
+          </span>
+          <div>
+            <h2 class="text-xs sm:text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
+              Hectares que Faltam Fazer
+              <span id="badgeProgressoGeral" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700">0% concluído</span>
+            </h2>
+            <p class="text-[10px] text-slate-400">Total da safra: 4.391,81 ha por aplicação • Atualizado instantaneamente ao marcar</p>
+          </div>
+        </div>
+
+        <div class="text-right">
+          <span class="text-[10px] text-slate-400 uppercase font-semibold block">Total Pendente</span>
+          <span id="haTotalPendente" class="text-base sm:text-lg font-black font-mono text-amber-400">0,00 ha</span>
+        </div>
+      </div>
+
+      <!-- Grid dos 3 Fungicidas: Feito vs Falta Fazer -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+        
+        <!-- 1ª Aplicação -->
+        <div class="bg-slate-950/80 border border-slate-700/80 rounded-xl p-2.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[11px] font-bold">
+            <span class="text-emerald-400 flex items-center gap-1"><span>🌱</span> 1ª Fungicida (R1)</span>
+            <span id="pctF1" class="text-[10px] text-slate-400 font-mono">0%</span>
+          </div>
+          <div class="flex items-baseline justify-between mt-1">
+            <span class="text-[10px] text-slate-400">Falta fazer:</span>
+            <span id="haFaltaF1" class="font-mono font-black text-sm text-rose-400">4.391,81 ha</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div id="barF1" class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <div class="flex justify-between text-[9px] text-slate-400 mt-1">
+            <span>Feito: <strong id="haFeitoF1" class="text-emerald-400">0,00 ha</strong></span>
+            <span id="talhoesFaltaF1">54 talhões restantes</span>
+          </div>
+        </div>
+
+        <!-- 2ª Aplicação -->
+        <div class="bg-slate-950/80 border border-sky-900/50 rounded-xl p-2.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[11px] font-bold">
+            <span class="text-sky-400 flex items-center gap-1"><span>💧</span> 2ª Fungicida (+17d)</span>
+            <span id="pctF2" class="text-[10px] text-slate-400 font-mono">0%</span>
+          </div>
+          <div class="flex items-baseline justify-between mt-1">
+            <span class="text-[10px] text-slate-400">Falta fazer:</span>
+            <span id="haFaltaF2" class="font-mono font-black text-sm text-rose-400">4.391,81 ha</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div id="barF2" class="bg-sky-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <div class="flex justify-between text-[9px] text-slate-400 mt-1">
+            <span>Feito: <strong id="haFeitoF2" class="text-sky-400">0,00 ha</strong></span>
+            <span id="talhoesFaltaF2">54 talhões restantes</span>
+          </div>
+        </div>
+
+        <!-- 3ª Aplicação -->
+        <div class="bg-slate-950/80 border border-slate-700/80 rounded-xl p-2.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[11px] font-bold">
+            <span class="text-purple-400 flex items-center gap-1"><span>🛡️</span> 3ª Fungicida (+17d)</span>
+            <span id="pctF3" class="text-[10px] text-slate-400 font-mono">0%</span>
+          </div>
+          <div class="flex items-baseline justify-between mt-1">
+            <span class="text-[10px] text-slate-400">Falta fazer:</span>
+            <span id="haFaltaF3" class="font-mono font-black text-sm text-rose-400">4.391,81 ha</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div id="barF3" class="bg-purple-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <div class="flex justify-between text-[9px] text-slate-400 mt-1">
+            <span>Feito: <strong id="haFeitoF3" class="text-purple-400">0,00 ha</strong></span>
+            <span id="talhoesFaltaF3">54 talhões restantes</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Filters Bar Compacta -->
     <div class="bg-slate-800/80 border border-slate-700/80 p-2.5 rounded-xl shadow-md flex flex-col sm:flex-row gap-2 items-stretch sm:items-center justify-between no-print">
       <div class="flex items-center gap-2 flex-grow">
@@ -2031,6 +2116,90 @@
       });
     }
 
+    // CÁLCULO EM TEMPO REAL: HECTARES QUE FALTAM FAZER DE APLICAÇÃO
+    function atualizarHectaresPendentes() {
+      const AREA_TOTAL_SAFRA = 4391.81;
+      let feitoF1 = 0, feitoF2 = 0, feitoF3 = 0;
+      let qtdFeitoF1 = 0, qtdFeitoF2 = 0, qtdFeitoF3 = 0;
+
+      TALHOES.forEach(t => {
+        const reg = appState[t.id] || {};
+        const area = Number(t.ha) || 0;
+
+        if (reg.f1_status || reg.f1_data) {
+          feitoF1 += area;
+          qtdFeitoF1++;
+        }
+        if (reg.f2_status || reg.f2_data) {
+          feitoF2 += area;
+          qtdFeitoF2++;
+        }
+        if (reg.f3_status || reg.f3_data) {
+          feitoF3 += area;
+          qtdFeitoF3++;
+        }
+      });
+
+      const faltaF1 = Math.max(0, AREA_TOTAL_SAFRA - feitoF1);
+      const faltaF2 = Math.max(0, AREA_TOTAL_SAFRA - feitoF2);
+      const faltaF3 = Math.max(0, AREA_TOTAL_SAFRA - feitoF3);
+
+      const totalHectaresPulverizacao = AREA_TOTAL_SAFRA * 3; // 3 entradas completas
+      const totalFeitoGeral = feitoF1 + feitoF2 + feitoF3;
+      const totalFaltaGeral = faltaF1 + faltaF2 + faltaF3;
+      const pctGeral = Math.round((totalFeitoGeral / totalHectaresPulverizacao) * 100);
+
+      // Formatação brasileira
+      const fmtHa = (val) => val.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ha';
+
+      // Atualizar no topo
+      const elTotalPendente = document.getElementById('haTotalPendente');
+      if (elTotalPendente) elTotalPendente.innerText = fmtHa(totalFaltaGeral);
+
+      const elBadgeProgresso = document.getElementById('badgeProgressoGeral');
+      if (elBadgeProgresso) elBadgeProgresso.innerText = `${pctGeral}% concluído`;
+
+      // Atualizar 1ª Aplicação
+      const elFaltaF1 = document.getElementById('haFaltaF1');
+      if (elFaltaF1) elFaltaF1.innerText = fmtHa(faltaF1);
+      const elFeitoF1 = document.getElementById('haFeitoF1');
+      if (elFeitoF1) elFeitoF1.innerText = fmtHa(feitoF1);
+      const elPctF1 = document.getElementById('pctF1');
+      const pct1 = Math.round((feitoF1 / AREA_TOTAL_SAFRA) * 100);
+      if (elPctF1) elPctF1.innerText = `${pct1}%`;
+      const elBarF1 = document.getElementById('barF1');
+      if (elBarF1) elBarF1.style.width = `${pct1}%`;
+      const elTalhoesF1 = document.getElementById('talhoesFaltaF1');
+      if (elTalhoesF1) elTalhoesF1.innerText = `${54 - qtdFeitoF1} talhões restantes`;
+
+      // Atualizar 2ª Aplicação
+      const elFaltaF2 = document.getElementById('haFaltaF2');
+      if (elFaltaF2) elFaltaF2.innerText = fmtHa(faltaF2);
+      const elFeitoF2 = document.getElementById('haFeitoF2');
+      if (elFeitoF2) elFeitoF2.innerText = fmtHa(feitoF2);
+      const elPctF2 = document.getElementById('pctF2');
+      const pct2 = Math.round((feitoF2 / AREA_TOTAL_SAFRA) * 100);
+      if (elPctF2) elPctF2.innerText = `${pct2}%`;
+      const elBarF2 = document.getElementById('barF2');
+      if (elBarF2) elBarF2.style.width = `${pct2}%`;
+      const elTalhoesF2 = document.getElementById('talhoesFaltaF2');
+      if (elTalhoesF2) elTalhoesF2.innerText = `${54 - qtdFeitoF2} talhões restantes`;
+
+      // Atualizar 3ª Aplicação
+      const elFaltaF3 = document.getElementById('haFaltaF3');
+      if (elFaltaF3) elFaltaF3.innerText = fmtHa(faltaF3);
+      const elFeitoF3 = document.getElementById('haFeitoF3');
+      if (elFeitoF3) elFeitoF3.innerText = fmtHa(feitoF3);
+      const elPctF3 = document.getElementById('pctF3');
+      const pct3 = Math.round((feitoF3 / AREA_TOTAL_SAFRA) * 100);
+      if (elPctF3) elPctF3.innerText = `${pct3}%`;
+      const elBarF3 = document.getElementById('barF3');
+      if (elBarF3) elBarF3.style.width = `${pct3}%`;
+      const elTalhoesF3 = document.getElementById('talhoesFaltaF3');
+      if (elTalhoesF3) elTalhoesF3.innerText = `${54 - qtdFeitoF3} talhões restantes`;
+    }
+
+
     function renderizarTabelasVisiveis() {
       const filtrados = filtrarTalhoes();
       const contador = document.getElementById('contador-filtrados');
@@ -2047,6 +2216,7 @@
       }
 
       atualizarVisibilidadeModo();
+      atualizarHectaresPendentes();
     }
 
     function renderizar() {
