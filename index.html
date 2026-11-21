@@ -861,9 +861,28 @@
 
       <form id="formNovaSafra" onsubmit="salvarNovaSafra(event)" class="space-y-3 text-xs">
         <div>
-          <label class="block text-slate-300 text-[11px] font-bold mb-1">Nome da Safra</label>
+          <label class="block text-slate-300 text-[11px] font-bold mb-1">Nome da Safra Futura</label>
           <input type="text" id="nome_nova_safra" required placeholder="Ex: 2027/2028 ou 2028/2029" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-bold text-sm focus:border-emerald-500 focus:outline-none font-mono">
-          <p class="text-[10px] text-slate-400 mt-1">Você pode criar qualquer safra futura ou passada.</p>
+          <p class="text-[10px] text-slate-400 mt-1">Sempre para frente: safras a partir da atual (2026/2027 em diante).</p>
+        </div>
+
+        <!-- Atalhos de Safras Futuras com 1 clique -->
+        <div class="space-y-1">
+          <span class="text-[10px] text-slate-400 font-semibold">Sugestões rápidas:</span>
+          <div class="flex flex-wrap gap-1.5">
+            <button type="button" onclick="preencherNomeSafraRapido('2027/2028')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-mono text-[11px]">
+              + 2027/2028
+            </button>
+            <button type="button" onclick="preencherNomeSafraRapido('2028/2029')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-mono text-[11px]">
+              + 2028/2029
+            </button>
+            <button type="button" onclick="preencherNomeSafraRapido('2029/2030')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-mono text-[11px]">
+              + 2029/2030
+            </button>
+            <button type="button" onclick="preencherNomeSafraRapido('2030/2031')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-mono text-[11px]">
+              + 2030/2031
+            </button>
+          </div>
         </div>
 
         <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3">
@@ -1919,11 +1938,12 @@
     // ==========================================
     // SISTEMA MULTI-SAFRA & MULTI-CULTURA DINÂMICO
     // ==========================================
+    // Apenas safras a partir da atual (2026/2027) em diante (sempre para frente)
     const SAFRAS_PADRAO = [
       { id: '2026_2027', nome: '2026/2027 (Atual)' },
-      { id: '2025_2026', nome: '2025/2026' },
       { id: '2027_2028', nome: '2027/2028' },
-      { id: '2028_2029', nome: '2028/2029' }
+      { id: '2028_2029', nome: '2028/2029' },
+      { id: '2029_2030', nome: '2029/2030' }
     ];
 
     let listaSafras = [];
@@ -1932,7 +1952,15 @@
       try {
         const raw = localStorage.getItem('lista_safras_custom_v1');
         if (raw) {
-          listaSafras = JSON.parse(raw);
+          const parsed = JSON.parse(raw);
+          // Filtrar apenas safras 2026 em diante (remover 2024/2025 e 2025/2026)
+          listaSafras = parsed.filter(s => {
+            const anoInicio = parseInt(s.id.slice(0, 4)) || 2026;
+            return anoInicio >= 2026;
+          });
+          if (!listaSafras.find(s => s.id === '2026_2027')) {
+            listaSafras.unshift({ id: '2026_2027', nome: '2026/2027 (Atual)' });
+          }
           return;
         }
       } catch(e) {}
@@ -2022,10 +2050,28 @@
       });
     }
 
+    function preencherNomeSafraRapido(nome) {
+      const inp = document.getElementById('nome_nova_safra');
+      if (inp) {
+        inp.value = nome;
+        inp.focus();
+      }
+    }
+
     function salvarNovaSafra(event) {
       if (event) event.preventDefault();
       const nomeDigitado = document.getElementById('nome_nova_safra').value.trim();
       if (!nomeDigitado) return;
+
+      // Validação: Safras devem ser da atual (2026) para frente
+      const matchAno = nomeDigitado.match(/\b(19\d\d|20\d\d)\b/);
+      if (matchAno) {
+        const anoNum = parseInt(matchAno[1]);
+        if (anoNum < 2026) {
+          alert('As safras devem ser sempre para frente a partir de 2026/2027 (ex: 2027/2028, 2028/2029...).');
+          return;
+        }
+      }
 
       // Gerar ID seguro para banco de dados (ex: '2027/2028' vira '2027_2028')
       const idLimpo = nomeDigitado.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
