@@ -140,12 +140,12 @@
             <!-- Seletor Safra -->
             <div class="flex items-center gap-1.5 bg-slate-950/90 border border-emerald-500/50 rounded-lg px-2.5 py-1 shadow-sm">
               <span class="text-xs text-slate-400 font-semibold">📅 Safra:</span>
-              <select id="seletorSafra" onchange="trocarSafraECultura()" class="bg-transparent text-emerald-400 font-black text-xs focus:outline-none cursor-pointer">
-                <option value="2026_2027" class="bg-slate-900 text-white" selected>2026/2027 (Atual)</option>
-                <option value="2025_2026" class="bg-slate-900 text-white">2025/2026</option>
-                <option value="2027_2028" class="bg-slate-900 text-white">2027/2028</option>
-                <option value="2024_2025" class="bg-slate-900 text-white">2024/2025</option>
+              <select id="seletorSafra" onchange="aoMudarSeletorSafra()" class="bg-transparent text-emerald-400 font-black text-xs focus:outline-none cursor-pointer">
+                <!-- Opções dinâmicas renderizadas por popularSelectSafras() -->
               </select>
+              <button type="button" onclick="abrirModalNovaSafra()" class="p-0.5 px-1.5 rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800 text-xs font-black transition" title="Criar ou gerenciar safras (ex: 2027/2028, 2028/2029...)">
+                ➕
+              </button>
             </div>
 
             <!-- Seletor Cultura -->
@@ -837,6 +837,61 @@
           </button>
           <button type="submit" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md">
             💾 Salvar no Banco
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CADASTRAR OU NOMEAR NOVA SAFRA (2027/2028, 2028/2029...) -->
+  <div id="modalNovaSafra" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-slate-900 border border-emerald-500/50 rounded-2xl max-w-md w-full p-4 sm:p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-black">
+            📅
+          </span>
+          <div>
+            <h3 class="text-sm sm:text-base font-black text-white">Cadastrar Nova Safra</h3>
+            <p class="text-[11px] text-slate-400">Escolha o nome (ex: 2027/2028, 2028/2029...)</p>
+          </div>
+        </div>
+        <button onclick="fecharModalNovaSafra()" class="text-slate-400 hover:text-white text-lg font-bold p-1">&times;</button>
+      </div>
+
+      <form id="formNovaSafra" onsubmit="salvarNovaSafra(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-300 text-[11px] font-bold mb-1">Nome da Safra</label>
+          <input type="text" id="nome_nova_safra" required placeholder="Ex: 2027/2028 ou 2028/2029" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-bold text-sm focus:border-emerald-500 focus:outline-none font-mono">
+          <p class="text-[10px] text-slate-400 mt-1">Você pode criar qualquer safra futura ou passada.</p>
+        </div>
+
+        <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3">
+          <label class="flex items-start gap-2.5 cursor-pointer">
+            <input type="checkbox" id="chk_copiar_talhoes" checked class="w-4 h-4 accent-emerald-500 rounded mt-0.5">
+            <div>
+              <span class="text-xs font-bold text-slate-200 block">Copiar glebas e hectares da safra atual</span>
+              <span class="text-[10px] text-slate-400 leading-tight block mt-0.5">
+                Importa automaticamente os 54 talhões e hectares já medidos para você não precisar recadastrar tudo do zero. As datas de pulverização começam zeradas para o novo ano.
+              </span>
+            </div>
+          </label>
+        </div>
+
+        <!-- Safras Já Existentes -->
+        <div class="space-y-1.5 pt-1">
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Safras Cadastradas:</span>
+          <div id="listaSafrasExistentes" class="space-y-1 max-h-36 overflow-y-auto pr-1">
+            <!-- Injetado via JS -->
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-800">
+          <button type="button" onclick="fecharModalNovaSafra()" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium text-xs">
+            Cancelar
+          </button>
+          <button type="submit" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md">
+            ➕ Criar e Abrir Safra
           </button>
         </div>
       </form>
@@ -1864,8 +1919,174 @@
     // ==========================================
     // SISTEMA MULTI-SAFRA & MULTI-CULTURA DINÂMICO
     // ==========================================
+    const SAFRAS_PADRAO = [
+      { id: '2026_2027', nome: '2026/2027 (Atual)' },
+      { id: '2025_2026', nome: '2025/2026' },
+      { id: '2027_2028', nome: '2027/2028' },
+      { id: '2028_2029', nome: '2028/2029' }
+    ];
+
+    let listaSafras = [];
+
+    function carregarListaSafras() {
+      try {
+        const raw = localStorage.getItem('lista_safras_custom_v1');
+        if (raw) {
+          listaSafras = JSON.parse(raw);
+          return;
+        }
+      } catch(e) {}
+      listaSafras = JSON.parse(JSON.stringify(SAFRAS_PADRAO));
+    }
+
+    function salvarListaSafras(atualizarNuvem = true) {
+      try {
+        localStorage.setItem('lista_safras_custom_v1', JSON.stringify(listaSafras));
+      } catch(e) {}
+
+      if (atualizarNuvem && typeof firebase !== 'undefined' && firebase.apps.length) {
+        try {
+          firebase.database().ref('config_safras').set(listaSafras);
+        } catch(e) {}
+      }
+    }
+
+    function escutarSafrasNuvem() {
+      if (typeof firebase === 'undefined' || !firebase.apps.length) return;
+      firebase.database().ref('config_safras').on('value', snap => {
+        const val = snap.val();
+        if (val && Array.isArray(val) && val.length > 0) {
+          listaSafras = val;
+          try { localStorage.setItem('lista_safras_custom_v1', JSON.stringify(listaSafras)); } catch(e) {}
+          popularSelectSafras();
+        }
+      });
+    }
+
+    carregarListaSafras();
+
     let safraAtual = localStorage.getItem('safra_selecionada') || '2026_2027';
     let culturaAtual = localStorage.getItem('cultura_selecionada') || 'soja';
+
+    // Popular o Select de Safras Dinamicamente
+    function popularSelectSafras() {
+      const sel = document.getElementById('seletorSafra');
+      if (!sel) return;
+
+      let html = '';
+      listaSafras.forEach(s => {
+        const selAttr = s.id === safraAtual ? 'selected' : '';
+        html += `<option value="${s.id}" class="bg-slate-900 text-white" ${selAttr}>${s.nome}</option>`;
+      });
+      html += '<option value="__NOVA_SAFRA__" class="bg-slate-800 text-emerald-400 font-bold">➕ Nova Safra...</option>';
+      sel.innerHTML = html;
+    }
+
+    function aoMudarSeletorSafra() {
+      const sel = document.getElementById('seletorSafra');
+      if (!sel) return;
+      if (sel.value === '__NOVA_SAFRA__') {
+        sel.value = safraAtual; // Manter a atual até criar
+        abrirModalNovaSafra();
+        return;
+      }
+      trocarSafraECultura();
+    }
+
+    // Modal de Nova Safra
+    function abrirModalNovaSafra() {
+      document.getElementById('nome_nova_safra').value = '';
+      renderizarListaSafrasModal();
+      document.getElementById('modalNovaSafra').classList.remove('hidden');
+    }
+
+    function fecharModalNovaSafra() {
+      document.getElementById('modalNovaSafra').classList.add('hidden');
+    }
+
+    function renderizarListaSafrasModal() {
+      const cont = document.getElementById('listaSafrasExistentes');
+      if (!cont) return;
+      cont.innerHTML = '';
+      listaSafras.forEach(s => {
+        const item = document.createElement('div');
+        item.className = 'flex items-center justify-between p-1.5 px-2.5 rounded bg-slate-950 border border-slate-800 text-xs';
+        item.innerHTML = `
+          <span class="font-bold text-white font-mono flex items-center gap-1.5">
+            <span>📅</span> ${s.nome}
+            ${s.id === safraAtual ? '<span class="text-[9px] bg-emerald-950 text-emerald-300 px-1.5 py-0.2 rounded border border-emerald-800">Ativa</span>' : ''}
+          </span>
+          ${s.id !== '2026_2027' ? `<button type="button" onclick="excluirSafra('${s.id}')" class="text-rose-400 hover:text-rose-300 p-0.5 text-xs font-bold" title="Remover safra">&times;</button>` : ''}
+        `;
+        cont.appendChild(item);
+      });
+    }
+
+    function salvarNovaSafra(event) {
+      if (event) event.preventDefault();
+      const nomeDigitado = document.getElementById('nome_nova_safra').value.trim();
+      if (!nomeDigitado) return;
+
+      // Gerar ID seguro para banco de dados (ex: '2027/2028' vira '2027_2028')
+      const idLimpo = nomeDigitado.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+
+      // Verificar se já existe
+      const jaExiste = listaSafras.find(s => s.id === idLimpo || s.nome.toLowerCase() === nomeDigitado.toLowerCase());
+      if (jaExiste) {
+        safraAtual = jaExiste.id;
+        salvarListaSafras(true);
+        popularSelectSafras();
+        trocarSafraECultura();
+        fecharModalNovaSafra();
+        return;
+      }
+
+      // Adicionar à lista
+      listaSafras.push({
+        id: idLimpo,
+        nome: nomeDigitado
+      });
+      salvarListaSafras(true);
+
+      const copiarTalhoes = document.getElementById('chk_copiar_talhoes').checked;
+      if (copiarTalhoes && TALHOES && TALHOES.length > 0) {
+        // Clonar base de talhões para a nova safra
+        const chavesNova = {
+          storageTalhoes: `safra_${idLimpo}_${culturaAtual}_talhoes_custom_v1`,
+          firebaseTalhoes: `safra_${idLimpo}_${culturaAtual}/config_talhoes`
+        };
+        try {
+          localStorage.setItem(chavesNova.storageTalhoes, JSON.stringify(TALHOES));
+          if (typeof firebase !== 'undefined' && firebase.apps.length) {
+            firebase.database().ref(chavesNova.firebaseTalhoes).set(TALHOES);
+          }
+        } catch(e) {}
+      }
+
+      // Definir como safra atual
+      safraAtual = idLimpo;
+      localStorage.setItem('safra_selecionada', safraAtual);
+      popularSelectSafras();
+      trocarSafraECultura();
+      fecharModalNovaSafra();
+      alert(`Safra "${nomeDigitado}" criada e selecionada com sucesso!`);
+    }
+
+    function excluirSafra(id) {
+      if (id === '2026_2027') {
+        alert('A Safra 2026/2027 é a safra padrão e não pode ser excluída.');
+        return;
+      }
+      if (!confirm('Deseja realmente remover esta safra da lista?')) return;
+      listaSafras = listaSafras.filter(s => s.id !== id);
+      salvarListaSafras(true);
+      if (safraAtual === id) {
+        safraAtual = '2026_2027';
+        trocarSafraECultura();
+      }
+      popularSelectSafras();
+      renderizarListaSafrasModal();
+    }
 
     // Lista dinâmica de talhões da safra selecionada (permite editar ha, glebas e dividir áreas)
     let TALHOES = [];
@@ -2968,6 +3189,8 @@
       conectarFirebase();
       iniciarEscutaTempoReal();
       escutarTalhoesConfigNuvem();
+      escutarSafrasNuvem();
+      popularSelectSafras();
       escutarBancoVariedadesNuvem();
       popularSelectsVariedades();
       atualizarTextosCultura();
@@ -2980,7 +3203,8 @@
 
     function atualizarTextosCultura() {
       const ehMilho = culturaAtual === 'milho';
-      const labelSafra = safraAtual.replace('_', '/');
+      const safraObj = listaSafras.find(s => s.id === safraAtual);
+      const labelSafra = safraObj ? safraObj.nome.replace(' (Atual)', '') : safraAtual.replace('_', '/');
       const nomeCultura = ehMilho ? 'Milho' : 'Soja';
 
       // Atualizar título
