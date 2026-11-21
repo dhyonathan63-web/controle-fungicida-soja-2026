@@ -133,7 +133,35 @@
               🟢 100% Offline Pronto
             </span>
           </h1>
-          <p class="text-[11px] text-slate-400">Ordem de Plantio da Planilha Oficial • 2ª Aplicação aos 17 dias • Salva automaticamente</p>
+          <p class="text-[11px] text-slate-400">Ordem de Plantio da Planilha Oficial • 2ª e 3ª Aplicações aos 17 dias • Salva automaticamente</p>
+          
+          <!-- SELETORES DE SAFRA E CULTURA (MULTI-SAFRA & MULTI-CULTURA) -->
+          <div class="flex flex-wrap items-center gap-2 mt-2 no-print">
+            <!-- Seletor Safra -->
+            <div class="flex items-center gap-1.5 bg-slate-950/90 border border-emerald-500/50 rounded-lg px-2.5 py-1 shadow-sm">
+              <span class="text-xs text-slate-400 font-semibold">📅 Safra:</span>
+              <select id="seletorSafra" onchange="trocarSafraECultura()" class="bg-transparent text-emerald-400 font-black text-xs focus:outline-none cursor-pointer">
+                <option value="2026_2027" class="bg-slate-900 text-white" selected>2026/2027 (Atual)</option>
+                <option value="2025_2026" class="bg-slate-900 text-white">2025/2026</option>
+                <option value="2027_2028" class="bg-slate-900 text-white">2027/2028</option>
+                <option value="2024_2025" class="bg-slate-900 text-white">2024/2025</option>
+              </select>
+            </div>
+
+            <!-- Seletor Cultura -->
+            <div class="flex items-center gap-1.5 bg-slate-950/90 border border-emerald-500/50 rounded-lg px-2.5 py-1 shadow-sm">
+              <span class="text-xs text-slate-400 font-semibold">🌾 Cultura:</span>
+              <select id="seletorCultura" onchange="trocarSafraECultura()" class="bg-transparent text-emerald-400 font-black text-xs focus:outline-none cursor-pointer">
+                <option value="soja" class="bg-slate-900 text-white" selected>🌱 Soja</option>
+                <option value="milho" class="bg-slate-900 text-white">🌽 Milho (Safrinha)</option>
+              </select>
+            </div>
+
+            <!-- Botão Adicionar Gleba / Dividir -->
+            <button onclick="abrirModalAdicionarTalhao()" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 shadow transition active:scale-95">
+              <span>➕</span> <span>Nova Gleba / Talhão</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -189,34 +217,34 @@
       <div id="gridKpis" class="hidden md:grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mt-1.5">
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span class="text-[11px] text-slate-400 font-medium">Área Total Conferida</span>
-        <div class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">4.391,81 ha</div>
-        <span class="text-[10px] text-slate-400">54 talhões em ordem de plantio</span>
+        <div id="kpiAreaTotal" class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">4.391,81 ha</div>
+        <span id="kpiTalhoesTotal" class="text-[10px] text-slate-400">54 talhões</span>
       </div>
 
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span class="text-[11px] text-slate-400 font-medium">Pivôs Irrigados</span>
-        <div class="text-xl font-extrabold text-sky-400 font-mono mt-0.5">763,80 ha</div>
-        <span class="text-[10px] text-slate-400">8 pivôs (plantio 21 a 26-set)</span>
+        <div id="kpiAreaPivos" class="text-xl font-extrabold text-sky-400 font-mono mt-0.5">763,80 ha</div>
+        <span id="kpiPivosCount" class="text-[10px] text-slate-400">8 pivôs</span>
       </div>
 
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span class="text-[11px] text-slate-400 font-medium">Glebas de Sequeiro</span>
-        <div class="text-xl font-extrabold text-amber-400 font-mono mt-0.5">3.628,01 ha</div>
-        <span class="text-[10px] text-slate-400">46 talhões (plantio 23-set a 27-out)</span>
+        <div id="kpiAreaSequeiro" class="text-xl font-extrabold text-amber-400 font-mono mt-0.5">3.628,01 ha</div>
+        <span id="kpiSequeiroCount" class="text-[10px] text-slate-400">46 talhões</span>
       </div>
 
       <div class="bg-slate-800/80 border border-purple-900/60 p-3.5 rounded-xl shadow-md bg-purple-950/20">
-        <span class="text-[11px] text-purple-300 font-semibold flex items-center gap-1">
+        <span id="kpiTec1Label" class="text-[11px] text-purple-300 font-semibold flex items-center gap-1">
           <span class="w-2 h-2 rounded-full bg-purple-500"></span> Conkesta Enlist
         </span>
-        <div class="text-xl font-extrabold text-purple-300 font-mono mt-0.5">1.137,88 ha</div>
-        <span class="text-[10px] text-purple-200/80 font-bold">Tolera GLUFOSINATO</span>
+        <div id="kpiAreaTec1" class="text-xl font-extrabold text-purple-300 font-mono mt-0.5">1.137,88 ha</div>
+        <span id="kpiTec1Sub" class="text-[10px] text-purple-200/80 font-bold">Tolera GLUFOSINATO</span>
       </div>
 
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
-        <span class="text-[11px] text-slate-400 font-medium">IPRO + XTEND</span>
-        <div class="text-xl font-extrabold text-slate-200 font-mono mt-0.5">3.253,93 ha</div>
-        <span class="text-[10px] text-rose-400 font-semibold">⚠️ PROIBIDO Glufosinato</span>
+        <span id="kpiTec2Label" class="text-[11px] text-slate-400 font-medium">IPRO + XTEND</span>
+        <div id="kpiAreaTec2" class="text-xl font-extrabold text-slate-200 font-mono mt-0.5">3.253,93 ha</div>
+        <span id="kpiTec2Sub" class="text-[10px] text-rose-400 font-semibold">⚠️ PROIBIDO Glufosinato</span>
       </div>
     </div>
 
@@ -504,6 +532,208 @@
   </div>
 
   <!-- Modal de Backup -->
+  <!-- MODAL: EDITAR TALHÃO / DIVIDIR ÁREA EM MAIS DE UMA VARIEDADE -->
+  <div id="modalEditarTalhao" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold">
+            ✏️
+          </span>
+          <div>
+            <h3 class="text-sm sm:text-base font-black text-white">Editar Gleba / Dividir Área</h3>
+            <p class="text-[11px] text-slate-400">Altere hectares, nome, ou divida a área para 2 variedades</p>
+          </div>
+        </div>
+        <button onclick="fecharModalEditarTalhao()" class="text-slate-400 hover:text-white text-lg font-bold p-1">&times;</button>
+      </div>
+
+      <form id="formEditarTalhao" onsubmit="salvarEdicaoTalhao(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="edit_talhao_id">
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Nome do Talhão / Gleba</label>
+            <input type="text" id="edit_gleba" required class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:border-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Área em Hectares (ha)</label>
+            <input type="number" step="0.01" id="edit_ha" required class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-emerald-400 font-mono font-bold focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tipo de Área</label>
+            <select id="edit_tipo" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-emerald-500 focus:outline-none">
+              <option value="Pivô">Pivô Irrigado</option>
+              <option value="Sequeiro">Gleba Sequeiro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Sementes / metro</label>
+            <input type="number" step="0.1" id="edit_sem" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-mono focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Variedade / Híbrido</label>
+            <input type="text" id="edit_var" required class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:border-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tecnologia / Tolerância</label>
+            <select id="edit_tec" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-white text-[11px] focus:border-emerald-500 focus:outline-none">
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Data Plantio</label>
+            <input type="text" id="edit_dtP" placeholder="Ex: 25-set ou 15/10" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white focus:border-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Data Emergência</label>
+            <input type="text" id="edit_dtE" placeholder="Ex: 30-set ou 20/10" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <!-- SEÇÃO ESPECIAL: DIVIDIR GLEBA EM 2 VARIEDADES -->
+        <div class="bg-slate-950/90 border border-amber-500/40 rounded-xl p-3 space-y-2.5 mt-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+              <span>✂️</span> Dividir Gleba (Mais de 1 variedade)
+            </span>
+            <button type="button" onclick="alternarSecaoDivisao()" class="text-[11px] text-amber-400 underline font-semibold">
+              <span id="txtBtnDivisao">Configurar Divisão</span>
+            </button>
+          </div>
+          <div id="secaoDivisaoArea" class="hidden space-y-2 border-t border-slate-800 pt-2">
+            <p class="text-[10px] text-slate-400">
+              O sistema manterá esta primeira parcela e criará uma segunda parcela com a outra variedade, dividindo a área total.
+            </p>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-slate-400 text-[10px]">Hectares Parcela A</label>
+                <input type="number" step="0.01" id="div_ha_a" oninput="calcularDivisaoRestante()" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white text-xs font-mono">
+              </div>
+              <div>
+                <label class="block text-slate-400 text-[10px]">Hectares Parcela B</label>
+                <input type="number" step="0.01" id="div_ha_b" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-amber-400 text-xs font-mono font-bold">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-slate-400 text-[10px]">Variedade da Parcela B</label>
+                <input type="text" id="div_var_b" placeholder="Ex: NEO 601" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white text-xs">
+              </div>
+              <div>
+                <label class="block text-slate-400 text-[10px]">Tecnologia Parcela B</label>
+                <select id="div_tec_b" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white text-[10px]">
+                </select>
+              </div>
+            </div>
+            <button type="button" onclick="executarDivisaoTalhao()" class="w-full py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shadow transition">
+              ✂️ Confirmar e Dividir Gleba em 2
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-slate-700/80">
+          <button type="button" onclick="excluirTalhaoAtual()" class="px-3 py-1.5 rounded-lg bg-rose-900/60 hover:bg-rose-800 text-rose-300 font-bold border border-rose-700/80 transition text-xs">
+            🗑️ Excluir Talhão
+          </button>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="fecharModalEditarTalhao()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition text-xs">
+              Cancelar
+            </button>
+            <button type="submit" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition text-xs shadow-md">
+              💾 Salvar Alterações
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADICIONAR NOVA GLEBA / TALHÃO -->
+  <div id="modalAdicionarTalhao" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+            ➕
+          </span>
+          <div>
+            <h3 class="text-sm sm:text-base font-black text-white">Adicionar Nova Gleba / Talhão</h3>
+            <p class="text-[11px] text-slate-400">Cadastre uma nova área para a safra e cultura selecionada</p>
+          </div>
+        </div>
+        <button onclick="fecharModalAdicionarTalhao()" class="text-slate-400 hover:text-white text-lg font-bold p-1">&times;</button>
+      </div>
+
+      <form id="formAdicionarTalhao" onsubmit="salvarNovoTalhao(event)" class="space-y-3 text-xs">
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Nome da Gleba / Talhão</label>
+            <input type="text" id="add_gleba" required placeholder="Ex: Gleba 47 ou Pivô 09" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:border-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Área em Hectares (ha)</label>
+            <input type="number" step="0.01" id="add_ha" required placeholder="Ex: 85.50" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-emerald-400 font-mono font-bold focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tipo de Área</label>
+            <select id="add_tipo" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-emerald-500 focus:outline-none">
+              <option value="Sequeiro">Gleba Sequeiro</option>
+              <option value="Pivô">Pivô Irrigado</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Sementes / metro</label>
+            <input type="number" step="0.1" id="add_sem" value="18" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-mono focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Variedade / Híbrido</label>
+            <input type="text" id="add_var" required placeholder="Ex: GUEPARDO ou DKB 360" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:border-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tecnologia / Tolerância</label>
+            <select id="add_tec" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-white text-[11px] focus:border-emerald-500 focus:outline-none">
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Data Plantio</label>
+            <input type="text" id="add_dtP" placeholder="Ex: 15-out" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white focus:border-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-slate-400 text-[11px] font-semibold mb-1">Data Emergência</label>
+            <input type="text" id="add_dtE" placeholder="Ex: 20-out" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white focus:border-emerald-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-700/80">
+          <button type="button" onclick="fecharModalAdicionarTalhao()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition text-xs">
+            Cancelar
+          </button>
+          <button type="submit" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition text-xs shadow-md">
+            ➕ Cadastrar Talhão
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div id="modalBackup" class="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 hidden no-print">
     <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-slate-700 pb-3">
@@ -547,7 +777,7 @@
 
   <!-- DADOS E JAVASCRIPT UNIFICADO -->
   <script>
-    const TALHOES = [
+    const TALHOES_PADRAO_SOJA_2026 = [
   {
     "ordem": 1,
     "gleba": "Pivo 08",
@@ -1522,10 +1752,81 @@
   }
 ];
 
-    // Chave no LocalStorage (Cache offline local)
-    const STORAGE_KEY = 'safra_soja_2026_operacoes_v2';
+    // ==========================================
+    // SISTEMA MULTI-SAFRA & MULTI-CULTURA DINÂMICO
+    // ==========================================
+    let safraAtual = localStorage.getItem('safra_selecionada') || '2026_2027';
+    let culturaAtual = localStorage.getItem('cultura_selecionada') || 'soja';
 
-    // Configuração do Google Firebase Realtime Database para sincronização online entre todos os usuários
+    // Lista dinâmica de talhões da safra selecionada (permite editar ha, glebas e dividir áreas)
+    let TALHOES = [];
+
+    // Chaves de Storage e Referências do Firebase
+    function obterChaves() {
+      if (safraAtual === '2026_2027' && culturaAtual === 'soja') {
+        return {
+          storageOperacoes: 'safra_soja_2026_operacoes_v2',
+          storageTalhoes: 'safra_soja_2026_talhoes_custom_v1',
+          firebaseOperacoes: 'safra_soja_2026/talhoes',
+          firebaseTalhoes: 'safra_soja_2026/config_talhoes'
+        };
+      }
+      return {
+        storageOperacoes: `safra_${safraAtual}_${culturaAtual}_operacoes_v2`,
+        storageTalhoes: `safra_${safraAtual}_${culturaAtual}_talhoes_custom_v1`,
+        firebaseOperacoes: `safra_${safraAtual}_${culturaAtual}/talhoes`,
+        firebaseTalhoes: `safra_${safraAtual}_${culturaAtual}/config_talhoes`
+      };
+    }
+
+    // Carregar Lista de Talhões para a safra e cultura selecionada
+    function carregarTalhoesAtivos() {
+      const chaves = obterChaves();
+      try {
+        const custom = localStorage.getItem(chaves.storageTalhoes);
+        if (custom) {
+          TALHOES = JSON.parse(custom);
+          return;
+        }
+      } catch(e) {}
+
+      // Se não há customização prévia salva:
+      if (safraAtual === '2026_2027' && culturaAtual === 'soja') {
+        TALHOES = JSON.parse(JSON.stringify(TALHOES_PADRAO_SOJA_2026));
+      } else if (culturaAtual === 'milho') {
+        TALHOES = TALHOES_PADRAO_SOJA_2026.map(t => {
+          return {
+            ...t,
+            var: 'HÍBRIDO MILHO',
+            tec_badge: 'VT PRO 4',
+            tol_badge: 'GLIFOSATO',
+            tol_plain: 'Tolera Glifosato (VT PRO 4)',
+            tol_html: '<span class="text-emerald-400 font-bold">Tolera Glifosato</span> <span class="text-slate-400 text-[10px]">(VT PRO 4)</span>'
+          };
+        });
+      } else {
+        TALHOES = JSON.parse(JSON.stringify(TALHOES_PADRAO_SOJA_2026));
+      }
+    }
+
+    // Salvar Lista de Talhões localmente e no Firebase
+    function salvarTalhoesAtivos(atualizarNuvem = true) {
+      const chaves = obterChaves();
+      try {
+        localStorage.setItem(chaves.storageTalhoes, JSON.stringify(TALHOES));
+      } catch(e) {}
+
+      if (atualizarNuvem && typeof firebase !== 'undefined' && firebase.apps.length) {
+        try {
+          firebase.database().ref(chaves.firebaseTalhoes).set(TALHOES);
+        } catch(e) {}
+      }
+    }
+
+    // Inicializar os talhões ativos
+    carregarTalhoesAtivos();
+
+    // Configuração do Google Firebase Realtime Database para sincronização online
     const firebaseConfig = {
       apiKey: "AIzaSyCmZ3Qf_zj9NQRrAnyIF_vhSlFdMsUyEwI",
       authDomain: "receitas-de-aplicacao-agricola.firebaseapp.com",
@@ -1534,26 +1835,33 @@
     };
 
     let dbTalhoesRef = null;
+    let dbConfigTalhoesRef = null;
     let sincronizadoOnline = false;
 
-    try {
-      if (typeof firebase !== 'undefined') {
-        if (!firebase.apps.length) {
-          firebase.initializeApp(firebaseConfig);
+    function conectarFirebase() {
+      try {
+        if (typeof firebase !== 'undefined') {
+          if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+          }
+          const chaves = obterChaves();
+          if (dbTalhoesRef) dbTalhoesRef.off();
+          if (dbConfigTalhoesRef) dbConfigTalhoesRef.off();
+
+          dbTalhoesRef = firebase.database().ref(chaves.firebaseOperacoes);
+          dbConfigTalhoesRef = firebase.database().ref(chaves.firebaseTalhoes);
         }
-        // Ativar persistência offline nativa do Firebase se disponível
-        try {
-          firebase.database().enableLogging(false);
-        } catch (e) {}
-        dbTalhoesRef = firebase.database().ref('safra_soja_2026/talhoes');
+      } catch (err) {
+        console.warn('[Firebase] Conexão pendente/offline:', err);
       }
-    } catch (err) {
-      console.warn('[Firebase] Inicialização falhou, usando modo offline:', err);
     }
 
+    conectarFirebase();
+
     function carregarOperacoes() {
+      const chaves = obterChaves();
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
+        const raw = localStorage.getItem(chaves.storageOperacoes);
         return raw ? JSON.parse(raw) : {};
       } catch (e) {
         return {};
@@ -1561,14 +1869,14 @@
     }
 
     function salvarOperacoes(atualizarNuvem = true) {
+      const chaves = obterChaves();
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+        localStorage.setItem(chaves.storageOperacoes, JSON.stringify(appState));
         notificarSalvo(atualizarNuvem && sincronizadoOnline ? 'nuvem' : 'local');
       } catch (e) {
         console.error(e);
       }
 
-      // Sincronizar em tempo real com o banco de dados online
       if (atualizarNuvem && dbTalhoesRef) {
         try {
           dbTalhoesRef.set(appState).then(() => {
@@ -1822,9 +2130,17 @@
           const tr = document.createElement('tr');
           tr.className = 'hover:bg-slate-700/30 transition border-b border-slate-700/50';
           tr.innerHTML = `
-            <td class="p-3 text-center font-bold text-slate-400 font-mono">${t.ordem}</td>
+            <td class="p-2 text-center font-bold text-slate-400 font-mono">
+              <div>${t.ordem}</div>
+              <button onclick="abrirModalEditarTalhao(${t.id})" class="mt-1 p-1 text-[11px] rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800/80 transition" title="Editar hectares, variedade ou dividir área">✏️</button>
+            </td>
             <td class="p-3">
-              <div class="font-bold text-white text-xs">${t.gleba}</div>
+              <div class="flex items-center justify-between gap-1">
+                <div class="font-bold text-white text-xs">${t.gleba}</div>
+                <button type="button" onclick="abrirModalEditarTalhao(${t.id})" class="p-1 rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800 transition text-[11px]" title="Editar Hectares / Dividir Variedade">
+                  ✏️
+                </button>
+              </div>
               <div class="text-[11px] text-emerald-400 font-mono font-semibold">${t.ha.toFixed(2)} ha</div>
               <div class="text-[10px] text-slate-400">${t.tipo}</div>
             </td>
@@ -1919,6 +2235,9 @@
                   <div class="font-extrabold text-white text-sm leading-tight flex items-center gap-1.5">
                     ${t.gleba}
                     <span class="text-[10px] text-emerald-400 font-mono font-bold">${t.ha.toFixed(2)} ha</span>
+                    <button type="button" onclick="abrirModalEditarTalhao(${t.id})" class="p-0.5 px-1 rounded text-[11px] text-slate-400 hover:text-emerald-400 bg-slate-900 border border-slate-700/80" title="Editar Hectares ou Dividir Área">
+                      ✏️
+                    </button>
                   </div>
                   <div class="text-[11px] text-slate-400 mt-0.5">
                     ${t.var} • P: ${t.dtP}
@@ -2116,8 +2435,58 @@
       });
     }
 
+    // Atualização dinâmica dos KPIs do topo com base na lista de talhões da safra ativa
+    function atualizarKpisTopo() {
+      const fmt = (v) => v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ha';
+      let totalHa = 0, pivosHa = 0, sequeiroHa = 0, enlistHa = 0, outrasHa = 0;
+      let qtdPivos = 0, qtdSequeiro = 0;
+
+      TALHOES.forEach(t => {
+        const area = Number(t.ha) || 0;
+        totalHa += area;
+        if (t.tipo === 'Pivô') {
+          pivosHa += area;
+          qtdPivos++;
+        } else {
+          sequeiroHa += area;
+          qtdSequeiro++;
+        }
+
+        if (t.tec_badge && t.tec_badge.includes('ENLIST')) {
+          enlistHa += area;
+        } else {
+          outrasHa += area;
+        }
+      });
+
+      const elTotal = document.getElementById('kpiAreaTotal');
+      if (elTotal) elTotal.innerText = fmt(totalHa);
+      const elCount = document.getElementById('kpiTalhoesTotal');
+      if (elCount) elCount.innerText = `${TALHOES.length} talhões cadastrados`;
+
+      const elPivos = document.getElementById('kpiAreaPivos');
+      if (elPivos) elPivos.innerText = fmt(pivosHa);
+      const elPivosC = document.getElementById('kpiPivosCount');
+      if (elPivosC) elPivosC.innerText = `${qtdPivos} pivôs`;
+
+      const elSeq = document.getElementById('kpiAreaSequeiro');
+      if (elSeq) elSeq.innerText = fmt(sequeiroHa);
+      const elSeqC = document.getElementById('kpiSequeiroCount');
+      if (elSeqC) elSeqC.innerText = `${qtdSequeiro} talhões`;
+
+      const elEnlist = document.getElementById('kpiAreaTec1');
+      if (elEnlist) elEnlist.innerText = fmt(enlistHa);
+      const elOutras = document.getElementById('kpiAreaTec2');
+      if (elOutras) elOutras.innerText = fmt(outrasHa);
+
+      // Atualizar badge no header se existir
+      const headerHaBadge = document.querySelector('header h1 span');
+      if (headerHaBadge) headerHaBadge.innerText = fmt(totalHa);
+    }
+
     // CÁLCULO EM TEMPO REAL: HECTARES QUE FALTAM FAZER DE APLICAÇÃO
     function atualizarHectaresPendentes() {
+      atualizarKpisTopo();
       const AREA_TOTAL_SAFRA = 4391.81;
       let feitoF1 = 0, feitoF2 = 0, feitoF3 = 0;
       let qtdFeitoF1 = 0, qtdFeitoF2 = 0, qtdFeitoF3 = 0;
@@ -2199,6 +2568,321 @@
       if (elTalhoesF3) elTalhoesF3.innerText = `${54 - qtdFeitoF3} talhões restantes`;
     }
 
+
+    // ==========================================
+    // FUNÇÕES DE EDIÇÃO, DIVISÃO E TROCA DE SAFRA
+    // ==========================================
+    function trocarSafraECultura() {
+      const elSafra = document.getElementById('seletorSafra');
+      const elCultura = document.getElementById('seletorCultura');
+      if (elSafra) safraAtual = elSafra.value;
+      if (elCultura) culturaAtual = elCultura.value;
+
+      localStorage.setItem('safra_selecionada', safraAtual);
+      localStorage.setItem('cultura_selecionada', culturaAtual);
+
+      carregarTalhoesAtivos();
+      appState = carregarOperacoes();
+
+      conectarFirebase();
+      iniciarEscutaTempoReal();
+      escutarTalhoesConfigNuvem();
+      atualizarTextosCultura();
+      popularFiltrosDinamicos();
+
+      atualizarTextosCultura();
+      popularFiltrosDinamicos();
+      renderizar();
+    }
+
+    function atualizarTextosCultura() {
+      const ehMilho = culturaAtual === 'milho';
+      const labelSafra = safraAtual.replace('_', '/');
+      const nomeCultura = ehMilho ? 'Milho' : 'Soja';
+
+      // Atualizar título
+      const h1 = document.querySelector('h1');
+      if (h1) {
+        h1.childNodes[0].nodeValue = `Controle de Pulverização ${nomeCultura} ${labelSafra} `;
+      }
+
+      // Atualizar opções nos selects de tecnologia
+      preencherOpcoesTecnologia('edit_tec', ehMilho);
+      preencherOpcoesTecnologia('div_tec_b', ehMilho);
+      preencherOpcoesTecnologia('add_tec', ehMilho);
+    }
+
+    function preencherOpcoesTecnologia(selectId, ehMilho) {
+      const sel = document.getElementById(selectId);
+      if (!sel) return;
+      if (ehMilho) {
+        sel.innerHTML = `
+          <option value="VT PRO 4">VT PRO 4 (Glifosato)</option>
+          <option value="VIPTERA 3">VIPTERA 3 (Glifosato / Glufosinato)</option>
+          <option value="POWERCORE ULTRA">POWERCORE ULTRA (Glifosato / Glufosinato)</option>
+          <option value="CONVENCIONAL">CONVENCIONAL (Sem eventos)</option>
+        `;
+      } else {
+        sel.innerHTML = `
+          <option value="IPRO / RR2 PRO">IPRO / RR2 PRO (Apenas Glifosato)</option>
+          <option value="XTEND / I2X">XTEND / I2X (Glifosato + Dicamba)</option>
+          <option value="CONKESTA ENLIST">CONKESTA ENLIST (Glifosato + Glufosinato + 2,4-D)</option>
+          <option value="CONVENCIONAL">CONVENCIONAL</option>
+        `;
+      }
+    }
+
+    // Modal de Edição
+    let talhaoEmEdicao = null;
+
+    function abrirModalEditarTalhao(id) {
+      const t = TALHOES.find(item => item.id == id);
+      if (!t) return;
+      talhaoEmEdicao = t;
+
+      atualizarTextosCultura();
+
+      document.getElementById('edit_talhao_id').value = t.id;
+      document.getElementById('edit_gleba').value = t.gleba;
+      document.getElementById('edit_ha').value = t.ha;
+      document.getElementById('edit_tipo').value = t.tipo || 'Pivô';
+      document.getElementById('edit_sem').value = t.sem || 18;
+      document.getElementById('edit_var').value = t.var;
+      document.getElementById('edit_tec').value = t.tec_badge || (culturaAtual === 'milho' ? 'VT PRO 4' : 'IPRO / RR2 PRO');
+      document.getElementById('edit_dtP').value = t.dtP || '';
+      document.getElementById('edit_dtE').value = t.dtE || '';
+
+      // Resetar seção de divisão
+      const secDiv = document.getElementById('secaoDivisaoArea');
+      if (secDiv) secDiv.classList.add('hidden');
+      const txtBtn = document.getElementById('txtBtnDivisao');
+      if (txtBtn) txtBtn.innerText = 'Configurar Divisão';
+
+      document.getElementById('modalEditarTalhao').classList.remove('hidden');
+    }
+
+    function fecharModalEditarTalhao() {
+      document.getElementById('modalEditarTalhao').classList.add('hidden');
+      talhaoEmEdicao = null;
+    }
+
+    function salvarEdicaoTalhao(event) {
+      if (event) event.preventDefault();
+      if (!talhaoEmEdicao) return;
+
+      const gleba = document.getElementById('edit_gleba').value.trim();
+      const ha = parseFloat(document.getElementById('edit_ha').value) || 0;
+      const tipo = document.getElementById('edit_tipo').value;
+      const sem = parseFloat(document.getElementById('edit_sem').value) || 18;
+      const variedade = document.getElementById('edit_var').value.trim();
+      const tec = document.getElementById('edit_tec').value;
+      const dtP = document.getElementById('edit_dtP').value.trim();
+      const dtE = document.getElementById('edit_dtE').value.trim();
+
+      talhaoEmEdicao.gleba = gleba;
+      talhaoEmEdicao.ha = ha;
+      talhaoEmEdicao.tipo = tipo;
+      talhaoEmEdicao.sem = sem;
+      talhaoEmEdicao.var = variedade;
+      talhaoEmEdicao.tec_badge = tec;
+      talhaoEmEdicao.dtP = dtP;
+      talhaoEmEdicao.dtE = dtE;
+
+      // Atualizar tolerâncias
+      atualizarToleranciasTalhao(talhaoEmEdicao);
+
+      salvarTalhoesAtivos(true);
+      renderizar();
+      fecharModalEditarTalhao();
+      notificarSalvo('nuvem');
+    }
+
+    function alternarSecaoDivisao() {
+      const sec = document.getElementById('secaoDivisaoArea');
+      const txt = document.getElementById('txtBtnDivisao');
+      if (!sec) return;
+      if (sec.classList.contains('hidden')) {
+        sec.classList.remove('hidden');
+        txt.innerText = 'Fechar Divisão';
+        // Sugerir divisão meio a meio
+        const haAtual = parseFloat(document.getElementById('edit_ha').value) || 0;
+        const metade = (haAtual / 2).toFixed(2);
+        document.getElementById('div_ha_a').value = metade;
+        document.getElementById('div_ha_b').value = (haAtual - parseFloat(metade)).toFixed(2);
+        document.getElementById('div_var_b').value = '';
+      } else {
+        sec.classList.add('hidden');
+        txt.innerText = 'Configurar Divisão';
+      }
+    }
+
+    function calcularDivisaoRestante() {
+      const haTotal = parseFloat(document.getElementById('edit_ha').value) || 0;
+      const haA = parseFloat(document.getElementById('div_ha_a').value) || 0;
+      const haB = Math.max(0, haTotal - haA);
+      document.getElementById('div_ha_b').value = haB.toFixed(2);
+    }
+
+    function executarDivisaoTalhao() {
+      if (!talhaoEmEdicao) return;
+      const haA = parseFloat(document.getElementById('div_ha_a').value) || 0;
+      const haB = parseFloat(document.getElementById('div_ha_b').value) || 0;
+      const varB = document.getElementById('div_var_b').value.trim() || (talhaoEmEdicao.var + ' (2ª Var)');
+      const tecB = document.getElementById('div_tec_b').value;
+
+      if (haA <= 0 || haB <= 0) {
+        alert('Informe valores válidos maiores que zero para as duas parcelas.');
+        return;
+      }
+
+      const nomeBase = talhaoEmEdicao.gleba.replace(/ - (Parte|Parc|A|B).*$/i, '');
+      
+      // Atualizar parcela A
+      talhaoEmEdicao.gleba = `${nomeBase} (Parte A)`;
+      talhaoEmEdicao.ha = haA;
+      atualizarToleranciasTalhao(talhaoEmEdicao);
+
+      // Criar parcela B
+      const novoId = Date.now();
+      const novoTalhao = {
+        id: novoId,
+        ordem: talhaoEmEdicao.ordem + 0.1,
+        gleba: `${nomeBase} (Parte B)`,
+        ha: haB,
+        tipo: talhaoEmEdicao.tipo,
+        var: varB,
+        sem: talhaoEmEdicao.sem,
+        tec_badge: tecB,
+        dtP: talhaoEmEdicao.dtP,
+        dtE: talhaoEmEdicao.dtE
+      };
+      atualizarToleranciasTalhao(novoTalhao);
+
+      // Inserir logo após o talhão atual
+      const idx = TALHOES.findIndex(x => x.id == talhaoEmEdicao.id);
+      if (idx !== -1) {
+        TALHOES.splice(idx + 1, 0, novoTalhao);
+      } else {
+        TALHOES.push(novoTalhao);
+      }
+
+      // Reordenar ordens
+      reordenarTalhoes();
+
+      salvarTalhoesAtivos(true);
+      renderizar();
+      fecharModalEditarTalhao();
+      alert(`Gleba dividida com sucesso!
+
+Parte A: ${haA.toFixed(2)} ha (${talhaoEmEdicao.var})
+Parte B: ${haB.toFixed(2)} ha (${varB})`);
+    }
+
+    function excluirTalhaoAtual() {
+      if (!talhaoEmEdicao) return;
+      if (!confirm(`Deseja realmente excluir "${talhaoEmEdicao.gleba}" (${talhaoEmEdicao.ha} ha)?`)) return;
+
+      TALHOES = TALHOES.filter(t => t.id != talhaoEmEdicao.id);
+      reordenarTalhoes();
+      salvarTalhoesAtivos(true);
+      renderizar();
+      fecharModalEditarTalhao();
+    }
+
+    function reordenarTalhoes() {
+      TALHOES.forEach((t, i) => {
+        t.ordem = i + 1;
+      });
+    }
+
+    // Modal de Adicionar Talhão
+    function abrirModalAdicionarTalhao() {
+      atualizarTextosCultura();
+      document.getElementById('formAdicionarTalhao').reset();
+      document.getElementById('modalAdicionarTalhao').classList.remove('hidden');
+    }
+
+    function fecharModalAdicionarTalhao() {
+      document.getElementById('modalAdicionarTalhao').classList.add('hidden');
+    }
+
+    function salvarNovoTalhao(event) {
+      if (event) event.preventDefault();
+      const gleba = document.getElementById('add_gleba').value.trim();
+      const ha = parseFloat(document.getElementById('add_ha').value) || 0;
+      const tipo = document.getElementById('add_tipo').value;
+      const sem = parseFloat(document.getElementById('add_sem').value) || 18;
+      const variedade = document.getElementById('add_var').value.trim();
+      const tec = document.getElementById('add_tec').value;
+      const dtP = document.getElementById('add_dtP').value.trim() || 'A definir';
+      const dtE = document.getElementById('add_dtE').value.trim() || 'A definir';
+
+      const novoTalhao = {
+        id: Date.now(),
+        ordem: TALHOES.length + 1,
+        gleba: gleba,
+        ha: ha,
+        tipo: tipo,
+        var: variedade,
+        sem: sem,
+        tec_badge: tec,
+        dtP: dtP,
+        dtE: dtE
+      };
+      atualizarToleranciasTalhao(novoTalhao);
+
+      TALHOES.push(novoTalhao);
+      reordenarTalhoes();
+      salvarTalhoesAtivos(true);
+      renderizar();
+      fecharModalAdicionarTalhao();
+      alert(`Gleba "${gleba}" (${ha.toFixed(2)} ha) cadastrada com sucesso!`);
+    }
+
+    function atualizarToleranciasTalhao(t) {
+      if (t.tec_badge.includes('ENLIST')) {
+        t.tol_badge = 'GLUFOSINATO';
+        t.tol_plain = 'Glifosato + Glufosinato + 2,4-D Colina';
+        t.tol_html = '<span class="text-purple-300 font-bold">Glifosato + <span class="badge-glufosinato px-1.5 py-0.5 rounded text-[10px]">GLUFOSINATO</span> + 2,4-D</span>';
+      } else if (t.tec_badge.includes('XTEND')) {
+        t.tol_badge = 'DICAMBA';
+        t.tol_plain = 'Glifosato + Dicamba';
+        t.tol_html = '<span class="text-sky-300 font-bold">Glifosato + Dicamba</span>';
+      } else if (culturaAtual === 'milho') {
+        t.tol_badge = 'GLIFOSATO';
+        t.tol_plain = `${t.tec_badge} - Manejo Milho`;
+        t.tol_html = `<span class="text-emerald-400 font-bold">${t.tec_badge}</span>`;
+      } else {
+        t.tol_badge = 'GLIFOSATO';
+        t.tol_plain = 'Apenas Glifosato (Proibido Dicamba / Glufosinato)';
+        t.tol_html = '<span class="text-emerald-400 font-bold">Apenas Glifosato</span>';
+      }
+    }
+
+    function popularFiltrosDinamicos() {
+      const selVar = document.getElementById('filtroVariedade');
+      if (!selVar) return;
+      const vars = Array.from(new Set(TALHOES.map(t => t.var))).sort();
+      let html = '<option value="TODAS">Todas as Variedades</option>';
+      vars.forEach(v => {
+        html += `<option value="${v}">${v}</option>`;
+      });
+      selVar.innerHTML = html;
+    }
+
+    // Iniciar escuta em tempo real dos talhões customizados
+    function escutarTalhoesConfigNuvem() {
+      if (!dbConfigTalhoesRef) return;
+      dbConfigTalhoesRef.on('value', (snap) => {
+        const val = snap.val();
+        if (val && Array.isArray(val) && val.length > 0) {
+          TALHOES = val;
+          const chaves = obterChaves();
+          try { localStorage.setItem(chaves.storageTalhoes, JSON.stringify(TALHOES)); } catch(e) {}
+          renderizarTabelasVisiveis();
+        }
+      });
+    }
 
     function renderizarTabelasVisiveis() {
       const filtrados = filtrarTalhoes();
