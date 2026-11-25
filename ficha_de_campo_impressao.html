@@ -22,7 +22,7 @@
   <style>
     @page {
       size: A4 landscape;
-      margin: 4mm 4mm 4mm 4mm;
+      margin: 3mm 4mm 3mm 4mm;
     }
     *, *::before, *::after {
       box-sizing: border-box;
@@ -132,7 +132,7 @@
       letter-spacing: 0.3px;
       text-transform: uppercase;
       color: #ffffff;
-      line-height: 1.1;
+      line-height: 1.03;
     }
     .header-pdf p {
       margin: 1px 0 0;
@@ -161,7 +161,7 @@
       border-left: 3px solid #15803d;
       padding: 3px 6px;
       margin-bottom: 4px;
-      font-size: 6.8pt;
+      font-size: 6.4pt;
       display: flex;
       justify-content: space-between;
       color: #334155;
@@ -180,7 +180,7 @@
     }
     th, td {
       border: 1px solid #64748b;
-      padding: 1.8px 2px;
+      padding: 1.1px 2px;
       vertical-align: middle;
       line-height: 1.1;
     }
@@ -409,38 +409,38 @@
     </div>
   </div>
 
-  <!-- FOLHA 1 (Ordens 1 a 27) -->
+  <!-- FOLHA 1 (Ordens 1 a 30) -->
   <div class="page-container">
     <div class="header-pdf">
       <div>
         <h1>CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
-        <p>Ordem Oficial Cronológica de Plantio da Planilha (Pivô 08 ao G-37) • Folha 1 de 2 (Ordens 1 a 27)</p>
+        <p>Ordem Oficial Cronológica de Plantio da Planilha (Pivô 08 ao G-37) • Folha 1 de 2 (Ordens 1 a 30)</p>
       </div>
       <div class="header-info">
         <div>Fazenda / Safra: <strong>Soja 2026/2027</strong></div>
-        <div class="header-badge">Área Total: 4.391,81 ha (54 Talhões)</div>
+        <div class="header-badge">Área Total: 4.391,81 ha (60 Parcelas)</div>
       </div>
     </div>
 
     <div class="info-bar">
-      <div><strong>Atenção ao Glufosinato:</strong> Aplicação permitida EXCLUSIVAMENTE nas cultivares <span class="badge-gluf">CONKESTA ENLIST</span>. Proibido em IPRO e XTEND.</div>
-      <div><strong>Intervalos de Fungicida:</strong> 1ª em R1 (~30-35d após emergência). <strong>2ª aplicação: 17 dias após a 1ª</strong>. 3ª aplicação: 17 dias após a 2ª.</div>
+      <div><strong>Atenção ao Glufosinato:</strong> Aplicação permitida EXCLUSIVAMENTE nas cultivares <span class="badge-gluf">CONKESTA ENLIST</span>. Proibido em IPRO e XTEND. Glebas com múltiplas variedades estão detalhadas faixa a faixa.</div>
+      <div><strong>Intervalos de Fungicida:</strong> 1ª em R1 (~30-35d). <strong>2ª: +17d da 1ª</strong>. <strong>3ª: +17d da 2ª</strong>.</div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th style="width: 28px;">Ord</th>
-          <th style="width: 75px;">Gleba</th>
-          <th style="width: 50px;">Área (ha)</th>
-          <th style="width: 105px;">Variedade (S/m)</th>
+          <th style="width: 26px;">Ord</th>
+          <th style="width: 82px;">Gleba</th>
+          <th style="width: 48px;">Área (ha)</th>
+          <th style="width: 112px;">Variedade (S/m)</th>
           <th>Tecnologia & Tolerância Herbicida</th>
-          <th style="width: 65px;">Plantio / Emergência</th>
-          <th style="width: 95px;">1ª Aplicação<br>(Pós / Herb / Ins)</th>
-          <th style="width: 95px;">1º Fungicida<br>(R1 / Veto + Fol)</th>
-          <th style="width: 85px;">2º Fungicida<br>(+17d da 1ª)</th>
-          <th style="width: 85px;">3º Fungicida<br>(+17d da 2ª)</th>
-          <th style="width: 80px;">Visto Op.</th>
+          <th style="width: 62px;">Plantio / Emerg.</th>
+          <th style="width: 92px;">1ª Aplicação<br>(Pós / Herb / Ins)</th>
+          <th style="width: 92px;">1º Fungicida<br>(R1 + Fol)</th>
+          <th style="width: 82px;">2º Fungicida<br>(+17d da 1ª)</th>
+          <th style="width: 82px;">3º Fungicida<br>(+17d da 2ª)</th>
+          <th style="width: 75px;">Visto Op.</th>
         </tr>
       </thead>
       <tbody>
@@ -450,11 +450,7 @@
           <td class="font-bold gleba-name">Pivo 08</td>
           <td class="text-right font-mono font-bold">130.00</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>21-set</strong><br>E: 26-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -472,7 +468,7 @@
               <label><input type="checkbox" id="f1-1" onchange="salvarCampo(1, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-1" onchange="salvarCampo(1, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~26 nov</div>
+            <div class="date-line font-bold text-green">R1: ~27 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-1" onchange="salvarCampo(1, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-1">Data: ___/___/26</span>
@@ -502,18 +498,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-2">
           <td class="text-center font-bold">2</td>
           <td class="font-bold gleba-name">Pivo 03</td>
           <td class="text-right font-mono font-bold">49.20</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>21-set</strong><br>E: 26-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -531,7 +522,7 @@
               <label><input type="checkbox" id="f1-2" onchange="salvarCampo(2, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-2" onchange="salvarCampo(2, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~26 nov</div>
+            <div class="date-line font-bold text-green">R1: ~27 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-2" onchange="salvarCampo(2, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-2">Data: ___/___/26</span>
@@ -561,18 +552,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-3">
           <td class="text-center font-bold">3</td>
           <td class="font-bold gleba-name">Pivo 02</td>
           <td class="text-right font-mono font-bold">200.00</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>22-set</strong><br>E: 27-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -590,7 +576,7 @@
               <label><input type="checkbox" id="f1-3" onchange="salvarCampo(3, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-3" onchange="salvarCampo(3, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~27 nov</div>
+            <div class="date-line font-bold text-green">R1: ~28 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-3" onchange="salvarCampo(3, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-3">Data: ___/___/26</span>
@@ -620,18 +606,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-4">
           <td class="text-center font-bold">4</td>
           <td class="font-bold gleba-name">G- 18</td>
           <td class="text-right font-mono font-bold">195.00</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>23-set</strong><br>E: 28-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -649,7 +630,7 @@
               <label><input type="checkbox" id="f1-4" onchange="salvarCampo(4, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-4" onchange="salvarCampo(4, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~28 nov</div>
+            <div class="date-line font-bold text-green">R1: ~29 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-4" onchange="salvarCampo(4, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-4">Data: ___/___/26</span>
@@ -679,18 +660,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-5">
           <td class="text-center font-bold">5</td>
           <td class="font-bold gleba-name">G- 19</td>
           <td class="text-right font-mono font-bold">193.45</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>24-set</strong><br>E: 29-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -708,7 +684,7 @@
               <label><input type="checkbox" id="f1-5" onchange="salvarCampo(5, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-5" onchange="salvarCampo(5, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line font-bold text-green">R1: ~30 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-5" onchange="salvarCampo(5, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-5">Data: ___/___/26</span>
@@ -738,18 +714,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-6">
           <td class="text-center font-bold">6</td>
           <td class="font-bold gleba-name">G- 21</td>
           <td class="text-right font-mono font-bold">181.02</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>24-set</strong><br>E: 29-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -767,7 +738,7 @@
               <label><input type="checkbox" id="f1-6" onchange="salvarCampo(6, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-6" onchange="salvarCampo(6, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line font-bold text-green">R1: ~30 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-6" onchange="salvarCampo(6, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-6">Data: ___/___/26</span>
@@ -797,18 +768,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-7">
           <td class="text-center font-bold">7</td>
           <td class="font-bold gleba-name">Pivo 09</td>
           <td class="text-right font-mono font-bold">58.06</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>24-set</strong><br>E: 29-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -826,7 +792,7 @@
               <label><input type="checkbox" id="f1-7" onchange="salvarCampo(7, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-7" onchange="salvarCampo(7, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~29 nov</div>
+            <div class="date-line font-bold text-green">R1: ~30 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-7" onchange="salvarCampo(7, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-7">Data: ___/___/26</span>
@@ -856,18 +822,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-8">
           <td class="text-center font-bold">8</td>
           <td class="font-bold gleba-name">Pivo 05</td>
           <td class="text-right font-mono font-bold">21.01</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -885,7 +846,7 @@
               <label><input type="checkbox" id="f1-8" onchange="salvarCampo(8, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-8" onchange="salvarCampo(8, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line font-bold text-green">R1: ~31 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-8" onchange="salvarCampo(8, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-8">Data: ___/___/26</span>
@@ -915,18 +876,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-9">
           <td class="text-center font-bold">9</td>
           <td class="font-bold gleba-name">Pivo 06</td>
           <td class="text-right font-mono font-bold">27.53</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -944,7 +900,7 @@
               <label><input type="checkbox" id="f1-9" onchange="salvarCampo(9, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-9" onchange="salvarCampo(9, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line font-bold text-green">R1: ~31 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-9" onchange="salvarCampo(9, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-9">Data: ___/___/26</span>
@@ -974,18 +930,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-10">
           <td class="text-center font-bold">10</td>
           <td class="font-bold gleba-name">Pivo 10</td>
           <td class="text-right font-mono font-bold">63.51</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1003,7 +954,7 @@
               <label><input type="checkbox" id="f1-10" onchange="salvarCampo(10, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-10" onchange="salvarCampo(10, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line font-bold text-green">R1: ~31 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-10" onchange="salvarCampo(10, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-10">Data: ___/___/26</span>
@@ -1033,18 +984,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-11">
           <td class="text-center font-bold">11</td>
           <td class="font-bold gleba-name">G- 32</td>
           <td class="text-right font-mono font-bold">109.68</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1062,7 +1008,7 @@
               <label><input type="checkbox" id="f1-11" onchange="salvarCampo(11, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-11" onchange="salvarCampo(11, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line font-bold text-green">R1: ~31 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-11" onchange="salvarCampo(11, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-11">Data: ___/___/26</span>
@@ -1092,18 +1038,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-12">
           <td class="text-center font-bold">12</td>
           <td class="font-bold gleba-name">Pivo 07</td>
           <td class="text-right font-mono font-bold">80.50</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>25-set</strong><br>E: 30-set</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1121,7 +1062,7 @@
               <label><input type="checkbox" id="f1-12" onchange="salvarCampo(12, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-12" onchange="salvarCampo(12, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~30 nov</div>
+            <div class="date-line font-bold text-green">R1: ~31 out</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-12" onchange="salvarCampo(12, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-12">Data: ___/___/26</span>
@@ -1151,18 +1092,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-13">
           <td class="text-center font-bold">13</td>
           <td class="font-bold gleba-name">G- 34</td>
           <td class="text-right font-mono font-bold">51.80</td>
           <td><strong>NEO-801</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1210,18 +1146,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
-        <tr id="row-14">
+        <tr id="row-14" style="background-color:#fffbeb;">
           <td class="text-center font-bold">14</td>
-          <td class="font-bold gleba-name">G- 27 (Guepardo)</td>
+          <td class="font-bold gleba-name">G- 27 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(1/3)</span></td>
           <td class="text-right font-mono font-bold">8.76</td>
           <td><strong>GUEPARDO</strong> <span class="text-muted">(18 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1269,18 +1200,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
-        <tr id="row-15">
+        <tr id="row-15" style="background-color:#fffbeb;">
           <td class="text-center font-bold">15</td>
-          <td class="font-bold gleba-name">G- 27 (Neo-700)</td>
+          <td class="font-bold gleba-name">G- 27 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(2/3)</span></td>
           <td class="text-right font-mono font-bold">17.30</td>
-          <td><strong>NEO-700</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><strong>NEO-700</strong> <span class="text-muted">(22 s/m)</span></td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1328,18 +1254,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
-        <tr id="row-16">
+        <tr id="row-16" style="background-color:#fffbeb;">
           <td class="text-center font-bold">16</td>
-          <td class="font-bold gleba-name">G- 27 (72 I X 74)</td>
+          <td class="font-bold gleba-name">G- 27 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(3/3)</span></td>
           <td class="text-right font-mono font-bold">111.24</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1387,18 +1308,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-17">
           <td class="text-center font-bold">17</td>
           <td class="font-bold gleba-name">G- 26</td>
           <td class="text-right font-mono font-bold">28.88</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>02-out</strong><br>E: 07-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1446,18 +1362,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-18">
           <td class="text-center font-bold">18</td>
           <td class="font-bold gleba-name">G- 30</td>
           <td class="text-right font-mono font-bold">148.40</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>03-out</strong><br>E: 08-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1505,18 +1416,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-19">
           <td class="text-center font-bold">19</td>
           <td class="font-bold gleba-name">G- 29</td>
           <td class="text-right font-mono font-bold">165.00</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1564,18 +1470,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-20">
           <td class="text-center font-bold">20</td>
           <td class="font-bold gleba-name">G- 11</td>
           <td class="text-right font-mono font-bold">100.99</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1623,18 +1524,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-21">
           <td class="text-center font-bold">21</td>
           <td class="font-bold gleba-name">G- 13 P/CIMA</td>
           <td class="text-right font-mono font-bold">191.88</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1682,18 +1578,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-22">
           <td class="text-center font-bold">22</td>
           <td class="font-bold gleba-name">G- 13 (2ª Passada)</td>
           <td class="text-right font-mono font-bold">2.52</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1741,18 +1632,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-23">
           <td class="text-center font-bold">23</td>
           <td class="font-bold gleba-name">G- 12</td>
           <td class="text-right font-mono font-bold">35.76</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1800,18 +1686,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-24">
           <td class="text-center font-bold">24</td>
           <td class="font-bold gleba-name">G- 12 MEIO</td>
           <td class="text-right font-mono font-bold">9.61</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1859,18 +1740,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-25">
           <td class="text-center font-bold">25</td>
           <td class="font-bold gleba-name">G- 14 P/CIMA</td>
           <td class="text-right font-mono font-bold">51.05</td>
           <td><strong>72 I X 74</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1918,18 +1794,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-26">
           <td class="text-center font-bold">26</td>
           <td class="font-bold gleba-name">G- 14 P/BAIXO</td>
           <td class="text-right font-mono font-bold">16.31</td>
           <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>04-out</strong><br>E: 09-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -1977,18 +1848,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-27">
           <td class="text-center font-bold">27</td>
           <td class="font-bold gleba-name">G- 15</td>
           <td class="text-right font-mono font-bold">130.80</td>
           <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>05-out</strong><br>E: 10-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2036,62 +1902,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
-      </tbody>
-    </table>
 
-    <div class="page-footer">
-      <div>Controle Operacional de Campo Safra 2026/2027 — Folha 1 de 2 (Talhões 1 a 27) • 2ª aplicação aos 17 dias</div>
-      <div>Assinatura do Responsável Técnico: ___________________________________________</div>
-    </div>
-  </div>
-
-  <!-- FOLHA 2 (Ordens 28 a 54) -->
-  <div class="page-container">
-    <div class="header-pdf">
-      <div>
-        <h1>CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
-        <p>Ordem Oficial Cronológica de Plantio da Planilha (Pivô 08 ao G-37) • Folha 2 de 2 (Ordens 28 a 54)</p>
-      </div>
-      <div class="header-info">
-        <div>Fazenda / Safra: <strong>Soja 2026/2027</strong></div>
-        <div class="header-badge">Área Total: 4.391,81 ha (54 Talhões)</div>
-      </div>
-    </div>
-
-    <div class="info-bar">
-      <div><strong>Atenção ao Glufosinato:</strong> Aplicação permitida EXCLUSIVAMENTE nas cultivares <span class="badge-gluf">CONKESTA ENLIST</span>. Proibido em IPRO e XTEND.</div>
-      <div><strong>Intervalos de Fungicida:</strong> 1ª em R1 (~30-35d após emergência). <strong>2ª aplicação: 17 dias após a 1ª</strong>. 3ª aplicação: 17 dias após a 2ª.</div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th style="width: 28px;">Ord</th>
-          <th style="width: 75px;">Gleba</th>
-          <th style="width: 50px;">Área (ha)</th>
-          <th style="width: 105px;">Variedade (S/m)</th>
-          <th>Tecnologia & Tolerância Herbicida</th>
-          <th style="width: 65px;">Plantio / Emergência</th>
-          <th style="width: 95px;">1ª Aplicação<br>(Pós / Herb / Ins)</th>
-          <th style="width: 95px;">1º Fungicida<br>(R1 / Veto + Fol)</th>
-          <th style="width: 85px;">2º Fungicida<br>(+17d da 1ª)</th>
-          <th style="width: 85px;">3º Fungicida<br>(+17d da 2ª)</th>
-          <th style="width: 80px;">Visto Op.</th>
-        </tr>
-      </thead>
-      <tbody>
-        
         <tr id="row-28">
           <td class="text-center font-bold">28</td>
           <td class="font-bold gleba-name">G- 20</td>
           <td class="text-right font-mono font-bold">182.30</td>
-          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>06-out</strong><br>E: 11-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2139,18 +1956,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-29">
           <td class="text-center font-bold">29</td>
           <td class="font-bold gleba-name">G- 23</td>
           <td class="text-right font-mono font-bold">33.40</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>06-out</strong><br>E: 11-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2198,18 +2010,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-30">
           <td class="text-center font-bold">30</td>
           <td class="font-bold gleba-name">G- 35</td>
           <td class="text-right font-mono font-bold">16.85</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2257,18 +2064,57 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
+      </tbody>
+    </table>
 
+    <div class="page-footer">
+      <div>Controle Operacional de Campo Safra 2026/2027 — Folha 1 de 2 (Parcelas 1 a 30) • 2ª e 3ª aplicações aos 17 dias</div>
+      <div>Assinatura do Responsável Técnico: ___________________________________________</div>
+    </div>
+  </div>
+
+  <!-- FOLHA 2 (Ordens 31 a 60) -->
+  <div class="page-container">
+    <div class="header-pdf">
+      <div>
+        <h1>CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
+        <p>Ordem Oficial Cronológica de Plantio da Planilha (Pivô 08 ao G-37) • Folha 2 de 2 (Ordens 31 a 60)</p>
+      </div>
+      <div class="header-info">
+        <div>Fazenda / Safra: <strong>Soja 2026/2027</strong></div>
+        <div class="header-badge">Área Total: 4.391,81 ha (60 Parcelas)</div>
+      </div>
+    </div>
+
+    <div class="info-bar">
+      <div><strong>Atenção nas Glebas Mistas (G-27, G-40 e G-39):</strong> Possuem variedades de tecnologias diferentes na mesma gleba! Confira a variedade antes de aplicar herbicida.</div>
+      <div><strong>Intervalos de Fungicida:</strong> 1ª em R1 (~30-35d). <strong>2ª: +17d da 1ª</strong>. <strong>3ª: +17d da 2ª</strong>.</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 26px;">Ord</th>
+          <th style="width: 82px;">Gleba</th>
+          <th style="width: 48px;">Área (ha)</th>
+          <th style="width: 112px;">Variedade (S/m)</th>
+          <th>Tecnologia & Tolerância Herbicida</th>
+          <th style="width: 62px;">Plantio / Emerg.</th>
+          <th style="width: 92px;">1ª Aplicação<br>(Pós / Herb / Ins)</th>
+          <th style="width: 92px;">1º Fungicida<br>(R1 + Fol)</th>
+          <th style="width: 82px;">2º Fungicida<br>(+17d da 1ª)</th>
+          <th style="width: 82px;">3º Fungicida<br>(+17d da 2ª)</th>
+          <th style="width: 75px;">Visto Op.</th>
+        </tr>
+      </thead>
+      <tbody>
+        
         <tr id="row-31">
           <td class="text-center font-bold">31</td>
           <td class="font-bold gleba-name">G- 22</td>
           <td class="text-right font-mono font-bold">123.50</td>
           <td><strong>74 K 75-SP</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2316,18 +2162,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-32">
           <td class="text-center font-bold">32</td>
           <td class="font-bold gleba-name">G- 24</td>
           <td class="text-right font-mono font-bold">50.90</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2375,18 +2216,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-33">
           <td class="text-center font-bold">33</td>
           <td class="font-bold gleba-name">G- 25</td>
           <td class="text-right font-mono font-bold">52.81</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2434,18 +2270,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-34">
           <td class="text-center font-bold">34</td>
           <td class="font-bold gleba-name">G- 07</td>
           <td class="text-right font-mono font-bold">177.00</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2493,18 +2324,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-35">
           <td class="text-center font-bold">35</td>
           <td class="font-bold gleba-name">G- 33</td>
           <td class="text-right font-mono font-bold">118.00</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>07-out</strong><br>E: 12-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2552,18 +2378,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-36">
           <td class="text-center font-bold">36</td>
           <td class="font-bold gleba-name">G- 01</td>
           <td class="text-right font-mono font-bold">29.70</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>08-out</strong><br>E: 13-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2611,18 +2432,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-37">
           <td class="text-center font-bold">37</td>
           <td class="font-bold gleba-name">G- 02</td>
           <td class="text-right font-mono font-bold">241.00</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>08-out</strong><br>E: 13-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2670,18 +2486,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-38">
           <td class="text-center font-bold">38</td>
           <td class="font-bold gleba-name">G- 09</td>
           <td class="text-right font-mono font-bold">45.70</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>08-out</strong><br>E: 13-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2729,18 +2540,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-39">
           <td class="text-center font-bold">39</td>
           <td class="font-bold gleba-name">G- 36</td>
           <td class="text-right font-mono font-bold">34.50</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2788,18 +2594,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-40">
           <td class="text-center font-bold">40</td>
           <td class="font-bold gleba-name">G- 31</td>
           <td class="text-right font-mono font-bold">54.30</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2847,18 +2648,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-41">
           <td class="text-center font-bold">41</td>
           <td class="font-bold gleba-name">G- 04</td>
           <td class="text-right font-mono font-bold">32.48</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2906,18 +2702,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-42">
           <td class="text-center font-bold">42</td>
           <td class="font-bold gleba-name">G- 28</td>
           <td class="text-right font-mono font-bold">57.00</td>
           <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>15-out</strong><br>E: 20-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -2965,18 +2756,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-43">
           <td class="text-center font-bold">43</td>
           <td class="font-bold gleba-name">G- 17</td>
           <td class="text-right font-mono font-bold">42.00</td>
           <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>16-out</strong><br>E: 21-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3024,18 +2810,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-44">
           <td class="text-center font-bold">44</td>
           <td class="font-bold gleba-name">G- 16</td>
           <td class="text-right font-mono font-bold">113.00</td>
           <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3083,18 +2864,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-45">
           <td class="text-center font-bold">45</td>
           <td class="font-bold gleba-name">G- 08</td>
           <td class="text-right font-mono font-bold">128.40</td>
           <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3142,18 +2918,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-46">
           <td class="text-center font-bold">46</td>
           <td class="font-bold gleba-name">G- 05</td>
           <td class="text-right font-mono font-bold">40.30</td>
           <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3201,18 +2972,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-47">
           <td class="text-center font-bold">47</td>
           <td class="font-bold gleba-name">G- 10A</td>
           <td class="text-right font-mono font-bold">58.70</td>
           <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>17-out</strong><br>E: 22-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3260,18 +3026,67 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
-        <tr id="row-48">
+        <tr id="row-49">
           <td class="text-center font-bold">48</td>
-          <td class="font-bold gleba-name">G- 40</td>
-          <td class="text-right font-mono font-bold">125.00</td>
+          <td class="font-bold gleba-name">G- 10B</td>
+          <td class="text-right font-mono font-bold">14.00</td>
+          <td><strong>NEO-801</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="pos-49" onchange="salvarCampo(49, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-49" onchange="salvarCampo(49, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-49" onchange="salvarCampo(49, 'ins_check', this.checked)"> Ins</label>
+            </div>
+            <div class="date-input-wrap">
+              <input type="date" id="data1-49" onchange="salvarCampo(49, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-49">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f1-49" onchange="salvarCampo(49, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-49" onchange="salvarCampo(49, 'fol_check', this.checked)"> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f1data-49" onchange="salvarCampo(49, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-49">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f2-49" onchange="salvarCampo(49, 'f2_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f2data-49" onchange="salvarCampo(49, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-49">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f3-49" onchange="salvarCampo(49, 'f3_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line text-muted">+17d da 2ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f3data-49" onchange="salvarCampo(49, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-49">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+
+        <tr id="row-48" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">49</td>
+          <td class="font-bold gleba-name">G- 40 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(1/2)</span></td>
+          <td class="text-right font-mono font-bold">124.68</td>
           <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/RR2 PRO</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>24-out</strong><br>E: 29-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3319,77 +3134,67 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
-        <tr id="row-49">
-          <td class="text-center font-bold">49</td>
-          <td class="font-bold gleba-name">G- 10B</td>
-          <td class="text-right font-mono font-bold">14.00</td>
-          <td><strong>NEO-801</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-enlist'>CONKESTA ENLIST</span>
-      <span class='badge-gluf'>TOLERA GLUFOSINATO</span>
-      <div class='tol-desc'></div>
-    </td>
-          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+        <tr id="row-55" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">50</td>
+          <td class="font-bold gleba-name">G- 40 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(2/2)</span></td>
+          <td class="text-right font-mono font-bold">0.32</td>
+          <td><strong>74 K 75</strong> <span class="text-muted">(16 s/m)</span></td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
+          <td class="text-center text-xs">P: <strong>02-nov</strong><br>E: 07-nov</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
-              <label><input type="checkbox" id="pos-49" onchange="salvarCampo(49, 'pos_check', this.checked)"> Pós</label>
-              <label><input type="checkbox" id="herb-49" onchange="salvarCampo(49, 'herb_check', this.checked)"> Herb</label>
-              <label><input type="checkbox" id="ins-49" onchange="salvarCampo(49, 'ins_check', this.checked)"> Ins</label>
+              <label><input type="checkbox" id="pos-55" onchange="salvarCampo(55, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-55" onchange="salvarCampo(55, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-55" onchange="salvarCampo(55, 'ins_check', this.checked)"> Ins</label>
             </div>
             <div class="date-input-wrap">
-              <input type="date" id="data1-49" onchange="salvarCampo(49, 'data_1_feita', this.value)" class="date-edit screen-only">
-              <span class="date-print print-only" id="print-data1-49">Data: ___/___/26</span>
+              <input type="date" id="data1-55" onchange="salvarCampo(55, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-55">Data: ___/___/26</span>
             </div>
           </td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
-              <label><input type="checkbox" id="f1-49" onchange="salvarCampo(49, 'f1_status', this.checked)"> Fung</label>
-              <label><input type="checkbox" id="fol-49" onchange="salvarCampo(49, 'fol_check', this.checked)"> Fol</label>
+              <label><input type="checkbox" id="f1-55" onchange="salvarCampo(55, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-55" onchange="salvarCampo(55, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~31 nov</div>
+            <div class="date-line font-bold text-green">R1: ~08 dez</div>
             <div class="date-input-wrap">
-              <input type="date" id="f1data-49" onchange="salvarCampo(49, 'f1_data', this.value)" class="date-edit screen-only">
-              <span class="date-print print-only" id="print-f1data-49">Data: ___/___/26</span>
+              <input type="date" id="f1data-55" onchange="salvarCampo(55, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-55">Data: ___/___/26</span>
             </div>
           </td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
-              <label><input type="checkbox" id="f2-49" onchange="salvarCampo(49, 'f2_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="f2-55" onchange="salvarCampo(55, 'f2_status', this.checked)"> Fung</label>
             </div>
             <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
             <div class="date-input-wrap">
-              <input type="date" id="f2data-49" onchange="salvarCampo(49, 'f2_data', this.value)" class="date-edit screen-only">
-              <span class="date-print print-only" id="print-f2data-49">Data: ___/___/26</span>
+              <input type="date" id="f2data-55" onchange="salvarCampo(55, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-55">Data: ___/___/26</span>
             </div>
           </td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
-              <label><input type="checkbox" id="f3-49" onchange="salvarCampo(49, 'f3_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="f3-55" onchange="salvarCampo(55, 'f3_status', this.checked)"> Fung</label>
             </div>
             <div class="date-line text-muted">+17d da 2ª</div>
             <div class="date-input-wrap">
-              <input type="date" id="f3data-49" onchange="salvarCampo(49, 'f3_data', this.value)" class="date-edit screen-only">
-              <span class="date-print print-only" id="print-f3data-49">Data: ___/___/26</span>
+              <input type="date" id="f3data-55" onchange="salvarCampo(55, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-55">Data: ___/___/26</span>
             </div>
           </td>
           <td class="text-center signature-cell">
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
-        <tr id="row-50">
-          <td class="text-center font-bold">50</td>
-          <td class="font-bold gleba-name">G- 39</td>
-          <td class="text-right font-mono font-bold">119.00</td>
-          <td><strong>78 IX 80 / OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-ipro'>INTÃ/I2X / RR2</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+        <tr id="row-50" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">51</td>
+          <td class="font-bold gleba-name">G- 39 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(1/6)</span></td>
+          <td class="text-right font-mono font-bold">74.67</td>
+          <td><strong>OLIMPO</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
           <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3407,7 +3212,7 @@
               <label><input type="checkbox" id="f1-50" onchange="salvarCampo(50, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-50" onchange="salvarCampo(50, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~31 nov</div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-50" onchange="salvarCampo(50, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-50">Data: ___/___/26</span>
@@ -3437,18 +3242,283 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
+
+        <tr id="row-56" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">52</td>
+          <td class="font-bold gleba-name">G- 39 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(2/6)</span></td>
+          <td class="text-right font-mono font-bold">2.64</td>
+          <td><strong>COBRE-77 IX 78</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="pos-56" onchange="salvarCampo(56, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-56" onchange="salvarCampo(56, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-56" onchange="salvarCampo(56, 'ins_check', this.checked)"> Ins</label>
+            </div>
+            <div class="date-input-wrap">
+              <input type="date" id="data1-56" onchange="salvarCampo(56, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-56">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f1-56" onchange="salvarCampo(56, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-56" onchange="salvarCampo(56, 'fol_check', this.checked)"> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f1data-56" onchange="salvarCampo(56, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-56">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f2-56" onchange="salvarCampo(56, 'f2_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f2data-56" onchange="salvarCampo(56, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-56">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f3-56" onchange="salvarCampo(56, 'f3_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line text-muted">+17d da 2ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f3data-56" onchange="salvarCampo(56, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-56">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+
+        <tr id="row-57" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">53</td>
+          <td class="font-bold gleba-name">G- 39 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(3/6)</span></td>
+          <td class="text-right font-mono font-bold">2.67</td>
+          <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="pos-57" onchange="salvarCampo(57, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-57" onchange="salvarCampo(57, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-57" onchange="salvarCampo(57, 'ins_check', this.checked)"> Ins</label>
+            </div>
+            <div class="date-input-wrap">
+              <input type="date" id="data1-57" onchange="salvarCampo(57, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-57">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f1-57" onchange="salvarCampo(57, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-57" onchange="salvarCampo(57, 'fol_check', this.checked)"> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f1data-57" onchange="salvarCampo(57, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-57">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f2-57" onchange="salvarCampo(57, 'f2_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f2data-57" onchange="salvarCampo(57, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-57">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f3-57" onchange="salvarCampo(57, 'f3_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line text-muted">+17d da 2ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f3data-57" onchange="salvarCampo(57, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-57">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+
+        <tr id="row-58" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">54</td>
+          <td class="font-bold gleba-name">G- 39 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(4/6)</span></td>
+          <td class="text-right font-mono font-bold">11.54</td>
+          <td><strong>NEO-801</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-enlist'>CONKESTA ENLIST</span> <span class='badge-gluf'>TOLERA GLUFOSINATO</span></td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="pos-58" onchange="salvarCampo(58, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-58" onchange="salvarCampo(58, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-58" onchange="salvarCampo(58, 'ins_check', this.checked)"> Ins</label>
+            </div>
+            <div class="date-input-wrap">
+              <input type="date" id="data1-58" onchange="salvarCampo(58, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-58">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f1-58" onchange="salvarCampo(58, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-58" onchange="salvarCampo(58, 'fol_check', this.checked)"> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f1data-58" onchange="salvarCampo(58, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-58">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f2-58" onchange="salvarCampo(58, 'f2_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f2data-58" onchange="salvarCampo(58, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-58">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f3-58" onchange="salvarCampo(58, 'f3_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line text-muted">+17d da 2ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f3data-58" onchange="salvarCampo(58, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-58">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+
+        <tr id="row-59" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">55</td>
+          <td class="font-bold gleba-name">G- 39 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(5/6)</span></td>
+          <td class="text-right font-mono font-bold">10.70</td>
+          <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="pos-59" onchange="salvarCampo(59, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-59" onchange="salvarCampo(59, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-59" onchange="salvarCampo(59, 'ins_check', this.checked)"> Ins</label>
+            </div>
+            <div class="date-input-wrap">
+              <input type="date" id="data1-59" onchange="salvarCampo(59, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-59">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f1-59" onchange="salvarCampo(59, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-59" onchange="salvarCampo(59, 'fol_check', this.checked)"> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f1data-59" onchange="salvarCampo(59, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-59">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f2-59" onchange="salvarCampo(59, 'f2_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f2data-59" onchange="salvarCampo(59, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-59">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f3-59" onchange="salvarCampo(59, 'f3_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line text-muted">+17d da 2ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f3data-59" onchange="salvarCampo(59, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-59">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
+
+        <tr id="row-60" style="background-color:#fffbeb;">
+          <td class="text-center font-bold">56</td>
+          <td class="font-bold gleba-name">G- 39 <span style="font-size:5.5pt; color:#b45309; font-weight:800;">(6/6)</span></td>
+          <td class="text-right font-mono font-bold">16.78</td>
+          <td><strong>NEO-820</strong> <span class="text-muted">(13 s/m)</span></td>
+          <td><span class='tec-badge tec-ipro'>IPRO / RR (Só Glifosato)</span> <span class='badge-proib'>PROIBIDO GLUF./DICAMBA</span></td>
+          <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="pos-60" onchange="salvarCampo(60, 'pos_check', this.checked)"> Pós</label>
+              <label><input type="checkbox" id="herb-60" onchange="salvarCampo(60, 'herb_check', this.checked)"> Herb</label>
+              <label><input type="checkbox" id="ins-60" onchange="salvarCampo(60, 'ins_check', this.checked)"> Ins</label>
+            </div>
+            <div class="date-input-wrap">
+              <input type="date" id="data1-60" onchange="salvarCampo(60, 'data_1_feita', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-data1-60">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f1-60" onchange="salvarCampo(60, 'f1_status', this.checked)"> Fung</label>
+              <label><input type="checkbox" id="fol-60" onchange="salvarCampo(60, 'fol_check', this.checked)"> Fol</label>
+            </div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f1data-60" onchange="salvarCampo(60, 'f1_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f1data-60">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f2-60" onchange="salvarCampo(60, 'f2_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line font-bold" style="color:#0369a1;">+17d da 1ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f2data-60" onchange="salvarCampo(60, 'f2_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f2data-60">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center check-cell">
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="f3-60" onchange="salvarCampo(60, 'f3_status', this.checked)"> Fung</label>
+            </div>
+            <div class="date-line text-muted">+17d da 2ª</div>
+            <div class="date-input-wrap">
+              <input type="date" id="f3data-60" onchange="salvarCampo(60, 'f3_data', this.value)" class="date-edit screen-only">
+              <span class="date-print print-only" id="print-f3data-60">Data: ___/___/26</span>
+            </div>
+          </td>
+          <td class="text-center signature-cell">
+            <span class="sign-line"></span>
+          </td>
+        </tr>
 
         <tr id="row-51">
-          <td class="text-center font-bold">51</td>
+          <td class="text-center font-bold">57</td>
           <td class="font-bold gleba-name">G- 38</td>
           <td class="text-right font-mono font-bold">20.50</td>
           <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>26-out</strong><br>E: 31-out</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3466,7 +3536,7 @@
               <label><input type="checkbox" id="f1-51" onchange="salvarCampo(51, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-51" onchange="salvarCampo(51, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~31 nov</div>
+            <div class="date-line font-bold text-green">R1: ~01 dez</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-51" onchange="salvarCampo(51, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-51">Data: ___/___/26</span>
@@ -3496,18 +3566,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-52">
-          <td class="text-center font-bold">52</td>
+          <td class="text-center font-bold">58</td>
           <td class="font-bold gleba-name">G- 03</td>
           <td class="text-right font-mono font-bold">75.00</td>
           <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>27-out</strong><br>E: 01-nov</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3525,7 +3590,7 @@
               <label><input type="checkbox" id="f1-52" onchange="salvarCampo(52, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-52" onchange="salvarCampo(52, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~01 nov</div>
+            <div class="date-line font-bold text-green">R1: ~02 dez</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-52" onchange="salvarCampo(52, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-52">Data: ___/___/26</span>
@@ -3555,18 +3620,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-53">
-          <td class="text-center font-bold">53</td>
+          <td class="text-center font-bold">59</td>
           <td class="font-bold gleba-name">G- 06</td>
           <td class="text-right font-mono font-bold">22.90</td>
           <td><strong>78 IX 80</strong> <span class="text-muted">(13 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>27-out</strong><br>E: 01-nov</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3584,7 +3644,7 @@
               <label><input type="checkbox" id="f1-53" onchange="salvarCampo(53, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-53" onchange="salvarCampo(53, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~01 nov</div>
+            <div class="date-line font-bold text-green">R1: ~02 dez</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-53" onchange="salvarCampo(53, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-53">Data: ___/___/26</span>
@@ -3614,18 +3674,13 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
 
         <tr id="row-54">
-          <td class="text-center font-bold">54</td>
+          <td class="text-center font-bold">60</td>
           <td class="font-bold gleba-name">G- 37</td>
           <td class="text-right font-mono font-bold">4.31</td>
           <td><strong>78 IX 80</strong> <span class="text-muted">(16 s/m)</span></td>
-          <td>
-      <span class='tec-badge tec-xtend'>INTÃ/I2X/XTENDE</span>
-      <span class='badge-proib'>PROIBIDO GLUFOSINATO</span>
-      <div class='tol-desc'><span class='text-muted'></span></div>
-    </td>
+          <td><span class='tec-badge tec-xtend'>XTEND / I2X (Dicamba)</span> <span class='badge-proib'>PROIBIDO GLUFOSINATO</span></td>
           <td class="text-center text-xs">P: <strong>27-out</strong><br>E: 01-nov</td>
           <td class="text-center check-cell">
             <div class="checkbox-group">
@@ -3643,7 +3698,7 @@
               <label><input type="checkbox" id="f1-54" onchange="salvarCampo(54, 'f1_status', this.checked)"> Fung</label>
               <label><input type="checkbox" id="fol-54" onchange="salvarCampo(54, 'fol_check', this.checked)"> Fol</label>
             </div>
-            <div class="date-line font-bold text-green">R1: ~01 nov</div>
+            <div class="date-line font-bold text-green">R1: ~02 dez</div>
             <div class="date-input-wrap">
               <input type="date" id="f1data-54" onchange="salvarCampo(54, 'f1_data', this.value)" class="date-edit screen-only">
               <span class="date-print print-only" id="print-f1data-54">Data: ___/___/26</span>
@@ -3673,21 +3728,19 @@
             <span class="sign-line"></span>
           </td>
         </tr>
-        
       </tbody>
     </table>
 
     <div class="page-footer">
-      <div>Controle Operacional de Campo Safra 2026/2027 — Folha 2 de 2 (Talhões 28 a 54) • 2ª aplicação aos 17 dias</div>
+      <div>Controle Operacional de Campo Safra 2026/2027 — Folha 2 de 2 (Parcelas 31 a 60) • Área Total Conferida: 4.391,81 ha</div>
       <div>Assinatura do Responsável Técnico: ___________________________________________</div>
     </div>
   </div>
 
 <script>
-const dadosTalhoes = [{"ordem": 1, "gleba": "Pivo 08", "ha": 130.0, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "21-set", "dtE": "26-set", "pms": 55, "pop": 14.8, "tipo": "Pivô", "id": 1, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 2, "gleba": "Pivo 03", "ha": 49.2, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "21-set", "dtE": "26-set", "pms": 55, "pop": 13.8, "tipo": "Pivô", "id": 2, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 3, "gleba": "Pivo 02", "ha": 200.0, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "22-set", "dtE": "27-set", "pms": 55, "pop": 14.8, "tipo": "Pivô", "id": 3, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 4, "gleba": "G- 18", "ha": 195.0, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "23-set", "dtE": "28-set", "pms": 55, "pop": 14.8, "tipo": "Gleba", "id": 4, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 5, "gleba": "G- 19", "ha": 193.45, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "24-set", "dtE": "29-set", "pms": 55, "pop": 14.4, "tipo": "Gleba", "id": 5, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 6, "gleba": "G- 21", "ha": 181.02, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "24-set", "dtE": "29-set", "pms": 51, "pop": 14.4, "tipo": "Gleba", "id": 6, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 7, "gleba": "Pivo 09", "ha": 58.06, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "24-set", "dtE": "29-set", "pms": 55, "pop": 17.8, "tipo": "Pivô", "id": 7, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 8, "gleba": "Pivo 05", "ha": 21.01, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "25-set", "dtE": "30-set", "pms": 55, "pop": 17.6, "tipo": "Pivô", "id": 8, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 9, "gleba": "Pivo 06", "ha": 27.53, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "25-set", "dtE": "30-set", "pms": 55, "pop": 17.6, "tipo": "Pivô", "id": 9, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 10, "gleba": "Pivo 10", "ha": 63.51, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "25-set", "dtE": "30-set", "pms": 55, "pop": 17.8, "tipo": "Pivô", "id": 10, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 11, "gleba": "G- 32", "ha": 109.68, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "25-set", "dtE": "30-set", "pms": 51, "pop": 14.0, "tipo": "Gleba", "id": 11, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 12, "gleba": "Pivo 07", "ha": 80.5, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "25-set", "dtE": "30-set", "pms": 51, "pop": 14.8, "tipo": "Pivô", "id": 12, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 13, "gleba": "G- 34", "ha": 51.8, "var": "NEO-801", "sem": 13, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "02-out", "dtE": "07-out", "pms": 45, "pop": 12.4, "tipo": "Gleba", "id": 13, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 14, "gleba": "G- 27 (Guepardo)", "ha": 8.76, "var": "GUEPARDO", "sem": 18, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "02-out", "dtE": "07-out", "pms": 55, "pop": 17.6, "tipo": "Gleba", "id": 14, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 15, "gleba": "G- 27 (Neo-700)", "ha": 17.3, "var": "NEO-700", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "02-out", "dtE": "07-out", "pms": 45, "pop": 18.4, "tipo": "Gleba", "id": 15, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 16, "gleba": "G- 27 (72 I X 74)", "ha": 111.24, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "02-out", "dtE": "07-out", "pms": 51, "pop": 14.0, "tipo": "Gleba", "id": 16, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 17, "gleba": "G- 26", "ha": 28.88, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "02-out", "dtE": "07-out", "pms": 51, "pop": 13.8, "tipo": "Gleba", "id": 17, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 18, "gleba": "G- 30", "ha": 148.4, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "03-out", "dtE": "08-out", "pms": 51, "pop": 13.2, "tipo": "Gleba", "id": 18, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 19, "gleba": "G- 29", "ha": 165.0, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 1.4, "tipo": "Gleba", "id": 19, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 20, "gleba": "G- 11", "ha": 100.99, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 13.0, "tipo": "Gleba", "id": 20, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 21, "gleba": "G- 13 P/CIMA", "ha": 191.88, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 13.0, "tipo": "Gleba", "id": 21, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 22, "gleba": "G- 13 (2ª Passada)", "ha": 2.52, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "04-out", "dtE": "09-out", "pms": 50, "pop": 12.2, "tipo": "Gleba", "id": 22, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 23, "gleba": "G- 12", "ha": 35.76, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "04-out", "dtE": "09-out", "pms": 50, "pop": 13.2, "tipo": "Gleba", "id": 23, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 24, "gleba": "G- 12 MEIO", "ha": 9.61, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 12.8, "tipo": "Gleba", "id": 24, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 25, "gleba": "G- 14 P/CIMA", "ha": 51.05, "var": "72 I X 74", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "04-out", "dtE": "09-out", "pms": 51, "pop": 12.8, "tipo": "Gleba", "id": 25, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 26, "gleba": "G- 14 P/BAIXO", "ha": 16.31, "var": "74 K 75-SP", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "04-out", "dtE": "09-out", "pms": 50, "pop": 14.2, "tipo": "Gleba", "id": 26, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 27, "gleba": "G- 15", "ha": 130.8, "var": "74 K 75-SP", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "05-out", "dtE": "10-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 27, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 28, "gleba": "G- 20", "ha": 182.3, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "06-out", "dtE": "11-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 28, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 29, "gleba": "G- 23", "ha": 33.4, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "06-out", "dtE": "11-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 29, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 30, "gleba": "G- 35", "ha": 16.85, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 30, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 31, "gleba": "G- 22", "ha": 123.5, "var": "74 K 75-SP", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 31, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 32, "gleba": "G- 24", "ha": 50.9, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 32, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 33, "gleba": "G- 25", "ha": 52.81, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 33, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 34, "gleba": "G- 07", "ha": 177.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 34, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 35, "gleba": "G- 33", "ha": 118.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "07-out", "dtE": "12-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 35, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 36, "gleba": "G- 01", "ha": 29.7, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "08-out", "dtE": "13-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 36, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 37, "gleba": "G- 02", "ha": 241.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "08-out", "dtE": "13-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 37, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 38, "gleba": "G- 09", "ha": 45.7, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "08-out", "dtE": "13-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 38, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 39, "gleba": "G- 36", "ha": 34.5, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 39, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 40, "gleba": "G- 31", "ha": 54.3, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 40, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 41, "gleba": "G- 04", "ha": 32.48, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 41, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 42, "gleba": "G- 28", "ha": 57.0, "var": "74 K 75", "sem": 16, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "15-out", "dtE": "20-out", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 42, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 43, "gleba": "G- 17", "ha": 42.0, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "16-out", "dtE": "21-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 43, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 44, "gleba": "G- 16", "ha": 113.0, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 44, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 45, "gleba": "G- 08", "ha": 128.4, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 45, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 46, "gleba": "G- 05", "ha": 40.3, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 46, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 47, "gleba": "G- 10A", "ha": 58.7, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "17-out", "dtE": "22-out", "pms": 40, "pop": 0, "tipo": "Gleba", "id": 47, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 48, "gleba": "G- 40", "ha": 125.0, "var": "OLIMPO", "sem": 13, "tec": "INTÃ/RR2 PRO", "tec_badge": "IPRO / RR", "dtP": "24-out", "dtE": "29-out", "pms": 35, "pop": 0, "tipo": "Gleba", "id": 48, "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)", "tol_plain": "Apenas Glifosato", "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"}, {"ordem": 49, "gleba": "G- 10B", "ha": 14.0, "var": "NEO-801", "sem": 13, "tec": "CONKESTA ENLIST", "tec_badge": "CONKESTA ENLIST", "dtP": "26-out", "dtE": "31-out", "pms": 43, "pop": 0, "tipo": "Gleba", "id": 49, "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D", "tol_plain": "Glifosato + Glufosinato + 2,4-D", "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"}, {"ordem": 50, "gleba": "G- 39", "ha": 119.0, "var": "78 IX 80 / OLIMPO", "sem": 13, "tec": "INTÃ/I2X / RR2", "tec_badge": "XTEND I2X", "dtP": "26-out", "dtE": "31-out", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 50, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 51, "gleba": "G- 38", "ha": 20.5, "var": "78 IX 80", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "26-out", "dtE": "31-out", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 51, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 52, "gleba": "G- 03", "ha": 75.0, "var": "78 IX 80", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "27-out", "dtE": "01-nov", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 52, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 53, "gleba": "G- 06", "ha": 22.9, "var": "78 IX 80", "sem": 13, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "27-out", "dtE": "01-nov", "pms": 37, "pop": 0, "tipo": "Gleba", "id": 53, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}, {"ordem": 54, "gleba": "G- 37", "ha": 4.31, "var": "78 IX 80", "sem": 16, "tec": "INTÃ/I2X/XTENDE", "tec_badge": "XTEND I2X", "dtP": "27-out", "dtE": "01-nov", "pms": 50, "pop": 0, "tipo": "Gleba", "id": 54, "tol_html": "Glifosato + Dicamba", "tol_plain": "Glifosato + Dicamba", "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"}];
+const dadosTalhoes = [{"ordem":1,"gleba":"Pivo 08","ha":130,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"21-set","dtE":"26-set","pms":55,"pop":16.4,"tipo":"Pivô","id":1,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":2,"gleba":"Pivo 03","ha":49.2,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"21-set","dtE":"26-set","pms":55,"pop":15.8,"tipo":"Pivô","id":2,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":3,"gleba":"Pivo 02","ha":200,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"22-set","dtE":"27-set","pms":55,"pop":14.8,"tipo":"Pivô","id":3,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":4,"gleba":"G- 18","ha":195,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"23-set","dtE":"28-set","pms":55,"pop":14.8,"tipo":"Gleba","id":4,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":5,"gleba":"G- 19","ha":193.45,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"24-set","dtE":"29-set","pms":55,"pop":14.4,"tipo":"Gleba","id":5,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":6,"gleba":"G- 21","ha":181.02,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"24-set","dtE":"29-set","pms":51,"pop":14.4,"tipo":"Gleba","id":6,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":7,"gleba":"Pivo 09","ha":58.06,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"24-set","dtE":"29-set","pms":55,"pop":17.8,"tipo":"Pivô","id":7,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":8,"gleba":"Pivo 05","ha":21.01,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"25-set","dtE":"30-set","pms":55,"pop":17.6,"tipo":"Pivô","id":8,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":9,"gleba":"Pivo 06","ha":27.53,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"25-set","dtE":"30-set","pms":55,"pop":17.6,"tipo":"Pivô","id":9,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":10,"gleba":"Pivo 10","ha":63.51,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"25-set","dtE":"30-set","pms":55,"pop":17.8,"tipo":"Pivô","id":10,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":11,"gleba":"G- 32","ha":109.68,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"25-set","dtE":"30-set","pms":51,"pop":14,"tipo":"Gleba","id":11,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":12,"gleba":"Pivo 07","ha":80.5,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"25-set","dtE":"30-set","pms":51,"pop":14.8,"tipo":"Pivô","id":12,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":13,"gleba":"G- 34","ha":51.8,"var":"NEO-801","sem":13,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"02-out","dtE":"07-out","pms":46,"pop":12.4,"tipo":"Gleba","id":13,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":14,"gleba":"G- 27","ha":8.76,"var":"GUEPARDO","sem":18,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"02-out","dtE":"07-out","pms":55,"pop":17.6,"tipo":"Gleba","id":14,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":15,"gleba":"G- 27","ha":17.3,"var":"NEO-700","sem":22,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"02-out","dtE":"07-out","pms":46,"pop":18.4,"tipo":"Gleba","id":15,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":16,"gleba":"G- 27","ha":111.24,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"02-out","dtE":"07-out","pms":51,"pop":14,"tipo":"Gleba","id":16,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":17,"gleba":"G- 26","ha":28.88,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"02-out","dtE":"07-out","pms":51,"pop":13.8,"tipo":"Gleba","id":17,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":18,"gleba":"G- 30","ha":148.4,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"03-out","dtE":"08-out","pms":51,"pop":14,"tipo":"Gleba","id":18,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":19,"gleba":"G- 29","ha":165,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"04-out","dtE":"09-out","pms":51,"pop":14,"tipo":"Gleba","id":19,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":20,"gleba":"G- 11","ha":100.99,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"04-out","dtE":"09-out","pms":51,"pop":14,"tipo":"Gleba","id":20,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":21,"gleba":"G- 13 P/CIMA","ha":191.88,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"04-out","dtE":"09-out","pms":51,"pop":13.6,"tipo":"Gleba","id":21,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":22,"gleba":"G- 13 (2ª Passada)","ha":2.52,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"04-out","dtE":"09-out","pms":50,"pop":14,"tipo":"Gleba","id":22,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":23,"gleba":"G- 12","ha":35.76,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"04-out","dtE":"09-out","pms":50,"pop":13.4,"tipo":"Gleba","id":23,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":24,"gleba":"G- 12 MEIO","ha":9.61,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"04-out","dtE":"09-out","pms":51,"pop":13.2,"tipo":"Gleba","id":24,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":25,"gleba":"G- 14 P/CIMA","ha":51.05,"var":"72 I X 74","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"04-out","dtE":"09-out","pms":51,"pop":12.8,"tipo":"Gleba","id":25,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":26,"gleba":"G- 14 P/BAIXO","ha":16.31,"var":"74 K 75-SP","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"04-out","dtE":"09-out","pms":50,"pop":14.2,"tipo":"Gleba","id":26,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":27,"gleba":"G- 15","ha":130.8,"var":"74 K 75-SP","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"05-out","dtE":"10-out","pms":50,"pop":14,"tipo":"Gleba","id":27,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":28,"gleba":"G- 20","ha":182.3,"var":"74 K 75-SP","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"06-out","dtE":"11-out","pms":50,"pop":13.8,"tipo":"Gleba","id":28,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":29,"gleba":"G- 23","ha":33.4,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"06-out","dtE":"11-out","pms":50,"pop":13.4,"tipo":"Gleba","id":29,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":30,"gleba":"G- 35","ha":16.85,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"07-out","dtE":"12-out","pms":50,"pop":14,"tipo":"Gleba","id":30,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":31,"gleba":"G- 22","ha":123.5,"var":"74 K 75-SP","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"07-out","dtE":"12-out","pms":50,"pop":14,"tipo":"Gleba","id":31,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":32,"gleba":"G- 24","ha":50.9,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"07-out","dtE":"12-out","pms":50,"pop":14,"tipo":"Gleba","id":32,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":33,"gleba":"G- 25","ha":52.81,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"07-out","dtE":"12-out","pms":50,"pop":14.2,"tipo":"Gleba","id":33,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":34,"gleba":"G- 07","ha":177,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"07-out","dtE":"12-out","pms":50,"pop":14.2,"tipo":"Gleba","id":34,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":35,"gleba":"G- 33","ha":118,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"07-out","dtE":"12-out","pms":50,"pop":14.2,"tipo":"Gleba","id":35,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":36,"gleba":"G- 01","ha":29.7,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"08-out","dtE":"13-out","pms":50,"pop":14.4,"tipo":"Gleba","id":36,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":37,"gleba":"G- 02","ha":241,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"08-out","dtE":"13-out","pms":50,"pop":14.4,"tipo":"Gleba","id":37,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":38,"gleba":"G- 09","ha":45.7,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"08-out","dtE":"13-out","pms":50,"pop":13.8,"tipo":"Gleba","id":38,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":39,"gleba":"G- 36","ha":34.5,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"15-out","dtE":"20-out","pms":50,"pop":14.2,"tipo":"Gleba","id":39,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":40,"gleba":"G- 31","ha":54.3,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"15-out","dtE":"20-out","pms":50,"pop":14.4,"tipo":"Gleba","id":40,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":41,"gleba":"G- 04","ha":32.48,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"15-out","dtE":"20-out","pms":50,"pop":14.2,"tipo":"Gleba","id":41,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":42,"gleba":"G- 28","ha":57,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"15-out","dtE":"20-out","pms":50,"pop":14.2,"tipo":"Gleba","id":42,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":43,"gleba":"G- 17","ha":42,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"16-out","dtE":"21-out","pms":40,"pop":12,"tipo":"Gleba","id":43,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":44,"gleba":"G- 16","ha":113,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"17-out","dtE":"22-out","pms":40,"pop":12.4,"tipo":"Gleba","id":44,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":45,"gleba":"G- 08","ha":128.4,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"17-out","dtE":"22-out","pms":40,"pop":12.4,"tipo":"Gleba","id":45,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":46,"gleba":"G- 05","ha":40.3,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"17-out","dtE":"22-out","pms":40,"pop":12.4,"tipo":"Gleba","id":46,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":47,"gleba":"G- 10A","ha":58.7,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"17-out","dtE":"22-out","pms":40,"pop":12,"tipo":"Gleba","id":47,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":48,"gleba":"G- 10B","ha":14,"var":"NEO-801","sem":13,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"26-out","dtE":"31-out","pms":40,"pop":12.1,"tipo":"Gleba","id":49,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":49,"gleba":"G- 40","ha":124.68,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"24-out","dtE":"29-out","pms":38,"pop":11,"tipo":"Gleba","id":48,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":50,"gleba":"G- 40","ha":0.32,"var":"74 K 75","sem":16,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"02-nov","dtE":"07-nov","pms":40,"pop":14,"tipo":"Gleba","id":55,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":51,"gleba":"G- 39","ha":74.67,"var":"OLIMPO","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"26-out","dtE":"31-out","pms":37,"pop":11,"tipo":"Gleba","id":50,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":52,"gleba":"G- 39","ha":2.64,"var":"COBRE-77 IX 78","sem":13,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"26-out","dtE":"31-out","pms":37,"pop":11.5,"tipo":"Gleba","id":56,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":53,"gleba":"G- 39","ha":2.67,"var":"78 IX 80","sem":13,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"26-out","dtE":"31-out","pms":37,"pop":12,"tipo":"Gleba","id":57,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":54,"gleba":"G- 39","ha":11.54,"var":"NEO-801","sem":13,"tec":"CONKESTA ENLIST","tec_badge":"CONKESTA ENLIST","dtP":"26-out","dtE":"31-out","pms":37,"pop":12.2,"tipo":"Gleba","id":58,"tol_html":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D","tol_plain":"Glifosato + Glufosinato + 2,4-D","manejo_seguro":"Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"},{"ordem":55,"gleba":"G- 39","ha":10.7,"var":"78 IX 80","sem":13,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"26-out","dtE":"31-out","pms":37,"pop":12.2,"tipo":"Gleba","id":59,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":56,"gleba":"G- 39","ha":16.78,"var":"NEO-820","sem":13,"tec":"INTÃ/RR2 PRO","tec_badge":"IPRO / RR","dtP":"26-out","dtE":"31-out","pms":37,"pop":12.6,"tipo":"Gleba","id":60,"tol_html":"Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)","tol_plain":"Apenas Glifosato (Proibido Dicamba / Glufosinato)","manejo_seguro":"Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"},{"ordem":57,"gleba":"G- 38","ha":20.5,"var":"78 IX 80","sem":13,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"26-out","dtE":"31-out","pms":37,"pop":12,"tipo":"Gleba","id":51,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":58,"gleba":"G- 03","ha":75,"var":"78 IX 80","sem":13,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"27-out","dtE":"01-nov","pms":37,"pop":12,"tipo":"Gleba","id":52,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":59,"gleba":"G- 06","ha":22.9,"var":"78 IX 80","sem":13,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"27-out","dtE":"01-nov","pms":37,"pop":12,"tipo":"Gleba","id":53,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"},{"ordem":60,"gleba":"G- 37","ha":4.31,"var":"78 IX 80","sem":16,"tec":"INTÃ/I2X/XTENDE","tec_badge":"XTEND I2X","dtP":"27-out","dtE":"01-nov","pms":50,"pop":12.2,"tipo":"Gleba","id":54,"tol_html":"Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)","tol_plain":"Glifosato + Dicamba (Proibido Glufosinato)","manejo_seguro":"Glifosato + Dicamba + Cletodim / Haloxifope"}];
 const STORAGE_KEY = 'safra_soja_2026_operacoes_v2';
 
-// Configuração do Google Firebase Realtime Database para sincronização online entre todos os usuários
 const firebaseConfig = {
   apiKey: "AIzaSyCmZ3Qf_zj9NQRrAnyIF_vhSlFdMsUyEwI",
   authDomain: "receitas-de-aplicacao-agricola.firebaseapp.com",
@@ -3703,19 +3756,29 @@ try {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
     }
-    try {
-      firebase.database().enableLogging(false);
-    } catch(e) {}
+    try { firebase.database().enableLogging(false); } catch(e) {}
     dbTalhoesRef = firebase.database().ref('safra_soja_2026/talhoes');
   }
 } catch (err) {
   console.warn('[Firebase] Inicialização falhou, usando modo offline:', err);
 }
 
+function herdarGlebasDivididas(estado) {
+  if (!estado) return;
+  if (estado[48] && estado[55] === undefined) estado[55] = Object.assign({}, estado[48]);
+  if (estado[50]) {
+    [56, 57, 58, 59, 60].forEach(id => {
+      if (estado[id] === undefined) estado[id] = Object.assign({}, estado[50]);
+    });
+  }
+}
+
 function carregarDados() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
+    const parsed = raw ? JSON.parse(raw) : {};
+    herdarGlebasDivididas(parsed);
+    return parsed;
   } catch(e) {
     return {};
   }
@@ -3729,21 +3792,14 @@ function salvarCampo(id, campo, valor) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
     mostrarFeedback(sincronizadoOnline ? 'nuvem' : 'local');
-  } catch(e) {
-    console.error(e);
-  }
+  } catch(e) {}
 
-  // Sincronizar em tempo real com o banco de dados online
   if (dbTalhoesRef) {
     try {
       dbTalhoesRef.child(id).child(campo).set(valor).then(() => {
         sincronizadoOnline = true;
-      }).catch(err => {
-        console.warn('[Firebase] Gravação na nuvem enfileirada:', err);
-      });
-    } catch(err) {
-      console.warn('[Firebase] Erro ao sincronizar campo:', err);
-    }
+      }).catch(err => console.warn('[Firebase] Pendente:', err));
+    } catch(err) {}
   }
 }
 
@@ -3759,17 +3815,6 @@ function mostrarFeedback(tipo = 'nuvem') {
       toast.style.backgroundColor = '#e0f2fe';
       toast.style.color = '#0369a1';
     }
-    setTimeout(() => {
-      if (sincronizadoOnline) {
-        toast.innerHTML = '<span>☁️</span> Conectado Online (Tempo Real)';
-        toast.style.backgroundColor = '#dcfce7';
-        toast.style.color = '#166534';
-      } else {
-        toast.innerHTML = '<span>💾</span> Gravando localmente (100% offline)';
-        toast.style.backgroundColor = '#f1f5f9';
-        toast.style.color = '#475569';
-      }
-    }, 1500);
   }
 }
 
@@ -3777,8 +3822,6 @@ function preencherCamposNaTela() {
   dadosTalhoes.forEach(t => {
     const reg = appState[t.id] || {};
     const tid = t.id;
-
-    // Checkboxes
     if (document.getElementById(`pos-${tid}`)) document.getElementById(`pos-${tid}`).checked = !!reg.pos_check;
     if (document.getElementById(`herb-${tid}`)) document.getElementById(`herb-${tid}`).checked = !!reg.herb_check;
     if (document.getElementById(`ins-${tid}`)) document.getElementById(`ins-${tid}`).checked = !!reg.ins_check;
@@ -3787,39 +3830,19 @@ function preencherCamposNaTela() {
     if (document.getElementById(`f2-${tid}`)) document.getElementById(`f2-${tid}`).checked = !!reg.f2_status;
     if (document.getElementById(`f3-${tid}`)) document.getElementById(`f3-${tid}`).checked = !!reg.f3_status;
 
-    // Datas
-    if (document.getElementById(`data1-${tid}`)) {
-      document.getElementById(`data1-${tid}`).value = reg.data_1_feita || '';
-      if (reg.data_1_feita) {
-        document.getElementById(`print-data1-${tid}`).innerText = reg.data_1_feita;
-      }
-    }
-    if (document.getElementById(`f1data-${tid}`)) {
-      document.getElementById(`f1data-${tid}`).value = reg.f1_data || '';
-      if (reg.f1_data) {
-        document.getElementById(`print-f1data-${tid}`).innerText = reg.f1_data;
-      }
-    }
-    if (document.getElementById(`f2data-${tid}`)) {
-      document.getElementById(`f2data-${tid}`).value = reg.f2_data || '';
-      if (reg.f2_data) {
-        document.getElementById(`print-f2data-${tid}`).innerText = reg.f2_data;
-      }
-    }
-    if (document.getElementById(`f3data-${tid}`)) {
-      document.getElementById(`f3data-${tid}`).value = reg.f3_data || '';
-      if (reg.f3_data) {
-        document.getElementById(`print-f3data-${tid}`).innerText = reg.f3_data;
-      }
-    }
+    ['data1', 'f1data', 'f2data', 'f3data'].forEach((prefix, idx) => {
+      const campo = idx === 0 ? 'data_1_feita' : `f${idx}_data`;
+      const el = document.getElementById(`${prefix}-${tid}`);
+      const pr = document.getElementById(`print-${prefix}-${tid}`);
+      if (el) el.value = reg[campo] || '';
+      if (pr && reg[campo]) pr.innerText = reg[campo];
+    });
   });
 }
 
 function iniciarEscutaTempoReal() {
   if (!dbTalhoesRef) return;
-
-  const connectedRef = firebase.database().ref('.info/connected');
-  connectedRef.on('value', (snap) => {
+  firebase.database().ref('.info/connected').on('value', (snap) => {
     sincronizadoOnline = (snap.val() === true);
     mostrarFeedback(sincronizadoOnline ? 'nuvem' : 'local');
   });
@@ -3829,33 +3852,24 @@ function iniciarEscutaTempoReal() {
     if (val && typeof val === 'object') {
       if (Array.isArray(val)) {
         val.forEach((item, idx) => {
-          if (item && idx > 0) {
-            appState[idx] = Object.assign({}, appState[idx] || {}, item);
-          }
+          if (item && idx > 0) appState[idx] = Object.assign({}, appState[idx] || {}, item);
         });
       } else {
         Object.keys(val).forEach(key => {
-          if (val[key]) {
-            appState[key] = Object.assign({}, appState[key] || {}, val[key]);
-          }
+          if (val[key]) appState[key] = Object.assign({}, appState[key] || {}, val[key]);
         });
       }
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
-      } catch(e) {}
+      herdarGlebasDivididas(appState);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); } catch(e) {}
       sincronizadoOnline = true;
       preencherCamposNaTela();
     }
-  }, (err) => {
-    console.warn('[Firebase] Erro ao sincronizar ficha:', err);
   });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   preencherCamposNaTela();
   iniciarEscutaTempoReal();
-
-  // Registrar Service Worker para 100% Offline
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   }
@@ -3865,53 +3879,22 @@ function exportarExcel() {
   const wb = XLSX.utils.book_new();
   const rows = [
     ["SAFRA SOJA 2026/2027 - FICHA DE CAMPO E CONTROLE DE PULVERIZAÇÃO"],
-    ["Área Total: 4.391,81 ha | Ordem Cronológica de Plantio Oficial | 2ª Aplicação aos 17 dias"],
+    ["Área Total: 4.391,81 ha | 60 Parcelas em Ordem Cronológica Oficial | 2ª e 3ª Aplicações aos 17 dias"],
     [],
-    ["Ord", "Gleba / Talhão", "Área (ha)", "Variedade", "Sem/m", "Tecnologia", "Tolerância Herbicida", "Plantio", "Emergência", "1ª Aplicação Feita", "Data 1ª Aplicação", "1º Fungicida Previsto", "Data 1º Fungicida", "2º Fungicida (+17d da 1ª)", "3º Fungicida (+17d da 2ª)", "Visto Operador"]
+    ["Ord", "Gleba / Talhão", "Área (ha)", "Variedade", "Sem/m", "Tecnologia", "Tolerância Herbicida", "Plantio", "Emergência", "1ª Aplicação Feita", "Data 1ª Aplicação", "Data 1º Fungicida", "Data 2º Fungicida (+17d)", "Data 3º Fungicida (+17d)", "Visto Operador"]
   ];
 
   dadosTalhoes.forEach(t => {
     const reg = appState[t.id] || {};
     rows.push([
-      t.ordem,
-      t.gleba,
-      t.ha,
-      t.var,
-      t.sem || 18,
-      t.tec,
-      t.tol,
-      t.dtP,
-      t.dtE,
-      reg.pos_check || reg.herb_check ? "SIM" : "[ ]",
-      reg.data_1_feita || "",
-      `R1 (~${t.dtE.slice(0, 2)} nov)`,
-      reg.f1_data || "",
-      reg.f2_data || "+17 dias",
-      reg.f3_data || "+17 dias",
-      ""
+      t.ordem, t.gleba, t.ha, t.var, t.sem || 18, t.tec_badge, t.tol_plain,
+      t.dtP, t.dtE, reg.pos_check || reg.herb_check ? "SIM" : "[ ]",
+      reg.data_1_feita || "", reg.f1_data || "", reg.f2_data || "+17 dias", reg.f3_data || "+17 dias", ""
     ]);
   });
 
   const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws["!cols"] = [
-    { wch: 6 },
-    { wch: 14 },
-    { wch: 10 },
-    { wch: 16 },
-    { wch: 8 },
-    { wch: 14 },
-    { wch: 38 },
-    { wch: 10 },
-    { wch: 12 },
-    { wch: 22 },
-    { wch: 16 },
-    { wch: 20 },
-    { wch: 16 },
-    { wch: 20 },
-    { wch: 20 },
-    { wch: 18 }
-  ];
-
+  ws["!cols"] = [{wch:6},{wch:16},{wch:10},{wch:16},{wch:8},{wch:18},{wch:40},{wch:10},{wch:12},{wch:16},{wch:16},{wch:16},{wch:20},{wch:20},{wch:18}];
   XLSX.utils.book_append_sheet(wb, ws, "Ficha de Campo");
   XLSX.writeFile(wb, "Ficha_de_Campo_Soja_2026_2027.xlsx");
 }

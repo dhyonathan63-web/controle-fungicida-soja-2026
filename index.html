@@ -213,7 +213,7 @@
     <!-- KPI Cards & Quick Stats (Opcional/Colapsável - limpa espaço no celular) -->
     <div class="no-print">
       <div class="flex items-center justify-between py-1 text-xs text-slate-400">
-        <span class="font-medium text-[11px]">Resumo da Safra (4.391,81 ha • 54 Talhões)</span>
+        <span class="font-medium text-[11px]">Resumo da Safra (<span id="resumoTopoTexto">4.391,81 ha • 60 Parcelas em Ordem de Plantio</span>)</span>
         <button onclick="document.getElementById('gridKpis').classList.toggle('hidden')" class="text-[11px] text-emerald-400 hover:underline font-semibold flex items-center gap-0.5">
           <span>📊 Ver Estatísticas</span>
         </button>
@@ -222,32 +222,32 @@
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span class="text-[11px] text-slate-400 font-medium">Área Total Conferida</span>
         <div id="kpiAreaTotal" class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">4.391,81 ha</div>
-        <span id="kpiTalhoesTotal" class="text-[10px] text-slate-400">54 talhões</span>
+        <span id="kpiTalhoesTotal" class="text-[10px] text-slate-400">60 parcelas (49 glebas/pivôs)</span>
       </div>
 
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span class="text-[11px] text-slate-400 font-medium">Pivôs Irrigados</span>
-        <div id="kpiAreaPivos" class="text-xl font-extrabold text-sky-400 font-mono mt-0.5">763,80 ha</div>
+        <div id="kpiAreaPivos" class="text-xl font-extrabold text-sky-400 font-mono mt-0.5">629,81 ha</div>
         <span id="kpiPivosCount" class="text-[10px] text-slate-400">8 pivôs</span>
       </div>
 
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span class="text-[11px] text-slate-400 font-medium">Glebas de Sequeiro</span>
-        <div id="kpiAreaSequeiro" class="text-xl font-extrabold text-amber-400 font-mono mt-0.5">3.628,01 ha</div>
-        <span id="kpiSequeiroCount" class="text-[10px] text-slate-400">46 talhões</span>
+        <div id="kpiAreaSequeiro" class="text-xl font-extrabold text-amber-400 font-mono mt-0.5">3.762,00 ha</div>
+        <span id="kpiSequeiroCount" class="text-[10px] text-slate-400">52 parcelas em glebas</span>
       </div>
 
       <div class="bg-slate-800/80 border border-purple-900/60 p-3.5 rounded-xl shadow-md bg-purple-950/20">
         <span id="kpiTec1Label" class="text-[11px] text-purple-300 font-semibold flex items-center gap-1">
           <span class="w-2 h-2 rounded-full bg-purple-500"></span> Conkesta Enlist
         </span>
-        <div id="kpiAreaTec1" class="text-xl font-extrabold text-purple-300 font-mono mt-0.5">1.137,88 ha</div>
+        <div id="kpiAreaTec1" class="text-xl font-extrabold text-purple-300 font-mono mt-0.5">1.512,49 ha</div>
         <span id="kpiTec1Sub" class="text-[10px] text-purple-200/80 font-bold">Tolera GLUFOSINATO</span>
       </div>
 
       <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl shadow-md">
         <span id="kpiTec2Label" class="text-[11px] text-slate-400 font-medium">IPRO + XTEND</span>
-        <div id="kpiAreaTec2" class="text-xl font-extrabold text-slate-200 font-mono mt-0.5">3.253,93 ha</div>
+        <div id="kpiAreaTec2" class="text-xl font-extrabold text-slate-200 font-mono mt-0.5">2.879,32 ha</div>
         <span id="kpiTec2Sub" class="text-[10px] text-rose-400 font-semibold">⚠️ PROIBIDO Glufosinato</span>
       </div>
     </div>
@@ -292,7 +292,7 @@
           </div>
           <div class="flex justify-between text-[9px] text-slate-400 mt-1">
             <span>Feito: <strong id="haFeitoF1" class="text-emerald-400">0,00 ha</strong></span>
-            <span id="talhoesFaltaF1">54 talhões restantes</span>
+            <span id="talhoesFaltaF1">60 parcelas restantes</span>
           </div>
         </div>
 
@@ -311,7 +311,7 @@
           </div>
           <div class="flex justify-between text-[9px] text-slate-400 mt-1">
             <span>Feito: <strong id="haFeitoF2" class="text-sky-400">0,00 ha</strong></span>
-            <span id="talhoesFaltaF2">54 talhões restantes</span>
+            <span id="talhoesFaltaF2">60 parcelas restantes</span>
           </div>
         </div>
 
@@ -330,7 +330,7 @@
           </div>
           <div class="flex justify-between text-[9px] text-slate-400 mt-1">
             <span>Feito: <strong id="haFeitoF3" class="text-purple-400">0,00 ha</strong></span>
-            <span id="talhoesFaltaF3">54 talhões restantes</span>
+            <span id="talhoesFaltaF3">60 parcelas restantes</span>
           </div>
         </div>
 
@@ -392,7 +392,7 @@
           </button>
         </div>
 
-        <span id="contador-filtrados" class="text-xs font-mono text-slate-400">54 / 54 talhões</span>
+        <span id="contador-filtrados" class="text-xs font-mono text-slate-400">60 / 60 parcelas</span>
         <button onclick="limparFiltros()" class="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-700/50 hover:bg-slate-700 transition">
           Limpar
         </button>
@@ -495,7 +495,7 @@
             <p class="text-xs text-emerald-200">Ordem Oficial de Plantio da Planilha • Folha de Campo para Prancheta (2ª Aplicação aos 17 dias)</p>
           </div>
           <div class="text-left sm:text-right text-xs">
-            <div>Área Total: <strong>4.391,81 ha (54 Talhões)</strong></div>
+            <div>Área Total: <strong>4.391,81 ha (60 Parcelas)</strong></div>
             <div class="text-emerald-300 font-mono text-[11px]">Emissão: <span id="data-emissao"></span></div>
           </div>
         </div>
@@ -571,7 +571,7 @@
             <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tipo de Área</label>
             <select id="edit_tipo" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-emerald-500 focus:outline-none">
               <option value="Pivô">Pivô Irrigado</option>
-              <option value="Sequeiro">Gleba Sequeiro</option>
+              <option value="Gleba">Gleba Sequeiro</option>
             </select>
           </div>
           <div>
@@ -705,7 +705,7 @@
           <div>
             <label class="block text-slate-400 text-[11px] font-semibold mb-1">Tipo de Área</label>
             <select id="add_tipo" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-medium focus:border-emerald-500 focus:outline-none">
-              <option value="Sequeiro">Gleba Sequeiro</option>
+              <option value="Gleba">Gleba Sequeiro</option>
               <option value="Pivô">Pivô Irrigado</option>
             </select>
           </div>
@@ -891,7 +891,7 @@
             <div>
               <span class="text-xs font-bold text-slate-200 block">Copiar glebas e hectares da safra atual</span>
               <span class="text-[10px] text-slate-400 leading-tight block mt-0.5">
-                Importa automaticamente os 54 talhões e hectares já medidos para você não precisar recadastrar tudo do zero. As datas de pulverização começam zeradas para o novo ano.
+                Importa automaticamente todas as glebas, variedades e hectares já medidos para você não precisar recadastrar tudo do zero. As datas de pulverização começam zeradas para o novo ano.
               </span>
             </div>
           </label>
@@ -951,7 +951,7 @@
   <!-- Footer -->
   <footer class="bg-slate-900 border-t border-slate-800 py-4 mt-8 no-print text-center text-xs text-slate-400">
     <div class="max-w-7xl mx-auto px-4">
-      <p>Controle Operacional de Pulverização Safra Soja 2026/2027 • 4.391,81 ha (54 Áreas em Ordem de Plantio)</p>
+      <p>Controle Operacional de Pulverização Safra Soja 2026/2027 • 4.391,81 ha (60 Parcelas em Ordem de Plantio)</p>
       <p class="text-[11px] text-slate-400 mt-1">
         2ª Aplicação aos 17 dias • Glufosinato de Amônio permitido exclusivamente nas cultivares <strong>CONKESTA ENLIST</strong>.
       </p>
@@ -964,7 +964,7 @@
   {
     "ordem": 1,
     "gleba": "Pivo 08",
-    "ha": 130.0,
+    "ha": 130,
     "var": "GUEPARDO",
     "sem": 18,
     "tec": "INTÃ/RR2 PRO",
@@ -972,12 +972,12 @@
     "dtP": "21-set",
     "dtE": "26-set",
     "pms": 55,
-    "pop": 14.8,
+    "pop": 16.4,
     "tipo": "Pivô",
     "id": 1,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 2,
@@ -990,17 +990,17 @@
     "dtP": "21-set",
     "dtE": "26-set",
     "pms": 55,
-    "pop": 13.8,
+    "pop": 15.8,
     "tipo": "Pivô",
     "id": 2,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 3,
     "gleba": "Pivo 02",
-    "ha": 200.0,
+    "ha": 200,
     "var": "GUEPARDO",
     "sem": 18,
     "tec": "INTÃ/RR2 PRO",
@@ -1011,14 +1011,14 @@
     "pop": 14.8,
     "tipo": "Pivô",
     "id": 3,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 4,
     "gleba": "G- 18",
-    "ha": 195.0,
+    "ha": 195,
     "var": "GUEPARDO",
     "sem": 18,
     "tec": "INTÃ/RR2 PRO",
@@ -1029,9 +1029,9 @@
     "pop": 14.8,
     "tipo": "Gleba",
     "id": 4,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 5,
@@ -1047,9 +1047,9 @@
     "pop": 14.4,
     "tipo": "Gleba",
     "id": 5,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 6,
@@ -1065,8 +1065,8 @@
     "pop": 14.4,
     "tipo": "Gleba",
     "id": 6,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1083,9 +1083,9 @@
     "pop": 17.8,
     "tipo": "Pivô",
     "id": 7,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 8,
@@ -1101,9 +1101,9 @@
     "pop": 17.6,
     "tipo": "Pivô",
     "id": 8,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 9,
@@ -1119,9 +1119,9 @@
     "pop": 17.6,
     "tipo": "Pivô",
     "id": 9,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 10,
@@ -1137,9 +1137,9 @@
     "pop": 17.8,
     "tipo": "Pivô",
     "id": 10,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 11,
@@ -1152,11 +1152,11 @@
     "dtP": "25-set",
     "dtE": "30-set",
     "pms": 51,
-    "pop": 14.0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 11,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1173,8 +1173,8 @@
     "pop": 14.8,
     "tipo": "Pivô",
     "id": 12,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1187,7 +1187,7 @@
     "tec_badge": "CONKESTA ENLIST",
     "dtP": "02-out",
     "dtE": "07-out",
-    "pms": 45,
+    "pms": 46,
     "pop": 12.4,
     "tipo": "Gleba",
     "id": 13,
@@ -1197,7 +1197,7 @@
   },
   {
     "ordem": 14,
-    "gleba": "G- 27 (Guepardo)",
+    "gleba": "G- 27",
     "ha": 8.76,
     "var": "GUEPARDO",
     "sem": 18,
@@ -1209,31 +1209,31 @@
     "pop": 17.6,
     "tipo": "Gleba",
     "id": 14,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 15,
-    "gleba": "G- 27 (Neo-700)",
+    "gleba": "G- 27",
     "ha": 17.3,
     "var": "NEO-700",
-    "sem": 13,
+    "sem": 22,
     "tec": "INTÃ/I2X/XTENDE",
     "tec_badge": "XTEND I2X",
     "dtP": "02-out",
     "dtE": "07-out",
-    "pms": 45,
+    "pms": 46,
     "pop": 18.4,
     "tipo": "Gleba",
     "id": 15,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
     "ordem": 16,
-    "gleba": "G- 27 (72 I X 74)",
+    "gleba": "G- 27",
     "ha": 111.24,
     "var": "72 I X 74",
     "sem": 16,
@@ -1242,11 +1242,11 @@
     "dtP": "02-out",
     "dtE": "07-out",
     "pms": 51,
-    "pop": 14.0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 16,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1263,8 +1263,8 @@
     "pop": 13.8,
     "tipo": "Gleba",
     "id": 17,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1278,17 +1278,17 @@
     "dtP": "03-out",
     "dtE": "08-out",
     "pms": 51,
-    "pop": 13.2,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 18,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
     "ordem": 19,
     "gleba": "G- 29",
-    "ha": 165.0,
+    "ha": 165,
     "var": "72 I X 74",
     "sem": 16,
     "tec": "INTÃ/I2X/XTENDE",
@@ -1296,11 +1296,11 @@
     "dtP": "04-out",
     "dtE": "09-out",
     "pms": 51,
-    "pop": 1.4,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 19,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1314,11 +1314,11 @@
     "dtP": "04-out",
     "dtE": "09-out",
     "pms": 51,
-    "pop": 13.0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 20,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1332,11 +1332,11 @@
     "dtP": "04-out",
     "dtE": "09-out",
     "pms": 51,
-    "pop": 13.0,
+    "pop": 13.6,
     "tipo": "Gleba",
     "id": 21,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1350,7 +1350,7 @@
     "dtP": "04-out",
     "dtE": "09-out",
     "pms": 50,
-    "pop": 12.2,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 22,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1368,7 +1368,7 @@
     "dtP": "04-out",
     "dtE": "09-out",
     "pms": 50,
-    "pop": 13.2,
+    "pop": 13.4,
     "tipo": "Gleba",
     "id": 23,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1386,11 +1386,11 @@
     "dtP": "04-out",
     "dtE": "09-out",
     "pms": 51,
-    "pop": 12.8,
+    "pop": 13.2,
     "tipo": "Gleba",
     "id": 24,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1407,8 +1407,8 @@
     "pop": 12.8,
     "tipo": "Gleba",
     "id": 25,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
@@ -1440,7 +1440,7 @@
     "dtP": "05-out",
     "dtE": "10-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 27,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1451,14 +1451,14 @@
     "ordem": 28,
     "gleba": "G- 20",
     "ha": 182.3,
-    "var": "74 K 75",
+    "var": "74 K 75-SP",
     "sem": 16,
     "tec": "CONKESTA ENLIST",
     "tec_badge": "CONKESTA ENLIST",
     "dtP": "06-out",
     "dtE": "11-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 13.8,
     "tipo": "Gleba",
     "id": 28,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1476,7 +1476,7 @@
     "dtP": "06-out",
     "dtE": "11-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 13.4,
     "tipo": "Gleba",
     "id": 29,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1494,7 +1494,7 @@
     "dtP": "07-out",
     "dtE": "12-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 30,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1512,7 +1512,7 @@
     "dtP": "07-out",
     "dtE": "12-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 31,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1530,7 +1530,7 @@
     "dtP": "07-out",
     "dtE": "12-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14,
     "tipo": "Gleba",
     "id": 32,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1548,7 +1548,7 @@
     "dtP": "07-out",
     "dtE": "12-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.2,
     "tipo": "Gleba",
     "id": 33,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1558,7 +1558,7 @@
   {
     "ordem": 34,
     "gleba": "G- 07",
-    "ha": 177.0,
+    "ha": 177,
     "var": "74 K 75",
     "sem": 16,
     "tec": "CONKESTA ENLIST",
@@ -1566,7 +1566,7 @@
     "dtP": "07-out",
     "dtE": "12-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.2,
     "tipo": "Gleba",
     "id": 34,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1576,7 +1576,7 @@
   {
     "ordem": 35,
     "gleba": "G- 33",
-    "ha": 118.0,
+    "ha": 118,
     "var": "74 K 75",
     "sem": 16,
     "tec": "CONKESTA ENLIST",
@@ -1584,7 +1584,7 @@
     "dtP": "07-out",
     "dtE": "12-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.2,
     "tipo": "Gleba",
     "id": 35,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1602,7 +1602,7 @@
     "dtP": "08-out",
     "dtE": "13-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.4,
     "tipo": "Gleba",
     "id": 36,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1612,7 +1612,7 @@
   {
     "ordem": 37,
     "gleba": "G- 02",
-    "ha": 241.0,
+    "ha": 241,
     "var": "74 K 75",
     "sem": 16,
     "tec": "CONKESTA ENLIST",
@@ -1620,7 +1620,7 @@
     "dtP": "08-out",
     "dtE": "13-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.4,
     "tipo": "Gleba",
     "id": 37,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1638,7 +1638,7 @@
     "dtP": "08-out",
     "dtE": "13-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 13.8,
     "tipo": "Gleba",
     "id": 38,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1656,7 +1656,7 @@
     "dtP": "15-out",
     "dtE": "20-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.2,
     "tipo": "Gleba",
     "id": 39,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1674,7 +1674,7 @@
     "dtP": "15-out",
     "dtE": "20-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.4,
     "tipo": "Gleba",
     "id": 40,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1692,7 +1692,7 @@
     "dtP": "15-out",
     "dtE": "20-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.2,
     "tipo": "Gleba",
     "id": 41,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1702,7 +1702,7 @@
   {
     "ordem": 42,
     "gleba": "G- 28",
-    "ha": 57.0,
+    "ha": 57,
     "var": "74 K 75",
     "sem": 16,
     "tec": "CONKESTA ENLIST",
@@ -1710,7 +1710,7 @@
     "dtP": "15-out",
     "dtE": "20-out",
     "pms": 50,
-    "pop": 0,
+    "pop": 14.2,
     "tipo": "Gleba",
     "id": 42,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1720,7 +1720,7 @@
   {
     "ordem": 43,
     "gleba": "G- 17",
-    "ha": 42.0,
+    "ha": 42,
     "var": "OLIMPO",
     "sem": 13,
     "tec": "INTÃ/RR2 PRO",
@@ -1728,17 +1728,17 @@
     "dtP": "16-out",
     "dtE": "21-out",
     "pms": 40,
-    "pop": 0,
+    "pop": 12,
     "tipo": "Gleba",
     "id": 43,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 44,
     "gleba": "G- 16",
-    "ha": 113.0,
+    "ha": 113,
     "var": "OLIMPO",
     "sem": 13,
     "tec": "INTÃ/RR2 PRO",
@@ -1746,12 +1746,12 @@
     "dtP": "17-out",
     "dtE": "22-out",
     "pms": 40,
-    "pop": 0,
+    "pop": 12.4,
     "tipo": "Gleba",
     "id": 44,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 45,
@@ -1764,12 +1764,12 @@
     "dtP": "17-out",
     "dtE": "22-out",
     "pms": 40,
-    "pop": 0,
+    "pop": 12.4,
     "tipo": "Gleba",
     "id": 45,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 46,
@@ -1782,12 +1782,12 @@
     "dtP": "17-out",
     "dtE": "22-out",
     "pms": 40,
-    "pop": 0,
+    "pop": 12.4,
     "tipo": "Gleba",
     "id": 46,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 47,
@@ -1800,43 +1800,25 @@
     "dtP": "17-out",
     "dtE": "22-out",
     "pms": 40,
-    "pop": 0,
+    "pop": 12,
     "tipo": "Gleba",
     "id": 47,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
   },
   {
     "ordem": 48,
-    "gleba": "G- 40",
-    "ha": 125.0,
-    "var": "OLIMPO",
-    "sem": 13,
-    "tec": "INTÃ/RR2 PRO",
-    "tec_badge": "IPRO / RR",
-    "dtP": "24-out",
-    "dtE": "29-out",
-    "pms": 35,
-    "pop": 0,
-    "tipo": "Gleba",
-    "id": 48,
-    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / 2,4-D)",
-    "tol_plain": "Apenas Glifosato",
-    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/2,4-D)"
-  },
-  {
-    "ordem": 49,
     "gleba": "G- 10B",
-    "ha": 14.0,
+    "ha": 14,
     "var": "NEO-801",
     "sem": 13,
     "tec": "CONKESTA ENLIST",
     "tec_badge": "CONKESTA ENLIST",
     "dtP": "26-out",
     "dtE": "31-out",
-    "pms": 43,
-    "pop": 0,
+    "pms": 40,
+    "pop": 12.1,
     "tipo": "Gleba",
     "id": 49,
     "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
@@ -1844,25 +1826,151 @@
     "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"
   },
   {
-    "ordem": 50,
-    "gleba": "G- 39",
-    "ha": 119.0,
-    "var": "78 IX 80 / OLIMPO",
+    "ordem": 49,
+    "gleba": "G- 40",
+    "ha": 124.68,
+    "var": "OLIMPO",
     "sem": 13,
-    "tec": "INTÃ/I2X / RR2",
+    "tec": "INTÃ/RR2 PRO",
+    "tec_badge": "IPRO / RR",
+    "dtP": "24-out",
+    "dtE": "29-out",
+    "pms": 38,
+    "pop": 11,
+    "tipo": "Gleba",
+    "id": 48,
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
+  },
+  {
+    "ordem": 50,
+    "gleba": "G- 40",
+    "ha": 0.32,
+    "var": "74 K 75",
+    "sem": 16,
+    "tec": "CONKESTA ENLIST",
+    "tec_badge": "CONKESTA ENLIST",
+    "dtP": "02-nov",
+    "dtE": "07-nov",
+    "pms": 40,
+    "pop": 14,
+    "tipo": "Gleba",
+    "id": 55,
+    "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
+    "tol_plain": "Glifosato + Glufosinato + 2,4-D",
+    "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"
+  },
+  {
+    "ordem": 51,
+    "gleba": "G- 39",
+    "ha": 74.67,
+    "var": "OLIMPO",
+    "sem": 13,
+    "tec": "INTÃ/RR2 PRO",
+    "tec_badge": "IPRO / RR",
+    "dtP": "26-out",
+    "dtE": "31-out",
+    "pms": 37,
+    "pop": 11,
+    "tipo": "Gleba",
+    "id": 50,
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
+  },
+  {
+    "ordem": 52,
+    "gleba": "G- 39",
+    "ha": 2.64,
+    "var": "COBRE-77 IX 78",
+    "sem": 13,
+    "tec": "INTÃ/I2X/XTENDE",
     "tec_badge": "XTEND I2X",
     "dtP": "26-out",
     "dtE": "31-out",
     "pms": 37,
-    "pop": 0,
+    "pop": 11.5,
     "tipo": "Gleba",
-    "id": 50,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "id": 56,
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
-    "ordem": 51,
+    "ordem": 53,
+    "gleba": "G- 39",
+    "ha": 2.67,
+    "var": "78 IX 80",
+    "sem": 13,
+    "tec": "INTÃ/I2X/XTENDE",
+    "tec_badge": "XTEND I2X",
+    "dtP": "26-out",
+    "dtE": "31-out",
+    "pms": 37,
+    "pop": 12,
+    "tipo": "Gleba",
+    "id": 57,
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
+    "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
+  },
+  {
+    "ordem": 54,
+    "gleba": "G- 39",
+    "ha": 11.54,
+    "var": "NEO-801",
+    "sem": 13,
+    "tec": "CONKESTA ENLIST",
+    "tec_badge": "CONKESTA ENLIST",
+    "dtP": "26-out",
+    "dtE": "31-out",
+    "pms": 37,
+    "pop": 12.2,
+    "tipo": "Gleba",
+    "id": 58,
+    "tol_html": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D",
+    "tol_plain": "Glifosato + Glufosinato + 2,4-D",
+    "manejo_seguro": "Glifosato + <span class=\"badge-glufosinato\">Glufosinato</span> + 2,4-D Colina + Cletodim"
+  },
+  {
+    "ordem": 55,
+    "gleba": "G- 39",
+    "ha": 10.7,
+    "var": "78 IX 80",
+    "sem": 13,
+    "tec": "INTÃ/I2X/XTENDE",
+    "tec_badge": "XTEND I2X",
+    "dtP": "26-out",
+    "dtE": "31-out",
+    "pms": 37,
+    "pop": 12.2,
+    "tipo": "Gleba",
+    "id": 59,
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
+    "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
+  },
+  {
+    "ordem": 56,
+    "gleba": "G- 39",
+    "ha": 16.78,
+    "var": "NEO-820",
+    "sem": 13,
+    "tec": "INTÃ/RR2 PRO",
+    "tec_badge": "IPRO / RR",
+    "dtP": "26-out",
+    "dtE": "31-out",
+    "pms": 37,
+    "pop": 12.6,
+    "tipo": "Gleba",
+    "id": 60,
+    "tol_html": "Apenas Glifosato (⚠️ Proibido Dicamba / Glufosinato / 2,4-D)",
+    "tol_plain": "Apenas Glifosato (Proibido Dicamba / Glufosinato)",
+    "manejo_seguro": "Glifosato + Cletodim / Haloxifope (⚠️ Sem Dicamba/Glufosinato/2,4-D)"
+  },
+  {
+    "ordem": 57,
     "gleba": "G- 38",
     "ha": 20.5,
     "var": "78 IX 80",
@@ -1872,17 +1980,17 @@
     "dtP": "26-out",
     "dtE": "31-out",
     "pms": 37,
-    "pop": 0,
+    "pop": 12,
     "tipo": "Gleba",
     "id": 51,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
-    "ordem": 52,
+    "ordem": 58,
     "gleba": "G- 03",
-    "ha": 75.0,
+    "ha": 75,
     "var": "78 IX 80",
     "sem": 13,
     "tec": "INTÃ/I2X/XTENDE",
@@ -1890,15 +1998,15 @@
     "dtP": "27-out",
     "dtE": "01-nov",
     "pms": 37,
-    "pop": 0,
+    "pop": 12,
     "tipo": "Gleba",
     "id": 52,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
-    "ordem": 53,
+    "ordem": 59,
     "gleba": "G- 06",
     "ha": 22.9,
     "var": "78 IX 80",
@@ -1908,15 +2016,15 @@
     "dtP": "27-out",
     "dtE": "01-nov",
     "pms": 37,
-    "pop": 0,
+    "pop": 12,
     "tipo": "Gleba",
     "id": 53,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   },
   {
-    "ordem": 54,
+    "ordem": 60,
     "gleba": "G- 37",
     "ha": 4.31,
     "var": "78 IX 80",
@@ -1926,11 +2034,11 @@
     "dtP": "27-out",
     "dtE": "01-nov",
     "pms": 50,
-    "pop": 0,
+    "pop": 12.2,
     "tipo": "Gleba",
     "id": 54,
-    "tol_html": "Glifosato + Dicamba",
-    "tol_plain": "Glifosato + Dicamba",
+    "tol_html": "Glifosato + Dicamba (⚠️ Proibido Glufosinato / 2,4-D)",
+    "tol_plain": "Glifosato + Dicamba (Proibido Glufosinato)",
     "manejo_seguro": "Glifosato + Dicamba + Cletodim / Haloxifope"
   }
 ];
@@ -1983,7 +2091,7 @@
       if (typeof firebase === 'undefined' || !firebase.apps.length) return;
       firebase.database().ref('config_safras').on('value', snap => {
         const val = snap.val();
-        if (val && Array.isArray(val) && val.length > 0) {
+        if (val && Array.isArray(val) && val.length > 0 && !(safraAtual === '2026_2027' && culturaAtual === 'soja' && val.length < 60)) {
           listaSafras = val;
           try { localStorage.setItem('lista_safras_custom_v1', JSON.stringify(listaSafras)); } catch(e) {}
           popularSelectSafras();
@@ -2142,7 +2250,7 @@
       if (safraAtual === '2026_2027' && culturaAtual === 'soja') {
         return {
           storageOperacoes: 'safra_soja_2026_operacoes_v2',
-          storageTalhoes: 'safra_soja_2026_talhoes_custom_v1',
+          storageTalhoes: 'safra_soja_2026_talhoes_custom_v2',
           firebaseOperacoes: 'safra_soja_2026/talhoes',
           firebaseTalhoes: 'safra_soja_2026/config_talhoes'
         };
@@ -2295,7 +2403,28 @@
       }
     }
 
+    function herdarOperacoesGlebasDivididas(estado) {
+      if (!estado || safraAtual !== '2026_2027' || culturaAtual !== 'soja') return false;
+      let alterou = false;
+      // G-40 desmembrada: ID 48 (Olimpo 124,68 ha) -> ID 55 (74 K 75 0,32 ha)
+      if (estado[48] && estado[55] === undefined) {
+        estado[55] = Object.assign({}, estado[48]);
+        alterou = true;
+      }
+      // G-39 desmembrada em 6 variedades: ID 50 (Olimpo 74,67 ha) -> IDs 56, 57, 58, 59, 60
+      if (estado[50]) {
+        [56, 57, 58, 59, 60].forEach(novoId => {
+          if (estado[novoId] === undefined) {
+            estado[novoId] = Object.assign({}, estado[50]);
+            alterou = true;
+          }
+        });
+      }
+      return alterou;
+    }
+
     let appState = carregarOperacoes();
+    herdarOperacoesGlebasDivididas(appState);
 
     function obterOuCriar(id) {
       if (!appState[id]) {
@@ -2405,19 +2534,32 @@
       renderizar();
     }
 
+    function normalizarTextoBusca(str) {
+      return String(str || '').toLowerCase().replace(/[\s\-_]/g, '');
+    }
+
     function filtrarTalhoes() {
-      const busca = document.getElementById('filtroBusca').value.toLowerCase();
+      const buscaRaw = document.getElementById('filtroBusca').value.toLowerCase().trim();
+      const buscaNorm = normalizarTextoBusca(buscaRaw);
       const varFiltro = document.getElementById('filtroVariedade').value;
       const tecFiltro = document.getElementById('filtroTecnologia').value;
       const tipoFiltro = document.getElementById('filtroTipo').value;
 
       return TALHOES.filter(t => {
-        const mBusca = t.gleba.toLowerCase().includes(busca) || 
-                       t.var.toLowerCase().includes(busca) ||
-                       t.ordem.toString().includes(busca);
-        const mVar = (varFiltro === 'TODAS' || t.var.includes(varFiltro));
-        const mTec = (tecFiltro === 'TODAS' || t.tec_badge === tecFiltro);
-        const mTipo = (tipoFiltro === 'TODOS' || t.tipo === tipoFiltro);
+        const mBusca = !buscaRaw ||
+                       t.gleba.toLowerCase().includes(buscaRaw) ||
+                       normalizarTextoBusca(t.gleba).includes(buscaNorm) ||
+                       t.var.toLowerCase().includes(buscaRaw) ||
+                       normalizarTextoBusca(t.var).includes(buscaNorm) ||
+                       t.ordem.toString() === buscaRaw;
+        const mVar = (varFiltro === 'TODAS' || t.var === varFiltro || t.var.includes(varFiltro));
+        let mTec = (tecFiltro === 'TODAS' || t.tec_badge === tecFiltro);
+        if (!mTec && tecFiltro !== 'TODAS') {
+          if (tecFiltro.includes('IPRO') && t.tec_badge.includes('IPRO')) mTec = true;
+          if (tecFiltro.includes('XTEND') && (t.tec_badge.includes('XTEND') || t.tec_badge.includes('I2X'))) mTec = true;
+          if (tecFiltro.includes('ENLIST') && t.tec_badge.includes('ENLIST')) mTec = true;
+        }
+        const mTipo = (tipoFiltro === 'TODOS' || t.tipo === tipoFiltro || (tipoFiltro === 'Gleba' && t.tipo !== 'Pivô'));
         return mBusca && mVar && mTec && mTipo;
       });
     }
@@ -2482,8 +2624,70 @@
       }
     }
 
+    // Calcular previsão R1 (~32 dias após emergência) tratando set/out/nov corretamente
+    function calcularPrevisaoR1(dtE, curto = false) {
+      if (!dtE) return curto ? 'R1' : 'R1 (~32d)';
+      const mesesMap = { 'set': 8, 'out': 9, 'nov': 10, 'dez': 11, 'jan': 0, 'fev': 1, 'mar': 2 };
+      const nomesMes = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+      const m = String(dtE).trim().match(/^(\d{1,2})[-\/](\w{3}|\d{1,2})/i);
+      if (!m) return curto ? 'R1' : 'R1 (~32d)';
+      const dia = parseInt(m[1], 10);
+      const mesToken = m[2].toLowerCase();
+      const mesIdx = mesesMap[mesToken] !== undefined ? mesesMap[mesToken] : (parseInt(mesToken, 10) - 1);
+      if (isNaN(dia) || isNaN(mesIdx) || mesIdx < 0) return curto ? 'R1' : 'R1 (~32d)';
+      const anoBase = mesIdx >= 8 ? 2026 : 2027;
+      const d = new Date(anoBase, mesIdx, dia);
+      d.setDate(d.getDate() + 31);
+      const dStr = String(d.getDate()).padStart(2, '0');
+      const mStr = nomesMes[d.getMonth()];
+      return curto ? `~${dStr}${mStr}` : `R1 (~${dStr} ${mStr})`;
+    }
+
+    // Mapear glebas que possuem múltiplas variedades com o mesmo nome (ex: G- 27, G- 40, G- 39)
+    function construirMapaMultiGlebas() {
+      const grupos = {};
+      TALHOES.forEach(t => {
+        const chave = normalizarTextoBusca(t.gleba);
+        if (!grupos[chave]) {
+          grupos[chave] = { itens: [], somaHa: 0, tecs: new Set() };
+        }
+        grupos[chave].itens.push(t.id);
+        grupos[chave].somaHa += (Number(t.ha) || 0);
+        const tecKey = t.tec_badge.includes('ENLIST') ? 'ENLIST' : (t.tec_badge.includes('XTEND') ? 'XTEND' : 'IPRO');
+        grupos[chave].tecs.add(tecKey);
+      });
+      return grupos;
+    }
+
+    // Replicar datas de fungicida desta parcela para todas as outras variedades da mesma gleba
+    function replicarFungicidaMesmaGleba(idOrigem) {
+      const origem = TALHOES.find(t => t.id == idOrigem);
+      if (!origem) return;
+      const chave = normalizarTextoBusca(origem.gleba);
+      const irmas = TALHOES.filter(t => normalizarTextoBusca(t.gleba) === chave && t.id != idOrigem);
+      if (!irmas.length) return;
+
+      const regOrigem = obterOuCriar(idOrigem);
+      const resumo = `Replicar as datas/marcações de FUNGICIDA desta variedade (${origem.var}) para todas as ${irmas.length + 1} variedades da gleba "${origem.gleba}"?`;
+      if (!confirm(resumo)) return;
+
+      irmas.forEach(t => {
+        const reg = obterOuCriar(t.id);
+        reg.f1_status = !!regOrigem.f1_status;
+        reg.f1_data = regOrigem.f1_data || '';
+        reg.f2_status = !!regOrigem.f2_status;
+        reg.f2_data = regOrigem.f2_data || '';
+        reg.f3_status = !!regOrigem.f3_status;
+        reg.f3_data = regOrigem.f3_data || '';
+      });
+
+      salvarOperacoes(true);
+      renderizarTabelasVisiveis();
+    }
+
     // RENDERIZAR TABELA FUNGICIDAS (DESKTOP) E CARDS (MOBILE)
     function renderizarTabelaFungicidas(lista) {
+      const mapaMulti = construirMapaMultiGlebas();
       const tbody = document.getElementById('tabela-fungicidas-corpo');
       const cardsContainer = document.getElementById('container-fungicidas-cards');
       if (tbody) tbody.innerHTML = '';
@@ -2498,13 +2702,38 @@
         if (t.tec_badge.includes('XTEND')) tecBadgeClass = 'bg-sky-950 text-sky-300 border-sky-800';
         if (t.tec_badge.includes('ENLIST')) tecBadgeClass = 'bg-purple-950 text-purple-200 border-purple-700';
 
-        const diaEmerg = parseInt(t.dtE.slice(0, 2)) || 26;
-        const previsaoR1 = `R1 (~${diaEmerg} nov)`;
+        const previsaoR1 = calcularPrevisaoR1(t.dtE, false);
+        const previsaoR1Curta = calcularPrevisaoR1(t.dtE, true);
+        const infoGrupo = mapaMulti[normalizarTextoBusca(t.gleba)];
+        const ehMultiVar = infoGrupo && infoGrupo.itens.length > 1;
+        const posMulti = ehMultiVar ? (infoGrupo.itens.indexOf(t.id) + 1) : 1;
+        const qtdMulti = ehMultiVar ? infoGrupo.itens.length : 1;
+        const temTecMista = ehMultiVar && infoGrupo.tecs.size > 1;
+        const badgeMultiDesktop = ehMultiVar ? `
+          <div class="mt-1 flex flex-wrap items-center gap-1">
+            <span class="px-1.5 py-0.5 rounded bg-amber-950/90 text-amber-300 border border-amber-700/70 text-[9.5px] font-bold">
+              🔀 Var ${posMulti}/${qtdMulti} na ${t.gleba} (Total ${infoGrupo.somaHa.toFixed(2)} ha)
+            </span>
+            ${temTecMista ? '<span class="px-1.5 py-0.5 rounded bg-rose-950/90 text-rose-300 border border-rose-700/70 text-[9px] font-extrabold" title="Esta gleba possui variedades com tolerâncias diferentes a herbicidas!">⚠️ Gleba Mista</span>' : ''}
+            <button type="button" onclick="replicarFungicidaMesmaGleba(${t.id})" class="text-[9.5px] text-sky-400 hover:text-sky-300 underline font-semibold" title="Copiar datas de fungicida para todas as variedades desta gleba">
+              🔗 Replicar fungicida na ${t.gleba}
+            </button>
+          </div>` : '';
+        const badgeMultiMobile = ehMultiVar ? `
+          <div class="flex items-center justify-between gap-1 bg-amber-950/40 border border-amber-700/50 rounded-lg px-2 py-1 text-[10px]">
+            <span class="text-amber-300 font-bold">
+              🔀 Variedade ${posMulti} de ${qtdMulti} na ${t.gleba} <span class="text-slate-400 font-normal">(Soma: ${infoGrupo.somaHa.toFixed(2)} ha)</span>
+              ${temTecMista ? ' • <strong class="text-rose-400">⚠️ Tec. Mista</strong>' : ''}
+            </span>
+            <button type="button" onclick="replicarFungicidaMesmaGleba(${t.id})" class="text-sky-400 hover:text-sky-300 font-bold underline whitespace-nowrap">
+              🔗 Replicar
+            </button>
+          </div>` : '';
 
         // 1. LINHA DA TABELA (DESKTOP)
         if (tbody) {
           const tr = document.createElement('tr');
-          tr.className = 'hover:bg-slate-700/30 transition border-b border-slate-700/50';
+          tr.className = ehMultiVar ? 'hover:bg-slate-700/40 transition border-b border-slate-700/60 bg-amber-950/10 border-l-2 border-l-amber-500/70' : 'hover:bg-slate-700/30 transition border-b border-slate-700/50';
           tr.innerHTML = `
             <td class="p-2 text-center font-bold text-slate-400 font-mono">
               <div>${t.ordem}</div>
@@ -2519,6 +2748,7 @@
               </div>
               <div class="text-[11px] text-emerald-400 font-mono font-semibold">${t.ha.toFixed(2)} ha</div>
               <div class="text-[10px] text-slate-400">${t.tipo}</div>
+              ${badgeMultiDesktop}
             </td>
             <td class="p-3">
               <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-100 font-bold text-xs">${t.var}</span>
@@ -2590,7 +2820,7 @@
         // 2. CARD MOBILE LIMPO E OBJETIVO (SUPER DIRETO AO PONTO)
         if (cardsContainer) {
           const card = document.createElement('div');
-          card.className = 'bg-slate-800/95 border border-slate-700/90 rounded-xl p-3 shadow-md space-y-2';
+          card.className = ehMultiVar ? 'bg-slate-800/95 border border-amber-500/50 rounded-xl p-3 shadow-md space-y-2' : 'bg-slate-800/95 border border-slate-700/90 rounded-xl p-3 shadow-md space-y-2';
           
           // Tolerância curta e direta (sem textos gigantes repetitivos)
           let infoTolerancia = '<span class="text-[11px] text-slate-300">Tolera Glifosato</span>';
@@ -2615,8 +2845,8 @@
                       ✏️
                     </button>
                   </div>
-                  <div class="text-[11px] text-slate-400 mt-0.5">
-                    ${t.var} • P: ${t.dtP}
+                  <div class="text-[11px] text-slate-300 mt-0.5">
+                    <strong class="text-white bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700">${t.var}</strong> <span class="text-slate-400">(${t.sem || 18} s/m) • P: ${t.dtP}</span>
                   </div>
                 </div>
               </div>
@@ -2625,6 +2855,7 @@
               </div>
             </div>
 
+            ${badgeMultiMobile}
             <!-- Linha 2: As 3 Aplicações em Formato Linha Rápida -->
             <div class="space-y-1.5 pt-0.5">
               
@@ -2637,7 +2868,7 @@
                            class="w-4 h-4 accent-emerald-500 rounded">
                     <span class="text-xs font-bold text-emerald-400">1ª (R1)</span>
                   </label>
-                  <span class="text-[10px] text-slate-400 font-mono">~${diaEmerg}nov</span>
+                  <span class="text-[10px] text-slate-400 font-mono">${previsaoR1Curta}</span>
                 </div>
                 <input type="date" value="${reg.f1_data}"
                        onchange="atualizarCampo(${t.id}, 'f1_data', this.value)"
@@ -2669,7 +2900,7 @@
                            class="w-4 h-4 accent-emerald-500 rounded">
                     <span class="text-xs font-bold text-slate-300">3ª (+17d)</span>
                   </label>
-                  <div>${obterStatusBadge(proxF3, reg.f2_data, 14, !!reg.f3_status || !!reg.f3_data)}</div>
+                  <div>${obterStatusBadge(proxF3, reg.f2_data, 17, !!reg.f3_status || !!reg.f3_data)}</div>
                 </div>
                 <input type="date" value="${reg.f3_data}"
                        onchange="atualizarCampo(${t.id}, 'f3_data', this.value)"
@@ -2748,7 +2979,7 @@
                   <input type="checkbox" ${reg.fol_check ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'fol_check', this.checked)"> Fol
                 </label>
               </div>
-              <div class="text-emerald-700 font-bold text-[8.5px] mt-0.5">R1: ~${t.dtE.slice(0, 2)} nov</div>
+              <div class="text-emerald-700 font-bold text-[8.5px] mt-0.5">${calcularPrevisaoR1(t.dtE, false)}</div>
             </td>
             <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
               <label class="cursor-pointer inline-flex items-center gap-0.5">
@@ -2858,12 +3089,14 @@
       // Atualizar badge no header se existir
       const headerHaBadge = document.querySelector('header h1 span');
       if (headerHaBadge) headerHaBadge.innerText = fmt(totalHa);
+      const resumoTopo = document.getElementById('resumoTopoTexto');
+      if (resumoTopo) resumoTopo.innerText = `${fmt(totalHa)} • ${TALHOES.length} Parcelas em Ordem de Plantio`;
     }
 
     // CÁLCULO EM TEMPO REAL: HECTARES QUE FALTAM FAZER DE APLICAÇÃO
     function atualizarHectaresPendentes() {
       atualizarKpisTopo();
-      const AREA_TOTAL_SAFRA = 4391.81;
+      const AREA_TOTAL_SAFRA = TALHOES.reduce((acc, t) => acc + (Number(t.ha) || 0), 0) || 4391.81;
       let feitoF1 = 0, feitoF2 = 0, feitoF3 = 0;
       let qtdFeitoF1 = 0, qtdFeitoF2 = 0, qtdFeitoF3 = 0;
 
@@ -2915,7 +3148,7 @@
       const elBarF1 = document.getElementById('barF1');
       if (elBarF1) elBarF1.style.width = `${pct1}%`;
       const elTalhoesF1 = document.getElementById('talhoesFaltaF1');
-      if (elTalhoesF1) elTalhoesF1.innerText = `${54 - qtdFeitoF1} talhões restantes`;
+      if (elTalhoesF1) elTalhoesF1.innerText = `${Math.max(0, TALHOES.length - qtdFeitoF1)} parcelas restantes`;
 
       // Atualizar 2ª Aplicação
       const elFaltaF2 = document.getElementById('haFaltaF2');
@@ -2928,7 +3161,7 @@
       const elBarF2 = document.getElementById('barF2');
       if (elBarF2) elBarF2.style.width = `${pct2}%`;
       const elTalhoesF2 = document.getElementById('talhoesFaltaF2');
-      if (elTalhoesF2) elTalhoesF2.innerText = `${54 - qtdFeitoF2} talhões restantes`;
+      if (elTalhoesF2) elTalhoesF2.innerText = `${Math.max(0, TALHOES.length - qtdFeitoF2)} parcelas restantes`;
 
       // Atualizar 3ª Aplicação
       const elFaltaF3 = document.getElementById('haFaltaF3');
@@ -2941,7 +3174,7 @@
       const elBarF3 = document.getElementById('barF3');
       if (elBarF3) elBarF3.style.width = `${pct3}%`;
       const elTalhoesF3 = document.getElementById('talhoesFaltaF3');
-      if (elTalhoesF3) elTalhoesF3.innerText = `${54 - qtdFeitoF3} talhões restantes`;
+      if (elTalhoesF3) elTalhoesF3.innerText = `${Math.max(0, TALHOES.length - qtdFeitoF3)} parcelas restantes`;
     }
 
 
@@ -2958,7 +3191,9 @@
       { id: 'soja_6', cultura: 'soja', nome: 'NEO-700', tec: 'XTEND / I2X', sem: 18, tolerancias: 'Glifosato + Dicamba' },
       { id: 'soja_7', cultura: 'soja', nome: '74 K 75', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
       { id: 'soja_8', cultura: 'soja', nome: '74 K 75-SP', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
-      { id: 'soja_9', cultura: 'soja', nome: 'NEO-801', tec: 'CONKESTA ENLIST', sem: 18, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
+      { id: 'soja_9', cultura: 'soja', nome: 'NEO-801', tec: 'CONKESTA ENLIST', sem: 13, tolerancias: 'Glifosato + Glufosinato + 2,4-D' },
+      { id: 'soja_15', cultura: 'soja', nome: 'NEO-820', tec: 'IPRO / RR2 PRO', sem: 13, tolerancias: 'Apenas Glifosato' },
+      { id: 'soja_16', cultura: 'soja', nome: 'COBRE-77 IX 78', tec: 'XTEND / I2X', sem: 13, tolerancias: 'Glifosato + Dicamba' },
       { id: 'soja_10', cultura: 'soja', nome: 'BÚFALO', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
       { id: 'soja_11', cultura: 'soja', nome: 'DM 66I68', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
       { id: 'soja_12', cultura: 'soja', nome: 'TMG 2378', tec: 'IPRO / RR2 PRO', sem: 18, tolerancias: 'Apenas Glifosato' },
@@ -2985,6 +3220,12 @@
         const raw = localStorage.getItem('banco_variedades_v1');
         if (raw) {
           bancoVariedades = JSON.parse(raw);
+          // Garantir que novas cultivares oficiais (ex: COBRE-77 IX 78, NEO-820) entrem automaticamente
+          BANCO_VARIEDADES_PADRAO.forEach(pad => {
+            if (!bancoVariedades.some(v => v.nome.toUpperCase() === pad.nome.toUpperCase() && v.cultura === pad.cultura)) {
+              bancoVariedades.push(Object.assign({}, pad));
+            }
+          });
           return;
         }
       } catch(e) {}
@@ -3401,19 +3642,19 @@
         return;
       }
 
-      const nomeBase = talhaoEmEdicao.gleba.replace(/ - (Parte|Parc|A|B).*$/i, '');
+      const nomeBase = talhaoEmEdicao.gleba.trim();
       
-      // Atualizar parcela A
-      talhaoEmEdicao.gleba = `${nomeBase} (Parte A)`;
+      // Mantém exatamente o mesmo nome da gleba (diferenciando pela variedade e área!)
+      talhaoEmEdicao.gleba = nomeBase;
       talhaoEmEdicao.ha = haA;
       atualizarToleranciasTalhao(talhaoEmEdicao);
 
-      // Criar parcela B
+      // Criar segunda variedade na mesma gleba
       const novoId = Date.now();
       const novoTalhao = {
         id: novoId,
         ordem: talhaoEmEdicao.ordem + 0.1,
-        gleba: `${nomeBase} (Parte B)`,
+        gleba: nomeBase,
         ha: haB,
         tipo: talhaoEmEdicao.tipo,
         var: varB,
@@ -3555,7 +3796,7 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
     function renderizarTabelasVisiveis() {
       const filtrados = filtrarTalhoes();
       const contador = document.getElementById('contador-filtrados');
-      if (contador) contador.innerText = `${filtrados.length} / ${TALHOES.length} talhões`;
+      if (contador) contador.innerText = `${filtrados.length} / ${TALHOES.length} parcelas`;
       
       const secFung = document.getElementById('secao-fungicidas');
       const secFicha = document.getElementById('secao-ficha_campo');
@@ -3588,7 +3829,7 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
       const wb = XLSX.utils.book_new();
       const linhas = [
         ["SAFRA SOJA 2026/2027 - CONTROLE DE PULVERIZAÇÃO E TOLERÂNCIAS"],
-        ["Área Total: 4.391,81 ha | 54 Talhões em Ordem Cronológica de Plantio | 2ª Aplicação aos 17 dias"],
+        [`Área Total: ${TALHOES.reduce((a,b)=>a+(Number(b.ha)||0),0).toFixed(2)} ha | ${TALHOES.length} Parcelas em Ordem Cronológica de Plantio | 2ª e 3ª Aplicações aos 17 dias`],
         [],
         [
           "ORD",
@@ -3630,7 +3871,7 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
           t.tol_plain,
           t.dtP,
           t.dtE,
-          `R1 (~${diaEmerg} nov)`,
+          calcularPrevisaoR1(t.dtE, false),
           reg.f1_data || "",
           proxF2,
           reg.f2_data || "",
@@ -3780,8 +4021,11 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
             });
           }
           try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+            localStorage.setItem(obterChaves().storageOperacoes, JSON.stringify(appState));
           } catch(e) {}
+          if (herdarOperacoesGlebasDivididas(appState)) {
+            try { localStorage.setItem(obterChaves().storageOperacoes, JSON.stringify(appState)); } catch(e) {}
+          }
           sincronizadoOnline = true;
           atualizarBadgeStatus();
           renderizarTabelasVisiveis();

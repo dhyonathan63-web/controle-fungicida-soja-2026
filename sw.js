@@ -1,4 +1,4 @@
-const CACHE_NAME = 'soja-pulverizacao-v4-firebase';
+const CACHE_NAME = 'soja-pulverizacao-v6-multivariedades';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -14,11 +14,9 @@ const ASSETS_TO_CACHE = [
   './icon-512.png'
 ];
 
-// Install: Cache core assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Cacheando arquivos para funcionamento offline...');
       return cache.addAll(ASSETS_TO_CACHE).catch(err => {
         console.warn('[SW] Aviso ao cachear alguns arquivos:', err);
       });
@@ -26,14 +24,12 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activate: Remove older caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('[SW] Removendo cache antigo:', key);
             return caches.delete(key);
           }
         })
@@ -42,27 +38,38 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: Stale-While-Revalidate with Cache Fallback
+// Network-First para HTML/JSON (sempre pega a versão mais recente se tiver internet, e cai pro cache se estiver offline)
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
+
+  const url = new URL(event.request.url);
+  const ehDocumentoOuJson = event.request.mode === 'navigate' ||
+                            url.pathname.endsWith('.html') ||
+                            url.pathname.endsWith('.json') ||
+                            url.pathname.endsWith('/');
+
+  if (ehDocumentoOuJson) {
+    event.respondWith(
+      fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return networkResponse;
+      }).catch(() => caches.match(event.request))
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // Return cached version immediately if available
       const fetchPromise = fetch(event.request).then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
         return networkResponse;
-      }).catch(() => {
-        // Network failed (offline)
-        return cachedResponse;
-      });
-
+      }).catch(() => cachedResponse);
       return cachedResponse || fetchPromise;
     })
   );
