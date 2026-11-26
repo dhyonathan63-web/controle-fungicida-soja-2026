@@ -1,4 +1,4 @@
-const CACHE_NAME = 'soja-pulverizacao-v6-multivariedades';
+const CACHE_NAME = 'soja-pulverizacao-v7-mobile-fit';
 
 const ASSETS_TO_CACHE = [
   './',
