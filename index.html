@@ -152,7 +152,7 @@
               🟢 Offline Pronto
             </span>
           </h1>
-          <p class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">Ordem de Plantio da Planilha Oficial • 2ª e 3ª Aplicações aos 17 dias</p>
+          <p class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">Ordem de Plantio da Planilha Oficial • 4 Aplicações de Fungicidas (2ª, 3ª e 4ª aos 17 dias) • Salva automaticamente</p>
           
           <!-- SELETORES DE SAFRA E CULTURA (MULTI-SAFRA & MULTI-CULTURA) -->
           <div class="flex flex-wrap items-center gap-1.5 mt-2 no-print">
@@ -218,7 +218,7 @@
     <!-- Navigation Tabs -->
     <div class="w-full px-2.5 sm:px-4 lg:px-6 flex overflow-x-auto gap-2 border-t border-slate-800/80 pt-1.5 pb-1.5 tab-buttons">
       <button onclick="mudarAba('fungicidas')" id="btn-tab-fungicidas" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap bg-emerald-600 text-white flex items-center gap-1.5 shrink-0">
-        <span>🔬</span> Fungicidas & Retornos (+17d)
+        <span>🔬</span> Fungicidas & Retornos (4 Aplicações • +17d)
       </button>
       <button onclick="mudarAba('ficha_campo')" id="btn-tab-ficha_campo" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center gap-1.5 shrink-0">
         <span>📄</span> Ficha de Campo (PDF)
@@ -283,7 +283,7 @@
               Hectares que Faltam Fazer
               <span id="badgeProgressoGeral" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700">0% concluído</span>
             </h2>
-            <p class="text-[10px] text-slate-400">Total da safra: 4.391,81 ha por aplicação • Atualizado instantaneamente</p>
+            <p class="text-[10px] text-slate-400">Total da safra: 4.391,81 ha por aplicação (4 aplicações = 17.567,24 ha total)</p>
           </div>
         </div>
 
@@ -293,8 +293,8 @@
         </div>
       </div>
 
-      <!-- Grid dos 3 Fungicidas: Feito vs Falta Fazer -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+      <!-- Grid dos 4 Fungicidas: Feito vs Falta Fazer -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-xs">
         
         <!-- 1ª Aplicação -->
         <div class="bg-slate-950/80 border border-slate-700/80 rounded-xl p-2.5 flex flex-col justify-between">
@@ -350,6 +350,25 @@
           <div class="flex justify-between text-[9px] text-slate-400 mt-1">
             <span>Feito: <strong id="haFeitoF3" class="text-purple-400">0,00 ha</strong></span>
             <span id="talhoesFaltaF3">60 parcelas restantes</span>
+          </div>
+        </div>
+
+        <!-- 4ª Aplicação -->
+        <div class="bg-slate-950/80 border border-purple-900/50 rounded-xl p-2.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between text-[11px] font-bold">
+            <span class="text-purple-300 flex items-center gap-1"><span>🛡️</span> 4ª Fungicida (+17d)</span>
+            <span id="pctF4" class="text-[10px] text-slate-400 font-mono">0%</span>
+          </div>
+          <div class="flex items-baseline justify-between mt-1">
+            <span class="text-[10px] text-slate-400">Falta fazer:</span>
+            <span id="haFaltaF4" class="font-mono font-black text-sm text-rose-400">4.391,81 ha</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div id="barF4" class="bg-purple-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <div class="flex justify-between text-[9px] text-slate-400 mt-1">
+            <span>Feito: <strong id="haFeitoF4" class="text-purple-300">0,00 ha</strong></span>
+            <span id="talhoesFaltaF4">60 parcelas restantes</span>
           </div>
         </div>
 
@@ -430,6 +449,7 @@
           <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-semibold">1ª: R1</span>
           <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-950 text-sky-200 border border-sky-700 font-bold">2ª: +17 dias</span>
           <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700 font-semibold">3ª: +17 dias</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-950 text-purple-200 border border-purple-700 font-bold">4ª: +17 dias</span>
         </div>
         <button onclick="document.getElementById('guiaManejoCompleto').classList.toggle('hidden')" class="text-[11px] text-slate-400 hover:text-white underline">
           Info de Tolerâncias ▾
@@ -462,7 +482,7 @@
         <div class="overflow-x-auto w-full">
           <table class="w-full text-left border-collapse text-xs">
             <thead>
-              <tr class="bg-slate-900 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[10.5px]">
+              <tr class="bg-slate-900 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[10px]">
                 <th class="p-2 w-10 text-center">ORD</th>
                 <th class="p-2">Talhão / Área</th>
                 <th class="p-2">Variedade & S/m</th>
@@ -473,6 +493,8 @@
                 <th class="p-2 text-center bg-slate-950/40">2ª Feita</th>
                 <th class="p-2 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+17d)</th>
                 <th class="p-2 text-center bg-slate-950/40">3ª Feita</th>
+                <th class="p-2 text-center bg-purple-950/30 text-purple-200 font-bold border-x border-purple-800/50">4ª Prevista (+17d)</th>
+                <th class="p-2 text-center bg-slate-950/40">4ª Feita</th>
                 <th class="p-2 text-center">Obs / Produto</th>
               </tr>
             </thead>
@@ -492,7 +514,7 @@
             📄 Ficha de Campo Oficial (Modelo do PDF)
           </h2>
           <p class="text-xs text-slate-400">
-            Formatação estruturada exatamente como o modelo do PDF, com caixas de marcação para o operador assinalar no campo (<span class="font-mono text-emerald-400">[ ] Pós [ ] Herb [ ] Ins [ ] Fung [ ] Fol</span>) e visto. 2ª aplicação aos 17 dias.
+            Formatação estruturada exatamente como o modelo do PDF, com caixas de marcação para o operador assinalar no campo (<span class="font-mono text-emerald-400">[ ] Pós [ ] Herb [ ] Ins [ ] Fung [ ] Fol</span>) e visto. 4 aplicações de fungicidas aos 17 dias.
           </p>
         </div>
         <div class="flex items-center gap-2">
@@ -511,7 +533,7 @@
         <div class="pdf-header bg-[#14532d] text-white p-4 rounded-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
           <div>
             <h1 class="text-base sm:text-lg font-black uppercase tracking-wide text-white">CONTROLE DE PULVERIZAÇÃO E TECNOLOGIAS - SOJA 26/27</h1>
-            <p class="text-xs text-emerald-200">Ordem Oficial de Plantio da Planilha • Folha de Campo para Prancheta (2ª Aplicação aos 17 dias)</p>
+            <p class="text-xs text-emerald-200">Ordem Oficial de Plantio da Planilha • Folha de Campo para Prancheta (4 Aplicações de Fungicidas aos 17 dias)</p>
           </div>
           <div class="text-left sm:text-right text-xs">
             <div>Área Total: <strong>4.391,81 ha (60 Parcelas)</strong></div>
@@ -533,11 +555,12 @@
                 <th class="p-2 border border-slate-400 w-28">Variedade</th>
                 <th class="p-2 border border-slate-400">Tecnologia & Tolerância Herbicida</th>
                 <th class="p-2 border border-slate-400 w-20 text-center">Plantio</th>
-                <th class="p-2 border border-slate-400 text-center w-32">1ª Aplicação<br>(Pós / Herb / Ins)</th>
-                <th class="p-2 border border-slate-400 text-center w-28">1º Fungicida<br>(R1 / Veto)</th>
-                <th class="p-2 border border-slate-400 text-center w-24 bg-sky-900 text-white">2º Fung.<br>(+17d da 1ª)</th>
-                <th class="p-2 border border-slate-400 text-center w-24">3º Fung.<br>(+17d da 2ª)</th>
-                <th class="p-2 border border-slate-400 text-center w-28">Visto Op.</th>
+                <th class="p-2 border border-slate-400 text-center w-28">1ª Aplicação<br>(Pós / Herb / Ins)</th>
+                <th class="p-2 border border-slate-400 text-center w-24">1º Fungicida<br>(R1 / Veto)</th>
+                <th class="p-2 border border-slate-400 text-center w-22 bg-sky-900 text-white">2º Fung.<br>(+17d da 1ª)</th>
+                <th class="p-2 border border-slate-400 text-center w-22">3º Fung.<br>(+17d da 2ª)</th>
+                <th class="p-2 border border-slate-400 text-center w-22 bg-purple-900 text-white">4º Fung.<br>(+17d da 3ª)</th>
+                <th class="p-2 border border-slate-400 text-center w-24">Visto Op.</th>
               </tr>
             </thead>
             <tbody id="tabela-ficha-corpo"></tbody>
@@ -2454,6 +2477,8 @@
           f2_status: false,
           f3_data: '',
           f3_status: false,
+          f4_data: '',
+          f4_status: false,
           pos_check: false,
           herb_check: false,
           ins_check: false,
@@ -2698,6 +2723,8 @@
         reg.f2_data = regOrigem.f2_data || '';
         reg.f3_status = !!regOrigem.f3_status;
         reg.f3_data = regOrigem.f3_data || '';
+        reg.f4_status = !!regOrigem.f4_status;
+        reg.f4_data = regOrigem.f4_data || '';
       });
 
       salvarOperacoes(true);
@@ -2716,6 +2743,7 @@
         const reg = obterOuCriar(t.id);
         const proxF2 = calcularProximaData(reg.f1_data, 17);
         const proxF3 = calcularProximaData(reg.f2_data, 17);
+        const proxF4 = calcularProximaData(reg.f3_data, 17);
 
         let tecBadgeClass = 'bg-emerald-950 text-emerald-300 border-emerald-800';
         if (t.tec_badge.includes('XTEND')) tecBadgeClass = 'bg-sky-950 text-sky-300 border-sky-800';
@@ -2835,6 +2863,20 @@
                        class="bg-slate-900 border border-slate-700 rounded px-1 py-0.5 text-xs text-white focus:border-emerald-500 focus:outline-none w-[112px]">
               </div>
             </td>
+            <td class="p-1.5 text-center bg-purple-950/20 border-x border-purple-800/40 min-w-[100px]">
+              ${obterStatusBadge(proxF4, reg.f3_data, 17, !!reg.f4_status || !!reg.f4_data)}
+              <span class="text-[9px] text-purple-300/80 block mt-0.5">(+17 dias)</span>
+            </td>
+            <td class="p-1.5 text-center bg-slate-950/20 min-w-[125px]">
+              <div class="flex items-center justify-center gap-1">
+                <input type="checkbox" ${reg.f4_status ? 'checked' : ''} 
+                       onchange="atualizarCampo(${t.id}, 'f4_status', this.checked)"
+                       class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
+                <input type="date" value="${reg.f4_data}" 
+                       onchange="atualizarCampo(${t.id}, 'f4_data', this.value)"
+                       class="bg-slate-900 border border-slate-700 rounded px-1 py-0.5 text-xs text-white focus:border-emerald-500 focus:outline-none w-[112px]">
+              </div>
+            </td>
             <td class="p-1.5 text-center min-w-[115px]">
               <input type="text" value="${reg.obs || ''}" placeholder="Ex: FOX + Manzate" 
                      oninput="atualizarCampo(${t.id}, 'obs', this.value)"
@@ -2892,7 +2934,7 @@
 
             ${badgeMultiMobile}
 
-            <!-- As 3 Aplicações: Formato 2 Linhas Adaptativo (100% responsivo, sem corte e sem rolagem horizontal) -->
+            <!-- As 4 Aplicações: Formato 2 Linhas Adaptativo (100% responsivo, sem corte e sem rolagem horizontal) -->
             <div class="space-y-2">
               
               <!-- 1ª Fungicida -->
@@ -2954,6 +2996,27 @@
                   <span class="text-[10px] text-slate-400 font-medium">Data realizada:</span>
                   <input type="date" value="${reg.f3_data}"
                          onchange="atualizarCampo(${t.id}, 'f3_data', this.value)"
+                         class="bg-slate-950 border border-slate-700 rounded px-2 py-1 text-xs text-white font-mono focus:border-emerald-500 focus:outline-none w-36 max-w-full">
+                </div>
+              </div>
+
+              <!-- 4ª Fungicida (+17d) -->
+              <div class="bg-slate-900/90 border border-purple-900/60 rounded-lg p-2 space-y-1.5">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <label class="flex items-center gap-1.5 cursor-pointer">
+                    <input type="checkbox" ${reg.f4_status ? 'checked' : ''}
+                           onchange="atualizarCampo(${t.id}, 'f4_status', this.checked)"
+                           class="w-4 h-4 accent-emerald-500 rounded">
+                    <span class="text-xs font-bold text-purple-300">4ª Fungicida (+17d)</span>
+                  </label>
+                  <div>
+                    ${obterStatusBadge(proxF4, reg.f3_data, 17, !!reg.f4_status || !!reg.f4_data)}
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-800/80">
+                  <span class="text-[10px] text-slate-400 font-medium">Data realizada:</span>
+                  <input type="date" value="${reg.f4_data}"
+                         onchange="atualizarCampo(${t.id}, 'f4_data', this.value)"
                          class="bg-slate-950 border border-slate-700 rounded px-2 py-1 text-xs text-white font-mono focus:border-emerald-500 focus:outline-none w-36 max-w-full">
                 </div>
               </div>
@@ -3044,6 +3107,12 @@
               </label>
               <div class="text-slate-500 text-[8px] mt-0.5">+17d da 2ª</div>
             </td>
+            <td class="p-1.5 border border-slate-300 text-center font-mono text-[9px]">
+              <label class="cursor-pointer inline-flex items-center gap-0.5">
+                <input type="checkbox" ${reg.f4_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f4_status', this.checked)"> Fung
+              </label>
+              <div class="text-purple-700 font-bold text-[8px] mt-0.5">+17d da 3ª</div>
+            </td>
             <td class="p-1.5 border border-slate-300 text-center text-slate-400 text-[9px]">
               ____________________
             </td>
@@ -3078,11 +3147,12 @@
                 </div>
               </div>
               <div class="bg-emerald-50/50 border border-emerald-200 p-2 rounded-lg">
-                <span class="text-[10px] font-bold text-emerald-800 uppercase block mb-1">Fungicidas</span>
+                <span class="text-[10px] font-bold text-emerald-800 uppercase block mb-1">Fungicidas (4 Aplicações)</span>
                 <div class="flex items-center gap-2 flex-wrap">
                   <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f1_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f1_status', this.checked)" class="w-4 h-4 accent-emerald-600"> 1º Fung</label>
                   <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f2_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f2_status', this.checked)" class="w-4 h-4 accent-sky-600"> 2º (+17d)</label>
                   <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f3_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)" class="w-4 h-4 accent-emerald-600"> 3º (+17d)</label>
+                  <label class="inline-flex items-center gap-1 font-bold text-xs"><input type="checkbox" ${reg.f4_status ? 'checked' : ''} onchange="atualizarCampo(${t.id}, 'f4_status', this.checked)" class="w-4 h-4 accent-purple-600"> 4º (+17d)</label>
                 </div>
               </div>
             </div>
@@ -3148,8 +3218,8 @@
     function atualizarHectaresPendentes() {
       atualizarKpisTopo();
       const AREA_TOTAL_SAFRA = TALHOES.reduce((acc, t) => acc + (Number(t.ha) || 0), 0) || 4391.81;
-      let feitoF1 = 0, feitoF2 = 0, feitoF3 = 0;
-      let qtdFeitoF1 = 0, qtdFeitoF2 = 0, qtdFeitoF3 = 0;
+      let feitoF1 = 0, feitoF2 = 0, feitoF3 = 0, feitoF4 = 0;
+      let qtdFeitoF1 = 0, qtdFeitoF2 = 0, qtdFeitoF3 = 0, qtdFeitoF4 = 0;
 
       TALHOES.forEach(t => {
         const reg = appState[t.id] || {};
@@ -3167,15 +3237,20 @@
           feitoF3 += area;
           qtdFeitoF3++;
         }
+        if (reg.f4_status || reg.f4_data) {
+          feitoF4 += area;
+          qtdFeitoF4++;
+        }
       });
 
       const faltaF1 = Math.max(0, AREA_TOTAL_SAFRA - feitoF1);
       const faltaF2 = Math.max(0, AREA_TOTAL_SAFRA - feitoF2);
       const faltaF3 = Math.max(0, AREA_TOTAL_SAFRA - feitoF3);
+      const faltaF4 = Math.max(0, AREA_TOTAL_SAFRA - feitoF4);
 
-      const totalHectaresPulverizacao = AREA_TOTAL_SAFRA * 3; // 3 entradas completas
-      const totalFeitoGeral = feitoF1 + feitoF2 + feitoF3;
-      const totalFaltaGeral = faltaF1 + faltaF2 + faltaF3;
+      const totalHectaresPulverizacao = AREA_TOTAL_SAFRA * 4; // 4 aplicações completas (+17d)
+      const totalFeitoGeral = feitoF1 + feitoF2 + feitoF3 + feitoF4;
+      const totalFaltaGeral = faltaF1 + faltaF2 + faltaF3 + faltaF4;
       const pctGeral = Math.round((totalFeitoGeral / totalHectaresPulverizacao) * 100);
 
       // Formatação brasileira
@@ -3226,6 +3301,19 @@
       if (elBarF3) elBarF3.style.width = `${pct3}%`;
       const elTalhoesF3 = document.getElementById('talhoesFaltaF3');
       if (elTalhoesF3) elTalhoesF3.innerText = `${Math.max(0, TALHOES.length - qtdFeitoF3)} parcelas restantes`;
+
+      // Atualizar 4ª Aplicação
+      const elFaltaF4 = document.getElementById('haFaltaF4');
+      if (elFaltaF4) elFaltaF4.innerText = fmtHa(faltaF4);
+      const elFeitoF4 = document.getElementById('haFeitoF4');
+      if (elFeitoF4) elFeitoF4.innerText = fmtHa(feitoF4);
+      const elPctF4 = document.getElementById('pctF4');
+      const pct4 = Math.round((feitoF4 / AREA_TOTAL_SAFRA) * 100);
+      if (elPctF4) elPctF4.innerText = `${pct4}%`;
+      const elBarF4 = document.getElementById('barF4');
+      if (elBarF4) elBarF4.style.width = `${pct4}%`;
+      const elTalhoesF4 = document.getElementById('talhoesFaltaF4');
+      if (elTalhoesF4) elTalhoesF4.innerText = `${Math.max(0, TALHOES.length - qtdFeitoF4)} parcelas restantes`;
     }
 
 
@@ -3880,7 +3968,7 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
       const wb = XLSX.utils.book_new();
       const linhas = [
         ["SAFRA SOJA 2026/2027 - CONTROLE DE PULVERIZAÇÃO E TOLERÂNCIAS"],
-        [`Área Total: ${TALHOES.reduce((a,b)=>a+(Number(b.ha)||0),0).toFixed(2)} ha | ${TALHOES.length} Parcelas em Ordem Cronológica de Plantio | 2ª e 3ª Aplicações aos 17 dias`],
+        [`Área Total: ${TALHOES.reduce((a,b)=>a+(Number(b.ha)||0),0).toFixed(2)} ha | ${TALHOES.length} Parcelas em Ordem Cronológica de Plantio | 4 Aplicações de Fungicidas (2ª, 3ª e 4ª aos 17 dias)`],
         [],
         [
           "ORD",
@@ -3899,6 +3987,8 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
           "2ª Aplicação Realizada (Data)",
           "3ª Prevista (+17d da 2ª)",
           "3ª Aplicação Realizada (Data)",
+          "4ª Prevista (+17d da 3ª)",
+          "4ª Aplicação Realizada (Data)",
           "Anotações / Produto Utilizado"
         ]
       ];
@@ -3909,6 +3999,8 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
         const proxF2 = calcularProximaData(reg.f1_data, 17) || "";
         // 3ª aos 17 dias após a 2ª
         const proxF3 = calcularProximaData(reg.f2_data, 17) || "";
+        // 4ª aos 17 dias após a 3ª
+        const proxF4 = calcularProximaData(reg.f3_data, 17) || "";
         const diaEmerg = parseInt(t.dtE.slice(0, 2)) || 26;
 
         linhas.push([
@@ -3928,6 +4020,8 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
           reg.f2_data || "",
           proxF3,
           reg.f3_data || "",
+          proxF4,
+          reg.f4_data || "",
           reg.obs || ""
         ]);
       });
@@ -3952,6 +4046,8 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
         { wch: 16 }, // 2ª Data
         { wch: 18 }, // 3ª Prevista (+17d)
         { wch: 16 }, // 3ª Data
+        { wch: 18 }, // 4ª Prevista (+17d)
+        { wch: 16 }, // 4ª Data
         { wch: 30 }  // Obs
       ];
 
