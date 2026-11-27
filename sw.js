@@ -1,10 +1,12 @@
-const CACHE_NAME = 'soja-pulverizacao-v9-4-fungicidas';
+const CACHE_NAME = 'soja-pulverizacao-v10-banco-sementes-receitas';
 
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './ficha_de_campo_impressao.html',
   './talhoes_dados.json',
+  './banco_sementes.json',
+  './fichas_sementes_receitas.json',
   './manifest.json',
   './tailwind.min.js',
   './xlsx.full.min.js',

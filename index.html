@@ -800,7 +800,7 @@
 
   <!-- MODAL: BANCO DE DADOS DE VARIEDADES & SEMENTES -->
   <div id="modalBancoVariedades" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
-    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-4 sm:p-6 shadow-2xl space-y-3.5 max-h-[92vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
         <div class="flex items-center gap-2">
           <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
@@ -808,17 +808,39 @@
           </span>
           <div>
             <h3 class="text-sm sm:text-base font-black text-white">Banco de Dados de Sementes</h3>
-            <p class="text-[11px] text-slate-400">Variedades de Soja e Híbridos de Milho catalogados</p>
+            <p class="text-[11px] text-slate-400">Integrado com a base técnica do app Receitas Agrícolas</p>
           </div>
         </div>
         <button onclick="fecharModalGerenciarVariedades()" class="text-slate-400 hover:text-white text-lg font-bold p-1">&times;</button>
       </div>
 
-      <div class="flex items-center justify-between gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
-        <span class="text-xs text-slate-300 font-bold">Adicionar nova semente ao banco:</span>
-        <button onclick="abrirModalNovaVariedade('geral')" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg shadow transition">
-          ➕ Cadastrar Semente
+      <!-- Banner de Integração com Receitas Agrícolas -->
+      <div class="bg-emerald-950/70 border border-emerald-700/60 rounded-xl p-2.5 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🌾</span>
+          <div>
+            <div class="text-[11px] font-black text-emerald-300">Catálogo Oficial de Cultivares & Biotecnologias</div>
+            <div class="text-[10px] text-slate-300" id="totalSementesContador">237 cultivares catalogadas com tolerâncias a herbicidas</div>
+          </div>
+        </div>
+        <button onclick="abrirModalNovaVariedade('geral')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg shadow shrink-0 transition">
+          ➕ Nova
         </button>
+      </div>
+
+      <!-- Barra de Busca Rápida e Filtros -->
+      <div class="space-y-2">
+        <input type="text" id="buscaSementesBanco" oninput="filtrarListaSementesBanco()" placeholder="🔍 Buscar por variedade (ex: NEO, GUEPARDO, DKB), tecnologia ou herbicida..." 
+               class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none">
+        
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <div class="flex items-center gap-1.5 text-[10px]" id="filtrosCulturaSementes">
+            <button onclick="mudarFiltroCulturaBanco('TODAS')" id="btn-filtro-sem-todas" class="px-2.5 py-1 rounded-full bg-emerald-600 text-white font-bold transition">Todas</button>
+            <button onclick="mudarFiltroCulturaBanco('soja')" id="btn-filtro-sem-soja" class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold hover:bg-slate-700 transition">🌱 Soja</button>
+            <button onclick="mudarFiltroCulturaBanco('milho')" id="btn-filtro-sem-milho" class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold hover:bg-slate-700 transition">🌽 Milho</button>
+          </div>
+          <span id="contadorSementesFiltradas" class="text-[10px] text-slate-400 font-mono"></span>
+        </div>
       </div>
 
       <!-- Lista de Sementes do Banco -->
@@ -826,8 +848,9 @@
         <!-- Injetado via JS -->
       </div>
 
-      <div class="flex items-center justify-end pt-2 border-t border-slate-800">
-        <button type="button" onclick="fecharModalGerenciarVariedades()" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs">
+      <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-xs">
+        <span class="text-[10px] text-slate-400">💡 Ao selecionar no talhão, tecnologia e tolerância são preenchidas sozinhas.</span>
+        <button type="button" onclick="fecharModalGerenciarVariedades()" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition">
           Fechar
         </button>
       </div>
@@ -3353,28 +3376,65 @@
     ];
 
     let bancoVariedades = [];
+    let filtroCulturaSementesAtivo = 'TODAS';
 
-    function carregarBancoVariedades() {
+    async function carregarBancoVariedades() {
+      // 1. Carregar do armazenamento local ou padrão inicial
       try {
         const raw = localStorage.getItem('banco_variedades_v1');
         if (raw) {
           bancoVariedades = JSON.parse(raw);
-          // Garantir que novas cultivares oficiais (ex: COBRE-77 IX 78, NEO-820) entrem automaticamente
-          BANCO_VARIEDADES_PADRAO.forEach(pad => {
-            if (!bancoVariedades.some(v => v.nome.toUpperCase() === pad.nome.toUpperCase() && v.cultura === pad.cultura)) {
-              bancoVariedades.push(Object.assign({}, pad));
-            }
-          });
-          return;
         }
       } catch(e) {}
-      bancoVariedades = JSON.parse(JSON.stringify(BANCO_VARIEDADES_PADRAO));
+
+      if (!bancoVariedades || bancoVariedades.length === 0) {
+        bancoVariedades = JSON.parse(JSON.stringify(BANCO_VARIEDADES_PADRAO));
+      }
+
+      // 2. Mesclar catálogo completo de 237 cultivares do App Receitas Agrícolas (banco_sementes.json)
+      try {
+        const resp = await fetch('./banco_sementes.json');
+        if (resp.ok) {
+          const sementesOficiais = await resp.json();
+          let novosAdicionados = 0;
+          sementesOficiais.forEach(item => {
+            const existe = bancoVariedades.some(v => 
+              v.nome.trim().toUpperCase() === item.nome.trim().toUpperCase() && 
+              v.cultura.toLowerCase() === item.cultura.toLowerCase()
+            );
+            if (!existe) {
+              bancoVariedades.push(item);
+              novosAdicionados++;
+            }
+          });
+
+          if (novosAdicionados > 0) {
+            salvarBancoVariedades(false);
+          }
+        }
+      } catch(e) {
+        console.log('[Banco Sementes] Usando base offline/local:', e);
+      }
+
+      atualizarContadorSementesUI();
+      popularSelectsVariedades();
+    }
+
+    function atualizarContadorSementesUI() {
+      const elContador = document.getElementById('totalSementesContador');
+      if (elContador) {
+        const qtdSoja = bancoVariedades.filter(v => v.cultura === 'soja').length;
+        const qtdMilho = bancoVariedades.filter(v => v.cultura === 'milho').length;
+        elContador.innerText = `${bancoVariedades.length} cultivares catalogadas (${qtdSoja} Soja • ${qtdMilho} Milho)`;
+      }
     }
 
     function salvarBancoVariedades(atualizarNuvem = true) {
       try {
         localStorage.setItem('banco_variedades_v1', JSON.stringify(bancoVariedades));
       } catch(e) {}
+
+      atualizarContadorSementesUI();
 
       if (atualizarNuvem && typeof firebase !== 'undefined' && firebase.apps.length) {
         try {
@@ -3390,6 +3450,7 @@
         if (val && Array.isArray(val) && val.length > 0) {
           bancoVariedades = val;
           try { localStorage.setItem('banco_variedades_v1', JSON.stringify(bancoVariedades)); } catch(e) {}
+          atualizarContadorSementesUI();
           popularSelectsVariedades();
         }
       });
@@ -3407,19 +3468,20 @@
         if (!sel) return;
 
         const valorAtual = sel.value;
-        let html = '<option value="">-- Escolha a Variedade do Banco --</option>';
+        let html = `<option value="">-- Escolha do Banco (${lista.length} variedades disponíveis) --</option>`;
 
         // Agrupar por Tecnologia
         const grupos = {};
         lista.forEach(item => {
-          if (!grupos[item.tec]) grupos[item.tec] = [];
-          grupos[item.tec].push(item);
+          const tec = item.tec || 'OUTRAS';
+          if (!grupos[tec]) grupos[tec] = [];
+          grupos[tec].push(item);
         });
 
         Object.keys(grupos).sort().forEach(tec => {
-          html += `<optgroup label="${tec}">`;
+          html += `<optgroup label="${tec} (${grupos[tec].length} variedades)">`;
           grupos[tec].sort((a,b) => a.nome.localeCompare(b.nome)).forEach(v => {
-            html += `<option value="${v.nome}" data-tec="${v.tec}" data-sem="${v.sem || 18}">${v.nome} (${v.tec})</option>`;
+            html += `<option value="${v.nome}" data-tec="${v.tec}" data-sem="${v.sem || (culturaAtual === 'milho' ? 3.5 : 18)}">${v.nome} - ${v.tec}</option>`;
           });
           html += '</optgroup>';
         });
@@ -3471,28 +3533,86 @@
 
     // Modal de Gerenciar Todas as Variedades
     function abrirModalGerenciarVariedades() {
+      atualizarContadorSementesUI();
+      const inpBusca = document.getElementById('buscaSementesBanco');
+      if (inpBusca) inpBusca.value = '';
+      filtroCulturaSementesAtivo = 'TODAS';
+      mudarFiltroCulturaBanco('TODAS');
+      document.getElementById('modalBancoVariedades').classList.remove('hidden');
+    }
+
+    function mudarFiltroCulturaBanco(cultura) {
+      filtroCulturaSementesAtivo = cultura;
+      ['todas', 'soja', 'milho'].forEach(c => {
+        const btn = document.getElementById(`btn-filtro-sem-${c}`);
+        if (btn) {
+          if (c.toUpperCase() === cultura.toUpperCase()) {
+            btn.className = 'px-2.5 py-1 rounded-full bg-emerald-600 text-white font-bold transition';
+          } else {
+            btn.className = 'px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold hover:bg-slate-700 transition';
+          }
+        }
+      });
+      filtrarListaSementesBanco();
+    }
+
+    function filtrarListaSementesBanco() {
+      const termo = (document.getElementById('buscaSementesBanco')?.value || '').trim().toLowerCase();
       const container = document.getElementById('listaSementesBanco');
       if (!container) return;
 
+      let lista = bancoVariedades;
+      if (filtroCulturaSementesAtivo !== 'TODAS') {
+        lista = lista.filter(v => v.cultura === filtroCulturaSementesAtivo);
+      }
+
+      if (termo) {
+        lista = lista.filter(v => 
+          v.nome.toLowerCase().includes(termo) ||
+          (v.tec && v.tec.toLowerCase().includes(termo)) ||
+          (v.tolerancias && v.tolerancias.toLowerCase().includes(termo)) ||
+          (v.nomes_registro && v.nomes_registro.some(nr => nr.toLowerCase().includes(termo)))
+        );
+      }
+
+      const elCont = document.getElementById('contadorSementesFiltradas');
+      if (elCont) {
+        elCont.innerText = `${lista.length} de ${bancoVariedades.length} sementes`;
+      }
+
       container.innerHTML = '';
-      bancoVariedades.sort((a,b) => a.cultura.localeCompare(b.cultura) || a.nome.localeCompare(b.nome)).forEach(v => {
-        const item = document.createElement('div');
-        item.className = 'flex items-center justify-between gap-2 p-2 bg-slate-950 rounded-lg border border-slate-800 text-xs';
-        item.innerHTML = `
-          <div>
-            <div class="font-bold text-white flex items-center gap-1.5">
-              <span>${v.cultura === 'soja' ? '🌱' : '🌽'}</span>
-              ${v.nome}
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">${v.tec}</span>
-            </div>
-            <div class="text-[10px] text-slate-400 mt-0.5">${v.tolerancias || ''} • ${v.sem || 18} sem/m</div>
+      if (lista.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-6 text-slate-400 text-xs">
+            Nenhuma semente encontrada para a busca "${termo}".
           </div>
-          <button onclick="excluirVariedadeBanco('${v.id}')" class="text-rose-400 hover:text-rose-300 p-1 text-xs" title="Excluir do banco">&times;</button>
+        `;
+        return;
+      }
+
+      lista.sort((a,b) => a.cultura.localeCompare(b.cultura) || a.nome.localeCompare(b.nome)).forEach(v => {
+        const item = document.createElement('div');
+        item.className = 'flex items-center justify-between gap-2 p-2 bg-slate-950 rounded-lg border border-slate-800 text-xs hover:border-slate-700 transition';
+        
+        let tecCor = 'bg-slate-800 text-slate-300';
+        if (v.tec.includes('XTEND') || v.tec.includes('I2X')) tecCor = 'bg-sky-950 text-sky-300 border border-sky-800';
+        else if (v.tec.includes('ENLIST') || v.tec.includes('CONKESTA')) tecCor = 'bg-amber-950 text-amber-300 border border-amber-800';
+        else if (v.tec.includes('IPRO') || v.tec.includes('RR')) tecCor = 'bg-emerald-950 text-emerald-300 border border-emerald-800';
+
+        item.innerHTML = `
+          <div class="min-w-0 flex-1">
+            <div class="font-bold text-white flex items-center gap-1.5 flex-wrap">
+              <span>${v.cultura === 'soja' ? '🌱' : (v.cultura === 'milho' ? '🌽' : '🌾')}</span>
+              <span class="truncate">${v.nome}</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded font-mono ${tecCor}">${v.tec}</span>
+              ${v.fonte ? `<span class="text-[8px] text-slate-500 font-normal">(${v.fonte.includes('Receitas') ? 'Receitas Agrícolas' : v.fonte})</span>` : ''}
+            </div>
+            <div class="text-[10px] text-slate-400 mt-0.5">${v.tolerancias || 'Sem restrições'} • ${v.sem || (v.cultura === 'milho' ? 3.5 : 18)} sem/m</div>
+          </div>
+          <button onclick="excluirVariedadeBanco('${v.id}')" class="text-slate-500 hover:text-rose-400 p-1 text-sm shrink-0" title="Excluir do banco">&times;</button>
         `;
         container.appendChild(item);
       });
-
-      document.getElementById('modalBancoVariedades').classList.remove('hidden');
     }
 
     function fecharModalGerenciarVariedades() {
@@ -3504,7 +3624,7 @@
       bancoVariedades = bancoVariedades.filter(x => x.id !== id);
       salvarBancoVariedades(true);
       popularSelectsVariedades();
-      abrirModalGerenciarVariedades();
+      filtrarListaSementesBanco();
     }
 
     // Modal de Cadastrar Nova Variedade

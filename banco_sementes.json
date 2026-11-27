@@ -1,0 +1,3007 @@
+[
+  {
+    "id": "sem_1",
+    "cultura": "soja",
+    "nome": "GUEPARDO",
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_2",
+    "cultura": "soja",
+    "nome": "OLIMPO",
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_3",
+    "cultura": "soja",
+    "nome": "72 I X 74",
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_4",
+    "cultura": "soja",
+    "nome": "76 I X 80",
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_5",
+    "cultura": "soja",
+    "nome": "78 IX 80",
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_6",
+    "cultura": "soja",
+    "nome": "NEO-700",
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_7",
+    "cultura": "soja",
+    "nome": "74 K 75",
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_8",
+    "cultura": "soja",
+    "nome": "74 K 75-SP",
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_9",
+    "cultura": "soja",
+    "nome": "NEO-801",
+    "tec": "CONKESTA ENLIST",
+    "sem": 13,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_10",
+    "cultura": "soja",
+    "nome": "NEO-820",
+    "tec": "IPRO / RR",
+    "sem": 13,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_11",
+    "cultura": "soja",
+    "nome": "COBRE-77 IX 78",
+    "tec": "XTEND / I2X",
+    "sem": 13,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_12",
+    "cultura": "soja",
+    "nome": "BÚFALO",
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_13",
+    "cultura": "soja",
+    "nome": "DM 66I68",
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_14",
+    "cultura": "soja",
+    "nome": "TMG 2378",
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_15",
+    "cultura": "soja",
+    "nome": "MONSOY 5947",
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_16",
+    "cultura": "soja",
+    "nome": "BRASMAX FIBRA CE",
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_17",
+    "cultura": "milho",
+    "nome": "DKB 360 PRO4",
+    "tec": "VT PRO 4",
+    "sem": 3.5,
+    "tolerancias": "Glifosato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_18",
+    "cultura": "milho",
+    "nome": "DKB 265 PRO4",
+    "tec": "VT PRO 4",
+    "sem": 3.5,
+    "tolerancias": "Glifosato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_19",
+    "cultura": "milho",
+    "nome": "FS 500 PWU",
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_20",
+    "cultura": "milho",
+    "nome": "FS 575 PWU",
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_21",
+    "cultura": "milho",
+    "nome": "P3707 VYHR",
+    "tec": "LEPTRA / VIPTERA 3",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_22",
+    "cultura": "milho",
+    "nome": "P3808 VIP3",
+    "tec": "VIPTERA 3",
+    "sem": 3.5,
+    "tolerancias": "Glifosato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_23",
+    "cultura": "milho",
+    "nome": "K9606 VIP3",
+    "tec": "VIPTERA 3",
+    "sem": 3.5,
+    "tolerancias": "Glifosato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_24",
+    "cultura": "milho",
+    "nome": "B2401 PWU",
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_25",
+    "cultura": "milho",
+    "nome": "AG 8088 PRO4",
+    "tec": "VT PRO 4",
+    "sem": 3.5,
+    "tolerancias": "Glifosato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_26",
+    "cultura": "milho",
+    "nome": "AG 8780 PRO4",
+    "tec": "VT PRO 4",
+    "sem": 3.5,
+    "tolerancias": "Glifosato",
+    "fonte": "Fazenda São Geraldo"
+  },
+  {
+    "id": "sem_27",
+    "cultura": "soja",
+    "nome": "LG 60181 i2x",
+    "nomes_registro": [
+      "22579I2X",
+      "LG 60181 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_28",
+    "cultura": "soja",
+    "nome": "CZ 58B44 i2x",
+    "nomes_registro": [
+      "CZ58B44I2X",
+      "CZ 58B44 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_29",
+    "cultura": "soja",
+    "nome": "FT Touro i2x",
+    "nomes_registro": [
+      "FTR 3388 I2X",
+      "FT Touro i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_30",
+    "cultura": "soja",
+    "nome": "HO Poti i2x",
+    "nomes_registro": [
+      "85SC125 I2X",
+      "HO Poti i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_31",
+    "cultura": "soja",
+    "nome": "TMG Brauna i2x",
+    "nomes_registro": [
+      "23312I2X",
+      "TMG Brauna i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_32",
+    "cultura": "soja",
+    "nome": "TMG Copaiba i2x",
+    "nomes_registro": [
+      "23313I2X",
+      "TMG Copaiba i2x",
+      "23313 I2X",
+      "TMG 22X83 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_33",
+    "cultura": "soja",
+    "nome": "HO Mutum i2x",
+    "nomes_registro": [
+      "81SC118 I2X",
+      "HO Mutum i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_34",
+    "cultura": "soja",
+    "nome": "FT Aries i2x",
+    "nomes_registro": [
+      "FTR 477M I2X",
+      "FT Aries i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_35",
+    "cultura": "soja",
+    "nome": "FT Ursa i2x",
+    "nomes_registro": [
+      "FTR 417L I2X",
+      "FT Ursa i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_36",
+    "cultura": "soja",
+    "nome": "HO Coari i2x",
+    "nomes_registro": [
+      "81SC120 I2X",
+      "HO Coari i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_37",
+    "cultura": "soja",
+    "nome": "TMG 22X83 i2x",
+    "nomes_registro": [
+      "22082I2X",
+      "TMG 22X83 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_38",
+    "cultura": "soja",
+    "nome": "TMG Jatoba i2x",
+    "nomes_registro": [
+      "22213I2X",
+      "TMG Jatoba i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_39",
+    "cultura": "soja",
+    "nome": "Brasmax Ímpeto I2X",
+    "nomes_registro": [
+      "90IX87RSF I2X",
+      "Brasmax Impeto i2x",
+      "Ímpeto I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_40",
+    "cultura": "soja",
+    "nome": "DM 83IX84 i2x",
+    "nomes_registro": [
+      "83IX84RSF I2X",
+      "DM 83IX84 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_41",
+    "cultura": "soja",
+    "nome": "NEO 810 i2x",
+    "nomes_registro": [
+      "810 I2X",
+      "NEO 810 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_42",
+    "cultura": "soja",
+    "nome": "Brasmax Ataque I2X",
+    "nomes_registro": [
+      "81IX82RSF I2X",
+      "Brasmax Ataque i2x",
+      "Ataque I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_43",
+    "cultura": "soja",
+    "nome": "Ellas Dani i2x",
+    "nomes_registro": [
+      "81SC115 I2X",
+      "Ellas Dani i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_44",
+    "cultura": "soja",
+    "nome": "CZ 37866 i2x",
+    "nomes_registro": [
+      "CZ37B66I2X",
+      "CZ 37866 i2x",
+      "CZ 37686 i2x",
+      "CZ 37B66 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_45",
+    "cultura": "soja",
+    "nome": "ST 752 i2x",
+    "nomes_registro": [
+      "752 I2X",
+      "ST 752 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_46",
+    "cultura": "soja",
+    "nome": "HO Nobres i2x",
+    "nomes_registro": [
+      "21331 I2X",
+      "HO Nobres i2x",
+      "21331I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_47",
+    "cultura": "soja",
+    "nome": "HO Guapo i2x",
+    "nomes_registro": [
+      "77HO111 I2X",
+      "HO Guapo i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_48",
+    "cultura": "soja",
+    "nome": "M 8606 i2x",
+    "nomes_registro": [
+      "8603I2X",
+      "M 8606 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_49",
+    "cultura": "soja",
+    "nome": "CZ 58B23 i2x",
+    "nomes_registro": [
+      "CZ58B23I2X",
+      "CZ 58B23 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_50",
+    "cultura": "soja",
+    "nome": "AS 3840 i2x",
+    "nomes_registro": [
+      "3840I2X",
+      "AS 3840 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_51",
+    "cultura": "soja",
+    "nome": "NEO 802 i2x",
+    "nomes_registro": [
+      "NEO802 I2X",
+      "NEO 802 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_52",
+    "cultura": "soja",
+    "nome": "CZ 58B48 i2x",
+    "nomes_registro": [
+      "CZ58B48I2X",
+      "CZ 58B48 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_53",
+    "cultura": "soja",
+    "nome": "M 8434 i2x",
+    "nomes_registro": [
+      "8401I2X",
+      "M 8434 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_54",
+    "cultura": "soja",
+    "nome": "DAG 7621 i2x",
+    "nomes_registro": [
+      "7621 I2X",
+      "DAG 7621 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_55",
+    "cultura": "soja",
+    "nome": "DM 76IX78 i2x",
+    "nomes_registro": [
+      "76IX78RSF I2X",
+      "DM 76IX78 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_56",
+    "cultura": "soja",
+    "nome": "NEO 770 i2x",
+    "nomes_registro": [
+      "770 I2X",
+      "NEO 770 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_57",
+    "cultura": "soja",
+    "nome": "DAG 8221 i2x",
+    "nomes_registro": [
+      "8221 I2X",
+      "DAG 8221 i2x",
+      "8221I2X",
+      "ST 822 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_58",
+    "cultura": "soja",
+    "nome": "Brasmax Sparta I2X",
+    "nomes_registro": [
+      "80IX81RSF I2X",
+      "Brasmax Sparta i2x",
+      "Sparta I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_59",
+    "cultura": "soja",
+    "nome": "AMG 7922 i2x",
+    "nomes_registro": [
+      "21998I2X",
+      "AMG 7922 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_60",
+    "cultura": "soja",
+    "nome": "GA 7911 i2x",
+    "nomes_registro": [
+      "21083I2X",
+      "GA 7911 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_61",
+    "cultura": "soja",
+    "nome": "HO Piaui i2x",
+    "nomes_registro": [
+      "80SC115 I2X",
+      "HO Piaui i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_62",
+    "cultura": "soja",
+    "nome": "DM 78IX80 i2x",
+    "nomes_registro": [
+      "78IX80RSF I2X",
+      "DM 78IX80 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_63",
+    "cultura": "soja",
+    "nome": "HO Garças i2x",
+    "nomes_registro": [
+      "76SC114 I2X",
+      "HO Garças i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_64",
+    "cultura": "soja",
+    "nome": "TMG 22X77 i2x",
+    "nomes_registro": [
+      "21283I2X",
+      "TMG 22X77 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_65",
+    "cultura": "soja",
+    "nome": "M 7601 i2x",
+    "nomes_registro": [
+      "7601I2X",
+      "M 7601 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_66",
+    "cultura": "soja",
+    "nome": "ST 700 i2x",
+    "nomes_registro": [
+      "700 I2X",
+      "ST 700 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_67",
+    "cultura": "soja",
+    "nome": "TMG Nobres i2x",
+    "nomes_registro": [
+      "77SC1122 I2X",
+      "TMG Nobres i2x",
+      "HO Nobres i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_68",
+    "cultura": "soja",
+    "nome": "M 8330 i2x",
+    "nomes_registro": [
+      "8303I2X",
+      "M 8330 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_69",
+    "cultura": "soja",
+    "nome": "NEO 590 I2X",
+    "nomes_registro": [
+      "O590 I2X",
+      "NEO 590 I2X",
+      "NEO 590 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_70",
+    "cultura": "soja",
+    "nome": "AS 3790 i2x",
+    "nomes_registro": [
+      "8105I2X",
+      "AS 3790 i2x",
+      "AS 3800 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_71",
+    "cultura": "soja",
+    "nome": "AS 3800 i2x",
+    "nomes_registro": [
+      "8315I2X",
+      "AS 3800 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_72",
+    "cultura": "soja",
+    "nome": "M 8220 i2x",
+    "nomes_registro": [
+      "8001I2X",
+      "M 8220 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_73",
+    "cultura": "soja",
+    "nome": "NEO 690 i2x",
+    "nomes_registro": [
+      "690 I2X",
+      "NEO 690 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_74",
+    "cultura": "soja",
+    "nome": "NEO 800 i2x",
+    "nomes_registro": [
+      "O800 I2X",
+      "NEO 800 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_75",
+    "cultura": "soja",
+    "nome": "CZ 36B96 i2x",
+    "nomes_registro": [
+      "CZ36B96I2X",
+      "CZ 36B96 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_76",
+    "cultura": "soja",
+    "nome": "ST 822 i2x",
+    "nomes_registro": [
+      "822I2X",
+      "ST 822 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_77",
+    "cultura": "soja",
+    "nome": "Brasmax Tanque I2X",
+    "nomes_registro": [
+      "74IX75RSF I2X",
+      "Brasmax Tanque i2x",
+      "Tanque I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_78",
+    "cultura": "soja",
+    "nome": "HO Arari i2x",
+    "nomes_registro": [
+      "71SC110 I2X",
+      "HO Arari i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_79",
+    "cultura": "soja",
+    "nome": "TMG Inga i2x",
+    "nomes_registro": [
+      "23307I2X",
+      "TMG Inga i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_80",
+    "cultura": "soja",
+    "nome": "TMG Paineira i2x",
+    "nomes_registro": [
+      "23308I2X",
+      "TMG Paineira i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_81",
+    "cultura": "soja",
+    "nome": "CZ 47B74 i2x",
+    "nomes_registro": [
+      "CZ47B74I2X",
+      "CZ 47B74 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_82",
+    "cultura": "soja",
+    "nome": "TMG Murici i2x",
+    "nomes_registro": [
+      "22210I2X",
+      "TMG Murici i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_83",
+    "cultura": "soja",
+    "nome": "CZ 26B47 i2x",
+    "nomes_registro": [
+      "CZ26B47I2X",
+      "CZ 26B47 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_84",
+    "cultura": "soja",
+    "nome": "ST 616 i2x",
+    "nomes_registro": [
+      "616I2X",
+      "ST 616 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_85",
+    "cultura": "soja",
+    "nome": "CZ 37B39 i2x",
+    "nomes_registro": [
+      "CZ37B39I2X",
+      "CZ 37B39 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_86",
+    "cultura": "soja",
+    "nome": "M 8130 i2x",
+    "nomes_registro": [
+      "8104I2X",
+      "M 8130 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_87",
+    "cultura": "soja",
+    "nome": "AMG 7422 i2x",
+    "nomes_registro": [
+      "22023I2X",
+      "AMG 7422 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_88",
+    "cultura": "soja",
+    "nome": "CZ 48B08 i2x",
+    "nomes_registro": [
+      "CZ48B08I2X",
+      "CZ 48B08 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_89",
+    "cultura": "soja",
+    "nome": "DAG 7924 i2x",
+    "nomes_registro": [
+      "7924 I2X",
+      "DAG 7924 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_90",
+    "cultura": "soja",
+    "nome": "Brasmax Cobre I2X",
+    "nomes_registro": [
+      "77IX78RSF I2X",
+      "Brasmax Cobre i2x",
+      "Cobre I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_91",
+    "cultura": "soja",
+    "nome": "NEO 771 i2x",
+    "nomes_registro": [
+      "NEO771 I2X",
+      "NEO 771 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_92",
+    "cultura": "soja",
+    "nome": "TMG Balsamo i2x",
+    "nomes_registro": [
+      "23311I2X",
+      "TMG Balsamo i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_93",
+    "cultura": "soja",
+    "nome": "TMG Canjerana i2x",
+    "nomes_registro": [
+      "23309I2X",
+      "TMG Canjerana i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_94",
+    "cultura": "soja",
+    "nome": "ST 711 i2x",
+    "nomes_registro": [
+      "711I2X",
+      "ST 711 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_95",
+    "cultura": "soja",
+    "nome": "AMG 7600 i2x",
+    "nomes_registro": [
+      "22208I2X",
+      "AMG 7600 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_96",
+    "cultura": "soja",
+    "nome": "CZ 37B07 i2x",
+    "nomes_registro": [
+      "CZ37B07I2X",
+      "CZ 37B07 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_97",
+    "cultura": "soja",
+    "nome": "CZ 47B91 i2x",
+    "nomes_registro": [
+      "CZ47B91I2X",
+      "CZ 47B91 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_98",
+    "cultura": "soja",
+    "nome": "NEO 720 i2x",
+    "nomes_registro": [
+      "O720 I2X",
+      "NEO 720 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_99",
+    "cultura": "soja",
+    "nome": "NEO 761 i2x",
+    "nomes_registro": [
+      "761 I2X",
+      "NEO 761 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_100",
+    "cultura": "soja",
+    "nome": "TMG 22X73 i2x",
+    "nomes_registro": [
+      "22024I2X",
+      "TMG 22X73 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_101",
+    "cultura": "soja",
+    "nome": "AS 3640 i2x",
+    "nomes_registro": [
+      "6501I2X",
+      "AS 3640 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_102",
+    "cultura": "soja",
+    "nome": "M 6620 i2x",
+    "nomes_registro": [
+      "6601I2X",
+      "M 6620 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_103",
+    "cultura": "soja",
+    "nome": "HO Prata i2x",
+    "nomes_registro": [
+      "67SC115 I2X",
+      "HO Prata i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_104",
+    "cultura": "soja",
+    "nome": "FT Lion i2x",
+    "nomes_registro": [
+      "FTR 2266 I2X",
+      "FT Lion i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_105",
+    "cultura": "soja",
+    "nome": "HO Paraguaçu i2x",
+    "nomes_registro": [
+      "64HO130 I2X",
+      "HO Paraguaçu i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_106",
+    "cultura": "soja",
+    "nome": "FT Tiger i2x",
+    "nomes_registro": [
+      "FTR 4664 I2X",
+      "FT Tiger i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_107",
+    "cultura": "soja",
+    "nome": "HO Mogi i2x",
+    "nomes_registro": [
+      "69SC100 I2X",
+      "HO Mogi i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_108",
+    "cultura": "soja",
+    "nome": "CG 7785 i2x",
+    "nomes_registro": [
+      "7806I2X",
+      "CG 7785 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_109",
+    "cultura": "soja",
+    "nome": "DAG 7523 i2x",
+    "nomes_registro": [
+      "7523 I2X",
+      "DAG 7523 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_110",
+    "cultura": "soja",
+    "nome": "GH 2275 i2x",
+    "nomes_registro": [
+      "GH2275I2X",
+      "GH 2275 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_111",
+    "cultura": "soja",
+    "nome": "CZ 26B55 i2x",
+    "nomes_registro": [
+      "CZ26B55I2X",
+      "CZ 26B55 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_112",
+    "cultura": "soja",
+    "nome": "ST 641 i2x",
+    "nomes_registro": [
+      "641 I2X",
+      "ST 641 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_113",
+    "cultura": "soja",
+    "nome": "FT Lynx i2x",
+    "nomes_registro": [
+      "FTR 4462 I2X",
+      "FT Lynx i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_114",
+    "cultura": "soja",
+    "nome": "M 6930 i2x",
+    "nomes_registro": [
+      "6930I2X",
+      "M 6930 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_115",
+    "cultura": "soja",
+    "nome": "DAG 6824 i2x",
+    "nomes_registro": [
+      "6824 I2X",
+      "DAG 6824 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_116",
+    "cultura": "soja",
+    "nome": "Brasmax Cargo I2X",
+    "nomes_registro": [
+      "68IX67RSF I2X",
+      "Brasmax Cargo i2x",
+      "Cargo I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_117",
+    "cultura": "soja",
+    "nome": "Brasmax Raptor I2X",
+    "nomes_registro": [
+      "71IX72RSF I2X",
+      "Brasmax Raptor i2x",
+      "Raptor I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_118",
+    "cultura": "soja",
+    "nome": "Brasmax Supera I2X",
+    "nomes_registro": [
+      "73IX74RSF I2X",
+      "Brasmax Supera i2x",
+      "Supera I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_119",
+    "cultura": "soja",
+    "nome": "DM 69IX69 i2x",
+    "nomes_registro": [
+      "69IX69RSF I2X",
+      "DM 69IX69 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_120",
+    "cultura": "soja",
+    "nome": "DM 70IX70 i2x",
+    "nomes_registro": [
+      "70IX70RSF I2X",
+      "DM 70IX70 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_121",
+    "cultura": "soja",
+    "nome": "DM 72IX74 i2x",
+    "nomes_registro": [
+      "72IX74RSF I2X",
+      "DM 72IX74 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_122",
+    "cultura": "soja",
+    "nome": "DM 76IX77 i2x",
+    "nomes_registro": [
+      "76IX77RSF I2X",
+      "DM 76IX77 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_123",
+    "cultura": "soja",
+    "nome": "NEO 700 i2x",
+    "nomes_registro": [
+      "NEO700 I2X",
+      "NEO 700 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_124",
+    "cultura": "soja",
+    "nome": "TMG Jenipapeiro i2x",
+    "nomes_registro": [
+      "22602I2X",
+      "TMG Jenipapeiro i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_125",
+    "cultura": "soja",
+    "nome": "AS 3707 i2x",
+    "nomes_registro": [
+      "6801I2X",
+      "AS 3707 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_126",
+    "cultura": "soja",
+    "nome": "GH 6433 i2x",
+    "nomes_registro": [
+      "NS6433I2X",
+      "GH 6433 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_127",
+    "cultura": "soja",
+    "nome": "NS 6446 i2x",
+    "nomes_registro": [
+      "NS6446I2X",
+      "NS 6446 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_128",
+    "cultura": "soja",
+    "nome": "AS 3715 i2x",
+    "nomes_registro": [
+      "3715I2X",
+      "AS 3715 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_129",
+    "cultura": "soja",
+    "nome": "M 6110 i2x",
+    "nomes_registro": [
+      "6301I2X",
+      "M 6110 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_130",
+    "cultura": "soja",
+    "nome": "GH 6630 i2x",
+    "nomes_registro": [
+      "NK6630I2X",
+      "GH 6630 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_131",
+    "cultura": "soja",
+    "nome": "Brasmax Exata I2X",
+    "nomes_registro": [
+      "64IX60RSF I2X",
+      "Brasmax Exata i2x",
+      "Exata I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_132",
+    "cultura": "soja",
+    "nome": "Brasmax Torpedo I2X",
+    "nomes_registro": [
+      "54IX56RSF I2X",
+      "Brasmax Torpedo i2x",
+      "Torpedo I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_133",
+    "cultura": "soja",
+    "nome": "DM 64IX65 i2x",
+    "nomes_registro": [
+      "64IX65RSF I2X",
+      "DM 64IX65 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_134",
+    "cultura": "soja",
+    "nome": "NEO 640 i2x",
+    "nomes_registro": [
+      "640 I2X",
+      "NEO 640 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_135",
+    "cultura": "soja",
+    "nome": "CZ 15B99 i2x",
+    "nomes_registro": [
+      "CZ15B99I2X",
+      "CZ 15B99 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_136",
+    "cultura": "soja",
+    "nome": "AS 3615 i2x",
+    "nomes_registro": [
+      "6001I2X",
+      "AS 3615 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_137",
+    "cultura": "soja",
+    "nome": "CZ 26B12 i2x",
+    "nomes_registro": [
+      "CZ26B12I2X",
+      "CZ 26B12 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_138",
+    "cultura": "soja",
+    "nome": "CZ 26B41 i2x",
+    "nomes_registro": [
+      "BSA64014I2X",
+      "CZ 26B41 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_139",
+    "cultura": "soja",
+    "nome": "M 6130 i2x",
+    "nomes_registro": [
+      "6101I2X",
+      "M 6130 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_140",
+    "cultura": "soja",
+    "nome": "CZ 16B21 i2x",
+    "nomes_registro": [
+      "CZ16B21I2X",
+      "CZ 16B21 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_141",
+    "cultura": "soja",
+    "nome": "ST 621 i2x",
+    "nomes_registro": [
+      "621 I2X",
+      "ST 621 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_142",
+    "cultura": "soja",
+    "nome": "DAG 6524 i2x",
+    "nomes_registro": [
+      "6524 I2X",
+      "DAG 6524 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_143",
+    "cultura": "soja",
+    "nome": "AMG 6401 i2x",
+    "nomes_registro": [
+      "23314I2X",
+      "AMG 6401 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_144",
+    "cultura": "soja",
+    "nome": "ST 591 i2x",
+    "nomes_registro": [
+      "591 I2X",
+      "ST 591 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_145",
+    "cultura": "soja",
+    "nome": "Brasmax Coliseu I2X",
+    "nomes_registro": [
+      "63IX65RSF I2X",
+      "Brasmax Coliseu i2x",
+      "Coliseu I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_146",
+    "cultura": "soja",
+    "nome": "DM 65IX67 i2x",
+    "nomes_registro": [
+      "65IX67RSF I2X",
+      "DM 65IX67 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_147",
+    "cultura": "soja",
+    "nome": "NEO 661 i2x",
+    "nomes_registro": [
+      "661 I2X",
+      "NEO 661 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_148",
+    "cultura": "soja",
+    "nome": "Brasmax Nexus I2X",
+    "nomes_registro": [
+      "64IX66RSF I2X",
+      "Brasmax Nexus i2x",
+      "Nexus I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_149",
+    "cultura": "soja",
+    "nome": "TMG Guanandi i2x",
+    "nomes_registro": [
+      "23306I2X",
+      "TMG Guanandi i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_150",
+    "cultura": "soja",
+    "nome": "HO Tibagi i2x",
+    "nomes_registro": [
+      "61SC115 I2X",
+      "HO Tibagi i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_151",
+    "cultura": "soja",
+    "nome": "TMG 22X65 i2x",
+    "nomes_registro": [
+      "21204I2X",
+      "TMG 22X65 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_152",
+    "cultura": "soja",
+    "nome": "HO Cascavel i2x",
+    "nomes_registro": [
+      "60SC110 I2X",
+      "HO Cascavel i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_153",
+    "cultura": "soja",
+    "nome": "M 6202 i2x",
+    "nomes_registro": [
+      "6202I2X",
+      "M 6202 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_154",
+    "cultura": "soja",
+    "nome": "INT 6302 i2x",
+    "nomes_registro": [
+      "6302I2X",
+      "INT 6302 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_155",
+    "cultura": "soja",
+    "nome": "HO Ijui i2x",
+    "nomes_registro": [
+      "54SC122 I2X",
+      "HO Ijui i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_156",
+    "cultura": "soja",
+    "nome": "M 5921 i2x",
+    "nomes_registro": [
+      "5921I2X",
+      "M 5921 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_157",
+    "cultura": "soja",
+    "nome": "M 5997 i2x",
+    "nomes_registro": [
+      "5903I2X",
+      "M 5997 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_158",
+    "cultura": "soja",
+    "nome": "AS 3606 i2x",
+    "nomes_registro": [
+      "3606I2X",
+      "AS 3606 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_159",
+    "cultura": "soja",
+    "nome": "CZ 15B20 i2x",
+    "nomes_registro": [
+      "CZ15B20I2X",
+      "CZ 15B20 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_160",
+    "cultura": "soja",
+    "nome": "TMG Gurucaia i2x",
+    "nomes_registro": [
+      "23302I2X",
+      "TMG Gurucaia i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_161",
+    "cultura": "soja",
+    "nome": "ST 570 i2x",
+    "nomes_registro": [
+      "BSA57079I2X",
+      "ST 570 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_162",
+    "cultura": "soja",
+    "nome": "TMG 22X57 i2x",
+    "nomes_registro": [
+      "21018I2X",
+      "TMG 22X57 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_163",
+    "cultura": "soja",
+    "nome": "ST 541 i2x",
+    "nomes_registro": [
+      "541 I2X",
+      "ST 541 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_164",
+    "cultura": "soja",
+    "nome": "ST 580 i2x",
+    "nomes_registro": [
+      "580 I2X",
+      "ST 580 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_165",
+    "cultura": "soja",
+    "nome": "M 5710 i2x",
+    "nomes_registro": [
+      "5801I2X",
+      "M 5710 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_166",
+    "cultura": "soja",
+    "nome": "Brasmax Titanium TF I2X",
+    "nomes_registro": [
+      "56IX58RSF I2X",
+      "Brasmax Titanium TF i2x",
+      "Titanium TF I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_167",
+    "cultura": "soja",
+    "nome": "Brasmax Torque I2X",
+    "nomes_registro": [
+      "57IX60RSF I2X",
+      "Brasmax Torque i2x",
+      "Torque I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_168",
+    "cultura": "soja",
+    "nome": "DM 54IX57 i2x",
+    "nomes_registro": [
+      "54IX57RSF I2X",
+      "DM 54IX57 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_169",
+    "cultura": "soja",
+    "nome": "DM 59IX61 i2x",
+    "nomes_registro": [
+      "59IX61RSF I2X",
+      "DM 59IX61 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_170",
+    "cultura": "soja",
+    "nome": "DM 60IX64 i2x",
+    "nomes_registro": [
+      "60IX64RSF I2X",
+      "DM 60IX64 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_171",
+    "cultura": "soja",
+    "nome": "NEO 600 i2x",
+    "nomes_registro": [
+      "NEO600 I2X",
+      "NEO 600 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_172",
+    "cultura": "soja",
+    "nome": "AS 3595 i2x",
+    "nomes_registro": [
+      "5902I2X",
+      "AS 3595 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_173",
+    "cultura": "soja",
+    "nome": "Brasmax Trovão I2X",
+    "nomes_registro": [
+      "51IX51RSF I2X",
+      "Brasmax Trovão i2x",
+      "Trovão I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_174",
+    "cultura": "soja",
+    "nome": "NEO 531 i2x",
+    "nomes_registro": [
+      "531 I2X",
+      "NEO 531 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_175",
+    "cultura": "soja",
+    "nome": "NS 5252 i2x",
+    "nomes_registro": [
+      "SSS235282I2X",
+      "NS 5252 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_176",
+    "cultura": "soja",
+    "nome": "GH 5115 i2x",
+    "nomes_registro": [
+      "NS5115I2X",
+      "GH 5115 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_177",
+    "cultura": "soja",
+    "nome": "M 5939 i2x",
+    "nomes_registro": [
+      "5939I2X",
+      "M 5939 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_178",
+    "cultura": "soja",
+    "nome": "ST 490 i2x",
+    "nomes_registro": [
+      "490I2X",
+      "ST 490 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_179",
+    "cultura": "soja",
+    "nome": "ST 535 i2x",
+    "nomes_registro": [
+      "535I2X",
+      "ST 535 i2x"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_180",
+    "cultura": "soja",
+    "nome": "DM 56I59 IPRO",
+    "nomes_registro": [
+      "DM 56I59 IPRO",
+      "56I59RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_181",
+    "cultura": "soja",
+    "nome": "DM 70I71 IPRO",
+    "nomes_registro": [
+      "DM 70I71 IPRO",
+      "70I71RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_182",
+    "cultura": "soja",
+    "nome": "DM 64I63 IPRO",
+    "nomes_registro": [
+      "DM 64I63 IPRO",
+      "64I63RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_183",
+    "cultura": "soja",
+    "nome": "DM 60I63 IPRO",
+    "nomes_registro": [
+      "DM 60I63 IPRO",
+      "60I63RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_184",
+    "cultura": "soja",
+    "nome": "DM 53I54 IPRO",
+    "nomes_registro": [
+      "DM 53I54 IPRO",
+      "53I54RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_185",
+    "cultura": "soja",
+    "nome": "DM 57I52 IPRO",
+    "nomes_registro": [
+      "DM 57I52 IPRO",
+      "57I52RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_186",
+    "cultura": "soja",
+    "nome": "DM 5958 IPRO",
+    "nomes_registro": [
+      "DM 5958 IPRO",
+      "5958RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_187",
+    "cultura": "soja",
+    "nome": "DM 66I68 IPRO",
+    "nomes_registro": [
+      "DM 66I68 IPRO",
+      "66I68RSF IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_188",
+    "cultura": "soja",
+    "nome": "C2531E",
+    "nomes_registro": [
+      "C2531E"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_189",
+    "cultura": "soja",
+    "nome": "C2534E",
+    "nomes_registro": [
+      "C2534E"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_190",
+    "cultura": "soja",
+    "nome": "C2550E",
+    "nomes_registro": [
+      "C2550E"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_191",
+    "cultura": "soja",
+    "nome": "C2560CE",
+    "nomes_registro": [
+      "C2560CE"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_192",
+    "cultura": "soja",
+    "nome": "C2615CE",
+    "nomes_registro": [
+      "C2615CE"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_193",
+    "cultura": "soja",
+    "nome": "C2740CE",
+    "nomes_registro": [
+      "C2740CE"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_194",
+    "cultura": "soja",
+    "nome": "C2790CE",
+    "nomes_registro": [
+      "C2790CE"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_195",
+    "cultura": "soja",
+    "nome": "C2810CE",
+    "nomes_registro": [
+      "C2810CE"
+    ],
+    "tec": "CONKESTA ENLIST",
+    "sem": 18,
+    "tolerancias": "Glifosato + Glufosinato + 2,4-D Colina (Proibido Dicamba)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_196",
+    "cultura": "soja",
+    "nome": "BRS 284",
+    "nomes_registro": [
+      "BRS 284"
+    ],
+    "tec": "CONVENCIONAL",
+    "sem": 18,
+    "tolerancias": "Convencional (Proibido Glifosato / Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_197",
+    "cultura": "milho",
+    "nome": "P35163PWU",
+    "nomes_registro": [
+      "P35163PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_198",
+    "cultura": "milho",
+    "nome": "P30053PWU",
+    "nomes_registro": [
+      "P30053PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_199",
+    "cultura": "milho",
+    "nome": "P35200PWU",
+    "nomes_registro": [
+      "P35200PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_200",
+    "cultura": "milho",
+    "nome": "P25300PWU",
+    "nomes_registro": [
+      "P25300PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_201",
+    "cultura": "milho",
+    "nome": "P33007PWU",
+    "nomes_registro": [
+      "P33007PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_202",
+    "cultura": "milho",
+    "nome": "P39209PWU",
+    "nomes_registro": [
+      "P39209PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_203",
+    "cultura": "milho",
+    "nome": "P40537PWU",
+    "nomes_registro": [
+      "P40537PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_204",
+    "cultura": "milho",
+    "nome": "P3322PWU",
+    "nomes_registro": [
+      "P3322PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_205",
+    "cultura": "milho",
+    "nome": "P3394PWU",
+    "nomes_registro": [
+      "P3394PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_206",
+    "cultura": "milho",
+    "nome": "P3601PWU",
+    "nomes_registro": [
+      "P3601PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_207",
+    "cultura": "milho",
+    "nome": "P1225VYHR",
+    "nomes_registro": [
+      "P1225VYHR"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_208",
+    "cultura": "milho",
+    "nome": "P3016VYHR",
+    "nomes_registro": [
+      "P3016VYHR"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_209",
+    "cultura": "milho",
+    "nome": "P3282VYH",
+    "nomes_registro": [
+      "P3282VYH"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glufosinato de Amônio (Proibido Glifosato)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_210",
+    "cultura": "milho",
+    "nome": "P3310VYHR",
+    "nomes_registro": [
+      "P3310VYHR"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_211",
+    "cultura": "milho",
+    "nome": "P3440PWU",
+    "nomes_registro": [
+      "P3440PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_212",
+    "cultura": "milho",
+    "nome": "P3565PWU",
+    "nomes_registro": [
+      "P3565PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_213",
+    "cultura": "milho",
+    "nome": "P3707VYH",
+    "nomes_registro": [
+      "P3707VYH"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glufosinato de Amônio (Proibido Glifosato)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_214",
+    "cultura": "milho",
+    "nome": "P3808VYHR",
+    "nomes_registro": [
+      "P3808VYHR"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_215",
+    "cultura": "milho",
+    "nome": "P3845VYHR",
+    "nomes_registro": [
+      "P3845VYHR"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_216",
+    "cultura": "milho",
+    "nome": "P3858PWU",
+    "nomes_registro": [
+      "P3858PWU"
+    ],
+    "tec": "POWERCORE ULTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_217",
+    "cultura": "milho",
+    "nome": "P4285VYHR",
+    "nomes_registro": [
+      "P4285VYHR"
+    ],
+    "tec": "LEPTRA",
+    "sem": 3.5,
+    "tolerancias": "Glifosato + Glufosinato de Amônio",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_218",
+    "cultura": "arroz",
+    "nome": "BRS A701 CL",
+    "nomes_registro": [
+      "BRS A701 CL"
+    ],
+    "tec": "CLEARFIELD · ARROZ",
+    "sem": 15,
+    "tolerancias": "Imidazolinonas",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_219",
+    "cultura": "algodão",
+    "nome": "FM 985 GLTP",
+    "nomes_registro": [
+      "FM 985 GLTP"
+    ],
+    "tec": "GLYTOL LIBERTYLINK TWINLINK PLUS (GLTP)",
+    "sem": 15,
+    "tolerancias": "Glifosato + Glufosinato",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_220",
+    "cultura": "feijão",
+    "nome": "BRS FC402",
+    "nomes_registro": [
+      "BRS FC402"
+    ],
+    "tec": "CONVENCIONAL",
+    "sem": 15,
+    "tolerancias": "Convencional (Proibido Glifosato / Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_221",
+    "cultura": "trigo",
+    "nome": "BRS 264",
+    "nomes_registro": [
+      "BRS 264"
+    ],
+    "tec": "CONVENCIONAL",
+    "sem": 15,
+    "tolerancias": "Convencional (Proibido Glifosato / Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_222",
+    "cultura": "soja",
+    "nome": "Brasmax Zeus IPRO",
+    "nomes_registro": [
+      "Brasmax Zeus IPRO",
+      "Zeus IPRO",
+      "Zeus",
+      "BMX Zeus IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_223",
+    "cultura": "soja",
+    "nome": "Brasmax Cromo IPRO",
+    "nomes_registro": [
+      "Brasmax Cromo IPRO",
+      "Cromo IPRO",
+      "Cromo",
+      "BMX Cromo IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_224",
+    "cultura": "soja",
+    "nome": "Brasmax Fibra IPRO",
+    "nomes_registro": [
+      "Brasmax Fibra IPRO",
+      "Fibra IPRO",
+      "Fibra",
+      "BMX Fibra IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_225",
+    "cultura": "soja",
+    "nome": "Brasmax Lotus IPRO",
+    "nomes_registro": [
+      "Brasmax Lotus IPRO",
+      "Lotus IPRO",
+      "Lotus",
+      "BMX Lotus IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_226",
+    "cultura": "soja",
+    "nome": "Brasmax Lança IPRO",
+    "nomes_registro": [
+      "Brasmax Lança IPRO",
+      "Lança IPRO",
+      "Lança",
+      "BMX Lança IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_227",
+    "cultura": "soja",
+    "nome": "Brasmax Compacta IPRO",
+    "nomes_registro": [
+      "Brasmax Compacta IPRO",
+      "Compacta IPRO",
+      "Compacta",
+      "BMX Compacta IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_228",
+    "cultura": "soja",
+    "nome": "Brasmax Extrema IPRO",
+    "nomes_registro": [
+      "Brasmax Extrema IPRO",
+      "Extrema IPRO",
+      "Extrema",
+      "BMX Extrema IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_229",
+    "cultura": "soja",
+    "nome": "Brasmax Guepardo IPRO",
+    "nomes_registro": [
+      "67I68RSF IPRO",
+      "Brasmax Guepardo IPRO",
+      "Guepardo IPRO",
+      "Guepardo",
+      "BMX Guepardo IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_230",
+    "cultura": "soja",
+    "nome": "Brasmax Foco IPRO",
+    "nomes_registro": [
+      "74I77RSF IPRO",
+      "Brasmax Foco IPRO",
+      "Foco IPRO",
+      "Foco",
+      "BMX Foco IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_231",
+    "cultura": "soja",
+    "nome": "Brasmax Olimpo IPRO",
+    "nomes_registro": [
+      "80I82RSF IPRO",
+      "Brasmax Olimpo IPRO",
+      "Olimpo IPRO",
+      "Olimpo",
+      "BMX Olimpo IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_232",
+    "cultura": "soja",
+    "nome": "Brasmax Domínio IPRO",
+    "nomes_registro": [
+      "84I86RSF IPRO",
+      "Brasmax Domínio IPRO",
+      "Domínio IPRO",
+      "Domínio",
+      "BMX Domínio IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_233",
+    "cultura": "soja",
+    "nome": "Brasmax Bônus IPRO",
+    "nomes_registro": [
+      "8579RSF IPRO",
+      "Brasmax Bônus IPRO",
+      "Bônus IPRO",
+      "Bônus",
+      "BMX Bônus IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_234",
+    "cultura": "soja",
+    "nome": "Brasmax Clássica IPRO",
+    "nomes_registro": [
+      "Brasmax Clássica IPRO",
+      "Clássica IPRO",
+      "Clássica",
+      "BMX Clássica IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_235",
+    "cultura": "soja",
+    "nome": "Brasmax Voraz IPRO",
+    "nomes_registro": [
+      "77I79RSF IPRO",
+      "Brasmax Voraz IPRO",
+      "Voraz IPRO",
+      "Voraz",
+      "BMX Voraz IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_236",
+    "cultura": "soja",
+    "nome": "Brasmax Origem IPRO",
+    "nomes_registro": [
+      "83I85RSF IPRO",
+      "Brasmax Origem IPRO",
+      "Origem IPRO",
+      "Origem",
+      "BMX Origem IPRO"
+    ],
+    "tec": "IPRO / RR",
+    "sem": 18,
+    "tolerancias": "Apenas Glifosato (Proibido Dicamba / Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  },
+  {
+    "id": "sem_237",
+    "cultura": "soja",
+    "nome": "Brasmax Fera I2X",
+    "nomes_registro": [
+      "Brasmax Fera I2X",
+      "Fera I2X"
+    ],
+    "tec": "XTEND / I2X",
+    "sem": 18,
+    "tolerancias": "Glifosato + Dicamba (Proibido Glufosinato / 2,4-D)",
+    "fonte": "Banco de Sementes Oficial (Receitas Agrícolas)"
+  }
+]
