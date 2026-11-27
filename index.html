@@ -138,8 +138,8 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- Top Header -->
-  <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-40 shadow-lg w-full max-w-full">
-    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+  <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-40 shadow-lg w-full">
+    <div class="w-full px-2.5 sm:px-4 lg:px-6 py-2 sm:py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
       <div class="flex items-center space-x-2.5">
         <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black text-lg sm:text-xl shadow-md shadow-emerald-900/50 shrink-0">
           🌱
@@ -216,7 +216,7 @@
     </div>
 
     <!-- Navigation Tabs -->
-    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 border-t border-slate-800/80 pt-1.5 pb-1.5 tab-buttons w-full max-w-full">
+    <div class="w-full px-2.5 sm:px-4 lg:px-6 flex overflow-x-auto gap-2 border-t border-slate-800/80 pt-1.5 pb-1.5 tab-buttons">
       <button onclick="mudarAba('fungicidas')" id="btn-tab-fungicidas" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition whitespace-nowrap bg-emerald-600 text-white flex items-center gap-1.5 shrink-0">
         <span>🔬</span> Fungicidas & Retornos (+17d)
       </button>
@@ -227,7 +227,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow max-w-7xl w-full mx-auto px-2.5 sm:px-6 lg:px-8 py-3 sm:py-5 space-y-3.5 sm:space-y-5 overflow-hidden">
+  <main class="flex-grow w-full mx-auto px-2 sm:px-4 lg:px-6 py-3 sm:py-4 space-y-3.5">
 
     <!-- KPI Cards & Quick Stats (Opcional/Colapsável - limpa espaço no celular) -->
     <div class="no-print">
@@ -458,22 +458,22 @@
       <div id="container-fungicidas-cards" class="space-y-3.5"></div>
 
       <!-- Tabela Principal Unificada (Desktop / Modo Tabela) -->
-      <div id="container-fungicidas-tabela" class="bg-slate-800/70 border border-slate-700 rounded-xl overflow-hidden shadow-xl">
-        <div class="overflow-x-auto">
+      <div id="container-fungicidas-tabela" class="bg-slate-800/70 border border-slate-700 rounded-xl overflow-hidden shadow-xl w-full">
+        <div class="overflow-x-auto w-full">
           <table class="w-full text-left border-collapse text-xs">
             <thead>
-              <tr class="bg-slate-900 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[11px]">
-                <th class="p-3 w-12 text-center">ORD</th>
-                <th class="p-3">Talhão / Área</th>
-                <th class="p-3">Variedade & S/m</th>
-                <th class="p-3">Tecnologia & Tolerância Herbicida</th>
-                <th class="p-3 text-center">Plantio / Emergência</th>
-                <th class="p-3 text-center bg-slate-950/40">1º Fungicida (Previsto R1 & Data Feita)</th>
-                <th class="p-3 text-center bg-sky-950/30 text-sky-200 font-bold border-x border-sky-800/50">2ª Prevista (+17d da 1ª)</th>
-                <th class="p-3 text-center bg-slate-950/40">2ª Feita</th>
-                <th class="p-3 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+17d da 2ª)</th>
-                <th class="p-3 text-center bg-slate-950/40">3ª Feita</th>
-                <th class="p-3 text-center">Obs / Produto</th>
+              <tr class="bg-slate-900 text-slate-300 border-b border-slate-700 uppercase font-semibold text-[10.5px]">
+                <th class="p-2 w-10 text-center">ORD</th>
+                <th class="p-2">Talhão / Área</th>
+                <th class="p-2">Variedade & S/m</th>
+                <th class="p-2">Tecnologia & Tolerância</th>
+                <th class="p-2 text-center">Plantio / Emerg.</th>
+                <th class="p-2 text-center bg-slate-950/40">1º Fungicida (R1 & Data)</th>
+                <th class="p-2 text-center bg-sky-950/30 text-sky-200 font-bold border-x border-sky-800/50">2ª Prevista (+17d)</th>
+                <th class="p-2 text-center bg-slate-950/40">2ª Feita</th>
+                <th class="p-2 text-center bg-emerald-950/20 text-emerald-300">3ª Prevista (+17d)</th>
+                <th class="p-2 text-center bg-slate-950/40">3ª Feita</th>
+                <th class="p-2 text-center">Obs / Produto</th>
               </tr>
             </thead>
             <tbody id="tabela-fungicidas-corpo" class="divide-y divide-slate-700/50"></tbody>
@@ -969,7 +969,7 @@
 
   <!-- Footer -->
   <footer class="bg-slate-900 border-t border-slate-800 py-4 mt-8 no-print text-center text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="w-full px-4">
       <p>Controle Operacional de Pulverização Safra Soja 2026/2027 • 4.391,81 ha (60 Parcelas em Ordem de Plantio)</p>
       <p class="text-[11px] text-slate-400 mt-1">
         2ª Aplicação aos 17 dias • Glufosinato de Amônio permitido exclusivamente nas cultivares <strong>CONKESTA ENLIST</strong>.
@@ -2753,15 +2753,23 @@
         if (tbody) {
           const tr = document.createElement('tr');
           tr.className = ehMultiVar ? 'hover:bg-slate-700/40 transition border-b border-slate-700/60 bg-amber-950/10 border-l-2 border-l-amber-500/70' : 'hover:bg-slate-700/30 transition border-b border-slate-700/50';
+          
+          let tolResumo = '<span class="text-emerald-400 font-medium">Tolera Glifosato</span>';
+          if (t.tec_badge.includes('XTEND')) {
+            tolResumo = '<span class="text-sky-300 font-medium">Glifosato + Dicamba</span>';
+          } else if (t.tec_badge.includes('ENLIST')) {
+            tolResumo = '<span class="text-purple-300 font-bold">Glifosato + <span class="badge-glufosinato text-[9px] px-1">GLUFOSINATO</span> + 2,4-D</span>';
+          }
+
           tr.innerHTML = `
-            <td class="p-2 text-center font-bold text-slate-400 font-mono">
+            <td class="p-1.5 text-center font-bold text-slate-400 font-mono w-10">
               <div>${t.ordem}</div>
-              <button onclick="abrirModalEditarTalhao(${t.id})" class="mt-1 p-1 text-[11px] rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800/80 transition" title="Editar hectares, variedade ou dividir área">✏️</button>
+              <button onclick="abrirModalEditarTalhao(${t.id})" class="mt-0.5 p-0.5 text-[11px] rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800/80 transition" title="Editar hectares, variedade ou dividir área">✏️</button>
             </td>
-            <td class="p-3">
+            <td class="p-2 min-w-[95px]">
               <div class="flex items-center justify-between gap-1">
                 <div class="font-bold text-white text-xs">${t.gleba}</div>
-                <button type="button" onclick="abrirModalEditarTalhao(${t.id})" class="p-1 rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800 transition text-[11px]" title="Editar Hectares / Dividir Variedade">
+                <button type="button" onclick="abrirModalEditarTalhao(${t.id})" class="p-0.5 rounded text-slate-400 hover:text-emerald-400 hover:bg-slate-800 transition text-[11px]" title="Editar Hectares / Dividir Variedade">
                   ✏️
                 </button>
               </div>
@@ -2769,68 +2777,68 @@
               <div class="text-[10px] text-slate-400">${t.tipo}</div>
               ${badgeMultiDesktop}
             </td>
-            <td class="p-3">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-100 font-bold text-xs">${t.var}</span>
-              <div class="text-[10px] text-slate-400 mt-1">(${t.sem || 18} sem/m)</div>
+            <td class="p-2 min-w-[85px]">
+              <span class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-100 font-bold text-xs">${t.var}</span>
+              <div class="text-[10px] text-slate-400 mt-0.5">(${t.sem || 18} s/m)</div>
             </td>
-            <td class="p-3 min-w-[210px]">
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="px-2 py-0.5 rounded text-[10px] font-extrabold border ${tecBadgeClass}">
+            <td class="p-2 min-w-[125px]">
+              <div class="flex items-center gap-1 flex-wrap">
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold border ${tecBadgeClass}">
                   ${t.tec_badge}
                 </span>
-                ${t.tec_badge.includes('ENLIST') ? '<span class="badge-gluf-alerta">TOLERA GLUFOSINATO</span>' : ''}
+                ${t.tec_badge.includes('ENLIST') ? '<span class="badge-gluf-alerta">GLUFOSINATO</span>' : ''}
               </div>
-              <div class="text-[11px] mt-1.5 leading-snug text-slate-200">${t.tol_html}</div>
+              <div class="text-[10px] mt-0.5 leading-tight">${tolResumo}</div>
             </td>
-            <td class="p-3 text-center text-xs text-slate-300">
+            <td class="p-1.5 text-center text-xs text-slate-300 min-w-[80px]">
               <div>P: <strong class="text-white">${t.dtP}</strong></div>
-              <div class="text-slate-400 mt-0.5">E: ${t.dtE}</div>
+              <div class="text-slate-400 text-[10px] mt-0.5">E: ${t.dtE}</div>
             </td>
-            <td class="p-2 text-center bg-slate-950/20 min-w-[150px]">
-              <div class="text-[10px] font-bold text-emerald-400 mb-1 flex items-center justify-center gap-1">
-                <span>🌱</span> ${previsaoR1}
+            <td class="p-1.5 text-center bg-slate-950/20 min-w-[125px]">
+              <div class="text-[10px] font-bold text-emerald-400 mb-0.5 flex items-center justify-center gap-1">
+                <span>🌱</span> ${previsaoR1Curta}
               </div>
-              <div class="flex items-center justify-center gap-1.5">
+              <div class="flex items-center justify-center gap-1">
                 <input type="checkbox" ${reg.f1_status ? 'checked' : ''} 
                        onchange="atualizarCampo(${t.id}, 'f1_status', this.checked)"
                        class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
                 <input type="date" value="${reg.f1_data}" 
                        onchange="atualizarCampo(${t.id}, 'f1_data', this.value)"
-                       class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500 focus:outline-none">
+                       class="bg-slate-900 border border-slate-700 rounded px-1 py-0.5 text-xs text-white focus:border-emerald-500 focus:outline-none w-[112px]">
               </div>
             </td>
-            <td class="p-2 text-center bg-sky-950/20 border-x border-sky-800/40 min-w-[130px]">
+            <td class="p-1.5 text-center bg-sky-950/20 border-x border-sky-800/40 min-w-[100px]">
               ${obterStatusBadge(proxF2, reg.f1_data, 17, !!reg.f2_status || !!reg.f2_data)}
               <span class="text-[9px] text-sky-400/80 block mt-0.5">(+17 dias)</span>
             </td>
-            <td class="p-2 text-center bg-slate-950/20 min-w-[140px]">
-              <div class="flex items-center justify-center gap-1.5">
+            <td class="p-1.5 text-center bg-slate-950/20 min-w-[125px]">
+              <div class="flex items-center justify-center gap-1">
                 <input type="checkbox" ${reg.f2_status ? 'checked' : ''} 
                        onchange="atualizarCampo(${t.id}, 'f2_status', this.checked)"
                        class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
                 <input type="date" value="${reg.f2_data}" 
                        onchange="atualizarCampo(${t.id}, 'f2_data', this.value)"
-                       class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500 focus:outline-none">
+                       class="bg-slate-900 border border-slate-700 rounded px-1 py-0.5 text-xs text-white focus:border-emerald-500 focus:outline-none w-[112px]">
               </div>
             </td>
-            <td class="p-2 text-center bg-emerald-950/10 min-w-[125px]">
+            <td class="p-1.5 text-center bg-emerald-950/10 min-w-[100px]">
               ${obterStatusBadge(proxF3, reg.f2_data, 17, !!reg.f3_status || !!reg.f3_data)}
               <span class="text-[9px] text-emerald-400/80 block mt-0.5">(+17 dias)</span>
             </td>
-            <td class="p-2 text-center bg-slate-950/20 min-w-[140px]">
-              <div class="flex items-center justify-center gap-1.5">
+            <td class="p-1.5 text-center bg-slate-950/20 min-w-[125px]">
+              <div class="flex items-center justify-center gap-1">
                 <input type="checkbox" ${reg.f3_status ? 'checked' : ''} 
                        onchange="atualizarCampo(${t.id}, 'f3_status', this.checked)"
                        class="w-4 h-4 accent-emerald-500 rounded cursor-pointer" title="Marcar como aplicado">
                 <input type="date" value="${reg.f3_data}" 
                        onchange="atualizarCampo(${t.id}, 'f3_data', this.value)"
-                       class="bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white focus:border-emerald-500 focus:outline-none">
+                       class="bg-slate-900 border border-slate-700 rounded px-1 py-0.5 text-xs text-white focus:border-emerald-500 focus:outline-none w-[112px]">
               </div>
             </td>
-            <td class="p-2 text-center min-w-[150px]">
+            <td class="p-1.5 text-center min-w-[115px]">
               <input type="text" value="${reg.obs || ''}" placeholder="Ex: FOX + Manzate" 
                      oninput="atualizarCampo(${t.id}, 'obs', this.value)"
-                     class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 focus:outline-none">
+                     class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 focus:outline-none">
             </td>
           `;
           tbody.appendChild(tr);
@@ -4095,6 +4103,7 @@ Parte B: ${haB.toFixed(2)} ha (${varB})`);
 
     // Inicialização
     window.addEventListener('DOMContentLoaded', () => {
+      alternarModoExibicao(modoExibicaoAtual);
       renderizar();
       atualizarStatusConexao();
       iniciarEscutaTempoReal();
